@@ -1,0 +1,104 @@
+@startuml QuyTrinhThanhToanVNPay
+title Quy trình thanh toán VNPay
+
+|#LightBlue|Khách hàng|
+start
+:Chọn phương thức 
+thanh toán VNPay;
+
+|#LightGreen|Hệ thống|
+:Tạo đơn hàng tạm
+(trạng thái PENDING);
+
+:Tạo mã giao dịch (txnRef);
+
+:Chuẩn bị tham số VNPay;
+note right
+  - Số tiền
+  - Thông tin đơn hàng
+  - URL callback
+  - Mã hóa SecureHash
+end note
+
+:Tạo payment URL;
+
+:Trả về URL cho khách hàng;
+
+|#LightBlue|Khách hàng|
+:Chuyển hướng đến
+VNPay Gateway;
+
+|#Orange|VNPay|
+:Hiển thị trang thanh toán;
+
+:Khách hàng chọn ngân hàng
+và nhập thông tin thẻ;
+
+:Xử lý thanh toán;
+
+if (Thanh toán thành công?) then (Có)
+  :Tạo response code = 00;
+else (Không)
+  :Tạo response code lỗi;
+  note right
+    Mã lỗi phổ biến:
+    - 51: Không đủ số dư
+    - 07: Giao dịch nghi ngờ
+    - 09: Thẻ chưa đăng ký
+    - 10: Xác thực thất bại
+  end note
+endif
+
+:Gửi IPN callback
+đến hệ thống;
+
+:Redirect khách hàng
+về website;
+
+|#LightGreen|Hệ thống|
+:Nhận IPN callback từ VNPay;
+
+:Xác thực SecureHash;
+
+if (Hash hợp lệ?) then (Không)
+  :Log cảnh báo bảo mật;
+  :Trả về lỗi cho VNPay;
+  stop
+endif
+
+:Kiểm tra đơn hàng tồn tại;
+
+if (Response code = 00?) then (Có)
+  :Cập nhật đơn hàng
+  trạng thái PAID;
+  
+  :Giảm tồn kho sản phẩm;
+  
+  :Xóa giỏ hàng;
+  
+  :Gửi email xác nhận;
+  
+  :Trả về success cho VNPay;
+else (Không)
+  :Cập nhật trạng thái
+  PAYMENT_FAILED;
+  
+  :Hoàn trả tồn kho;
+  
+  :Trả về success cho VNPay;
+endif
+
+|#LightBlue|Khách hàng|
+if (Thanh toán thành công?) then (Có)
+  :Hiển thị trang thành công;
+  :Xem thông tin đơn hàng;
+  :Theo dõi đơn hàng;
+else (Không)
+  :Hiển thị trang thất bại;
+  :Hiển thị lý do lỗi;
+  :Đề xuất thử lại;
+endif
+
+stop
+
+@enduml

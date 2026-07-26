@@ -1,0 +1,84 @@
+@startuml 02_QuanLyNguoiDung
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+
+title Sơ đồ Use Case - Nhóm 2: Quản lý người dùng
+
+left to right direction
+
+actor "Guest\n(Khách vãng lai)" as guest
+actor "Customer\n(Khách đã đăng nhập)" as customer
+actor "Admin/Staff\n(Quản trị)" as admin
+
+package "Hệ thống Quản lý Người dùng" {
+    
+    ' Authentication
+    usecase "Đăng ký tài khoản" as UC201
+    usecase "Đăng nhập" as UC202
+    usecase "Đăng xuất" as UC203
+    usecase "Quên mật khẩu" as UC204
+    usecase "Xác thực OTP" as UC205
+    usecase "Đăng nhập OAuth2\n(Google/Facebook)" as UC206
+    
+    ' Profile Management
+    usecase "Xem thông tin\ncá nhân" as UC207
+    usecase "Cập nhật thông tin\ncá nhân" as UC208
+    usecase "Đổi mật khẩu" as UC209
+    usecase "Upload ảnh\nđại diện" as UC210
+    
+    ' Address Management
+    usecase "Quản lý địa chỉ\ngiao hàng" as UC211
+    usecase "Thêm địa chỉ mới" as UC212
+    usecase "Sửa địa chỉ" as UC213
+    usecase "Xóa địa chỉ" as UC214
+    usecase "Đặt địa chỉ\nmặc định" as UC215
+    
+    ' Admin - User Management
+    usecase "Quản lý khách hàng" as UC216
+    usecase "Xem danh sách\nkhách hàng" as UC217
+    usecase "Tìm kiếm\nkhách hàng" as UC218
+    usecase "Xem lịch sử\nmua hàng" as UC219
+    usecase "Khóa/Mở khóa\ntài khoản" as UC220
+    usecase "Phân quyền\nngười dùng" as UC221
+    
+    ' Email Services
+    usecase "Gửi email\nxác nhận" as UC222
+    usecase "Gửi email\nreset password" as UC223
+}
+
+' Guest relationships
+guest --> UC201
+guest --> UC202
+guest --> UC204
+
+' Customer relationships
+customer --> UC202
+customer --> UC203
+customer --> UC207
+customer --> UC208
+customer --> UC209
+customer --> UC210
+customer --> UC211
+
+' Admin relationships
+admin --> UC202
+admin --> UC216
+admin --> UC221
+
+' Extend & Include relationships
+UC201 ..> UC222 : <<include>>
+UC204 ..> UC205 : <<include>>
+UC204 ..> UC223 : <<include>>
+UC206 ..> UC202 : <<extend>>
+
+UC211 ..> UC212 : <<include>>
+UC211 ..> UC213 : <<include>>
+UC211 ..> UC214 : <<include>>
+UC211 ..> UC215 : <<include>>
+
+UC216 ..> UC217 : <<include>>
+UC216 ..> UC218 : <<include>>
+UC216 ..> UC219 : <<include>>
+UC216 ..> UC220 : <<include>>
+
+@enduml

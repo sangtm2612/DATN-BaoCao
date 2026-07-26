@@ -1,0 +1,148 @@
+@startuml QuyTrinhQuanLySanPham
+title Quy trình quản lý sản phẩm của Admin
+
+skinparam activityBackgroundColor #LightYellow
+skinparam activityBorderColor #Orange
+
+start
+
+:Admin đăng nhập;
+:Truy cập trang quản lý sản phẩm;
+:Chọn chức năng;
+
+switch (Chức năng?)
+
+case (1. CRUD Sản phẩm)
+  
+  :Chọn thao tác;
+  
+  if (Thao tác?) then (Thêm)
+    :Nhập thông tin sản phẩm;
+    note right
+      • Tên, SKU, Danh mục
+      • Giá, Mô tả, Specs
+    end note
+    :Upload hình ảnh;
+    :Nhập tồn kho showroom;
+    :Lưu vào database;
+    
+  elseif (Sửa) then
+    :Tìm sản phẩm;
+    :Chỉnh sửa thông tin;
+    :Cập nhật database;
+    
+  else (Xóa)
+    if (Có đơn hàng liên quan?) then (Có)
+      :Chuyển trạng thái "Ẩn";
+    else (Không)
+      :Xóa (soft delete);
+    endif
+  endif
+
+case (2. Cập nhật giá hàng loạt)
+  
+  :Chọn phạm vi áp dụng;
+  note right
+    • Theo danh mục
+    • Theo thương hiệu
+    • Chọn thủ công
+  end note
+  
+  :Chọn kiểu điều chỉnh;
+  note right
+    • Tăng/Giảm % giá
+    • Tăng/Giảm số tiền
+    • Đặt giá mới
+  end note
+  
+  :Hệ thống tính toán;
+  :Hiển thị preview;
+  
+  if (Xác nhận?) then (Có)
+    :Cập nhật hàng loạt;
+    :Ghi log thay đổi;
+  else (Không)
+    :Hủy thao tác;
+  endif
+
+case (3. Quản lý tồn kho)
+  
+  :Chọn thao tác kho;
+  
+  if (Thao tác?) then (Nhập hàng)
+    :Chọn sản phẩm + Showroom;
+    :Nhập số lượng và giá;
+    :Cộng tồn kho;
+    :Ghi log;
+    
+  elseif (Xuất hàng) then
+    :Chọn sản phẩm + Showroom;
+    :Nhập số lượng;
+    if (Đủ tồn?) then (Có)
+      :Trừ tồn kho;
+      :Ghi log;
+    else (Không)
+      :Báo không đủ;
+      stop
+    endif
+    
+  elseif (Chuyển kho) then
+    :Chọn SP + Showroom xuất/nhận;
+    :Nhập số lượng;
+    if (Đủ tồn?) then (Có)
+      :Trừ tồn nơi xuất;
+      :Cộng tồn nơi nhận;
+      :Ghi log;
+    else (Không)
+      :Báo không đủ;
+      stop
+    endif
+    
+  else (Kiểm kê)
+    :Chọn showroom;
+    :Hiển thị tồn hệ thống;
+    :Nhập số thực tế;
+    if (Có chênh lệch?) then (Có)
+      :Điều chỉnh tồn kho;
+      :Ghi log chênh lệch;
+    else (Không)
+      :Không xử lý;
+    endif
+  endif
+
+case (4. Xem báo cáo)
+  
+  :Chọn loại báo cáo;
+  
+  if (Loại?) then (Bán chạy)
+    :Chọn thời gian;
+    :Thống kê top SP;
+    :Hiển thị biểu đồ;
+    
+  elseif (Sắp hết) then
+    :Chọn ngưỡng;
+    :Lọc SP < ngưỡng;
+    :Hiển thị danh sách;
+    :Gửi email cảnh báo;
+    
+  else (Lịch sử)
+    :Chọn thời gian;
+    :Chọn showroom;
+    :Hiển thị lịch sử;
+    :Xuất Excel;
+  endif
+
+endswitch
+
+:Hoàn tất;
+stop
+
+note right
+  **4 chức năng chính:**
+  1. CRUD Sản phẩm
+  2. Cập nhật giá hàng loạt
+  3. Quản lý tồn kho
+  4. Xem báo cáo
+end note
+
+@enduml

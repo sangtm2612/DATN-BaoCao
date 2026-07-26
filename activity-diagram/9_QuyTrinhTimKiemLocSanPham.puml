@@ -1,0 +1,99 @@
+@startuml QuyTrinhTimKiemLocSanPham
+title Quy trình tìm kiếm và lọc sản phẩm
+
+|#LightBlue|Khách hàng|
+start
+:Truy cập trang sản phẩm;
+
+split
+  -> Tìm kiếm từ khóa;
+  :Nhập từ khóa;
+  
+  |#LightGreen|Hệ thống|
+  if (Từ khóa >= 2 ký tự?) then (Có)
+    :Hiển thị gợi ý;
+  endif
+  
+  :Tìm kiếm full-text;
+  :Sắp xếp theo độ phù hợp;
+  
+split again
+  -> Chọn danh mục;
+  :Chọn danh mục sản phẩm;
+  
+  |#LightGreen|Hệ thống|
+  :Lọc theo category;
+  
+split again
+  -> Chọn thương hiệu;
+  :Chọn thương hiệu;
+  
+  |#LightGreen|Hệ thống|
+  :Lọc theo brand;
+  
+end split
+
+|#LightBlue|Khách hàng|
+:Áp dụng bộ lọc nâng cao;
+note right
+  - Khoảng giá
+  - CPU (Intel/AMD)
+  - RAM (4GB-64GB)
+  - VGA
+  - Ổ cứng (SSD/HDD)
+  - Màn hình
+  - Trạng thái (còn hàng, khuyến mãi)
+end note
+
+|#LightGreen|Hệ thống|
+:Kết hợp các điều kiện lọc;
+:Thực hiện truy vấn;
+
+|#LightBlue|Khách hàng|
+:Chọn cách sắp xếp;
+note right
+  - Liên quan nhất
+  - Giá tăng/giảm
+  - Mới nhất
+  - Bán chạy
+  - Đánh giá cao
+end note
+
+|#LightGreen|Hệ thống|
+:Sắp xếp kết quả;
+:Phân trang (24 sản phẩm/trang);
+:Hiển thị danh sách sản phẩm;
+note right
+  Mỗi sản phẩm hiển thị:
+  - Hình ảnh
+  - Tên, giá
+  - Giảm giá
+  - Đánh giá
+  - Nút thêm giỏ/yêu thích
+end note
+
+:Hiển thị số lượng tìm thấy;
+:Hiển thị filter đang dùng;
+
+|#LightBlue|Khách hàng|
+:Xem danh sách;
+
+if (Kết quả phù hợp?) then (Có)
+  :Click vào sản phẩm;
+  
+  |#LightGreen|Hệ thống|
+  :Tăng lượt xem;
+  :Lưu lịch sử;
+  :Chuyển trang chi tiết;
+  
+  stop
+else (Không)
+  :Điều chỉnh bộ lọc;
+  note right
+    Thay đổi tiêu chí
+    và tìm lại
+  end note
+  stop
+endif
+
+@enduml

@@ -1,0 +1,77 @@
+@startuml QuyTrinhQuenMatKhau
+title Quy trình quên mật khẩu
+
+|#LightBlue|Người dùng|
+start
+:Truy cập trang đăng nhập;
+:Click "Quên mật khẩu?";
+
+|#LightGreen|Hệ thống|
+:Hiển thị form nhập email;
+
+|#LightBlue|Người dùng|
+:Nhập email và gửi;
+
+|#LightGreen|Hệ thống|
+:Validate email;
+
+if (Email hợp lệ và tồn tại?) then (Không)
+  :Thông báo lỗi;
+  stop
+endif
+
+:Tạo reset token;
+:Lưu token vào DB (hết hạn 15 phút);
+:Gửi email chứa link reset;
+note right
+  Link: /reset-password?token=XXX
+end note
+
+|#LightBlue|Người dùng|
+:Nhận email và click link;
+
+|#LightGreen|Hệ thống|
+:Kiểm tra token;
+
+if (Token hợp lệ và chưa hết hạn?) then (Không)
+  :Thông báo lỗi;
+  note right
+    "Link không hợp lệ 
+    hoặc đã hết hạn"
+  end note
+  stop
+endif
+
+:Hiển thị form đổi mật khẩu;
+
+|#LightBlue|Người dùng|
+:Nhập mật khẩu mới;
+:Xác nhận mật khẩu;
+:Click "Đổi mật khẩu";
+
+|#LightGreen|Hệ thống|
+:Validate mật khẩu;
+
+if (Mật khẩu hợp lệ và khớp?) then (Không)
+  :Thông báo yêu cầu;
+  note right
+    - Tối thiểu 8 ký tự
+    - Có chữ hoa, thường, số
+    - 2 mật khẩu phải khớp
+  end note
+  stop
+endif
+
+:Hash và cập nhật mật khẩu mới;
+:Xóa reset token;
+:Đăng xuất tất cả sessions;
+:Gửi email thông báo;
+
+:Hiển thị thông báo thành công;
+
+|#LightBlue|Người dùng|
+:Đăng nhập với mật khẩu mới;
+
+stop
+
+@enduml

@@ -1,0 +1,30 @@
+// Module 11: Banners & Marketing (1 table)
+// Copy toàn bộ vào https://dbdiagram.io/
+
+// ============================================
+// BANNERS & MARKETING
+// ============================================
+
+Table banners {
+  id serial [pk, increment]
+  title varchar(200)
+  image_url varchar(500) [not null]
+  link_url varchar(500)
+  
+  // Position
+  position varchar(50) [not null, default: 'home_slider', note: 'home_slider, sidebar, popup, brand']
+  sort_order int [not null, default: 0]
+  
+  // Schedule
+  start_date timestamp
+  end_date timestamp
+  is_active boolean [not null, default: true]
+  
+  created_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    (is_active, position)
+  }
+  
+  Note: 'Banner & Slider quảng cáo (FR-28)'
+}

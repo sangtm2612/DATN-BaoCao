@@ -1,0 +1,52 @@
+// Module 9: Stores & Locations (2 tables)
+// Copy toàn bộ vào https://dbdiagram.io/
+
+// ============================================
+// STORES & SHOWROOMS
+// ============================================
+
+Table stores {
+  id serial [pk, increment]
+  name varchar(200) [not null]
+  slug varchar(250) [unique]
+  
+  // Address
+  address varchar(400) [not null]
+  province varchar(100) [not null]
+  district varchar(100)
+  
+  // Contact
+  phone varchar(20)
+  warranty_phone varchar(20)
+  email varchar(150)
+  
+  // Hours
+  open_hours varchar(200)
+  break_hours varchar(100)
+  
+  // Type & Map
+  store_type varchar(30) [not null, default: 'showroom']
+  map_url varchar(500)
+  latitude decimal(10,7)
+  longitude decimal(10,7)
+  
+  is_active boolean [not null, default: true]
+  created_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    province
+    is_active
+  }
+  
+  Note: 'Cửa hàng/Showroom - 21 showroom toàn quốc (FR-29)'
+}
+
+Table store_images {
+  id serial [pk, increment]
+  store_id int [not null, ref: > stores.id]
+  image_url varchar(500) [not null]
+  caption varchar(200)
+  sort_order int [not null, default: 0]
+  
+  Note: 'Gallery ảnh showroom - FR-29'
+}

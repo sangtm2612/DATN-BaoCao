@@ -1,0 +1,370 @@
+// ============================================
+// ERD ĐƠN GIẢN HÓA - CHỈ HIỂN THỊ RELATIONSHIPS
+// ============================================
+// File này chỉ giữ lại PK và FK để dễ nhìn quan hệ giữa các bảng
+// Bỏ tất cả các field thông thường, chỉ giữ ID và các khóa ngoại
+// Copy vào https://dbdiagram.io/ để xem ERD tổng quan
+// Tổng số bảng: 50 tables
+
+// ============================================
+// MODULE 1: CATEGORIES & PRODUCTS (8 tables)
+// ============================================
+
+Table categories {
+  id serial [pk, increment]
+  parent_id int [ref: > categories.id, note: 'Self-referencing']
+}
+
+Table brands {
+  id serial [pk, increment]
+}
+
+Table products {
+  id serial [pk, increment]
+  category_id int [not null, ref: > categories.id]
+  brand_id int [ref: > brands.id]
+}
+
+Table product_images {
+  id serial [pk, increment]
+  product_id int [not null, ref: > products.id]
+}
+
+Table product_attributes {
+  id serial [pk, increment]
+  product_id int [not null, ref: > products.id]
+}
+
+Table tags {
+  id serial [pk, increment]
+}
+
+Table product_tags {
+  product_id int [not null, ref: > products.id]
+  tag_id int [not null, ref: > tags.id]
+  
+  indexes {
+    (product_id, tag_id) [pk]
+  }
+}
+
+Table product_related {
+  product_id int [not null, ref: > products.id]
+  related_product_id int [not null, ref: > products.id]
+  
+  indexes {
+    (product_id, related_product_id) [pk]
+  }
+}
+
+// ============================================
+// MODULE 2: BUILD PC SYSTEM (4 tables)
+// ============================================
+
+Table pc_component_types {
+  id serial [pk, increment]
+}
+
+Table pc_components {
+  id serial [pk, increment]
+  component_type_id int [not null, ref: > pc_component_types.id]
+  product_id int [not null, ref: > products.id]
+}
+
+Table pc_builds {
+  id serial [pk, increment]
+  user_id int [ref: > users.id]
+  store_id int [ref: > stores.id]
+}
+
+Table pc_build_items {
+  id serial [pk, increment]
+  build_id int [not null, ref: > pc_builds.id]
+  component_type_id int [not null, ref: > pc_component_types.id]
+  product_id int [not null, ref: > products.id]
+}
+
+// ============================================
+// MODULE 3: USERS & AUTHENTICATION (4 tables)
+// ============================================
+
+Table users {
+  id serial [pk, increment]
+}
+
+Table user_addresses {
+  id serial [pk, increment]
+  user_id int [not null, ref: > users.id]
+}
+
+Table user_tokens {
+  id serial [pk, increment]
+  user_id int [not null, ref: > users.id]
+}
+
+Table user_oauth {
+  id serial [pk, increment]
+  user_id int [not null, ref: > users.id]
+}
+
+// ============================================
+// MODULE 4: PROMOTIONS & VOUCHERS (6 tables)
+// ============================================
+
+Table promotions {
+  id serial [pk, increment]
+  created_by int [ref: > users.id]
+}
+
+Table promotion_products {
+  promotion_id int [not null, ref: > promotions.id]
+  product_id int [not null, ref: > products.id]
+  
+  indexes {
+    (promotion_id, product_id) [pk]
+  }
+}
+
+Table promotion_categories {
+  promotion_id int [not null, ref: > promotions.id]
+  category_id int [not null, ref: > categories.id]
+  
+  indexes {
+    (promotion_id, category_id) [pk]
+  }
+}
+
+Table promotion_brands {
+  promotion_id int [not null, ref: > promotions.id]
+  brand_id int [not null, ref: > brands.id]
+  
+  indexes {
+    (promotion_id, brand_id) [pk]
+  }
+}
+
+Table vouchers {
+  id serial [pk, increment]
+  created_by int [ref: > users.id]
+}
+
+Table voucher_usage {
+  id serial [pk, increment]
+  voucher_id int [not null, ref: > vouchers.id]
+  user_id int [not null, ref: > users.id]
+  order_id int [ref: > orders.id]
+}
+
+// ============================================
+// MODULE 5: CART & SHOPPING (2 tables)
+// ============================================
+
+Table carts {
+  id serial [pk, increment]
+  user_id int [ref: > users.id]
+}
+
+Table cart_items {
+  id serial [pk, increment]
+  cart_id int [not null, ref: > carts.id]
+  product_id int [not null, ref: > products.id]
+}
+
+// ============================================
+// MODULE 6: ORDERS & PAYMENTS (15 tables)
+// ============================================
+
+Table stores {
+  id serial [pk, increment]
+}
+
+Table orders {
+  id serial [pk, increment]
+  user_id int [ref: > users.id]
+  pickup_store_id int [ref: > stores.id]
+  voucher_id int [ref: > vouchers.id]
+  build_id int [ref: > pc_builds.id]
+}
+
+Table order_items {
+  id serial [pk, increment]
+  order_id int [not null, ref: > orders.id]
+  product_id int [not null, ref: > products.id]
+}
+
+Table payments {
+  id serial [pk, increment]
+  order_id int [not null, ref: > orders.id]
+}
+
+Table shipping_methods {
+  id serial [pk, increment]
+}
+
+Table order_shipping {
+  id serial [pk, increment]
+  order_id int [unique, not null, ref: > orders.id]
+  method_id int [ref: > shipping_methods.id]
+  pickup_store_id int [ref: > stores.id]
+}
+
+Table installment_plans {
+  id serial [pk, increment]
+}
+
+Table order_installments {
+  id serial [pk, increment]
+  order_id int [not null, ref: > orders.id]
+  plan_id int [not null, ref: > installment_plans.id]
+}
+
+Table return_requests {
+  id serial [pk, increment]
+  order_id int [not null, ref: > orders.id]
+  user_id int [not null, ref: > users.id]
+  reviewed_by int [ref: > users.id]
+}
+
+Table return_request_items {
+  id serial [pk, increment]
+  return_request_id int [not null, ref: > return_requests.id]
+  order_item_id int [not null, ref: > order_items.id]
+}
+
+Table return_media {
+  id serial [pk, increment]
+  return_request_id int [not null, ref: > return_requests.id]
+}
+
+Table invoice_requests {
+  id serial [pk, increment]
+  order_id int [unique, not null, ref: > orders.id]
+  user_id int [not null, ref: > users.id]
+}
+
+Table product_stock_by_store {
+  product_id int [not null, ref: > products.id]
+  store_id int [not null, ref: > stores.id]
+  
+  indexes {
+    (product_id, store_id) [pk]
+  }
+}
+
+// ============================================
+// MODULE 7: WARRANTY & SERVICE (3 tables)
+// ============================================
+
+Table warranties {
+  id serial [pk, increment]
+  order_item_id int [ref: > order_items.id]
+  product_id int [not null, ref: > products.id]
+  user_id int [ref: > users.id]
+}
+
+Table service_requests {
+  id serial [pk, increment]
+  warranty_id int [ref: > warranties.id]
+  user_id int [ref: > users.id]
+  store_id int [ref: > stores.id]
+  technician_id int [ref: > users.id]
+}
+
+Table service_media {
+  id serial [pk, increment]
+  service_request_id int [not null, ref: > service_requests.id]
+}
+
+// ============================================
+// MODULE 8: REVIEWS (3 tables)
+// ============================================
+
+Table reviews {
+  id serial [pk, increment]
+  product_id int [not null, ref: > products.id]
+  user_id int [not null, ref: > users.id]
+  order_item_id int [ref: > order_items.id]
+}
+
+Table review_images {
+  id serial [pk, increment]
+  review_id int [not null, ref: > reviews.id]
+}
+
+Table review_helpful {
+  user_id int [not null, ref: > users.id]
+  review_id int [not null, ref: > reviews.id]
+  
+  indexes {
+    (user_id, review_id) [pk]
+  }
+}
+
+// ============================================
+// MODULE 9: STORES & LOCATIONS (1 table)
+// ============================================
+
+Table store_images {
+  id serial [pk, increment]
+  store_id int [not null, ref: > stores.id]
+}
+
+// ============================================
+// MODULE 10: BLOG & CONTENT (3 tables)
+// ============================================
+
+Table blog_categories {
+  id serial [pk, increment]
+}
+
+Table blog_posts {
+  id serial [pk, increment]
+  category_id int [ref: > blog_categories.id]
+  author_id int [ref: > users.id]
+}
+
+Table blog_post_products {
+  post_id int [not null, ref: > blog_posts.id]
+  product_id int [not null, ref: > products.id]
+  
+  indexes {
+    (post_id, product_id) [pk]
+  }
+}
+
+// ============================================
+// MODULE 11: BANNERS & MARKETING (1 table)
+// ============================================
+
+Table banners {
+  id serial [pk, increment]
+}
+
+// ============================================
+// MODULE 12: USER INTERACTIONS (4 tables)
+// ============================================
+
+Table wishlists {
+  user_id int [not null, ref: > users.id]
+  product_id int [not null, ref: > products.id]
+  
+  indexes {
+    (user_id, product_id) [pk]
+  }
+}
+
+Table product_views {
+  id serial [pk, increment]
+  product_id int [not null, ref: > products.id]
+  user_id int [ref: > users.id]
+}
+
+Table search_history {
+  id serial [pk, increment]
+  user_id int [ref: > users.id]
+}
+
+Table notifications {
+  id serial [pk, increment]
+  user_id int [not null, ref: > users.id]
+}

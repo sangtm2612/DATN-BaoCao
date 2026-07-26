@@ -1,0 +1,43 @@
+@startuml UseCase_TongQuat_7NhomChucNang
+
+skinparam backgroundColor #FFFFFF
+skinparam packageStyle rectangle
+
+title Use Case Diagram - 7 Nhóm Chức Năng Chính\nWebsite Bán Máy Tính Trực Tuyến KINH DUAN
+
+' ============ ĐỊNH NGHĨA CÁC ACTORS ============
+:Khách vãng lai\n(Guest): as Guest
+:Khách hàng\n(Customer): as Customer  
+:Quản trị viên\n(Admin): as Admin
+
+' Quan hệ kế thừa
+Guest <|-- Customer
+
+' ============ 7 NHÓM CHỨC NĂNG CHÍNH ============
+usecase "Quản lý\nsản phẩm" as UC_QL_SanPham #LightBlue
+usecase "Quản lý\nngười dùng" as UC_QL_NguoiDung #LightGreen
+usecase "Quản lý\ngiỏ hàng và\nđơn hàng" as UC_QL_GioHang_DonHang #LightYellow
+usecase "Quản lý\nthanh toán" as UC_QL_ThanhToan #LightCoral
+usecase "Quản lý\nđánh giá và\nphản hồi" as UC_QL_DanhGia_PhanHoi #LightPink
+usecase "Tìm kiếm\nvà lọc" as UC_TimKiem_Loc #LightCyan
+usecase "Báo cáo\nvà thống kê" as UC_BaoCao_ThongKe #Lavender
+
+' ============ QUAN HỆ GIỮA GUEST VÀ USE CASES ============
+Guest --> UC_QL_NguoiDung
+Guest --> UC_TimKiem_Loc
+
+' ============ QUAN HỆ GIỮA CUSTOMER VÀ USE CASES ============
+Customer --> UC_QL_GioHang_DonHang
+Customer --> UC_QL_ThanhToan
+Customer --> UC_QL_DanhGia_PhanHoi
+
+' ============ QUAN HỆ GIỮA ADMIN VÀ USE CASES ============
+Admin --> UC_QL_SanPham
+Admin --> UC_QL_NguoiDung
+Admin --> UC_QL_GioHang_DonHang
+Admin --> UC_QL_ThanhToan
+Admin --> UC_QL_DanhGia_PhanHoi
+Admin --> UC_BaoCao_ThongKe
+
+
+@enduml

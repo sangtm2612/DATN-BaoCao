@@ -1,0 +1,31 @@
+@startuml 05_DanhGia_PhanHoi
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+
+title Sơ đồ Use Case - Đánh giá và phản hồi
+
+left to right direction
+
+actor "Guest" as guest
+actor "Customer" as customer
+actor "Admin/Staff" as admin
+
+package "Hệ thống Đánh giá và Phản hồi" {
+    
+    usecase "Xem đánh giá" as UC501
+    usecase "Viết đánh giá" as UC502
+    usecase "Quản lý đánh giá" as UC503
+    usecase "Hỏi đáp sản phẩm" as UC504
+}
+
+guest --> UC501
+guest --> UC504
+
+customer --> UC501
+customer --> UC502
+customer --> UC504
+
+admin --> UC503
+admin --> UC504
+
+@enduml

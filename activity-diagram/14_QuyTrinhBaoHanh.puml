@@ -1,0 +1,109 @@
+@startuml QuyTrinhBaoHanh
+title Quy trình bảo hành sản phẩm
+
+|#LightBlue|Khách hàng|
+start
+:Phát hiện lỗi sản phẩm;
+:Truy cập "Bảo hành";
+:Đăng nhập (nếu chưa);
+:Đăng ký yêu cầu bảo hành;
+
+:Chọn sản phẩm cần bảo hành;
+
+|#LightGreen|Hệ thống|
+:Kiểm tra thời hạn bảo hành;
+
+if (Trong thời hạn?) then (Không)
+  :Thông báo hết hạn;
+  :Đề xuất sửa chữa có phí;
+  stop
+endif
+
+|#LightBlue|Khách hàng|
+:Mô tả lỗi và upload ảnh/video;
+note right
+  Loại lỗi: Phần cứng, 
+  phần mềm, màn hình...
+end note
+
+:Chọn hình thức;
+note right
+  - Gửi qua bưu điện
+  - Mang đến showroom
+end note
+
+:Xác nhận đăng ký;
+
+|#LightGreen|Hệ thống|
+:Tạo phiếu bảo hành;
+:Gửi email/SMS xác nhận;
+
+|#LightBlue|Khách hàng|
+:Gửi sản phẩm đến showroom;
+
+|#Orange|Nhân viên|
+:Tiếp nhận và kiểm tra;
+
+if (Đủ điều kiện bảo hành?) then (Không)
+  :Từ chối bảo hành;
+  note right
+    - Tem bảo hành bị rách
+    - Lỗi do người dùng
+    (rơi vỡ, vào nước...)
+  end note
+  stop
+endif
+
+:Xác nhận tiếp nhận;
+:Cập nhật "RECEIVED";
+
+|#LightGreen|Hệ thống|
+:Thông báo khách hàng;
+
+|#Pink|Kỹ thuật viên|
+:Kiểm tra và chẩn đoán;
+
+if (Sửa được?) then (Có)
+  :Sửa chữa/Thay linh kiện;
+  :Cập nhật "REPAIRED";
+else (Không)
+  if (Trong BH?) then (Có)
+    :Đổi sản phẩm mới;
+    :Cập nhật "REPLACED";
+  else (Không)
+    :Báo giá sửa có phí;
+    
+    |#LightBlue|Khách hàng|
+    if (Đồng ý?) then (Không)
+      stop
+    else (Có)
+      :Thanh toán;
+      |#Pink|Kỹ thuật viên|
+      :Tiến hành sửa;
+    endif
+  endif
+endif
+
+:Đóng gói sản phẩm;
+:Cập nhật "READY_FOR_RETURN";
+
+|#LightGreen|Hệ thống|
+:Thông báo khách đến nhận;
+
+|#LightBlue|Khách hàng|
+:Nhận sản phẩm;
+note right
+  - Đến showroom
+  - Giao tận nơi
+end note
+
+:Kiểm tra và xác nhận;
+
+|#LightGreen|Hệ thống|
+:Cập nhật "COMPLETED";
+:Lưu lịch sử bảo hành;
+:Gửi email cảm ơn;
+
+stop
+
+@enduml

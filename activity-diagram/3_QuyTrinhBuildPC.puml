@@ -1,0 +1,127 @@
+@startuml QuyTrinhBuildPC
+title Quy trình Build PC - Tự chọn cấu hình máy tính
+
+skinparam activityBackgroundColor #LightYellow
+
+|#LightBlue|Khách hàng|
+start
+:Truy cập trang Build PC;
+:Chọn showroom kiểm tra tồn kho;
+
+|#LightGreen|Hệ thống|
+:Lọc sản phẩm theo showroom;
+
+|#LightBlue|Khách hàng|
+:Chọn CPU (bắt buộc);
+note right
+  Ví dụ:
+  - Intel Core i5-12400F
+  - AMD Ryzen 5 5600X
+end note
+
+|#LightGreen|Hệ thống|
+:Xác định socket CPU;
+:Lọc Mainboard tương thích;
+
+|#LightBlue|Khách hàng|
+:Chọn Mainboard (bắt buộc);
+
+|#LightGreen|Hệ thống|
+if (Socket tương thích?) then (Không)
+  :Cảnh báo không tương thích;
+  stop
+else (Có)
+  :Tiếp tục;
+endif
+
+|#LightBlue|Khách hàng|
+:Chọn RAM (bắt buộc);
+:Chọn SSD (bắt buộc);
+
+if (Cần thêm HDD?) then (Có)
+  :Chọn HDD;
+endif
+
+if (Cần VGA rời?) then (Có)
+  :Chọn VGA;
+  note right
+    VGA mạnh (≥ RX6500XT)
+    sẽ được giảm 50% CPU
+  end note
+endif
+
+:Chọn Nguồn PSU (bắt buộc);
+:Chọn Case (bắt buộc);
+
+if (Cần tản nhiệt nâng cao?) then (Có)
+  :Chọn tản nhiệt;
+endif
+
+if (Cần phụ kiện?) then (Có)
+  :Chọn màn hình, bàn phím,\nchuột, tai nghe, ghế...;
+endif
+
+|#LightGreen|Hệ thống|
+:Kiểm tra tương thích toàn bộ;
+:Tính tổng giá ban đầu;
+:Kiểm tra điều kiện khuyến mãi;
+
+if (Đủ điều kiện Build PC?) then (Có)
+  if (Có VGA mạnh?) then (Có)
+    :Giảm 50% giá CPU;
+  else (Không)
+    :Giảm 30% giá CPU;
+  endif
+endif
+
+:Tính tổng giá sau khuyến mãi;
+:Hiển thị bảng tổng kết;
+
+|#LightBlue|Khách hàng|
+:Xem tổng kết cấu hình và giá;
+
+switch (Hành động?)
+case (Thêm vào giỏ hàng)
+  |#LightGreen|Hệ thống|
+  :Thêm toàn bộ cấu hình\nvào giỏ hàng;
+  :Lưu thông tin khuyến mãi;
+  :Chuyển đến giỏ hàng;
+  
+case (Lưu cấu hình)
+  if (Đã đăng nhập?) then (Có)
+    |#LightBlue|Khách hàng|
+    :Nhập tên cấu hình;
+    |#LightGreen|Hệ thống|
+    :Lưu vào tài khoản;
+  else (Không)
+    :Yêu cầu đăng nhập;
+  endif
+  
+case (Xuất file Excel)
+  |#LightGreen|Hệ thống|
+  :Tạo file Excel;
+  :Tải file về máy;
+  
+case (Tải ảnh PNG)
+  |#LightGreen|Hệ thống|
+  :Chụp ảnh cấu hình;
+  :Tải ảnh PNG;
+  
+case (In cấu hình)
+  |#LightGreen|Hệ thống|
+  :Mở cửa sổ in;
+  |#LightBlue|Khách hàng|
+  :In cấu hình;
+  
+case (Chia sẻ link)
+  |#LightGreen|Hệ thống|
+  :Tạo link duy nhất;
+  :Sao chép link;
+  |#LightBlue|Khách hàng|
+  :Chia sẻ link;
+  
+endswitch
+
+stop
+
+@enduml

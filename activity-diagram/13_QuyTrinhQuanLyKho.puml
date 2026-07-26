@@ -1,0 +1,110 @@
+@startuml QuyTrinhQuanLyKho
+title Quy trình quản lý kho
+
+|#Orange|Admin/Staff|
+start
+:Đăng nhập hệ thống;
+:Vào "Quản lý kho";
+:Chọn thao tác;
+
+split
+  -> Nhập hàng;
+  :Chọn showroom và NCC;
+  :Thêm sản phẩm và số lượng;
+  :Xác nhận phiếu nhập;
+  
+  |#LightGreen|Hệ thống|
+  :Tạo phiếu nhập;
+  :Cộng tồn kho;
+  :Ghi log;
+  :In phiếu;
+  
+split again
+  -> Xuất hàng;
+  :Chọn showroom;
+  :Chọn lý do xuất;
+  note right
+    Hư hỏng, Trả NCC,
+    Thanh lý...
+  end note
+  :Thêm sản phẩm và số lượng;
+  
+  |#LightGreen|Hệ thống|
+  if (Đủ tồn kho?) then (Không)
+    :Thông báo lỗi;
+    stop
+  endif
+  
+  |#Orange|Admin/Staff|
+  :Xác nhận xuất;
+  
+  |#LightGreen|Hệ thống|
+  :Tạo phiếu xuất;
+  :Trừ tồn kho;
+  :Ghi log;
+  :In phiếu;
+  
+split again
+  -> Chuyển kho;
+  :Chọn showroom xuất/nhận;
+  :Thêm sản phẩm và số lượng;
+  
+  |#LightGreen|Hệ thống|
+  if (Đủ tồn kho xuất?) then (Không)
+    :Thông báo lỗi;
+    stop
+  endif
+  
+  |#Orange|Admin/Staff|
+  :Xác nhận chuyển;
+  
+  |#LightGreen|Hệ thống|
+  :Tạo phiếu chuyển;
+  :Trừ tồn showroom xuất;
+  :Cộng tồn showroom nhận;
+  :Ghi log;
+  :Thông báo showroom nhận;
+  :In phiếu;
+  
+split again
+  -> Kiểm kê kho;
+  :Chọn showroom;
+  :Tạo phiếu kiểm kê;
+  
+  |#LightGreen|Hệ thống|
+  :Lấy tồn kho hiện tại;
+  
+  |#Orange|Admin/Staff|
+  :Đếm và nhập số thực tế;
+  
+  |#LightGreen|Hệ thống|
+  :So sánh và highlight chênh lệch;
+  
+  |#Orange|Admin/Staff|
+  :Xác nhận kiểm kê;
+  
+  |#LightGreen|Hệ thống|
+  if (Có chênh lệch?) then (Có)
+    :Điều chỉnh tồn kho;
+    :Gửi báo cáo Admin;
+  endif
+  :In báo cáo;
+  
+end split
+
+|#Orange|Admin/Staff|
+:Xem báo cáo kho;
+
+|#LightGreen|Hệ thống|
+:Hiển thị báo cáo;
+note right
+  - Sản phẩm sắp hết
+  - Lịch sử nhập/xuất
+  - Tồn theo showroom
+  - Giá trị tồn kho
+  - Sản phẩm tồn lâu
+end note
+
+stop
+
+@enduml

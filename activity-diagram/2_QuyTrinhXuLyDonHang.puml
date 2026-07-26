@@ -1,0 +1,96 @@
+@startuml QuyTrinhXuLyDonHang
+title Quy trình xử lý đơn hàng của Admin/Staff
+
+skinparam activityBackgroundColor #LightYellow
+
+|#LightGreen|Hệ thống|
+start
+:Nhận đơn hàng mới;
+:Gửi thông báo cho Admin/Staff;
+
+|#Orange|Admin/Staff|
+:Nhận thông báo;
+:Đăng nhập hệ thống;
+:Xem chi tiết đơn hàng;
+note right
+  Kiểm tra:
+  - Thông tin khách hàng
+  - Danh sách sản phẩm
+  - Địa chỉ giao hàng
+  - Phương thức thanh toán
+end note
+
+:Kiểm tra tồn kho;
+
+if (Đủ hàng trong kho?) then (Có)
+  :Xác nhận đơn hàng;
+  :Cập nhật "Đã xác nhận";
+  
+  |#LightGreen|Hệ thống|
+  :Gửi email xác nhận cho khách;
+  
+  |#Orange|Admin/Staff|
+  :Chuẩn bị sản phẩm;
+  :Đóng gói và in hóa đơn;
+  :Cập nhật "Đang chuẩn bị";
+  :Bàn giao đơn vị vận chuyển;
+  :Cập nhật mã vận đơn;
+  :Cập nhật "Đang giao hàng";
+  
+  |#LightGreen|Hệ thống|
+  :Gửi email thông báo\n(có mã vận đơn);
+  
+  |#LightPink|Đơn vị vận chuyển|
+  :Nhận hàng và vận chuyển;
+  :Giao hàng đến khách;
+  
+  |#LightBlue|Khách hàng|
+  if (Nhận hàng?) then (Có)
+    :Thanh toán (nếu COD);
+    :Xác nhận đã nhận;
+    
+    |#Orange|Admin/Staff|
+    :Cập nhật "Hoàn thành";
+    
+    |#LightGreen|Hệ thống|
+    :Trừ tồn kho;
+    :Cập nhật doanh thu;
+    :Gửi email yêu cầu đánh giá;
+    
+  else (Không)
+    |#LightPink|Đơn vị vận chuyển|
+    :Trả hàng về kho;
+    
+    |#Orange|Admin/Staff|
+    :Liên hệ khách hàng;
+    if (Giao lại?) then (Có)
+      :Sắp xếp giao hàng lại;
+    else (Không)
+      :Hủy đơn và hoàn tiền;
+    endif
+  endif
+  
+else (Không đủ)
+  :Kiểm tra showroom khác;
+  
+  if (Có showroom khác?) then (Có)
+    :Yêu cầu chuyển hàng;
+    :Cập nhật "Đang chuyển hàng";
+  else (Không)
+    :Liên hệ khách hàng;
+    :Thông báo hết hàng;
+    
+    if (Khách chấp nhận chờ?) then (Có)
+      :Cập nhật "Chờ hàng về";
+    else (Không)
+      :Đề xuất sản phẩm thay thế;
+      if (Chấp nhận?) then (Không)
+        :Hủy đơn và hoàn tiền;
+      endif
+    endif
+  endif
+endif
+
+stop
+
+@enduml

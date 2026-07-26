@@ -1,0 +1,67 @@
+@startuml 01_QuanLySanPham
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+
+title Sơ đồ Use Case - Nhóm 1: Quản lý sản phẩm
+
+left to right direction
+
+actor "Guest/Customer\n(Khách hàng)" as customer
+actor "Admin/Staff\n(Quản trị)" as admin
+
+package "Hệ thống Quản lý Sản phẩm" {
+    
+    ' Use cases cho khách hàng
+    usecase "Xem danh sách\nsản phẩm" as UC101
+    usecase "Xem chi tiết\nsản phẩm" as UC102
+    usecase "Xem thông tin\ntồn kho" as UC103
+    usecase "Xem giá và\nkhuyến mãi" as UC104
+    
+    ' Use cases cho Admin
+    usecase "Quản lý danh mục\nsản phẩm" as UC105
+    usecase "Thêm sản phẩm\nmới" as UC106
+    usecase "Cập nhật thông tin\nsản phẩm" as UC107
+    usecase "Xóa sản phẩm" as UC108
+    usecase "Quản lý hình ảnh\nsản phẩm" as UC109
+    usecase "Quản lý tồn kho" as UC110
+    usecase "Cập nhật số lượng\ntồn kho" as UC111
+    usecase "Cảnh báo sản phẩm\nsắp hết hàng" as UC112
+    usecase "Quản lý giá\nsản phẩm" as UC113
+    usecase "Thiết lập\nkhuyến mãi" as UC114
+    usecase "Import/Export\nsản phẩm" as UC115
+}
+
+' Quan hệ Customer
+customer --> UC101
+customer --> UC102
+customer --> UC103
+customer --> UC104
+
+' Quan hệ Admin - Danh mục
+admin --> UC105
+
+' Quan hệ Admin - Sản phẩm
+admin --> UC106
+admin --> UC107
+admin --> UC108
+admin --> UC109
+
+' Quan hệ Admin - Tồn kho
+admin --> UC110
+admin --> UC111
+admin --> UC112
+
+' Quan hệ Admin - Giá & Khuyến mãi
+admin --> UC113
+admin --> UC114
+
+' Quan hệ Admin - Import/Export
+admin --> UC115
+
+' Quan hệ extend và include
+UC111 ..> UC110 : <<extend>>
+UC112 ..> UC110 : <<include>>
+UC109 ..> UC106 : <<include>>
+UC109 ..> UC107 : <<include>>
+
+@enduml

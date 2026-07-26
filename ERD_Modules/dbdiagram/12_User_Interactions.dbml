@@ -1,0 +1,96 @@
+// Module 12: User Interactions (4 tables)
+// Copy toàn bộ vào https://dbdiagram.io/
+
+// ============================================
+// STUB TABLES (Referenced from other modules)
+// ============================================
+
+Table users {
+  id serial [pk, increment]
+  Note: 'Stub table - Defined in Module 3: Users & Authentication'
+}
+
+Table products {
+  id serial [pk, increment]
+  Note: 'Stub table - Defined in Module 1: Catalog & Products'
+}
+
+// ============================================
+// USER INTERACTIONS
+// ============================================
+
+Enum notification_type {
+  order_update
+  promotion
+  warranty_expiry
+  service_update
+  return_update
+  system
+}
+
+Table wishlists {
+  user_id int [not null, ref: > users.id]
+  product_id int [not null, ref: > products.id]
+  added_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    (user_id, product_id) [pk]
+    user_id
+  }
+  
+  Note: 'Danh sách yêu thích (FR-24)'
+}
+
+Table product_views {
+  id serial [pk, increment]
+  product_id int [not null, ref: > products.id]
+  user_id int [ref: > users.id]
+  session_id varchar(100)
+  viewed_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    (user_id, viewed_at)
+    product_id
+  }
+  
+  Note: 'Lịch sử xem sản phẩm - FR-25: tối đa 20 SP gần nhất'
+}
+
+Table search_history {
+  id serial [pk, increment]
+  user_id int [ref: > users.id]
+  session_id varchar(100)
+  keyword varchar(200) [not null]
+  result_count int [not null, default: 0]
+  searched_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    (user_id, searched_at)
+    (session_id, searched_at)
+  }
+  
+  Note: 'Lịch sử tìm kiếm - FR-05: lưu tối đa 10 từ khóa gần nhất'
+}
+
+Table notifications {
+  id serial [pk, increment]
+  user_id int [not null, ref: > users.id]
+  
+  type notification_type [not null]
+  title varchar(200) [not null]
+  content text
+  link_url varchar(500)
+  
+  // Reference
+  reference_type varchar(50)
+  reference_id int
+  
+  is_read boolean [not null, default: false]
+  created_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    (user_id, is_read, created_at)
+  }
+  
+  Note: 'Thông báo real-time (FR-26)'
+}

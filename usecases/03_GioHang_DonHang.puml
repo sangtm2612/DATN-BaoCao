@@ -1,0 +1,105 @@
+@startuml 03_GioHang_DonHang
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+
+title Sơ đồ Use Case - Nhóm 3: Quản lý giỏ hàng và đơn hàng
+
+left to right direction
+
+actor "Customer\n(Khách đã đăng nhập)" as customer
+actor "Admin/Staff\n(Quản trị)" as admin
+
+package "Hệ thống Giỏ hàng và Đơn hàng" {
+    
+    ' Cart Management
+    package "Quản lý Giỏ hàng" {
+        usecase "Xem giỏ hàng" as UC301
+        usecase "Thêm sản phẩm\nvào giỏ" as UC302
+        usecase "Cập nhật số lượng\ntrong giỏ" as UC303
+        usecase "Xóa sản phẩm\nkhỏi giỏ" as UC304
+        usecase "Xóa toàn bộ\ngiỏ hàng" as UC305
+        usecase "Lưu giỏ hàng" as UC306
+    }
+    
+    ' Voucher & Promotion
+    package "Khuyến mãi & Voucher" {
+        usecase "Áp dụng mã\ngiảm giá" as UC307
+        usecase "Xem danh sách\nvoucher khả dụng" as UC308
+        usecase "Kiểm tra điều kiện\nvoucher" as UC309
+    }
+    
+    ' Order Management - Customer
+    package "Quản lý Đơn hàng - Khách" {
+        usecase "Tạo đơn hàng" as UC310
+        usecase "Chọn địa chỉ\ngiao hàng" as UC311
+        usecase "Chọn phương thức\nthanh toán" as UC312
+        usecase "Xác nhận\nđơn hàng" as UC313
+        usecase "Theo dõi\nđơn hàng" as UC314
+        usecase "Xem chi tiết\nđơn hàng" as UC315
+        usecase "Xem lịch sử\nđơn hàng" as UC316
+        usecase "Hủy đơn hàng" as UC317
+        usecase "Yêu cầu đổi/trả\nhàng" as UC318
+    }
+    
+    ' Order Management - Admin
+    package "Quản lý Đơn hàng - Admin" {
+        usecase "Xem danh sách\nđơn hàng" as UC319
+        usecase "Tìm kiếm\nđơn hàng" as UC320
+        usecase "Lọc đơn hàng\ntheo trạng thái" as UC321
+        usecase "Cập nhật trạng thái\nđơn hàng" as UC322
+        usecase "Xác nhận\nđơn hàng mới" as UC323
+        usecase "Xử lý hủy\nđơn hàng" as UC324
+        usecase "Xử lý đổi/trả\nhàng" as UC325
+        usecase "In hóa đơn" as UC326
+    }
+    
+    ' Email notifications
+    usecase "Gửi email\nxác nhận đơn" as UC327
+    usecase "Gửi thông báo\ncập nhật trạng thái" as UC328
+}
+
+' Customer - Cart relationships
+customer --> UC301
+customer --> UC302
+customer --> UC303
+customer --> UC304
+customer --> UC305
+
+' Customer - Voucher relationships
+customer --> UC307
+customer --> UC308
+
+' Customer - Order relationships
+customer --> UC310
+customer --> UC314
+customer --> UC315
+customer --> UC316
+customer --> UC317
+customer --> UC318
+
+' Admin relationships
+admin --> UC319
+admin --> UC322
+admin --> UC323
+admin --> UC324
+admin --> UC325
+admin --> UC326
+
+' Include & Extend relationships
+UC302 ..> UC306 : <<include>>
+UC303 ..> UC306 : <<include>>
+UC304 ..> UC306 : <<include>>
+
+UC307 ..> UC309 : <<include>>
+
+UC310 ..> UC301 : <<include>>
+UC310 ..> UC311 : <<include>>
+UC310 ..> UC312 : <<include>>
+UC310 ..> UC313 : <<include>>
+UC310 ..> UC327 : <<include>>
+
+UC322 ..> UC328 : <<include>>
+
+UC319 ..> UC320 : <<extend>>
+UC319 ..> UC321 : <<extend>>
+@enduml

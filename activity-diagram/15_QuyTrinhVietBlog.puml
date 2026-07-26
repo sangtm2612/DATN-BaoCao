@@ -1,0 +1,148 @@
+@startuml QuyTrinhVietBlog
+title Quy trình viết và quản lý Blog
+
+|#Orange|Admin/Content Writer|
+start
+:Đăng nhập hệ thống;
+:Vào "Quản lý Blog";
+:Chọn hành động;
+
+split
+  -> Tạo bài viết mới;
+  :Điền thông tin cơ bản;
+  note right
+    - Tiêu đề, Slug
+    - Danh mục, Tags
+    - Tác giả
+  end note
+  
+  :Chọn ảnh thumbnail;
+  
+  |#LightGreen|Hệ thống|
+  :Upload và resize ảnh;
+  
+  |#Orange|Admin/Content Writer|
+  :Viết nội dung bài viết;
+  note right
+    Rich Text Editor:
+    Format, Heading, List,
+    Image, Video, Link, Table
+  end note
+  
+  :Thêm hình ảnh vào nội dung;
+  :Điền mô tả ngắn;
+  
+split again
+  -> Quản lý danh mục;
+  :Vào "Danh mục Blog";
+  
+  :Chọn hành động;
+  note right
+    - Tạo danh mục mới
+    - Sửa danh mục
+    - Xóa danh mục
+  end note
+  
+  |#LightGreen|Hệ thống|
+  :Xử lý CRUD danh mục;
+  
+end split
+
+|#Orange|Admin/Content Writer|
+:Nhập thông tin SEO;
+note right
+  Meta Title, Description,
+  Focus Keyword, OG Image
+end note
+
+|#LightGreen|Hệ thống|
+:Phân tích SEO score;
+:Hiển thị gợi ý tối ưu;
+
+|#Orange|Admin/Content Writer|
+:Click "Xem trước";
+
+|#LightGreen|Hệ thống|
+:Render preview bài viết;
+
+|#Orange|Admin/Content Writer|
+if (Hài lòng?) then (Không)
+  :Chỉnh sửa lại;
+  note right
+    Quay lại viết nội dung
+  end note
+  stop
+endif
+
+:Chọn trạng thái;
+
+switch (Trạng thái?)
+case (Draft)
+  |#LightGreen|Hệ thống|
+  :Lưu nháp;
+  
+case (Scheduled)
+  |#Orange|Admin/Content Writer|
+  :Chọn thời gian xuất bản;
+  |#LightGreen|Hệ thống|
+  :Lên lịch tự động publish;
+  
+case (Published)
+  |#LightGreen|Hệ thống|
+  :Xuất bản ngay;
+  :Cập nhật sitemap;
+  :Gửi thông báo subscribers;
+  
+endswitch
+
+|#LightBlue|Người đọc|
+:Truy cập blog;
+:Lọc/Tìm kiếm bài viết;
+:Click vào bài viết;
+
+|#LightGreen|Hệ thống|
+:Tăng lượt xem;
+:Hiển thị bài viết;
+:Hiển thị bài liên quan;
+
+|#LightBlue|Người đọc|
+:Đọc bài viết;
+
+fork
+  if (Bình luận?) then (Có)
+    :Viết và gửi comment;
+    |#LightGreen|Hệ thống|
+    :Lưu comment;
+  endif
+  
+fork again
+  if (Like?) then (Có)
+    :Click Like;
+    |#LightGreen|Hệ thống|
+    :Tăng like_count;
+  endif
+  
+fork again
+  if (Chia sẻ?) then (Có)
+    :Chọn nền tảng share;
+    |#LightGreen|Hệ thống|
+    :Tăng share_count;
+  endif
+  
+end fork
+
+|#Orange|Admin/Content Writer|
+:Xem thống kê blog;
+
+|#LightGreen|Hệ thống|
+:Hiển thị báo cáo;
+note right
+  - Top bài viết
+  - Lượt xem theo thời gian
+  - Danh mục phổ biến
+  - Tỷ lệ tương tác
+end note
+
+stop
+
+@enduml

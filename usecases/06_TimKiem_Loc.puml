@@ -1,0 +1,24 @@
+@startuml 06_TimKiem_Loc
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+
+title Sơ đồ Use Case - Tìm kiếm và lọc
+
+left to right direction
+
+actor "Guest/Customer" as user
+
+package "Hệ thống Tìm kiếm và Lọc" {
+    
+    usecase "Tìm kiếm sản phẩm" as UC601
+    usecase "Lọc sản phẩm" as UC602
+    usecase "Sắp xếp kết quả" as UC603
+    usecase "So sánh sản phẩm" as UC604
+}
+
+user --> UC601
+user --> UC602
+user --> UC603
+user --> UC604
+
+@enduml

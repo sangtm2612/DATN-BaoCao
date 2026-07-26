@@ -1,0 +1,110 @@
+@startuml QuyTrinhDanhGiaSanPham
+title Quy trình đánh giá sản phẩm
+
+|#LightBlue|Khách hàng|
+start
+
+:Truy cập trang sản phẩm\nhoặc lịch sử đơn hàng;
+
+if (Đã đăng nhập?) then (Không)
+  :Yêu cầu đăng nhập;
+  :Đăng nhập;
+endif
+
+|#LightGreen|Hệ thống|
+:Kiểm tra quyền đánh giá;
+
+if (Đã mua sản phẩm?) then (Không)
+  :Thông báo:\nChỉ khách đã mua\nmới được đánh giá;
+  stop
+else (Có)
+  if (Đơn hàng đã giao?) then (Không)
+    :Thông báo:\nĐánh giá sau khi\nnhận hàng;
+    stop
+  endif
+endif
+
+|#LightBlue|Khách hàng|
+:Nhấn "Viết đánh giá";
+:Chọn số sao (1-5);
+:Nhập tiêu đề đánh giá;
+:Nhập nội dung chi tiết;
+
+note right
+  Tối thiểu 20 ký tự
+  Tối đa 1000 ký tự
+end note
+
+if (Upload hình ảnh?) then (Có)
+  :Chọn ảnh từ thiết bị;
+  note right
+    - Tối đa 5 ảnh
+    - Dung lượng <= 5MB/ảnh
+    - Định dạng: JPG, PNG
+  end note
+  
+  |#LightGreen|Hệ thống|
+  :Validate từng ảnh;
+  
+  if (Tất cả ảnh hợp lệ?) then (Có)
+    :Upload lên server;
+    :Tạo thumbnail cho mỗi ảnh;
+  else (Không)
+    :Thông báo lỗi ảnh không hợp lệ;
+    stop
+  endif
+endif
+
+|#LightBlue|Khách hàng|
+:Xem trước đánh giá;
+
+if (Xác nhận gửi?) then (Không)
+  :Hủy gửi;
+  stop
+else (Có)
+  |#LightGreen|Hệ thống|
+  :Kiểm tra nội dung;
+  
+  if (Chứa từ ngữ nhạy cảm?) then (Có)
+    :Thông báo vi phạm;
+    :Yêu cầu chỉnh sửa;
+    stop
+  endif
+  
+  :Lưu đánh giá vào DB;
+  :Cập nhật điểm trung bình sản phẩm;
+  
+  note right
+    Tính toán lại rating_avg
+    từ tất cả đánh giá
+  end note
+  
+  :Cộng điểm thưởng cho khách;
+  
+  note right
+    +10 điểm nếu có ảnh
+    +5 điểm nếu không có ảnh
+  end note
+  
+  if (Là đánh giá đầu tiên\ncủa sản phẩm?) then (Có)
+    :Gửi thông báo cho Admin;
+  endif
+  
+  :Gửi email cảm ơn\nvà tặng voucher;
+  
+  |#LightBlue|Khách hàng|
+  :Nhận thông báo đánh giá thành công;
+  :Nhận điểm thưởng và voucher;
+  
+  note right
+    **Admin có thể:**
+    - Xem đánh giá
+    - Viết phản hồi
+    - Khách nhận thông báo
+      khi có phản hồi
+  end note
+endif
+
+stop
+
+@enduml

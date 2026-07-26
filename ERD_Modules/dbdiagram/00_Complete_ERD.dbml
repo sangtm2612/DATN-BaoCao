@@ -1,0 +1,1272 @@
+// ============================================
+// COMPLETE ERD - WEBSITE BÁN MÁY TÍNH KINH DUAN
+// ============================================
+// Tích hợp tất cả 12 modules vào một file duy nhất
+// Copy toàn bộ vào https://dbdiagram.io/
+// Tổng số bảng: 50 tables
+
+// ============================================
+// ENUMS - Định nghĩa các kiểu dữ liệu enum
+// ============================================
+
+Enum user_role {
+  customer
+  staff
+  technician
+  admin
+}
+
+Enum user_status {
+  active
+  inactive
+  banned
+}
+
+Enum order_status {
+  pending
+  confirmed
+  processing
+  shipping
+  delivered
+  completed
+  cancelled
+  refunded
+}
+
+Enum payment_method {
+  cod
+  bank_transfer
+  vnpay
+  momo
+  zalopay
+  installment
+}
+
+Enum payment_status {
+  pending
+  paid
+  failed
+  refunded
+}
+
+Enum return_status {
+  pending
+  reviewing
+  approved
+  rejected
+  completed
+}
+
+Enum invoice_type {
+  personal
+  company
+}
+
+Enum warranty_status {
+  active
+  expired
+  voided
+  in_service
+}
+
+Enum service_status {
+  received
+  diagnosing
+  repairing
+  waiting_part
+  done
+  returned
+}
+
+Enum promotion_type {
+  general
+  build_pc
+  student
+  brand_deal
+  give_away
+  flash_sale
+}
+
+Enum discount_type {
+  percent
+  fixed_amount
+  free_shipping
+}
+
+Enum notification_type {
+  order_update
+  promotion
+  warranty_expiry
+  service_update
+  return_update
+  system
+}
+
+// ============================================
+// MODULE 1: CATEGORIES & PRODUCTS (8 tables)
+// ============================================
+
+Table categories {
+  id serial [pk, increment]
+  parent_id int [ref: > categories.id, note: 'Self-referencing for multi-level categories']
+  name varchar(150) [not null]
+  slug varchar(200) [unique, not null]
+  icon_url varchar(500)
+  image_url varchar(500)
+  description text
+  sort_order int [not null, default: 0]
+  is_active boolean [not null, default: true]
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    parent_id
+    slug
+  }
+  
+  Note: 'Cây danh mục đa cấp (Laptop > Laptop Gaming > ASUS ROG)'
+}
+
+Table brands {
+  id serial [pk, increment]
+  name varchar(100) [not null]
+  slug varchar(150) [unique, not null]
+  logo_url varchar(500)
+  website varchar(300)
+  description text
+  is_active boolean [not null, default: true]
+  created_at timestamp [not null, default: `now()`]
+  
+  Note: 'Thương hiệu: ASUS, MSI, Intel, AMD, etc.'
+}
+
+Table products {
+  id serial [pk, increment]
+  category_id int [not null, ref: > categories.id]
+  brand_id int [ref: > brands.id]
+  
+  // Basic Info
+  name varchar(300) [not null]
+  slug varchar(350) [unique, not null]
+  sku varchar(100) [unique]
+  short_desc text
+  description text
+  thumbnail varchar(500)
+  
+  // Pricing
+  price decimal(15,2) [not null, default: 0, note: 'Giá hiện tại (sau giảm)']
+  original_price decimal(15,2) [note: 'Giá gốc (trước giảm)']
+  is_on_sale boolean [not null, default: false]
+  
+  // Inventory
+  stock_qty int [not null, default: 0]
+  sold_qty int [not null, default: 0]
+  low_stock_threshold int [not null, default: 5]
+  
+  // Engagement
+  view_count int [not null, default: 0]
+  rating_avg decimal(3,2) [not null, default: 0]
+  rating_count int [not null, default: 0]
+  
+  // Physical
+  weight decimal(8,3) [note: 'kg']
+  warranty_months int [not null, default: 12]
+  warranty_text varchar(200)
+  
+  // Flags
+  is_active boolean [not null, default: true]
+  is_featured boolean [not null, default: false]
+  is_new boolean [not null, default: false]
+  
+  // SEO & Search
+  meta_title varchar(300)
+  meta_desc varchar(500)
+  
+  // Timestamps
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    category_id
+    brand_id
+    slug
+    sku
+    price
+    is_active
+    (is_featured, is_active)
+    (is_on_sale, is_active)
+  }
+  
+  Note: 'Bảng sản phẩm chính - có search_vector (full-text search)'
+}
+
+Table product_images {
+  id serial [pk, increment]
+  product_id int [not null, ref: > products.id]
+  image_url varchar(500) [not null]
+  alt_text varchar(200)
+  sort_order int [not null, default: 0]
+  is_primary boolean [not null, default: false]
+  
+  indexes {
+    product_id
+  }
+  
+  Note: 'Gallery ảnh sản phẩm (tối thiểu 5 ảnh theo FR-07)'
+}
+
+Table product_attributes {
+  id serial [pk, increment]
+  product_id int [not null, ref: > products.id]
+  attribute_group varchar(100) [note: 'CPU, RAM, Màn hình, Pin, etc.']
+  attribute_name varchar(100) [not null]
+  attribute_value varchar(500) [not null]
+  unit varchar(50) [note: 'GB, MHz, inch, etc.']
+  sort_order int [not null, default: 0]
+  
+  indexes {
+    product_id
+  }
+  
+  Note: 'Thông số kỹ thuật key-value (CPU: i7-13700K, RAM: 16GB DDR5)'
+}
+
+Table tags {
+  id serial [pk, increment]
+  name varchar(100) [unique, not null]
+  slug varchar(120) [unique, not null]
+  
+  Note: 'Tags cho SEO: gaming, văn phòng, đồ họa, etc.'
+}
+
+Table product_tags {
+  product_id int [not null, ref: > products.id]
+  tag_id int [not null, ref: > tags.id]
+  
+  indexes {
+    (product_id, tag_id) [pk]
+  }
+  
+  Note: 'Junction table: Products N-M Tags'
+}
+
+Table product_related {
+  product_id int [not null, ref: > products.id]
+  related_product_id int [not null, ref: > products.id]
+  sort_order int [not null, default: 0]
+  
+  indexes {
+    (product_id, related_product_id) [pk]
+  }
+  
+  Note: 'Sản phẩm liên quan (tối đa 8 SP theo FR-07)'
+}
+
+// ============================================
+// MODULE 2: BUILD PC SYSTEM (4 tables)
+// ============================================
+
+Table pc_component_types {
+  id serial [pk, increment]
+  name varchar(100) [not null, note: 'CPU, Mainboard, RAM, SSD, VGA, PSU, etc.']
+  slug varchar(120) [unique, not null]
+  is_required boolean [not null, default: false]
+  sort_order int [not null, default: 0]
+  
+  Note: '23 loại linh kiện Build PC (theo hacom.vn)'
+}
+
+Table pc_components {
+  id serial [pk, increment]
+  component_type_id int [not null, ref: > pc_component_types.id]
+  product_id int [not null, ref: > products.id]
+  
+  // CPU & Mainboard Compatibility
+  socket varchar(50) [note: 'LGA1700, AM5, AM4, etc.']
+  chipset varchar(50) [note: 'Z790, B650, X670, etc.']
+  ram_type varchar(20) [note: 'DDR4, DDR5']
+  ram_slots int
+  max_ram_gb int
+  
+  // Power
+  tdp_watts int [note: 'TDP của CPU/VGA để check PSU']
+  psu_wattage int [note: 'Công suất nguồn (W)']
+  
+  // RAM
+  ram_capacity_gb int [note: 'Dung lượng RAM']
+  ram_speed_mhz int [note: 'Tốc độ RAM']
+  
+  // Storage
+  storage_gb int [note: 'Dung lượng ổ cứng']
+  storage_interface varchar(30) [note: 'NVMe, SATA, PCIe 4.0']
+  
+  // Special
+  is_like_new boolean [not null, default: false]
+  is_active boolean [not null, default: true]
+  
+  indexes {
+    component_type_id
+    product_id
+  }
+  
+  Note: 'Thông tin kỹ thuật linh kiện để kiểm tra tương thích'
+}
+
+Table pc_builds {
+  id serial [pk, increment]
+  user_id int [ref: > users.id]
+  store_id int [ref: > stores.id]
+  
+  name varchar(200)
+  description text
+  total_price decimal(15,2) [not null, default: 0]
+  discount_note text
+  
+  is_template boolean [not null, default: false]
+  is_public boolean [not null, default: false]
+  
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    user_id
+  }
+  
+  Note: 'Cấu hình PC đã lưu (user hoặc template admin)'
+}
+
+Table pc_build_items {
+  id serial [pk, increment]
+  build_id int [not null, ref: > pc_builds.id]
+  component_type_id int [not null, ref: > pc_component_types.id]
+  product_id int [not null, ref: > products.id]
+  
+  quantity int [not null, default: 1]
+  unit_price decimal(15,2) [not null, default: 0]
+  
+  indexes {
+    build_id
+  }
+  
+  Note: 'Chi tiết linh kiện trong build'
+}
+
+// ============================================
+// MODULE 3: USERS & AUTHENTICATION (4 tables)
+// ============================================
+
+Table users {
+  id serial [pk, increment]
+  
+  // Account
+  role user_role [not null, default: 'customer']
+  status user_status [not null, default: 'active']
+  email varchar(200) [unique]
+  phone varchar(20) [unique]
+  password_hash varchar(255)
+  
+  // Profile
+  full_name varchar(150)
+  avatar_url varchar(500)
+  date_of_birth date
+  gender varchar(10)
+  
+  // Verification
+  email_verified boolean [not null, default: false]
+  phone_verified boolean [not null, default: false]
+  
+  // Security
+  login_attempts smallint [not null, default: 0]
+  locked_until timestamp
+  
+  // Business
+  tax_code varchar(20)
+  company_name varchar(200)
+  
+  // Timestamps
+  last_login_at timestamp
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    email
+    phone
+    role
+    status
+  }
+  
+  Note: 'CHECK: email IS NOT NULL OR phone IS NOT NULL'
+}
+
+Table user_addresses {
+  id serial [pk, increment]
+  user_id int [not null, ref: > users.id]
+  
+  full_name varchar(150) [not null]
+  phone varchar(20) [not null]
+  
+  // Address Vietnam format
+  province varchar(100) [not null]
+  district varchar(100) [not null]
+  ward varchar(100) [not null]
+  address_detail varchar(300) [not null]
+  
+  is_default boolean [not null, default: false]
+  
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    user_id
+  }
+  
+  Note: 'Địa chỉ giao hàng (tối đa 5 địa chỉ/user)'
+}
+
+Table user_tokens {
+  id serial [pk, increment]
+  user_id int [not null, ref: > users.id]
+  
+  token varchar(255) [unique, not null]
+  token_type varchar(30) [not null]
+  
+  expires_at timestamp [not null]
+  used_at timestamp
+  ip_address varchar(45)
+  
+  created_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    token
+    user_id
+    expires_at
+  }
+  
+  Note: 'Token xác thực: OTP, email verify, password reset, JWT refresh'
+}
+
+Table user_oauth {
+  id serial [pk, increment]
+  user_id int [not null, ref: > users.id]
+  
+  provider varchar(30) [not null, note: 'google, facebook']
+  oauth_id varchar(200) [not null]
+  email varchar(200)
+  
+  created_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    user_id
+    (provider, oauth_id) [unique]
+  }
+  
+  Note: 'OAuth2 login: Google, Facebook (FR-02)'
+}
+
+// ============================================
+// MODULE 4: PROMOTIONS & VOUCHERS (6 tables)
+// ============================================
+
+Table promotions {
+  id serial [pk, increment]
+  
+  // Basic Info
+  promotion_type promotion_type [not null, default: 'general']
+  name varchar(200) [not null]
+  description text
+  
+  // Discount
+  discount_type discount_type [not null]
+  discount_value decimal(10,2) [not null]
+  min_order_value decimal(15,2) [not null, default: 0]
+  max_discount decimal(15,2)
+  
+  // Time
+  start_date timestamp [not null]
+  end_date timestamp [not null]
+  is_active boolean [not null, default: true]
+  
+  // Build PC Policy
+  buildpc_min_cpu_discount_pct decimal(5,2)
+  buildpc_max_cpu_discount_pct decimal(5,2)
+  buildpc_cash_bonus decimal(15,2)
+  buildpc_max_cash_bonus decimal(15,2)
+  
+  created_by int [ref: > users.id]
+  created_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    (is_active, start_date, end_date)
+    promotion_type
+  }
+  
+  Note: 'Khuyến mãi tự động áp dụng theo SP/danh mục/brand (FR-22)'
+}
+
+Table promotion_products {
+  promotion_id int [not null, ref: > promotions.id]
+  product_id int [not null, ref: > products.id]
+  
+  indexes {
+    (promotion_id, product_id) [pk]
+  }
+  
+  Note: 'Áp dụng KM cho sản phẩm cụ thể'
+}
+
+Table promotion_categories {
+  promotion_id int [not null, ref: > promotions.id]
+  category_id int [not null, ref: > categories.id]
+  
+  indexes {
+    (promotion_id, category_id) [pk]
+  }
+  
+  Note: 'Áp dụng KM cho danh mục'
+}
+
+Table promotion_brands {
+  promotion_id int [not null, ref: > promotions.id]
+  brand_id int [not null, ref: > brands.id]
+  
+  indexes {
+    (promotion_id, brand_id) [pk]
+  }
+  
+  Note: 'Áp dụng KM theo thương hiệu: ASUS, MSI, etc.'
+}
+
+Table vouchers {
+  id serial [pk, increment]
+  
+  code varchar(50) [unique, not null]
+  name varchar(200)
+  
+  // Discount
+  discount_type discount_type [not null]
+  discount_value decimal(10,2) [not null]
+  min_order_value decimal(15,2) [not null, default: 0]
+  max_discount decimal(15,2)
+  
+  // Usage Limit
+  usage_limit int
+  usage_per_user int [not null, default: 1]
+  used_count int [not null, default: 0]
+  
+  // Time
+  start_date timestamp [not null]
+  end_date timestamp [not null]
+  is_active boolean [not null, default: true]
+  
+  created_by int [ref: > users.id]
+  created_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    code
+    (is_active, start_date, end_date)
+  }
+  
+  Note: 'Mã giảm giá nhập tay (FR-23)'
+}
+
+Table voucher_usage {
+  id serial [pk, increment]
+  voucher_id int [not null, ref: > vouchers.id]
+  user_id int [not null, ref: > users.id]
+  order_id int [ref: > orders.id]
+  
+  used_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    voucher_id
+    user_id
+  }
+  
+  Note: 'Lịch sử sử dụng voucher'
+}
+
+// ============================================
+// MODULE 5: CART & SHOPPING (2 tables)
+// ============================================
+
+Table carts {
+  id serial [pk, increment]
+  user_id int [ref: > users.id]
+  session_id varchar(100)
+  
+  expires_at timestamp [not null, default: `now() + 30 days`]
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    user_id
+    session_id
+    expires_at
+  }
+  
+  Note: 'Giỏ hàng - hỗ trợ cả guest và user đã đăng nhập'
+}
+
+Table cart_items {
+  id serial [pk, increment]
+  cart_id int [not null, ref: > carts.id]
+  product_id int [not null, ref: > products.id]
+  
+  quantity int [not null, default: 1]
+  unit_price decimal(15,2) [not null]
+  
+  added_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    cart_id
+    (cart_id, product_id) [unique]
+  }
+  
+  Note: 'Chi tiết sản phẩm trong giỏ hàng'
+}
+
+// ============================================
+// MODULE 6: ORDERS & PAYMENTS (15 tables)
+// ============================================
+
+Table stores {
+  id serial [pk, increment]
+  name varchar(200) [not null]
+  slug varchar(250) [unique]
+  
+  // Address
+  address varchar(400) [not null]
+  province varchar(100) [not null]
+  district varchar(100)
+  
+  // Contact
+  phone varchar(20)
+  warranty_phone varchar(20)
+  email varchar(150)
+  
+  // Hours
+  open_hours varchar(200)
+  break_hours varchar(100)
+  
+  // Type & Map
+  store_type varchar(30) [not null, default: 'showroom']
+  map_url varchar(500)
+  latitude decimal(10,7)
+  longitude decimal(10,7)
+  
+  is_active boolean [not null, default: true]
+  created_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    province
+    is_active
+  }
+  
+  Note: 'Cửa hàng/Showroom - 21 showroom toàn quốc'
+}
+
+Table orders {
+  id serial [pk, increment]
+  order_code varchar(30) [unique, not null]
+  user_id int [ref: > users.id]
+  
+  // Status
+  status order_status [not null, default: 'pending']
+  payment_method payment_method [not null]
+  payment_status payment_status [not null, default: 'pending']
+  
+  // Pickup
+  pickup_store_id int [ref: > stores.id]
+  
+  // Shipping Address (snapshot)
+  shipping_name varchar(150) [not null]
+  shipping_phone varchar(20) [not null]
+  shipping_province varchar(100) [not null]
+  shipping_district varchar(100) [not null]
+  shipping_ward varchar(100) [not null]
+  shipping_address varchar(300) [not null]
+  
+  // Money
+  subtotal decimal(15,2) [not null]
+  shipping_fee decimal(15,2) [not null, default: 0]
+  discount_amount decimal(15,2) [not null, default: 0]
+  total_amount decimal(15,2) [not null]
+  refund_amount decimal(15,2) [not null, default: 0]
+  
+  // Voucher (snapshot)
+  voucher_id int [ref: > vouchers.id]
+  voucher_code varchar(50)
+  
+  // Build PC
+  build_id int [ref: > pc_builds.id]
+  
+  // Notes
+  note text
+  staff_note text
+  cancelled_reason text
+  
+  // Auto Cancel
+  auto_cancel_at timestamp
+  
+  // Timeline
+  confirmed_at timestamp
+  processing_at timestamp
+  shipped_at timestamp
+  delivered_at timestamp
+  completed_at timestamp
+  cancelled_at timestamp
+  refunded_at timestamp
+  
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    user_id
+    status
+    order_code
+    created_at
+    auto_cancel_at
+  }
+  
+  Note: 'Đơn hàng chính (FR-10 ~ FR-17)'
+}
+
+Table order_items {
+  id serial [pk, increment]
+  order_id int [not null, ref: > orders.id]
+  product_id int [not null, ref: > products.id]
+  
+  // Snapshot
+  product_name varchar(300) [not null]
+  product_sku varchar(100)
+  product_image varchar(500)
+  warranty_months int [not null, default: 12]
+  
+  quantity int [not null]
+  unit_price decimal(15,2) [not null]
+  discount_price decimal(15,2) [not null, default: 0]
+  total_price decimal(15,2) [not null]
+  
+  indexes {
+    order_id
+    product_id
+  }
+  
+  Note: 'Chi tiết SP trong đơn - snapshot tại thời điểm đặt'
+}
+
+Table payments {
+  id serial [pk, increment]
+  order_id int [not null, ref: > orders.id]
+  
+  transaction_id varchar(200) [unique]
+  gateway varchar(30)
+  amount decimal(15,2) [not null]
+  currency varchar(10) [not null, default: 'VND']
+  status payment_status [not null, default: 'pending']
+  
+  gateway_response jsonb
+  
+  paid_at timestamp
+  refunded_at timestamp
+  refund_amount decimal(15,2)
+  
+  created_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    order_id
+    transaction_id
+    status
+  }
+  
+  Note: 'Lịch sử thanh toán (FR-10)'
+}
+
+Table shipping_methods {
+  id serial [pk, increment]
+  name varchar(100) [not null]
+  description varchar(300)
+  base_fee decimal(10,2) [not null, default: 0]
+  free_threshold decimal(15,2)
+  estimated_days varchar(50)
+  is_active boolean [not null, default: true]
+  
+  Note: 'Phương thức giao hàng: Nhanh, Tiêu chuẩn, Tiết kiệm'
+}
+
+Table order_shipping {
+  id serial [pk, increment]
+  order_id int [unique, not null, ref: > orders.id]
+  method_id int [ref: > shipping_methods.id]
+  pickup_store_id int [ref: > stores.id]
+  
+  tracking_code varchar(100)
+  carrier varchar(100)
+  shipping_fee decimal(10,2) [not null, default: 0]
+  
+  shipped_at timestamp
+  estimated_at timestamp
+  delivered_at timestamp
+  status varchar(50) [not null, default: 'pending']
+  notes text
+  
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    tracking_code
+  }
+  
+  Note: 'Chi tiết giao hàng (FR-10)'
+}
+
+Table installment_plans {
+  id serial [pk, increment]
+  name varchar(200) [not null]
+  provider varchar(100) [not null]
+  months int [not null]
+  interest_rate decimal(5,2) [not null, default: 0]
+  min_order decimal(15,2) [not null, default: 3000000]
+  is_active boolean [not null, default: true]
+  
+  Note: 'Gói trả góp (FR-11)'
+}
+
+Table order_installments {
+  id serial [pk, increment]
+  order_id int [not null, ref: > orders.id]
+  plan_id int [not null, ref: > installment_plans.id]
+  
+  monthly_amount decimal(15,2) [not null]
+  total_amount decimal(15,2) [not null]
+  application_id varchar(100)
+  
+  status varchar(20) [not null, default: 'pending']
+  approved_at timestamp
+  rejected_at timestamp
+  reject_reason text
+  
+  created_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    order_id
+  }
+  
+  Note: 'Trả góp đơn hàng (FR-11)'
+}
+
+Table return_requests {
+  id serial [pk, increment]
+  order_id int [not null, ref: > orders.id]
+  user_id int [not null, ref: > users.id]
+  
+  return_code varchar(30) [unique, not null]
+  status return_status [not null, default: 'pending']
+  
+  // Reason
+  reason_type varchar(50) [not null]
+  reason_detail text
+  
+  // Resolution
+  resolution varchar(30)
+  refund_amount decimal(15,2)
+  staff_note text
+  
+  reviewed_by int [ref: > users.id]
+  reviewed_at timestamp
+  completed_at timestamp
+  
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    order_id
+    user_id
+    return_code
+  }
+  
+  Note: 'Đổi/Trả hàng trong 15 ngày (FR-16)'
+}
+
+Table return_request_items {
+  id serial [pk, increment]
+  return_request_id int [not null, ref: > return_requests.id]
+  order_item_id int [not null, ref: > order_items.id]
+  quantity int [not null]
+  
+  Note: 'Sản phẩm trong yêu cầu đổi/trả'
+}
+
+Table return_media {
+  id serial [pk, increment]
+  return_request_id int [not null, ref: > return_requests.id]
+  media_url varchar(500) [not null]
+  media_type varchar(10) [not null, default: 'image']
+  sort_order int [not null, default: 0]
+  
+  Note: 'Ảnh/video chứng minh lỗi (tối đa 5 file - FR-16)'
+}
+
+Table invoice_requests {
+  id serial [pk, increment]
+  order_id int [unique, not null, ref: > orders.id]
+  user_id int [not null, ref: > users.id]
+  
+  invoice_type invoice_type [not null, default: 'personal']
+  
+  // Personal / Company Info
+  buyer_name varchar(200) [not null]
+  buyer_address varchar(400)
+  buyer_email varchar(200) [not null]
+  company_name varchar(200)
+  tax_code varchar(20)
+  
+  // PDF
+  pdf_url varchar(500)
+  issued_at timestamp
+  
+  created_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    order_id
+    user_id
+  }
+  
+  Note: 'Hóa đơn điện tử (FR-17)'
+}
+
+Table product_stock_by_store {
+  product_id int [not null, ref: > products.id]
+  store_id int [not null, ref: > stores.id]
+  stock_qty int [not null, default: 0]
+  updated_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    (product_id, store_id) [pk]
+    store_id
+  }
+  
+  Note: 'Tồn kho theo showroom (FR-30)'
+}
+
+// ============================================
+// MODULE 7: WARRANTY & SERVICE (3 tables)
+// ============================================
+
+Table warranties {
+  id serial [pk, increment]
+  order_item_id int [ref: > order_items.id]
+  product_id int [not null, ref: > products.id]
+  user_id int [ref: > users.id]
+  
+  serial_number varchar(200)
+  purchase_date date [not null]
+  warranty_months int [not null, default: 12]
+  warranty_expires_at date [not null]
+  status warranty_status [not null, default: 'active']
+  notes text
+  
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    user_id
+    serial_number
+    product_id
+    warranty_expires_at
+  }
+  
+  Note: 'Quản lý bảo hành sản phẩm (FR-18 ~ FR-20)'
+}
+
+Table service_requests {
+  id serial [pk, increment]
+  warranty_id int [ref: > warranties.id]
+  user_id int [ref: > users.id]
+  store_id int [ref: > stores.id]
+  
+  service_code varchar(30) [unique]
+  
+  // Product Info
+  product_name varchar(300) [not null]
+  serial_number varchar(200)
+  issue_desc text [not null]
+  
+  status service_status [not null, default: 'received']
+  diagnosis text
+  
+  // Cost
+  repair_cost decimal(15,2) [not null, default: 0]
+  customer_approved_repair boolean
+  approved_at timestamp
+  
+  // Appointment
+  appointment_date timestamp
+  
+  // Timeline
+  received_at timestamp [not null, default: `now()`]
+  completed_at timestamp
+  returned_at timestamp
+  
+  technician_id int [ref: > users.id]
+  
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    user_id
+    service_code
+    store_id
+  }
+  
+  Note: 'Yêu cầu sửa chữa/bảo hành - FR-20'
+}
+
+Table service_media {
+  id serial [pk, increment]
+  service_request_id int [not null, ref: > service_requests.id]
+  media_url varchar(500) [not null]
+  media_type varchar(10) [not null, default: 'image']
+  uploaded_by varchar(20) [not null, default: 'customer']
+  sort_order int [not null, default: 0]
+  
+  Note: 'Ảnh/video đính kèm phiếu sửa chữa (tối đa 5 file - FR-20)'
+}
+
+// ============================================
+// MODULE 8: REVIEWS (3 tables)
+// ============================================
+
+Table reviews {
+  id serial [pk, increment]
+  product_id int [not null, ref: > products.id]
+  user_id int [not null, ref: > users.id]
+  order_item_id int [ref: > order_items.id]
+  
+  rating smallint [not null]
+  title varchar(200)
+  content text
+  
+  is_verified boolean [not null, default: false]
+  is_approved boolean [not null, default: true]
+  helpful_count int [not null, default: 0]
+  
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    product_id
+    user_id
+    (product_id, is_approved)
+    (user_id, order_item_id) [unique]
+  }
+  
+  Note: 'Đánh giá sản phẩm (FR-21) - Rating 1-5 sao'
+}
+
+Table review_images {
+  id serial [pk, increment]
+  review_id int [not null, ref: > reviews.id]
+  image_url varchar(500) [not null]
+  sort_order int [not null, default: 0]
+  
+  Note: 'Ảnh trong review (tối đa 5 ảnh - FR-21)'
+}
+
+Table review_helpful {
+  user_id int [not null, ref: > users.id]
+  review_id int [not null, ref: > reviews.id]
+  created_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    (user_id, review_id) [pk]
+  }
+  
+  Note: 'Đánh dấu review hữu ích - FR-21'
+}
+
+// ============================================
+// MODULE 9: STORES & LOCATIONS (2 tables)
+// ============================================
+
+Table store_images {
+  id serial [pk, increment]
+  store_id int [not null, ref: > stores.id]
+  image_url varchar(500) [not null]
+  caption varchar(200)
+  sort_order int [not null, default: 0]
+  
+  Note: 'Gallery ảnh showroom - FR-29'
+}
+
+// ============================================
+// MODULE 10: BLOG & CONTENT (3 tables)
+// ============================================
+
+Table blog_categories {
+  id serial [pk, increment]
+  name varchar(150) [not null]
+  slug varchar(200) [unique, not null]
+  sort_order int [not null, default: 0]
+  
+  Note: 'Danh mục blog: Tin tức, Hướng dẫn, Review, Tips...'
+}
+
+Table blog_posts {
+  id serial [pk, increment]
+  category_id int [ref: > blog_categories.id]
+  author_id int [ref: > users.id]
+  
+  title varchar(300) [not null]
+  slug varchar(350) [unique, not null]
+  thumbnail varchar(500)
+  excerpt text
+  content text
+  
+  view_count int [not null, default: 0]
+  
+  is_published boolean [not null, default: false]
+  published_at timestamp
+  
+  // SEO
+  meta_title varchar(300)
+  meta_desc varchar(500)
+  
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    category_id
+    slug
+    (is_published, published_at)
+  }
+  
+  Note: 'Bài viết blog/tin tức (FR-27)'
+}
+
+Table blog_post_products {
+  post_id int [not null, ref: > blog_posts.id]
+  product_id int [not null, ref: > products.id]
+  
+  indexes {
+    (post_id, product_id) [pk]
+  }
+  
+  Note: 'Liên kết bài viết ↔ sản phẩm đề cập (FR-27)'
+}
+
+// ============================================
+// MODULE 11: BANNERS & MARKETING (1 table)
+// ============================================
+
+Table banners {
+  id serial [pk, increment]
+  title varchar(200)
+  image_url varchar(500) [not null]
+  link_url varchar(500)
+  
+  // Position
+  position varchar(50) [not null, default: 'home_slider']
+  sort_order int [not null, default: 0]
+  
+  // Schedule
+  start_date timestamp
+  end_date timestamp
+  is_active boolean [not null, default: true]
+  
+  created_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    (is_active, position)
+  }
+  
+  Note: 'Banner & Slider quảng cáo (FR-28)'
+}
+
+// ============================================
+// MODULE 12: USER INTERACTIONS (4 tables)
+// ============================================
+
+Table wishlists {
+  user_id int [not null, ref: > users.id]
+  product_id int [not null, ref: > products.id]
+  added_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    (user_id, product_id) [pk]
+    user_id
+  }
+  
+  Note: 'Danh sách yêu thích (FR-24)'
+}
+
+Table product_views {
+  id serial [pk, increment]
+  product_id int [not null, ref: > products.id]
+  user_id int [ref: > users.id]
+  session_id varchar(100)
+  viewed_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    (user_id, viewed_at)
+    product_id
+  }
+  
+  Note: 'Lịch sử xem sản phẩm - FR-25: tối đa 20 SP gần nhất'
+}
+
+Table search_history {
+  id serial [pk, increment]
+  user_id int [ref: > users.id]
+  session_id varchar(100)
+  keyword varchar(200) [not null]
+  result_count int [not null, default: 0]
+  searched_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    (user_id, searched_at)
+    (session_id, searched_at)
+  }
+  
+  Note: 'Lịch sử tìm kiếm - FR-05: lưu tối đa 10 từ khóa gần nhất'
+}
+
+Table notifications {
+  id serial [pk, increment]
+  user_id int [not null, ref: > users.id]
+  
+  type notification_type [not null]
+  title varchar(200) [not null]
+  content text
+  link_url varchar(500)
+  
+  // Reference
+  reference_type varchar(50)
+  reference_id int
+  
+  is_read boolean [not null, default: false]
+  created_at timestamp [not null, default: `now()`]
+  
+  indexes {
+    (user_id, is_read, created_at)
+  }
+  
+  Note: 'Thông báo real-time (FR-26)'
+}
+
+// ============================================
+// SUMMARY STATISTICS
+// ============================================
+// Total Tables: 50
+// Module 1 (Catalog & Products): 8 tables
+// Module 2 (Build PC): 4 tables
+// Module 3 (Users & Auth): 4 tables
+// Module 4 (Promotions & Vouchers): 6 tables
+// Module 5 (Cart & Shopping): 2 tables
+// Module 6 (Orders & Payments): 15 tables
+// Module 7 (Warranty & Service): 3 tables
+// Module 8 (Reviews): 3 tables
+// Module 9 (Stores & Locations): 2 tables (stores + store_images)
+// Module 10 (Blog & Content): 3 tables
+// Module 11 (Banners & Marketing): 1 table
+// Module 12 (User Interactions): 4 tables

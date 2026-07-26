@@ -1,0 +1,92 @@
+@startuml QuyTrinhDangKyTaiKhoan
+title Quy trình đăng ký tài khoản
+
+|#LightBlue|Người dùng|
+start
+:Truy cập trang đăng ký;
+:Chọn phương thức đăng ký;
+
+split
+  -> Đăng ký Email;
+  :Điền form đăng ký;
+  note right
+    - Họ tên, Email, SĐT
+    - Mật khẩu & xác nhận
+    - Đồng ý điều khoản
+  end note
+  
+  |#LightGreen|Hệ thống|
+  :Validate dữ liệu;
+  
+  if (Dữ liệu hợp lệ?) then (Không)
+    :Thông báo lỗi;
+    note right
+      - Email/SĐT đã tồn tại
+      - Mật khẩu không đủ mạnh
+      - Mật khẩu không khớp
+    end note
+    stop
+  endif
+  
+  :Hash mật khẩu và lưu user;
+  :Gửi email xác thực;
+  
+  |#LightBlue|Người dùng|
+  :Nhận email và click link;
+  
+  |#LightGreen|Hệ thống|
+  if (Token hợp lệ?) then (Có)
+    :Xác thực email thành công;
+  else (Không)
+    :Thông báo lỗi;
+    stop
+  endif
+  
+split again
+  -> Đăng ký Google;
+  :Click "Đăng ký với Google";
+  
+  |#LightYellow|Google OAuth|
+  :Đăng nhập Google;
+  :Cấp quyền;
+  :Trả về thông tin;
+  
+  |#LightGreen|Hệ thống|
+  if (Email đã tồn tại?) then (Có)
+    :Tự động đăng nhập;
+  else (Không)
+    :Tạo user mới;
+    :Đánh dấu đã xác thực;
+  endif
+  
+split again
+  -> Đăng ký Facebook;
+  :Click "Đăng ký với Facebook";
+  
+  |#LightYellow|Facebook OAuth|
+  :Đăng nhập Facebook;
+  :Cấp quyền;
+  :Trả về thông tin;
+  
+  |#LightGreen|Hệ thống|
+  if (Email đã tồn tại?) then (Có)
+    :Tự động đăng nhập;
+  else (Không)
+    :Tạo user mới;
+    :Đánh dấu đã xác thực;
+  endif
+  
+end split
+
+|#LightGreen|Hệ thống|
+:Gửi email chào mừng;
+:Tặng voucher;
+:Tạo JWT token;
+
+|#LightBlue|Người dùng|
+:Đăng nhập tự động;
+:Vào trang chủ;
+
+stop
+
+@enduml

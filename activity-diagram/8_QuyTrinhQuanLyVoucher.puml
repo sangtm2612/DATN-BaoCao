@@ -1,0 +1,112 @@
+@startuml QuyTrinhQuanLyVoucher
+title Quy trình quản lý Voucher
+
+|#Orange|Admin|
+start
+:Truy cập trang quản lý Voucher;
+
+split
+  -> Tạo voucher;
+  :Nhập thông tin voucher;
+  note right
+    - Mã voucher
+    - Loại giảm giá (% hoặc số tiền)
+    - Giá trị giảm
+    - Số lượng
+    - Thời gian áp dụng
+    - Điều kiện sử dụng
+  end note
+  
+  |#LightGreen|Hệ thống|
+  if (Dữ liệu hợp lệ?) then (Không)
+    :Thông báo lỗi;
+    stop
+  endif
+  
+  :Lưu voucher vào DB;
+  :Trạng thái "ACTIVE";
+  
+split again
+  -> Phân phối voucher;
+  :Chọn voucher;
+  :Chọn đối tượng nhận;
+  note right
+    - Tất cả khách hàng
+    - Khách hàng mới
+    - Khách VIP
+    - Chọn thủ công
+  end note
+  
+  |#LightGreen|Hệ thống|
+  :Lọc danh sách khách hàng;
+  :Gửi voucher cho khách;
+  :Gửi email/notification;
+  
+split again
+  -> Theo dõi voucher;
+  :Chọn voucher cần xem;
+  
+  |#LightGreen|Hệ thống|
+  :Hiển thị thống kê;
+  note right
+    - Đã phát hành
+    - Đã sử dụng
+    - Còn lại
+    - Tổng giảm giá
+  end note
+  
+split again
+  -> Quản lý trạng thái;
+  :Chọn voucher;
+  :Chọn hành động\n(Tạm dừng/Kích hoạt);
+  
+  |#LightGreen|Hệ thống|
+  :Cập nhật trạng thái;
+  :Thông báo thành công;
+  
+end split
+
+stop
+
+|#LightBlue|Khách hàng|
+start
+:Vào giỏ hàng;
+:Nhập mã voucher;
+
+|#LightGreen|Hệ thống|
+:Kiểm tra voucher;
+
+if (Voucher hợp lệ?) then (Không)
+  :Thông báo lỗi;
+  note right
+    - Không tồn tại
+    - Hết hạn
+    - Hết lượt
+    - Đã sử dụng
+    - Chưa đủ điều kiện
+  end note
+  stop
+endif
+
+:Tính giảm giá;
+
+if (Loại giảm giá?) then (%)
+  :Giảm theo phần trăm;
+else (Số tiền)
+  :Giảm số tiền cố định;
+endif
+
+:Áp dụng giảm giá;
+:Hiển thị tổng tiền mới;
+
+|#LightBlue|Khách hàng|
+:Xác nhận đặt hàng;
+
+|#LightGreen|Hệ thống|
+:Giảm số lượng voucher;
+:Lưu thông tin vào đơn hàng;
+:Đánh dấu đã sử dụng;
+
+stop
+
+@enduml

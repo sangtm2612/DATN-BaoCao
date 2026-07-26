@@ -1,0 +1,153 @@
+@startuml QuyTrinhDoiTraHang
+title Quy trình đổi/trả hàng trong 15 ngày
+
+skinparam activityBackgroundColor #LightYellow
+
+|#LightBlue|Khách hàng|
+start
+:Đăng nhập tài khoản;
+:Xem lịch sử đơn hàng;
+:Chọn đơn hàng cần đổi/trả;
+
+|#LightGreen|Hệ thống|
+if (Trong vòng 15 ngày?) then (Không)
+  :Thông báo quá hạn;
+  :Hướng dẫn liên hệ bảo hành;
+  stop
+else (Có)
+  :Hiển thị form yêu cầu;
+endif
+
+|#LightBlue|Khách hàng|
+:Chọn loại yêu cầu;
+
+switch (Loại?)
+case (Đổi hàng)
+  :Chọn sản phẩm muốn đổi;
+  :Chọn sản phẩm muốn nhận;
+case (Trả hàng - Hoàn tiền)
+  :Chọn sản phẩm muốn trả;
+endswitch
+
+:Chọn lý do đổi/trả;
+note right
+  Lý do:
+  - Sản phẩm lỗi
+  - Không đúng mô tả
+  - Sai sản phẩm
+  - Không hài lòng
+  - Lý do khác
+end note
+
+:Mô tả chi tiết;
+:Upload ảnh/video chứng minh;
+:Gửi yêu cầu;
+
+|#LightGreen|Hệ thống|
+:Lưu yêu cầu "Chờ xử lý";
+:Gửi email xác nhận;
+:Thông báo Admin/Staff;
+
+|#Orange|Admin/Staff|
+:Nhận thông báo;
+:Xem chi tiết yêu cầu;
+:Xem xét trong 24h;
+
+if (Yêu cầu hợp lệ?) then (Có)
+  :Phê duyệt yêu cầu;
+  :Cập nhật "Đã duyệt";
+  
+  |#LightGreen|Hệ thống|
+  :Gửi email hướng dẫn\ngửi hàng về kho;
+  note right
+    Email chứa:
+    - Địa chỉ kho
+    - Mã RMA
+    - Hướng dẫn đóng gói
+  end note
+  
+  |#LightBlue|Khách hàng|
+  :Đóng gói sản phẩm;
+  :Gửi hàng về kho;
+  
+  |#LightPink|Kho|
+  :Nhận hàng;
+  :Kiểm tra tình trạng;
+  
+  if (Sản phẩm còn nguyên?) then (Có)
+    |#Orange|Admin/Staff|
+    :Cập nhật "Đã nhận hàng";
+    
+    switch (Loại yêu cầu?)
+    case (Đổi hàng)
+      :Chuẩn bị sản phẩm mới;
+      :Đóng gói và giao hàng;
+      :Cập nhật "Đang giao hàng mới";
+      
+      |#LightGreen|Hệ thống|
+      :Trừ tồn sản phẩm mới;
+      :Cộng tồn sản phẩm cũ;
+      
+      |#LightBlue|Khách hàng|
+      :Nhận sản phẩm mới;
+      :Xác nhận hoàn tất;
+      
+    case (Trả hàng)
+      |#Orange|Admin/Staff|
+      :Tính số tiền hoàn lại;
+      :Xử lý hoàn tiền;
+      note right
+        Hoàn tiền qua:
+        - Chuyển khoản (nếu COD)
+        - Hoàn về tài khoản (VNPay)
+        - Hủy hợp đồng (Trả góp)
+      end note
+      :Cập nhật "Đã hoàn tiền";
+      
+      |#LightGreen|Hệ thống|
+      :Gửi email xác nhận;
+      :Cộng tồn kho;
+      :Cập nhật doanh thu;
+      
+      |#LightBlue|Khách hàng|
+      :Nhận tiền hoàn;
+      
+    endswitch
+    
+  else (Không - Hư hại)
+    |#Orange|Admin/Staff|
+    :Từ chối yêu cầu;
+    :Cập nhật "Từ chối - Hư hại";
+    
+    |#LightGreen|Hệ thống|
+    :Gửi email thông báo từ chối;
+    
+    |#Orange|Admin/Staff|
+    :Gửi sản phẩm lại cho khách;
+  endif
+  
+else (Không)
+  :Từ chối yêu cầu;
+  :Cập nhật "Từ chối";
+  note right
+    Lý do từ chối:
+    - Quá 15 ngày
+    - Lý do không hợp lệ
+    - Thiếu hình ảnh
+    - Sản phẩm đã qua sử dụng
+  end note
+  
+  |#LightGreen|Hệ thống|
+  :Gửi email thông báo\nkèm lý do;
+  
+  |#LightBlue|Khách hàng|
+  if (Muốn khiếu nại?) then (Có)
+    :Gửi khiếu nại;
+    |#Orange|Admin/Staff|
+    :Xem xét lại;
+  endif
+endif
+
+stop
+
+@enduml

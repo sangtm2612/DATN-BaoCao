@@ -1,0 +1,86 @@
+@startuml QuyTrinhDangNhap
+title Quy trình đăng nhập
+
+|#LightBlue|Khách hàng|
+start
+:Truy cập trang đăng nhập;
+:Chọn phương thức đăng nhập;
+
+split
+  :Đăng nhập bằng\nEmail & Password;
+  
+  |#LightGreen|Hệ thống|
+  :Nhận thông tin đăng nhập;
+  :Kiểm tra email trong DB;
+  
+  if (Email tồn tại?) then (Không)
+    :Thông báo lỗi;
+    stop
+  else (Có)
+    :Kiểm tra mật khẩu;
+    if (Password đúng?) then (Không)
+      :Tăng số lần đăng nhập sai;
+      if (Sai >= 5 lần?) then (Có)
+        :Khóa tài khoản 15 phút;
+        stop
+      else (Không)
+        :Thông báo sai mật khẩu;
+        stop
+      endif
+    else (Có)
+      :Tạo JWT Token;
+      :Ghi log đăng nhập;
+    endif
+  endif
+
+split again
+  :Đăng nhập bằng Google;
+  
+  |#LightYellow|Google OAuth|
+  :Xác thực Google;
+  :Trả về thông tin user;
+  
+  |#LightGreen|Hệ thống|
+  if (Email đã tồn tại?) then (Có)
+    :Lấy thông tin user;
+  else (Không)
+    :Tạo user mới;
+  endif
+  :Tạo JWT Token;
+
+split again
+  :Đăng nhập bằng Facebook;
+  
+  |#LightYellow|Facebook OAuth|
+  :Xác thực Facebook;
+  :Trả về thông tin user;
+  
+  |#LightGreen|Hệ thống|
+  if (Email đã tồn tại?) then (Có)
+    :Lấy thông tin user;
+  else (Không)
+    :Tạo user mới;
+  endif
+  :Tạo JWT Token;
+
+end split
+
+|#LightGreen|Hệ thống|
+:Trả về token và user info;
+
+|#LightBlue|Khách hàng|
+:Lưu token vào localStorage;
+:Lưu thông tin user;
+
+if (Role?) then (ADMIN/STAFF)
+  :Chuyển đến Admin Dashboard;
+else (CUSTOMER)
+  :Chuyển đến trang chủ;
+endif
+
+|#LightGreen|Hệ thống|
+:Gửi email thông báo\nđăng nhập mới;
+
+stop
+
+@enduml

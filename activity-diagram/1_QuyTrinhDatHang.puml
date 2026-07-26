@@ -1,0 +1,100 @@
+@startuml QuyTrinhDatHang
+title Quy trình đặt hàng của khách hàng
+
+skinparam activityDiamondBackgroundColor #LightGray
+skinparam activityBackgroundColor #LightYellow
+
+|#LightBlue|Khách hàng|
+start
+:Truy cập website;
+:Tìm kiếm và xem sản phẩm;
+:Thêm sản phẩm vào giỏ hàng;
+
+repeat
+  :Xem thêm sản phẩm;
+repeat while (Tiếp tục mua?) is (Có) not (Không)
+
+:Vào trang giỏ hàng;
+:Kiểm tra và cập nhật số lượng;
+
+if (Đã đăng nhập?) then (Không)
+  :Đăng nhập/Đăng ký;
+endif
+
+:Điền thông tin giao hàng;
+note right
+  - Họ tên người nhận
+  - Số điện thoại
+  - Địa chỉ giao hàng
+end note
+
+if (Có mã voucher?) then (Có)
+  :Nhập mã voucher;
+  |#LightGreen|Hệ thống|
+  if (Voucher hợp lệ?) then (Có)
+    :Áp dụng giảm giá;
+  else (Không)
+    :Thông báo lỗi;
+  endif
+endif
+
+|#LightGreen|Hệ thống|
+:Tự động áp dụng khuyến mãi;
+:Tính tổng tiền;
+
+|#LightBlue|Khách hàng|
+:Chọn phương thức thanh toán;
+
+switch (Phương thức?)
+case (COD)
+  |#LightGreen|Hệ thống|
+  :Tạo đơn hàng\n"Chờ xác nhận";
+  :Giảm tồn kho;
+  :Gửi email xác nhận;
+  
+case (VNPay)
+  |#LightGreen|Hệ thống|
+  :Chuyển đến VNPay Gateway;
+  
+  |#LightBlue|Khách hàng|
+  :Chọn ngân hàng;
+  :Nhập thông tin thẻ;
+  :Xác nhận thanh toán;
+  
+  |#Orange|VNPay|
+  if (Thanh toán thành công?) then (Có)
+    |#LightGreen|Hệ thống|
+    :Tạo đơn hàng "Đã thanh toán";
+    :Giảm tồn kho;
+    :Gửi email xác nhận;
+  else (Không)
+    :Hủy giao dịch;
+    :Thông báo lỗi;
+    stop
+  endif
+  
+case (Trả góp 0%)
+  |#LightGreen|Hệ thống|
+  if (Đơn hàng >= 3tr?) then (Có)
+    |#LightBlue|Khách hàng|
+    :Chọn đối tác tài chính;
+    :Chọn kỳ hạn (6/12/18/24 tháng);
+    :Điền thông tin và upload giấy tờ;
+    
+    |#LightGreen|Hệ thống|
+    :Tạo đơn "Chờ duyệt trả góp";
+    :Thông báo chờ liên hệ 24h;
+  else (Không)
+    :Thông báo không đủ điều kiện;
+    stop
+  endif
+  
+endswitch
+
+|#LightBlue|Khách hàng|
+:Nhận email xác nhận;
+:Theo dõi đơn hàng;
+
+stop
+
+@enduml

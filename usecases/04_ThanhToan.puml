@@ -1,0 +1,116 @@
+@startuml 04_ThanhToan
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+
+title Sơ đồ Use Case - Nhóm 4: Quản lý thanh toán
+
+left to right direction
+
+actor "Customer\n(Khách đã đăng nhập)" as customer
+actor "Admin/Staff\n(Quản trị)" as admin
+
+package "Hệ thống Thanh toán" {
+    
+    ' Payment Method Selection
+    package "Chọn phương thức thanh toán" {
+        usecase "Thanh toán khi\nnhận hàng (COD)" as UC401
+        usecase "Thanh toán\nchuyển khoản" as UC402
+        usecase "Thanh toán\nVNPay" as UC403
+        usecase "Thanh toán\nMoMo" as UC404
+        usecase "Thanh toán\nQR Code" as UC405
+    }
+    
+    ' Payment Processing
+    package "Xử lý thanh toán" {
+        usecase "Tạo yêu cầu\nthanh toán" as UC406
+        usecase "Xác thực\nthanh toán" as UC407
+        usecase "Xử lý callback\ntừ gateway" as UC408
+        usecase "Xác nhận\nthanh toán thành công" as UC409
+        usecase "Xử lý thanh toán\nthất bại" as UC410
+        usecase "Lưu thông tin\ngiao dịch" as UC411
+    }
+    
+    ' Payment Verification
+    package "Kiểm tra và xác minh" {
+        usecase "Kiểm tra chữ ký\nđiện tử" as UC412
+        usecase "Verify transaction\nstatus" as UC413
+        usecase "Kiểm tra số dư\ntài khoản" as UC414
+    }
+    
+    ' Refund Management
+    package "Quản lý hoàn tiền" {
+        usecase "Yêu cầu hoàn tiền" as UC415
+        usecase "Xử lý hoàn tiền" as UC416
+        usecase "Xác nhận\nhoàn tiền" as UC417
+        usecase "Theo dõi trạng thái\nhoàn tiền" as UC418
+    }
+    
+    ' Payment History
+    package "Lịch sử thanh toán" {
+        usecase "Xem lịch sử\ngiao dịch" as UC419
+        usecase "Xem chi tiết\ngiao dịch" as UC420
+        usecase "Xuất hóa đơn\nđiện tử" as UC421
+        usecase "Tải về\nhóa đơn PDF" as UC422
+    }
+    
+    ' Admin - Payment Management
+    package "Quản lý thanh toán - Admin" {
+        usecase "Xem danh sách\ngiao dịch" as UC423
+        usecase "Lọc giao dịch\ntheo trạng thái" as UC424
+        usecase "Đối soát\nthanh toán" as UC425
+        usecase "Xử lý giao dịch\nlỗi" as UC426
+        usecase "Thống kê\ndoanh thu" as UC427
+    }
+}
+
+' Customer - Payment Method
+customer --> UC401
+customer --> UC402
+customer --> UC403
+customer --> UC404
+customer --> UC405
+
+' Customer - Payment History
+customer --> UC419
+customer --> UC421
+
+' Customer - Refund
+customer --> UC415
+customer --> UC418
+
+' Admin relationships
+admin --> UC423
+admin --> UC416
+admin --> UC425
+admin --> UC426
+admin --> UC427
+
+' Payment Processing Flow
+UC403 ..> UC406 : <<include>>
+UC404 ..> UC406 : <<include>>
+
+UC406 ..> UC407 : <<include>>
+UC407 ..> UC408 : <<include>>
+UC408 ..> UC409 : <<extend>>
+UC408 ..> UC410 : <<extend>>
+UC409 ..> UC411 : <<include>>
+
+' Verification
+UC407 ..> UC412 : <<include>>
+UC407 ..> UC413 : <<include>>
+UC403 ..> UC414 : <<include>>
+UC404 ..> UC414 : <<include>>
+
+' Refund Flow
+UC415 ..> UC416 : <<include>>
+UC416 ..> UC417 : <<include>>
+
+' History
+UC419 ..> UC420 : <<include>>
+UC421 ..> UC422 : <<include>>
+
+' Admin features
+UC423 ..> UC424 : <<extend>>
+
+
+@enduml

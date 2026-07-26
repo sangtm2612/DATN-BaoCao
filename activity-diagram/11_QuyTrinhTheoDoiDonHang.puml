@@ -1,0 +1,202 @@
+@startuml QuyTrinhTheoDoiDonHang
+title Quy trình theo dõi đơn hàng
+
+|#LightBlue|Khách hàng|
+start
+:Muốn kiểm tra đơn hàng;
+
+:Chọn cách tra cứu;
+
+split
+  -> Tra cứu khi đã đăng nhập;
+  
+  :Đăng nhập vào tài khoản;
+  :Vào "Đơn hàng của tôi";
+  
+  |#LightGreen|Hệ thống|
+  :Lấy danh sách đơn hàng\ncủa user_id;
+  :Hiển thị danh sách;
+  note right
+    - Mã đơn hàng
+    - Ngày đặt
+    - Tổng tiền
+    - Trạng thái
+  end note
+  
+split again
+  -> Tra cứu không cần đăng nhập;
+  
+  :Vào trang "Tra cứu đơn hàng";
+  :Nhập mã đơn hàng\nvà số điện thoại;
+  
+  |#LightGreen|Hệ thống|
+  :Tìm đơn hàng;
+  
+  if (Tìm thấy?) then (Không)
+    :Thông báo không tìm thấy;
+    stop
+  endif
+  
+  if (SĐT khớp?) then (Không)
+    :Thông báo thông tin sai;
+    stop
+  endif
+  
+  :Hiển thị chi tiết đơn;
+  
+end split
+
+partition "Xem chi tiết đơn hàng" {
+  |#LightBlue|Khách hàng|
+  :Click vào đơn hàng;
+  
+  |#LightGreen|Hệ thống|
+  :Hiển thị thông tin đầy đủ;
+  
+  fork
+    :Thông tin đơn hàng;
+    note right
+      - Mã đơn hàng
+      - Ngày đặt
+      - Trạng thái thanh toán
+      - Trạng thái vận chuyển
+      - Phương thức thanh toán
+    end note
+    
+  fork again
+    :Thông tin người nhận;
+    note right
+      - Tên người nhận
+      - Số điện thoại
+      - Địa chỉ giao hàng
+    end note
+    
+  fork again
+    :Danh sách sản phẩm;
+    note right
+      - Hình ảnh
+      - Tên sản phẩm
+      - Số lượng
+      - Đơn giá
+      - Thành tiền
+    end note
+    
+  fork again
+    :Tổng thanh toán;
+    note right
+      - Tạm tính
+      - Phí vận chuyển
+      - Giảm giá
+      - Tổng cộng
+    end note
+    
+  end fork
+  
+  :Hiển thị timeline trạng thái;
+  note right
+    Timeline với các mốc:
+    ☑ Chờ xác nhận
+    ☑ Đã xác nhận
+    ☑ Đang chuẩn bị hàng
+    ⏳ Đang vận chuyển
+    ☐ Đã giao hàng
+    ☐ Hoàn thành
+  end note
+}
+
+partition "Theo dõi vận chuyển" {
+  if (Có mã vận đơn?) then (Có)
+    |#LightBlue|Khách hàng|
+    :Click "Theo dõi vận chuyển";
+    
+    |#LightGreen|Hệ thống|
+    :Gọi API đơn vị vận chuyển;
+    
+    |#Pink|GHN/GHTK|
+    :Trả về thông tin vận chuyển;
+    
+    |#LightGreen|Hệ thống|
+    :Hiển thị lịch trình vận chuyển;
+    note right
+      - Đã lấy hàng
+      - Đang trên đường
+      - Đã đến bưu cục
+      - Đang giao hàng
+      - Giao thành công
+    end note
+  endif
+}
+
+partition "Các hành động với đơn hàng" {
+  |#LightBlue|Khách hàng|
+  :Chọn hành động;
+  
+  switch (Hành động?)
+  case (Hủy đơn hàng)
+    if (Trạng thái cho phép hủy?) then (Có)
+      :Chọn lý do hủy;
+      :Xác nhận hủy;
+      
+      |#LightGreen|Hệ thống|
+      :Cập nhật trạng thái "CANCELLED";
+      :Hoàn trả tồn kho;
+      
+      if (Đã thanh toán?) then (Có)
+        :Tạo yêu cầu hoàn tiền;
+        :Gửi thông báo cho Admin;
+      endif
+      
+      :Gửi email xác nhận hủy;
+    else (Không)
+      :Thông báo không thể hủy;
+      :Liên hệ CSKH;
+    endif
+    
+  case (Liên hệ người bán)
+    :Mở form chat/gửi tin;
+    :Nhập nội dung;
+    :Gửi tin nhắn;
+    
+    |#LightGreen|Hệ thống|
+    :Tạo ticket support;
+    :Thông báo cho Admin/Staff;
+    
+  case (Yêu cầu đổi trả)
+    if (Đơn đã giao >= 7 ngày?) then (Có)
+      :Thông báo hết hạn đổi trả;
+      stop
+    endif
+    
+    :Chọn sản phẩm cần đổi/trả;
+    :Chọn lý do;
+    :Upload hình ảnh/video;
+    :Gửi yêu cầu;
+    
+    |#LightGreen|Hệ thống|
+    :Tạo yêu cầu đổi trả;
+    :Thông báo cho Admin;
+    
+  case (Mua lại)
+    |#LightGreen|Hệ thống|
+    :Copy sản phẩm vào giỏ hàng;
+    :Chuyển đến giỏ hàng;
+    
+  case (Đánh giá)
+    if (Đơn đã hoàn thành?) then (Không)
+      :Thông báo chưa thể đánh giá;
+      stop
+    endif
+    
+    if (Đã đánh giá?) then (Có)
+      :Cho phép sửa đánh giá;
+    else (Chưa)
+      :Chuyển đến trang đánh giá;
+    endif
+    
+  endswitch
+}
+
+|#LightBlue|Khách hàng|
+stop
+
+@enduml
