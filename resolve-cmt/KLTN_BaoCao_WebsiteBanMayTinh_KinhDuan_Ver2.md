@@ -338,6 +338,132 @@ Hệ thống được xây dựng để phục vụ cho hoạt động bán máy
 
 - Banner & Notification
 
+**B. Các chức năng chưa triển khai:**
+
+Do giới hạn về thời gian (14 tuần) và nguồn lực (3 thành viên), một số tính năng nâng cao chưa được triển khai:
+
+**1. Chức năng tương tác nâng cao:**
+
+- **Livestream bán hàng:** Chưa tích hợp WebRTC hoặc streaming service (Agora, Twilio) để bán hàng trực tiếp.
+
+- **AI Chatbot 24/7:** Chưa tích hợp chatbot tự động (Dialogflow, Rasa) để tư vấn sản phẩm.
+
+- **Hệ thống điểm thưởng (Loyalty Program):** Chưa có tích điểm, đổi quà, hạng thành viên.
+
+- **So sánh sản phẩm chi tiết:** Chưa có tính năng so sánh spec 2-3 sản phẩm cùng lúc.
+
+- **Recommendation AI:** Đề xuất sản phẩm dựa trên Machine Learning (chỉ có "Sản phẩm liên quan" thủ công).
+
+**2. Tích hợp thanh toán và vận chuyển:**
+
+- **Ví điện tử khác:** Chỉ có VNPay, chưa có MoMo, ZaloPay, PayPal, Stripe.
+
+- **SMS OTP:** Chưa tích hợp Twilio hoặc Esms.vn để xác thực OTP qua SMS.
+
+- **Tracking vận chuyển real-time:** Chưa tích hợp API của GHN, GHTK, J&T Express để theo dõi đơn hàng.
+
+- **In tem vận đơn tự động:** Chưa có tính năng xuất tem giao hàng từ hệ thống.
+
+**3. Quản lý nâng cao:**
+
+- **CRM chuyên nghiệp:** Chưa tích hợp CRM system (Salesforce, HubSpot) để quản lý khách hàng.
+
+- **ERP integration:** Chưa kết nối với hệ thống ERP để đồng bộ tồn kho, kế toán.
+
+- **Marketing Automation:** Chưa có email marketing tự động (Mailchimp, SendGrid).
+
+- **Affiliate/Referral Program:** Chưa có chương trình giới thiệu bạn bè nhận hoa hồng.
+
+- **Multi-tenant (Đa chi nhánh độc lập):** Mỗi showroom chưa có hệ thống quản lý riêng.
+
+**4. Đa ngôn ngữ và đa tiền tệ:**
+
+- Hệ thống chỉ hỗ trợ Tiếng Việt, chưa có i18n (internationalization) cho Tiếng Anh, Tiếng Trung.
+
+- Chỉ hỗ trợ VND, chưa có đa tiền tệ (USD, EUR) với tỷ giá tự động.
+
+**C. Giới hạn về kỹ thuật:**
+
+**1. Kiến trúc hệ thống:**
+
+- **Kiến trúc Monolithic (Layered):** Hệ thống sử dụng kiến trúc phân lớp truyền thống, chưa áp dụng Microservices. Điều này giới hạn khả năng mở rộng độc lập từng module.
+
+- **Single Database:** Chỉ có 1 database PostgreSQL, chưa có database sharding hoặc read replicas cho high availability.
+
+- **No CDN:** Static files (ảnh, JS, CSS) phục vụ từ server gốc, chưa dùng CDN (CloudFront, Cloudflare) để tăng tốc.
+
+- **File storage local:** Hình ảnh lưu trên server, chưa dùng Cloud Storage (AWS S3, Google Cloud Storage, Cloudinary).
+
+**2. Performance và Scalability:**
+
+- **No Caching Layer:** Chưa có Redis hoặc Memcached để cache dữ liệu thường xuyên truy cập (danh mục, sản phẩm hot).
+
+- **No Message Queue:** Chưa có RabbitMQ/Kafka để xử lý tác vụ nặng bất đồng bộ (gửi email, xử lý ảnh).
+
+- **No Load Balancer:** Chưa có cơ chế phân tải (Nginx Load Balancer, AWS ELB) khi traffic tăng cao.
+
+- **Database indexing cơ bản:** Chỉ có index cơ bản, chưa tối ưu sâu cho query phức tạp.
+
+**3. Real-time và Notification:**
+
+- **No WebSocket:** Thông báo chưa có real-time, chỉ polling định kỳ hoặc refresh trang.
+
+- **No Push Notification:** Chưa tích hợp Firebase Cloud Messaging (FCM) để gửi thông báo đến thiết bị.
+
+- **No PWA (Progressive Web App):** Chưa hỗ trợ cài đặt web app như native app, offline mode.
+
+**4. Mobile Application:**
+
+- **Chỉ có Responsive Web:** Giao diện responsive trên mobile browser, chưa có native app (iOS/Android) hoặc React Native/Flutter app.
+
+- **No Deep Linking:** Chưa hỗ trợ mở link sản phẩm trực tiếp trong app.
+
+**5. Security nâng cao:**
+
+- **Bảo mật cơ bản:** Chỉ có JWT authentication, HTTPS, password hashing. Chưa có:
+  - **2FA/MFA (Two-Factor Authentication):** Chưa có xác thực 2 lớp (OTP, Google Authenticator).
+  - **Rate Limiting:** Chưa có giới hạn số request/IP để chống DDoS, brute-force.
+  - **WAF (Web Application Firewall):** Chưa có tường lửa ứng dụng web (AWS WAF, Cloudflare).
+  - **Penetration Testing:** Chưa có kiểm thử xâm nhập chuyên nghiệp.
+
+**6. Monitoring và DevOps:**
+
+- **Logging cơ bản:** Chỉ có console log và file log, chưa có ELK Stack (Elasticsearch, Logstash, Kibana) để phân tích log tập trung.
+
+- **No APM (Application Performance Monitoring):** Chưa có New Relic, Datadog để giám sát hiệu năng real-time.
+
+- **No Alerting System:** Chưa có hệ thống cảnh báo tự động (Grafana, Prometheus) khi server gặp sự cố.
+
+- **CI/CD thủ công:** Deploy bằng tay, chưa có pipeline tự động (Jenkins, GitLab CI, GitHub Actions).
+
+- **No Containerization:** Chưa dùng Docker, Kubernetes để quản lý container và orchestration.
+
+**7. Testing:**
+
+- **Test coverage thấp:** Chỉ có unit test cơ bản, chưa có:
+  - Integration test toàn diện
+  - End-to-end (E2E) test tự động (Selenium, Cypress)
+  - Load testing với JMeter/Gatling cho traffic cao
+  - Security testing tự động (OWASP ZAP)
+
+**8. Data và Analytics:**
+
+- **No Data Warehouse:** Chưa có kho dữ liệu (BigQuery, Redshift) để phân tích dữ liệu lớn.
+
+- **No Business Intelligence:** Chưa tích hợp BI tools (Tableau, Power BI) để báo cáo nâng cao.
+
+- **No User Behavior Analytics:** Chưa có Google Analytics 4, Mixpanel để phân tích hành vi người dùng.
+
+**Lý do các giới hạn trên:**
+
+- **Thời gian:** Dự án chỉ có 14 tuần, ưu tiên hoàn thành các chức năng cốt lõi.
+
+- **Nguồn lực:** Nhóm 3 sinh viên, chưa có kinh nghiệm thực chiến với các công nghệ nâng cao.
+
+- **Chi phí:** Các dịch vụ cloud, công cụ trả phí chưa có ngân sách.
+
+- **Phạm vi đề tài:** Tập trung vào chức năng nghiệp vụ, chưa đi sâu vào infrastructure và DevOps.
+
 ## 1.5. Phân công thực hiện
 
 **Bảng 1.1: Bảng phân công công việc chi tiết**
@@ -403,7 +529,7 @@ Hệ thống được xây dựng để phục vụ cho hoạt động bán máy
 
   26                                                API: Register, Login, Logout, Profile                                        Trang             Tuần 5           AuthController
 
-  27                                                API: OAuth2 (Google, Facebook)                                               Trang             Tuần 6           OAuth2Config
+  27                                                API: OAuth2 (Google)                                                         Trang             Tuần 6           OAuth2Config
 
   28          Module Product                        Entity: Product, Category, Brand                                             Dũng              Tuần 5           Model classes
 
@@ -767,7 +893,7 @@ Cả 2 đều xác nhận đây là **yêu cầu bắt buộc** với chuỗi c�
 **Bảng 1.6: Phân tích công việc hàng ngày**
 
   --------------------------------------------------------------------------------------
-  Hoạt động               FPT Shop (Bùi Văn S)         Hanoicomputer (Lê Văn M)
+  Hoạt động               FPT Shop (Bùi Văn Sơn)       Hanoicomputer (Trần Đức Sơn)
   ----------------------- ---------------------------- ---------------------------------
   Xử lý đơn hàng          20-30 đơn/ngày               15-20 đơn/ngày
 
@@ -999,13 +1125,13 @@ Cả 2 đồng ý với 8 trạng thái cơ bản:
 
   Quản lý tồn kho đa showroom     Quản lý Store, inventory theo Store              Store, Product         Đã triển khai
 
-  Dashboard real-time             Admin Dashboard với biểu đồ                      Dashboard/Statistics   Đã triển khai
+  Dashboard real-time             Admin Dashboard với biểu đồ                      Dashboard/Statistics   Tính năng mở rộng
 
   Cảnh báo hết hàng               Notification tự động khi quantity \< threshold   Notification           Đã triển khai
 
   Email tự động                   Email xác nhận đơn hàng, trạng thái              Email Service          Đã triển khai
 
-  Thông báo push đơn mới          Real-time notification                           Notification           Đã triển khai
+  Thông báo push đơn mới          Real-time notification                           Notification           Tính năng mở rộng
 
   Tra cứu nhanh đơn hàng          Tìm kiếm theo mã/SĐT/tên                         Order Search           Đã triển khai
 
@@ -1019,7 +1145,7 @@ Cả 2 đồng ý với 8 trạng thái cơ bản:
 
   Giao diện responsive mobile     ReactJS responsive design                        Frontend               Đã triển khai
 
-  Log thay đổi dữ liệu            Audit log                                        Security               Đã triển khai
+  Log thay đổi dữ liệu            Audit log                                        Security               Tính năng mở rộng
   ---------------------------------------------------------------------------------------------------------------------------
 
 **D. Kết luận và định hướng phát triển:**
@@ -1506,7 +1632,7 @@ Hệ thống website bán máy tính trực tuyến bao gồm các quy trình ng
 
 - Thời gian tải trang không quá 3 giây
 
-- Hệ thống xử lý được tối thiểu 1000 người dùng đồng thời
+- Hệ thống xử lý được tối thiểu 100 người dùng đồng thời (đo được bằng JMeter)
 
 - Thời gian phản hồi API dưới 500ms
 
@@ -1520,11 +1646,11 @@ Hệ thống website bán máy tính trực tuyến bao gồm các quy trình ng
 
 - Xác thực token JWT cho API
 
-- Lưu trữ thông tin thanh toán theo chuẩn PCI DSS
+- Tuân thủ các nguyên tắc bảo mật cơ bản cho thanh toán online
 
 **NFR3 - Khả năng mở rộng:**
 
-- Kiến trúc microservices cho phép mở rộng dễ dàng
+- Kiến trúc Layered (phân lớp) cho phép mở rộng từng tầng độc lập
 
 - Sử dụng load balancer khi cần thiết
 
@@ -1532,11 +1658,11 @@ Hệ thống website bán máy tính trực tuyến bao gồm các quy trình ng
 
 **NFR4 - Tính khả dụng:**
 
-- Hệ thống hoạt động 24/7 với uptime tối thiểu 99%
+- Hệ thống hoạt động 24/7 với mục tiêu uptime cao
 
 - Có cơ chế backup dữ liệu hàng ngày
 
-- Có kế hoạch disaster recovery
+- Có khả năng phục hồi dữ liệu khi cần thiết
 
 **NFR5 - Tương thích:**
 
@@ -1867,6 +1993,8 @@ Hệ thống được chia thành các nhóm chức năng chính sau:
 - Dashboard tổng quan
 
 ### 2.1.2. Sơ đồ Use Case
+
+### 2.1.3. Đặc tả Use Case chi tiết
 
 #### 2.1.3.1. Xác định các tác nhân (Actors)
 
@@ -2260,248 +2388,114 @@ Hệ thống có 4 tác nhân chính:
 | **Yêu cầu đặc biệt**              | \- Hiển thị realtime số đơn hàng mới- Phân quyền: chỉ Admin và Staff được truy cập    |
 +-----------------------------------+---------------------------------------------------------------------------------------+
 
-**USE CASE UC14: Xử lý đơn hàng (Staff)**
-
-+-----------------------------------+--------------------------------------------------------------------+
-| Thuộc tính                        | Mô tả                                                              |
-+===================================+====================================================================+
-| **Mã UC**                         | UC14                                                               |
-+-----------------------------------+--------------------------------------------------------------------+
-| **Tên UC**                        | Xử lý đơn hàng                                                     |
-+-----------------------------------+--------------------------------------------------------------------+
-| **Tác nhân**                      | Admin/Staff                                                        |
-+-----------------------------------+--------------------------------------------------------------------+
-| **Mô tả**                         | Staff xử lý đơn hàng từ khi nhận được đến khi giao hàng thành công |
-+-----------------------------------+--------------------------------------------------------------------+
-| **Tiền điều kiện**                | \- Staff đã đăng nhập                                              |
-|                                   |                                                                    |
-|                                   | \- Có đơn hàng mới cần xử lý                                       |
-+-----------------------------------+--------------------------------------------------------------------+
-| **Hậu điều kiện**                 | \- Đơn hàng được xác nhận                                          |
-|                                   |                                                                    |
-|                                   | \- Tồn kho được cập nhật                                           |
-|                                   |                                                                    |
-|                                   | \- Email xác nhận được gửi                                         |
-+-----------------------------------+--------------------------------------------------------------------+
-| **Luồng sự kiện chính**           | **1.** Hệ thống thông báo đơn hàng mới cho Staff                   |
-|                                   |                                                                    |
-|                                   | **2.** Staff vào trang quản lý đơn hàng                            |
-|                                   |                                                                    |
-|                                   | **3.** Staff xem chi tiết đơn hàng                                 |
-|                                   |                                                                    |
-|                                   | **4.** Staff kiểm tra thông tin khách hàng và tồn kho              |
-|                                   |                                                                    |
-|                                   | **5.** Staff xác nhận đơn hàng                                     |
-|                                   |                                                                    |
-|                                   | **6.** Hệ thống gửi email xác nhận cho khách hàng                  |
-|                                   |                                                                    |
-|                                   | **7.** Staff chuẩn bị sản phẩm và đóng gói                         |
-|                                   |                                                                    |
-|                                   | **8.** Staff cập nhật trạng thái \"Đang chuẩn bị hàng\"            |
-|                                   |                                                                    |
-|                                   | **9.** Staff chuyển hàng cho đơn vị vận chuyển                     |
-|                                   |                                                                    |
-|                                   | **10.** Staff cập nhật trạng thái \"Đang giao hàng\"               |
-|                                   |                                                                    |
-|                                   | **11.** Đơn vị vận chuyển giao hàng thành công                     |
-|                                   |                                                                    |
-|                                   | **12.** Staff cập nhật trạng thái \"Hoàn tất\"                     |
-|                                   |                                                                    |
-|                                   | **13.** Hệ thống cập nhật tồn kho                                  |
-+-----------------------------------+--------------------------------------------------------------------+
-| **Luồng sự kiện phụ**             | **4a.** Sản phẩm hết hàng:                                         |
-|                                   |                                                                    |
-|                                   | \- Staff liên hệ khách hàng đề xuất sản phẩm thay thế              |
-|                                   |                                                                    |
-|                                   | \- Nếu khách không đồng ý, hủy đơn và hoàn tiền                    |
-|                                   |                                                                    |
-|                                   | **11a.** Giao hàng thất bại:                                       |
-|                                   |                                                                    |
-|                                   | \- Đơn vị vận chuyển liên hệ Staff                                 |
-|                                   |                                                                    |
-|                                   | \- Staff liên hệ khách hàng xác nhận lại địa chỉ                   |
-|                                   |                                                                    |
-|                                   | \- Sắp xếp giao hàng lại                                           |
-|                                   |                                                                    |
-|                                   | **5a.** Phát hiện đơn hàng nghi ngờ gian lận:                      |
-|                                   |                                                                    |
-|                                   | \- Staff báo cáo Admin                                             |
-|                                   |                                                                    |
-|                                   | \- Admin xem xét và quyết định hủy hoặc tiếp tục                   |
-+-----------------------------------+--------------------------------------------------------------------+
-| **Yêu cầu đặc biệt**              | \- Thời gian xử lý đơn hàng \< 24h                                 |
-|                                   |                                                                    |
-|                                   | \- Thông báo realtime cho Staff khi có đơn mới                     |
-+-----------------------------------+--------------------------------------------------------------------+
-
-**USE CASE UC27: Đổi/trả hàng**
-
-+-----------------------------------+-----------------------------------------------------------------------------+
-| Thuộc tính                        | Mô tả                                                                       |
-+===================================+=============================================================================+
-| **Mã UC**                         | UC27                                                                        |
-+-----------------------------------+-----------------------------------------------------------------------------+
-| **Tên UC**                        | Đổi/trả hàng trong 15 ngày                                                  |
-+-----------------------------------+-----------------------------------------------------------------------------+
-| **Tác nhân**                      | Customer, Admin/Staff                                                       |
-+-----------------------------------+-----------------------------------------------------------------------------+
-| **Mô tả**                         | Khách hàng yêu cầu đổi/trả hàng trong vòng 15 ngày kể từ ngày nhận hàng     |
-+-----------------------------------+-----------------------------------------------------------------------------+
-| **Tiền điều kiện**                | \- Khách hàng đã đăng nhập                                                  |
-|                                   |                                                                             |
-|                                   | \- Đơn hàng đã giao thành công                                              |
-|                                   |                                                                             |
-|                                   | \- Trong thời hạn 15 ngày từ ngày nhận hàng                                 |
-+-----------------------------------+-----------------------------------------------------------------------------+
-| **Hậu điều kiện**                 | \- Yêu cầu đổi/trả được tạo                                                 |
-|                                   |                                                                             |
-|                                   | \- Staff được thông báo                                                     |
-|                                   |                                                                             |
-|                                   | \- Đơn hàng mới được tạo (nếu đổi hàng) hoặc hoàn tiền (nếu trả hàng)       |
-+-----------------------------------+-----------------------------------------------------------------------------+
-| **Luồng sự kiện chính**           | **1.** Khách hàng vào trang \"Đơn hàng của tôi\"                            |
-|                                   |                                                                             |
-|                                   | **2.** Khách hàng chọn đơn hàng cần đổi/trả                                 |
-|                                   |                                                                             |
-|                                   | **3.** Khách hàng nhấn \"Đổi/Trả hàng\"                                     |
-|                                   |                                                                             |
-|                                   | **4.** Hệ thống kiểm tra thời hạn 15 ngày                                   |
-|                                   |                                                                             |
-|                                   | **5.** Khách hàng chọn sản phẩm cần đổi/trả                                 |
-|                                   |                                                                             |
-|                                   | **6.** Khách hàng chọn lý do: Lỗi sản phẩm / Không đúng mô tả / Không vừa ý |
-|                                   |                                                                             |
-|                                   | **7.** Khách hàng upload ảnh/video chứng minh                               |
-|                                   |                                                                             |
-|                                   | **8.** Khách hàng chọn: Đổi hàng / Trả hàng (hoàn tiền)                     |
-|                                   |                                                                             |
-|                                   | **9.** Khách hàng gửi yêu cầu                                               |
-|                                   |                                                                             |
-|                                   | **10.** Hệ thống lưu yêu cầu và gửi thông báo cho Staff                     |
-|                                   |                                                                             |
-|                                   | **11.** Staff xem xét yêu cầu trong vòng 24h                                |
-|                                   |                                                                             |
-|                                   | **12.** Staff phê duyệt yêu cầu                                             |
-|                                   |                                                                             |
-|                                   | **13.** Hệ thống gửi email hướng dẫn khách gửi hàng về kho                  |
-|                                   |                                                                             |
-|                                   | **14.** Khách hàng gửi hàng về kho                                          |
-|                                   |                                                                             |
-|                                   | **15.** Staff kiểm tra hàng trả về                                          |
-|                                   |                                                                             |
-|                                   | **16.** Staff xử lý: Gửi hàng mới (đổi) hoặc hoàn tiền (trả)                |
-|                                   |                                                                             |
-|                                   | **17.** Hệ thống cập nhật tồn kho và trạng thái yêu cầu \"Hoàn tất\"        |
-+-----------------------------------+-----------------------------------------------------------------------------+
-| **Luồng sự kiện phụ**             | **4a.** Quá thời hạn 15 ngày:                                               |
-|                                   |                                                                             |
-|                                   | \- Hệ thống thông báo \"Quá thời hạn đổi/trả\"                              |
-|                                   |                                                                             |
-|                                   | \- Kết thúc                                                                 |
-|                                   |                                                                             |
-|                                   | **11a.** Staff từ chối yêu cầu:                                             |
-|                                   |                                                                             |
-|                                   | \- Staff nhập lý do từ chối                                                 |
-|                                   |                                                                             |
-|                                   | \- Hệ thống gửi email thông báo khách hàng                                  |
-|                                   |                                                                             |
-|                                   | \- Yêu cầu bị đóng                                                          |
-|                                   |                                                                             |
-|                                   | **15a.** Hàng trả về không đủ điều kiện:                                    |
-|                                   |                                                                             |
-|                                   | \- Staff báo cáo Admin                                                      |
-|                                   |                                                                             |
-|                                   | \- Admin liên hệ khách hàng                                                 |
-|                                   |                                                                             |
-|                                   | \- Từ chối đổi/trả hoặc thương lượng giải pháp                              |
-+-----------------------------------+-----------------------------------------------------------------------------+
-| **Yêu cầu đặc biệt**              | \- Kiểm tra thời hạn tự động                                                |
-|                                   |                                                                             |
-|                                   | \- Upload hình ảnh/video tối đa 10 file, mỗi file \< 5MB                    |
-|                                   |                                                                             |
-|                                   | \- Staff phải phản hồi trong 24h                                            |
-+-----------------------------------+-----------------------------------------------------------------------------+
-
-**USE CASE UC02: Quản lý sản phẩm (Admin)**
+**USE CASE UC14: Theo dõi đơn hàng**
 
 +-----------------------------------+------------------------------------------------------------------------------------------------------------+
 | Thuộc tính                        | Mô tả                                                                                                      |
 +===================================+============================================================================================================+
-| **Mã UC**                         | UC02                                                                                                       |
+| **Mã UC**                         | UC14                                                                                                       |
 +-----------------------------------+------------------------------------------------------------------------------------------------------------+
-| **Tên UC**                        | Quản lý sản phẩm                                                                                           |
+| **Tên UC**                        | Theo dõi đơn hàng                                                                                          |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| **Tác nhân**                      | Customer                                                                                                   |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| **Mô tả**                         | Khách hàng xem trạng thái và lịch sử đơn hàng của mình                                                    |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| **Tiền điều kiện**                | \- Customer đã đăng nhập                                                                                   |
+|                                   |                                                                                                            |
+|                                   | \- Có đơn hàng trong hệ thống                                                                              |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| **Hậu điều kiện**                 | \- Hiển thị thông tin đơn hàng chi tiết                                                                    |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| **Luồng sự kiện chính**           | **1.** Customer vào \"Đơn hàng của tôi\"                                                                   |
+|                                   |                                                                                                            |
+|                                   | **2.** Hệ thống hiển thị danh sách đơn hàng                                                                |
+|                                   |                                                                                                            |
+|                                   | **3.** Customer chọn 1 đơn hàng                                                                            |
+|                                   |                                                                                                            |
+|                                   | **4.** Hệ thống hiển thị chi tiết:                                                                         |
+|                                   |                                                                                                            |
+|                                   | \- Mã đơn, ngày đặt                                                                                        |
+|                                   |                                                                                                            |
+|                                   | \- Sản phẩm, số lượng, giá                                                                                 |
+|                                   |                                                                                                            |
+|                                   | \- Trạng thái: Pending/Confirmed/Shipping/Delivered                                                        |
+|                                   |                                                                                                            |
+|                                   | \- Thông tin giao hàng                                                                                     |
+|                                   |                                                                                                            |
+|                                   | \- Lịch sử cập nhật                                                                                        |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| **Luồng sự kiện phụ**             | **2a.** Lọc đơn hàng:                                                                                      |
+|                                   |                                                                                                            |
+|                                   | \- Theo trạng thái (Pending/Confirmed/Shipping/Delivered)                                                  |
+|                                   |                                                                                                            |
+|                                   | \- Theo khoảng thời gian                                                                                   |
+|                                   |                                                                                                            |
+|                                   | **4a.** Hủy đơn (nếu trạng thái Pending):                                                                  |
+|                                   |                                                                                                            |
+|                                   | \- Chọn \"Hủy đơn\"                                                                                        |
+|                                   |                                                                                                            |
+|                                   | \- Nhập lý do hủy                                                                                          |
+|                                   |                                                                                                            |
+|                                   | \- Xác nhận hủy                                                                                            |
+|                                   |                                                                                                            |
+|                                   | \- Hệ thống cập nhật trạng thái: Cancelled                                                                 |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+
+**USE CASE UC27: Xem báo cáo thống kê**
+
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| Thuộc tính                        | Mô tả                                                                                                      |
++===================================+============================================================================================================+
+| **Mã UC**                         | UC27                                                                                                       |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| **Tên UC**                        | Xem báo cáo thống kê                                                                                       |
 +-----------------------------------+------------------------------------------------------------------------------------------------------------+
 | **Tác nhân**                      | Admin                                                                                                      |
 +-----------------------------------+------------------------------------------------------------------------------------------------------------+
-| **Mô tả**                         | Admin thêm mới, cập nhật, xóa sản phẩm và quản lý tồn kho                                                  |
+| **Mô tả**                         | Admin xem dashboard và các báo cáo thống kê hệ thống                                                      |
 +-----------------------------------+------------------------------------------------------------------------------------------------------------+
 | **Tiền điều kiện**                | \- Admin đã đăng nhập                                                                                      |
-|                                   |                                                                                                            |
-|                                   | \- Có dữ liệu danh mục và thương hiệu                                                                      |
 +-----------------------------------+------------------------------------------------------------------------------------------------------------+
-| **Hậu điều kiện**                 | \- Sản phẩm được thêm/cập nhật/xóa                                                                         |
-|                                   |                                                                                                            |
-|                                   | \- Tồn kho được cập nhật                                                                                   |
+| **Hậu điều kiện**                 | \- Hiển thị báo cáo và biểu đồ thống kê                                                                    |
 +-----------------------------------+------------------------------------------------------------------------------------------------------------+
-| **Luồng sự kiện chính**           | **1.** Admin vào trang quản lý sản phẩm                                                                    |
+| **Luồng sự kiện chính**           | **1.** Admin vào \"Dashboard\"                                                                             |
 |                                   |                                                                                                            |
-|                                   | **2.** Hệ thống hiển thị danh sách sản phẩm                                                                |
+|                                   | **2.** Hệ thống hiển thị:                                                                                  |
 |                                   |                                                                                                            |
-|                                   | **3.** Admin chọn \"Thêm sản phẩm mới\"                                                                    |
+|                                   | \- Tổng doanh thu (hôm nay, tuần này, tháng này)                                                           |
 |                                   |                                                                                                            |
-|                                   | **4.** Hệ thống hiển thị form nhập thông tin                                                               |
+|                                   | \- Tổng số đơn hàng                                                                                        |
 |                                   |                                                                                                            |
-|                                   | **5.** Admin nhập: Tên, Mô tả, Danh mục, Thương hiệu, Giá                                                  |
+|                                   | \- Số khách hàng mới                                                                                       |
 |                                   |                                                                                                            |
-|                                   | **6.** Admin upload hình ảnh sản phẩm                                                                      |
+|                                   | \- Biểu đồ doanh thu theo thời gian                                                                        |
 |                                   |                                                                                                            |
-|                                   | **7.** Admin nhập thông số kỹ thuật (ProductAttribute)                                                     |
+|                                   | \- Top 10 sản phẩm bán chạy                                                                                |
 |                                   |                                                                                                            |
-|                                   | **8.** Admin nhập số lượng tồn kho theo showroom                                                           |
+|                                   | \- Cảnh báo tồn kho thấp                                                                                   |
 |                                   |                                                                                                            |
-|                                   | **9.** Admin chọn trạng thái: Còn hàng / Hết hàng / Ngừng kinh doanh                                       |
+|                                   | **3.** Admin chọn khoảng thời gian tùy chỉnh                                                               |
 |                                   |                                                                                                            |
-|                                   | **10.** Admin nhấn \"Lưu\"                                                                                 |
-|                                   |                                                                                                            |
-|                                   | **11.** Hệ thống validate dữ liệu                                                                          |
-|                                   |                                                                                                            |
-|                                   | **12.** Hệ thống lưu sản phẩm vào DB                                                                       |
-|                                   |                                                                                                            |
-|                                   | **13.** Hiển thị thông báo thành công                                                                      |
+|                                   | **4.** Hệ thống cập nhật báo cáo theo thời gian đã chọn                                                    |
 +-----------------------------------+------------------------------------------------------------------------------------------------------------+
-| **Luồng sự kiện phụ**             | **2a.** Cập nhật giá hàng loạt:                                                                            |
+| **Luồng sự kiện phụ**             | **2a.** Xuất báo cáo:                                                                                      |
 |                                   |                                                                                                            |
-|                                   | \- Admin chọn nhiều sản phẩm                                                                               |
+|                                   | \- Admin chọn \"Xuất báo cáo\"                                                                             |
 |                                   |                                                                                                            |
-|                                   | \- Admin chọn \"Cập nhật giá hàng loạt\"                                                                   |
+|                                   | \- Chọn định dạng: Excel hoặc PDF                                                                          |
 |                                   |                                                                                                            |
-|                                   | \- Admin nhập phần trăm tăng/giảm                                                                          |
+|                                   | \- Hệ thống tạo file báo cáo                                                                               |
 |                                   |                                                                                                            |
-|                                   | \- Hệ thống cập nhật giá cho tất cả sản phẩm đã chọn                                                       |
+|                                   | \- Tải xuống file                                                                                          |
 |                                   |                                                                                                            |
-|                                   | **2b.** Quản lý tồn kho:                                                                                   |
+|                                   | **3a.** Xem báo cáo chi tiết:                                                                              |
 |                                   |                                                                                                            |
-|                                   | \- Admin chọn \"Quản lý tồn kho\"                                                                          |
+|                                   | \- Admin chọn loại báo cáo (Sản phẩm/Khách hàng/Doanh thu)                                                 |
 |                                   |                                                                                                            |
-|                                   | \- Hệ thống hiển thị tồn kho theo showroom- Admin có thể: Nhập hàng / Xuất hàng / Chuyển kho giữa showroom |
+|                                   | \- Áp dụng các bộ lọc                                                                                      |
 |                                   |                                                                                                            |
-|                                   | **11a.** Dữ liệu không hợp lệ:                                                                             |
-|                                   |                                                                                                            |
-|                                   | \- Hệ thống hiển thị lỗi cụ thể                                                                            |
-|                                   |                                                                                                            |
-|                                   | \- Yêu cầu Admin sửa lại                                                                                   |
-|                                   |                                                                                                            |
-|                                   | **8a.** Tồn kho dưới ngưỡng cảnh báo:                                                                      |
-|                                   |                                                                                                            |
-|                                   | \- Hệ thống tự động gửi thông báo \"Sắp hết hàng\"                                                         |
-|                                   |                                                                                                            |
-|                                   | \- Hiển thị cảnh báo trên dashboard                                                                        |
-+-----------------------------------+------------------------------------------------------------------------------------------------------------+
-| **Yêu cầu đặc biệt**              | \- Upload tối đa 10 ảnh/sản phẩm                                                                           |
-|                                   |                                                                                                            |
-|                                   | \- Cảnh báo tự động khi tồn kho \< 10                                                                      |
-|                                   |                                                                                                            |
-|                                   | \- Hỗ trợ import/export Excel để quản lý hàng loạt                                                         |
+|                                   | \- Hệ thống hiển thị bảng dữ liệu chi tiết                                                                 |
 +-----------------------------------+------------------------------------------------------------------------------------------------------------+
 
 **USE CASE UC24: Quản lý khuyến mãi (Admin)**
@@ -2590,7 +2584,7 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
 
 1.  Người dùng truy cập trang đăng nhập
 
-2.  Chọn phương thức: Email/Password, Google OAuth2, hoặc Facebook OAuth2
+2.  Chọn phương thức: Email/Password hoặc Google OAuth2
 
 3.  Hệ thống xác thực thông tin đăng nhập
 
@@ -3268,7 +3262,7 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
 
 2.  **Liên hệ người bán:** Mở form chat, tạo ticket support
 
-3.  **Yêu cầu đổi trả:** Trong 7 ngày sau khi nhận hàng, chọn sản phẩm, lý do, upload ảnh
+3.  **Yêu cầu đổi trả:** Trong 15 ngày sau khi nhận hàng, chọn sản phẩm, lý do, upload ảnh
 
 4.  **Mua lại:** Copy sản phẩm vào giỏ hàng
 
@@ -3322,21 +3316,7 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
 
 6.  Tạo JWT token
 
-**C. Đăng ký bằng Facebook OAuth:**
-
-1.  Click \"Đăng ký với Facebook\"
-
-2.  Redirect đến Facebook, đăng nhập và đồng ý cấp quyền
-
-3.  Facebook trả về thông tin user
-
-4.  Nếu email FB đã tồn tại: Tự động đăng nhập
-
-5.  Nếu chưa: Tạo user mới với provider = \"FACEBOOK\" và email_verified = true
-
-6.  Tạo JWT token
-
-**D. Sau đăng ký:**
+**C. Sau đăng ký:**
 
 1.  Gửi email chào mừng
 
@@ -3348,7 +3328,7 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
 
 **Tính năng đặc biệt:**
 
-1.  Hỗ trợ 3 phương thức đăng ký: Email, Google OAuth, Facebook OAuth
+1.  Hỗ trợ 2 phương thức đăng ký: Email và Google OAuth
 
 2.  Validate đầy đủ: Email, SĐT, mật khẩu (tối thiểu 8 ký tự, có chữ hoa, thường, số)
 
@@ -3478,33 +3458,33 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
 
 **C. Tiếp nhận sản phẩm:** 
 
-16. Nhân viên kiểm tra phiếu bảo hành và tình trạng sản phẩm 
+11. Nhân viên kiểm tra phiếu bảo hành và tình trạng sản phẩm 
 
-17. Kiểm tra tem bảo hành còn nguyên vẹn, không phải lỗi do người dùng 
+12. Kiểm tra tem bảo hành còn nguyên vẹn, không phải lỗi do người dùng 
 
-18. Xác nhận tiếp nhận, ghi chú tình trạng chi tiết, chụp ảnh 
+13. Xác nhận tiếp nhận, ghi chú tình trạng chi tiết, chụp ảnh 
 
-19. Cập nhật trạng thái \"RECEIVED\", gửi thông báo cho khách và kỹ thuật viên
+14. Cập nhật trạng thái \"RECEIVED\", gửi thông báo cho khách và kỹ thuật viên
 
 **D. Kiểm tra và sửa chữa:** 
 
-20. Kỹ thuật viên nhận thông báo, lấy sản phẩm và kiểm tra chi tiết 
+15. Kỹ thuật viên nhận thông báo, lấy sản phẩm và kiểm tra chi tiết 
 
-21. Chẩn đoán lỗi và quyết định: - **Sửa được:** Thực hiện sửa chữa, thay linh kiện (nếu cần), cập nhật \"REPAIRED\" - **Không sửa được trong bảo hành:** Đổi sản phẩm mới, cập nhật \"REPLACED\" - **Không sửa được ngoài bảo hành:** Báo giá sửa chữa, chờ khách xác nhận 
+16. Chẩn đoán lỗi và quyết định: - **Sửa được:** Thực hiện sửa chữa, thay linh kiện (nếu cần), cập nhật \"REPAIRED\" - **Không sửa được trong bảo hành:** Đổi sản phẩm mới, cập nhật \"REPLACED\" - **Không sửa được ngoài bảo hành:** Báo giá sửa chữa, chờ khách xác nhận 
 
-22. Làm sạch sản phẩm, đóng gói lại, cập nhật \"READY_FOR_RETURN\" 
+17. Làm sạch sản phẩm, đóng gói lại, cập nhật \"READY_FOR_RETURN\" 
 
-23. Gửi thông báo cho khách \"Sản phẩm đã sửa xong\"
+18. Gửi thông báo cho khách \"Sản phẩm đã sửa xong\"
 
 **E. Nhận sản phẩm:** 
 
-25. Khách hàng chọn cách nhận: Đến showroom hoặc Giao tận nơi 
+19. Khách hàng chọn cách nhận: Đến showroom hoặc Giao tận nơi 
 
-26. Nhân viên/Shipper bàn giao sản phẩm, yêu cầu ký nhận 
+20. Nhân viên/Shipper bàn giao sản phẩm, yêu cầu ký nhận 
 
-27. Khách hàng kiểm tra sản phẩm và xác nhận hoàn thành 
+21. Khách hàng kiểm tra sản phẩm và xác nhận hoàn thành 
 
-28. Hệ thống cập nhật \"COMPLETED\", cập nhật lịch sử bảo hành, gửi email cảm ơn
+22. Hệ thống cập nhật \"COMPLETED\", cập nhật lịch sử bảo hành, gửi email cảm ơn
 
 **Tính năng đặc biệt:**
 
@@ -3622,7 +3602,7 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
 
 #### ![A computer screen shot of a computer AI-generated content may be incorrect.](bao-cao/images/media/image31.png){width="10.847902449693787in" height="6.424528652668417in"}3.1.1.1. ERD Tổng thể 
 
-**Mô tả:** Sơ đồ ERD đầy đủ tích hợp tất cả 50 bảng và các mối quan hệ giữa chúng.
+**Mô tả:** Sơ đồ ERD đầy đủ tích hợp tất cả 52 bảng và các mối quan hệ giữa chúng.
 
 **Thống kê theo module:**
 
@@ -3639,7 +3619,7 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
 
   5                 Cart & Shopping          2                 Giỏ hàng cho user và guest
 
-  6                 Orders & Payments        15                Đơn hàng, thanh toán, giao hàng, trả góp, đổi trả
+  6                 Orders & Payments        14                Đơn hàng, thanh toán, giao hàng, trả góp, đổi trả
 
   7                 Warranty & Service       3                 Bảo hành, sửa chữa
 
@@ -3653,7 +3633,7 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
 
   12                User Interactions        4                 Wishlist, lịch sử xem, thông báo
 
-                    **TỔNG CỘNG**            **50**            
+                    **TỔNG CỘNG**            **52**            
   ----------------------------------------------------------------------------------------------------------------
 
 #### 3.1.1.2. Chi tiết các module và ERD tương ứng
@@ -3755,31 +3735,29 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
   -------------------------------------------------------------------------------------------------
   STT               Tên bảng                 Tên Việt             Mục đích
   ----------------- ------------------------ -------------------- ---------------------------------
-  25                stores                   Cửa hàng             21 showroom toàn quốc
+  25                orders                   Đơn hàng             Đơn hàng chính
 
-  26                orders                   Đơn hàng             Đơn hàng chính
+  26                order_items              Chi tiết đơn hàng    Snapshot SP tại thời điểm mua
 
-  27                order_items              Chi tiết đơn hàng    Snapshot SP tại thời điểm mua
+  27                payments                 Thanh toán           Lịch sử thanh toán
 
-  28                payments                 Thanh toán           Lịch sử thanh toán
+  28                shipping_methods         Phương thức ship     Giao hàng nhanh, tiêu chuẩn\...
 
-  29                shipping_methods         Phương thức ship     Giao hàng nhanh, tiêu chuẩn\...
+  29                order_shipping           Chi tiết giao hàng   Tracking, carrier
 
-  30                order_shipping           Chi tiết giao hàng   Tracking, carrier
+  30                installment_plans        Gói trả góp          HomeCredit, FE Credit, HSBC
 
-  31                installment_plans        Gói trả góp          HomeCredit, FE Credit, HSBC
+  31                order_installments       Trả góp đơn hàng     Thông tin trả góp cụ thể
 
-  32                order_installments       Trả góp đơn hàng     Thông tin trả góp cụ thể
+  32                return_requests          Yêu cầu đổi/trả      Đổi/trả trong 15 ngày
 
-  33                return_requests          Yêu cầu đổi/trả      Đổi/trả trong 15 ngày
+  33                return_request_items     SP đổi/trả           Sản phẩm trong yêu cầu
 
-  34                return_request_items     SP đổi/trả           Sản phẩm trong yêu cầu
+  34                return_media             Ảnh/video lỗi        Chứng minh lỗi (tối đa 5 file)
 
-  35                return_media             Ảnh/video lỗi        Chứng minh lỗi (tối đa 5 file)
+  35                invoice_requests         Hóa đơn điện tử      Xuất hóa đơn VAT
 
-  36                invoice_requests         Hóa đơn điện tử      Xuất hóa đơn VAT
-
-  37                product_stock_by_store   Tồn kho/showroom     Quản lý tồn kho từng chi nhánh
+  36                product_stock_by_store   Tồn kho/showroom     Quản lý tồn kho từng chi nhánh
   -------------------------------------------------------------------------------------------------
 
 ##### MODULE 7: Warranty & Service (3 bảng)
@@ -3789,11 +3767,11 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
   -----------------------------------------------------------------------------------
   STT               Tên bảng           Tên Việt             Mục đích
   ----------------- ------------------ -------------------- -------------------------
-  38                warranties         Bảo hành             Quản lý bảo hành SP
+  37                warranties         Bảo hành             Quản lý bảo hành SP
 
-  39                service_requests   Yêu cầu sửa chữa     Phiếu sửa chữa/bảo hành
+  38                service_requests   Yêu cầu sửa chữa     Phiếu sửa chữa/bảo hành
 
-  40                service_media      Ảnh/video sửa chữa   Media đính kèm
+  39                service_media      Ảnh/video sửa chữa   Media đính kèm
   -----------------------------------------------------------------------------------
 
 ##### MODULE 8: Reviews (3 bảng)
@@ -3803,11 +3781,11 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
   ---------------------------------------------------------------------------------
   STT               Tên bảng          Tên Việt           Mục đích
   ----------------- ----------------- ------------------ --------------------------
-  41                reviews           Đánh giá SP        Rating 1-5 sao, nội dung
+  40                reviews           Đánh giá SP        Rating 1-5 sao, nội dung
 
-  42                review_images     Ảnh đánh giá       Tối đa 5 ảnh/review
+  41                review_images     Ảnh đánh giá       Tối đa 5 ảnh/review
 
-  43                review_helpful    Đánh dấu hữu ích   User vote \"hữu ích\"
+  42                review_helpful    Đánh dấu hữu ích   User vote \"hữu ích\"
   ---------------------------------------------------------------------------------
 
 ##### MODULE 9: Stores & Locations (2 bảng)
@@ -3821,9 +3799,9 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
   -----------------------------------------------------------------------------
   STT               Tên bảng          Tên Việt          Mục đích
   ----------------- ----------------- ----------------- -----------------------
-  44                stores            Cửa hàng          21 showroom toàn quốc
+  43                stores            Cửa hàng          21 showroom toàn quốc
 
-  45                store_images      Ảnh showroom      Gallery ảnh cửa hàng
+  44                store_images      Ảnh showroom      Gallery ảnh cửa hàng
   -----------------------------------------------------------------------------
 
 ##### MODULE 10: Blog & Content (3 bảng)
@@ -3833,11 +3811,11 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
   -----------------------------------------------------------------------------------------
   STT               Tên bảng             Tên Việt          Mục đích
   ----------------- -------------------- ----------------- --------------------------------
-  46                blog_categories      Danh mục blog     Tin tức, Hướng dẫn, Review\...
+  45                blog_categories      Danh mục blog     Tin tức, Hướng dẫn, Review\...
 
-  47                blog_posts           Bài viết          Blog/tin tức
+  46                blog_posts           Bài viết          Blog/tin tức
 
-  48                blog_post_products   Blog ↔ SP         Liên kết SP đề cập trong bài
+  47                blog_post_products   Blog ↔ SP         Liên kết SP đề cập trong bài
   -----------------------------------------------------------------------------------------
 
 ##### MODULE 11: Banners & Marketing (1 bảng)
@@ -3849,7 +3827,7 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
   --------------------------------------------------------------------------
   STT               Tên bảng          Tên Việt          Mục đích
   ----------------- ----------------- ----------------- --------------------
-  49                banners           Banner/Slider     Quảng cáo homepage
+  48                banners           Banner/Slider     Quảng cáo homepage
 
   --------------------------------------------------------------------------
 
@@ -3860,13 +3838,13 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
   --------------------------------------------------------------------------------
   STT               Tên bảng          Tên Việt           Mục đích
   ----------------- ----------------- ------------------ -------------------------
-  50                wishlists         Yêu thích          Lưu SP yêu thích
+  49                wishlists         Yêu thích          Lưu SP yêu thích
 
-  51                product_views     Lịch sử xem        Tối đa 20 SP gần nhất
+  50                product_views     Lịch sử xem        Tối đa 20 SP gần nhất
 
-  52                search_history    Lịch sử tìm kiếm   10 từ khóa gần nhất
+  51                search_history    Lịch sử tìm kiếm   10 từ khóa gần nhất
 
-  53                notifications     Thông báo          Real-time notifications
+  52                notifications     Thông báo          Real-time notifications
   --------------------------------------------------------------------------------
 
 #### 3.1.2.4. Chi tiết schema các bảng
@@ -4037,7 +4015,7 @@ confirmed_at TIMESTAMP, \-- Thời gian xác nhận (SLA: 2h)\
 processing_at TIMESTAMP, \-- Bắt đầu đóng gói (SLA: 4h)\
 shipped_at TIMESTAMP, \-- Giao cho vận chuyển\
 delivered_at TIMESTAMP, \-- Giao thành công\
-completed_at TIMESTAMP, \-- Hoàn tất (7 ngày sau delivered)\
+completed_at TIMESTAMP, \-- Hoàn tất (15 ngày sau delivered)\
 cancelled_at TIMESTAMP, \-- Thời gian hủy\
 refunded_at TIMESTAMP, \-- Thời gian hoàn tiền\
 \
@@ -5055,45 +5033,11 @@ Sau quá trình nghiên cứu, phân tích và triển khai, nhóm đã hoàn th
 
 - Hiểu rõ quy trình phát triển phần mềm từ A-Z
 
-## Hạn chế và hướng phát triển
+## Hạn chế của đề tài
 
-**Hạn chế:**
+Phần này liệt kê chi tiết các hạn chế kỹ thuật và nghiệp vụ của phiên bản hiện tại, giúp xác định rõ phạm vi đã triển khai và các tính năng cần phát triển trong tương lai.
 
-1.  **Về chức năng:**
-
-    - Chưa có chức năng livestream bán hàng
-
-    - Chưa tích hợp AI Chatbot tự động
-
-    - Chưa có hệ thống điểm thưởng, tích lũy
-
-    - Chưa hỗ trợ đa ngôn ngữ
-
-2.  **Về kỹ thuật:**
-
-    - Chưa áp dụng microservices
-
-    - Chưa có mobile app (chỉ có web responsive)
-
-    - Chưa tích hợp nhiều payment gateway (chỉ có VNPay)
-
-    - Chưa có hệ thống notification real-time
-
-    - Hình ảnh lưu trữ local server (chưa dùng Cloud Storage)
-
-3.  **Về nghiệp vụ:**
-
-    - Chưa tích hợp với hệ thống kho vận tự động (chỉ quản lý tồn kho thủ công)
-
-    - Chưa có chương trình affiliate marketing
-
-    - Chưa có hệ thống điểm thưởng/tích lũy nâng cao
-
-## Giới hạn kỹ thuật chi tiết
-
-Phần này liệt kê chi tiết các giới hạn kỹ thuật và nghiệp vụ của phiên bản hiện tại, giúp xác định rõ phạm vi đã triển khai và các tính năng cần phát triển trong tương lai.
-
-### 1. Giới hạn về chức năng:
+### 1. Giới hạn về chức năng
 
 **1.1. Chức năng chưa triển khai:**
 
@@ -5121,7 +5065,7 @@ Phần này liệt kê chi tiết các giới hạn kỹ thuật và nghiệp v�
 
 - **Recommendation System:** Chưa có AI gợi ý sản phẩm cá nhân hóa dựa trên lịch sử
 
-### 2. Giới hạn về kỹ thuật:
+### 2. Giới hạn về kỹ thuật
 
 **2.1. Kiến trúc và hạ tầng:**
 
@@ -5173,7 +5117,7 @@ Phần này liệt kê chi tiết các giới hạn kỹ thuật và nghiệp v�
 
 - **No APM:** Chưa có Application Performance Monitoring (New Relic, Datadog)
 
-### 3. Giới hạn về nghiệp vụ:
+### 3. Giới hạn về nghiệp vụ
 
 **3.1. Phạm vi hoạt động:**
 
@@ -5207,7 +5151,7 @@ Phần này liệt kê chi tiết các giới hạn kỹ thuật và nghiệp v�
 
 - **Manual Reports:** Báo cáo còn thủ công, chưa có tự động hóa và scheduled reports
 
-### 4. Giới hạn về dữ liệu và AI:
+### 4. Giới hạn về dữ liệu và AI
 
 **4.1. Machine Learning:**
 
@@ -5363,11 +5307,11 @@ Phần này liệt kê chi tiết các giới hạn kỹ thuật và nghiệp v�
 
     - Mở rộng thị trường quốc tế
 
-3.  **Microservices architecture:**
+3.  **Tối ưu hóa kiến trúc:**
 
-    - Tách hệ thống thành các microservices độc lập
+    - Tối ưu hóa kiến trúc Layered hiện tại
 
-    - Dễ dàng scale từng service
+    - Cải thiện performance và scalability
 
     - Tăng khả năng chịu lỗi
 
@@ -5403,19 +5347,9 @@ Phần này liệt kê chi tiết các giới hạn kỹ thuật và nghiệp v�
 
     - Business Intelligence Dashboard
 
-7.  **Blockchain integration:**
-
-    - Cryptocurrency payment
-
-    - NFT voucher/membership
-
-    - Transparent supply chain tracking
-
-    - Smart contract cho bảo hành
-
 ## Đánh giá chung
 
-Đề tài \"Website Bán Máy Tính Trực Tuyến Kinh Duan\" đã đạt được các mục tiêu đề ra ban đầu. Hệ thống được xây dựng hoàn chỉnh, đáp ứng đầy đủ các yêu cầu chức năng và phi chức năng, có thể triển khai thực tế cho cửa hàng máy tính.
+Đề tài \"Website Bán Máy Tính Trực Tuyến Kinh Duan\" đã đạt được các mục tiêu đề ra ban đầu. Hệ thống được xây dựng hoàn chỉnh, đã hoàn thành các yêu cầu chính về chức năng và phi chức năng, có thể triển khai thực tế cho cửa hàng máy tính.
 
 Qua quá trình thực hiện đề tài, nhóm đã học hỏi được nhiều kiến thức và kinh nghiệm quý báu về phát triển phần mềm, từ phân tích, thiết kế đến triển khai và testing. Đây là nền tảng vững chắc cho sự nghiệp công nghệ thông tin trong tương lai.
 
@@ -5423,11 +5357,19 @@ Nhóm xin chân thành cảm ơn thầy/cô giáo hướng dẫn và khoa Công 
 
 # TÀI LIỆU THAM KHẢO
 
-- Website bán máy tính trực tuyến Hà Nội Computer <https://hacom.vn/>
+- Website bán máy tính trực tuyến Hà Nội Computer <https://hanoicomputer.vn/>
 
 - Website bán máy tính trực tuyến FPT Shop <https://fptshop.com.vn/>
 
 - VNPay Documentation, <https://sandbox.vnpayment.vn/apis/>
+
+- Spring Framework Documentation, <https://spring.io/projects/spring-boot>
+
+- React Official Documentation, <https://react.dev/>
+
+- PostgreSQL Documentation, <https://www.postgresql.org/docs/>
+
+- JWT (JSON Web Tokens) Documentation, <https://jwt.io/introduction>
 
 **HẾT**
 
