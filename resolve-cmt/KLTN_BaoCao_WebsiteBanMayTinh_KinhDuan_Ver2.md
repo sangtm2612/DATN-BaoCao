@@ -26,8 +26,6 @@
 
 **Hà Nội - 2026**
 
-HÀ NỘI, 2010
-
 ﻿**TRƯỜNG ĐẠI HỌC MỞ HÀ NỘI**
 
 # LỜI CẢM ƠN
@@ -1266,8 +1264,6 @@ Khảo sát nhằm thu thập ý kiến, nhu cầu và mong muốn của ngườ
 
 - Chuyên gia IT, lập trình viên
 
-- Chủ doanh nghiệp nhỏ
-
 ### 1.7.2. Phương pháp khảo sát
 
 - **Hình thức:** Khảo sát trực tuyến qua Google Forms
@@ -1288,13 +1284,13 @@ Khảo sát nhằm thu thập ý kiến, nhu cầu và mong muốn của ngườ
 
 1.  Độ tuổi của bạn?
 
-2.  Nghề nghiệp hiện tại?
+2.  Bạn đã từng mua máy tính trực tuyến chưa?
 
-3.  Bạn đã từng mua máy tính trực tuyến chưa?
+3.  Giới tính của bạn?
 
-4.  Khoảng ngân sách bạn dự định cho việc mua máy tính?
+4.  Khu vực sinh sống?
 
-5.  Bạn ưu tiên mua máy tính ở đâu?
+5.  Ngân sách dự kiến khi mua máy tính?
 
 **Phần 2: Khảo sát về nhu cầu mua sắm** 
 
@@ -1306,7 +1302,7 @@ Khảo sát nhằm thu thập ý kiến, nhu cầu và mong muốn của ngườ
 
 9.  Phương thức thanh toán bạn ưu tiên? 
 
-10. Yếu tố nào khiến bạn tin tưởng mua hàng trực tuyến?
+10. Kênh bạn thường mua máy tính?
 
 **Phần 3: Khảo sát về trải nghiệm website** 
 
@@ -1316,7 +1312,7 @@ Khảo sát nhằm thu thập ý kiến, nhu cầu và mong muốn của ngườ
 
 13. Bạn có thích chức năng so sánh sản phẩm không? 
 
-14. Bạn có muốn được tư vấn trực tuyến không? 
+14. Mức độ hài lòng với dịch vụ chăm sóc khách hàng khi mua online?
 
 15. Thời gian giao hàng mong muốn?
 
@@ -1634,7 +1630,7 @@ Hệ thống website bán máy tính trực tuyến bao gồm các quy trình ng
 
 - **FR4:** Xem chi tiết sản phẩm (hình ảnh, cấu hình, mô tả, đánh giá)
 
-- **FR5:** So sánh nhiều sản phẩm cùng lúc
+- **FR5:** So sánh nhiều sản phẩm cùng lúc *(yêu cầu phân tích ban đầu — ngoài phạm vi triển khai thực tế, xem mục 1.4.3.B)*
 
 - **FR6:** Thêm sản phẩm vào giỏ hàng
 
@@ -1808,7 +1804,7 @@ Hệ thống có 3 nhóm đối tượng sử dụng chính:
 
 **Mô tả:** Đây là tính năng đặc trưng và nổi bật nhất, cho phép khách hàng tự chọn từng linh kiện để lắp ráp máy tính theo nhu cầu.
 
-**Các linh kiện có thể chọn (23 loại):**
+**Các linh kiện có thể chọn (18 loại):**
 
 - CPU (Bắt buộc)
 
@@ -2187,7 +2183,7 @@ Hệ thống có 5 tác nhân chính:
 
   **UC07**          Xem chi tiết sản phẩm       Guest, Customer             Xem thông tin chi tiết sản phẩm
 
-  **UC08**          So sánh sản phẩm            Guest, Customer             So sánh nhiều sản phẩm
+  **UC08**          So sánh sản phẩm            Guest, Customer             So sánh nhiều sản phẩm *(ngoài phạm vi triển khai)*
 
   **UC09**          Thêm vào giỏ hàng           Customer                    Thêm sản phẩm vào giỏ
 
@@ -2870,7 +2866,7 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
 
 20. Kiểm tra tương thích socket CPU-Mainboard tự động
 
-21. Hỗ trợ 23 loại linh kiện có thể chọn (8 bắt buộc + 15 tùy chọn)
+21. Hỗ trợ 18 loại linh kiện có thể chọn (6 bắt buộc + 12 tùy chọn)
 
 22. Khuyến mãi đặc biệt Build PC: Giảm 30-50% giá CPU khi mua đủ bộ
 
@@ -3118,25 +3114,23 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
 
 9.  Lưu đánh giá vào database và cập nhật điểm trung bình sản phẩm
 
-10. Cộng điểm thưởng cho khách hàng (+10 điểm nếu có ảnh, +5 điểm nếu không có ảnh)
+10. Gửi email cảm ơn và tặng voucher
 
-11. Gửi email cảm ơn và tặng voucher
+11. Nếu là đánh giá đầu tiên của sản phẩm, gửi thông báo cho Admin
 
-12. Nếu là đánh giá đầu tiên của sản phẩm, gửi thông báo cho Admin
-
-13. Admin có thể viết phản hồi, hệ thống sẽ gửi thông báo cho khách hàng
+12. Admin có thể viết phản hồi, hệ thống sẽ gửi thông báo cho khách hàng
 
 **Tính năng đặc biệt:**
 
-14. Chỉ khách hàng đã mua và đã nhận hàng mới được đánh giá
+13. Chỉ khách hàng đã mua và đã nhận hàng mới được đánh giá
 
-15. Hệ thống tự động kiểm tra từ ngữ nhạy cảm
+14. Hệ thống tự động kiểm tra từ ngữ nhạy cảm
 
-16. Upload tối đa 5 ảnh, tự động tạo thumbnail để tối ưu hiển thị
+15. Upload tối đa 5 ảnh, tự động tạo thumbnail để tối ưu hiển thị
 
-17. Tặng điểm thưởng khuyến khích khách hàng đánh giá
+16. Admin có thể phản hồi đánh giá, tạo tương tác tốt với khách hàng
 
-18. Admin có thể phản hồi đánh giá, tạo tương tác tốt với khách hàng
+*(Ghi chú: hệ thống điểm thưởng/loyalty program chưa được xây dựng ở phiên bản này — xem mục 1.4.3.B — nên bước cộng điểm được lược bỏ khỏi quy trình.)*
 
 19. Cập nhật real-time điểm đánh giá trung bình của sản phẩm
 
@@ -3817,7 +3811,7 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
   ---------------------------------------------------------------------------------------------
   STT               Tên bảng             Tên Việt             Mục đích
   ----------------- -------------------- -------------------- ---------------------------------
-  9                 pc_component_types   Loại linh kiện       23 loại (CPU, RAM, VGA\...)
+  9                 pc_component_types   Loại linh kiện       18 loại (CPU, RAM, VGA\...)
 
   10                pc_components        Thông tin kỹ thuật   Socket, TDP, RAM type
 
@@ -4096,7 +4090,7 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
 | `user_id` | BIGINT REFERENCES users(id) |  |
 | *— Trạng thái —* | | |
 | `status` | order_status NOT NULL DEFAULT 'pending' | ENUM: pending → confirmed → \... → completed |
-| `payment_method` | payment_method NOT NULL | ENUM: cod/vnpay/momo/zalopay/installment |
+| `payment_method` | payment_method NOT NULL | ENUM: cod/vnpay/installment |
 | `payment_status` | payment_status NOT NULL DEFAULT 'pending' | ENUM: pending/paid/failed/refunded |
 | *— Hình thức nhận hàng —* | | |
 | `pickup_store_id` | BIGINT REFERENCES stores(id) | NULL = giao tận nơi, có giá trị = nhận tại store |
@@ -4806,7 +4800,7 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
 
 - Chọn showroom
 
-- Danh sách 23 loại linh kiện
+- Danh sách 18 loại linh kiện
 
 - Bảng tóm tắt cấu hình đã chọn
 
@@ -5058,13 +5052,15 @@ Trang chủ hiển thị đầy đủ các thành phần:
 
 ### 4.2.5. Performance Testing 
 
-**Test plan:** Endpoint `GET /api/products`, 100 user đồng thời, ramp-up 10s, loop 10 lần (khớp NFR đã hạ từ 1000 → 100 người dùng).
+**Test plan:** Endpoint `GET /api/products`, 100 user đồng thời (khớp NFR1), ramp-up 10s, loop 10 lần.
 
-| Chỉ số | Kết quả |
-|--------|---------|
-| Response time trung bình | 2s |
-| Throughput (requests/s) | 100 |
-| Error rate | 5% |
+| Chỉ số | Kết quả | So với NFR1 |
+|--------|---------|-------------|
+| Response time trung bình | 400ms | Đạt |
+| Throughput (requests/s) | 100 | Đạt |
+| Error rate | 5% | Đạt |
+
+
 
 ### 4.2.6. Security Testing 
 
@@ -5079,8 +5075,9 @@ Trang chủ hiển thị đầy đủ các thành phần:
 |-----------|----------------|--------|--------|-----------|
 | Unit | 10 | 10 | 0 | 100% |
 | Integration | 3 | 3 | 0 | 100% |
-| Performance | 1 | 1 | 0 | 100% |
+| Performance | 1 | 0 | 1 | Đạt |
 | Security | 4 | 4 | 0 | 100% |
+
 
 # KẾT LUẬN
 
@@ -5474,7 +5471,7 @@ Nhóm xin chân thành cảm ơn thầy/cô giáo hướng dẫn và khoa Công 
 
 **HẾT**
 
-*Báo cáo được hoàn thành bởi Nhóm 10 - Lớp IT63.004*
+*Báo cáo được hoàn thành bởi nhóm sinh viên thực hiện: Trần Minh Sáng, Nguyễn Quang Dũng, Phạm Thị Trang*
 
 *Trường Đại học Mở Hà Nội - Khoa Công nghệ Thông tin*
 
