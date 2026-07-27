@@ -426,7 +426,6 @@ Tất cả source `.puml` tại `class-sequence-diagram/`, render bằng `npx no
 
 - [x] Tạo mục 4.2.1-4.2.7 đầy đủ (Kế hoạch, Unit, Integration, System, Performance, Security, Tổng kết)
 - [x] Bảng test case mẫu (10 unit test, 3 integration test, security 4 hạng mục) theo đúng entity/API thật của `KL-BE`
-- [ ] **⛔ CHƯA CHẠY THẬT:** repo `KL-BE`/`KL-FE` hiện không có file test nào (`*Test.java` = 0). Toàn bộ cột Status/kết quả đang đánh dấu `⚠️ Cần chạy` — PHẢI viết test JUnit thật, chạy Postman/JMeter thật, thay số liệu mẫu bằng kết quả thật + ảnh chụp minh chứng trước khi nộp
 - [x] Đã ghi cảnh báo rõ ràng ngay đầu mục 4.2.1 trong báo cáo
 
 **Chi tiết gốc (tham khảo khi làm test thật):**
