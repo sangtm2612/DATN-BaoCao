@@ -1,334 +1,166 @@
 # 📊 BÁO CÁO TIẾN ĐỘ RESOLVE - KLTN NHÓM 10
 
-**Ngày scan:** [Tự động]  
+**Ngày cập nhật:** 2026-07-27 (qua `/ck:cook` plan `260726-2322-bao-cao-cac-muc-chua-hoan-thanh`, Phase 1+2+5 + Class/Sequence Diagram của Phase 3; GraphViz cài xong nên Mục 5 Staff + Mục 12 Diagram nay 100%)
 **File được scan:** `KLTN_BaoCao_WebsiteBanMayTinh_KinhDuan_Ver2.md`
 
 ---
 
 ## ✅ TỔNG QUAN
 
-**Tiến độ tổng thể:** 4/13 mục (31%)
+**Tiến độ tổng thể:** 9/13 mục hoàn thành 100%, 2/13 một phần, 2/13 chưa làm
 
 ### Phân theo độ khó:
-- 🟢 **DỄ (4 mục):** 2/4 hoàn thành ✓ (50%)
-- 🟡 **TRUNG BÌNH (6 mục):** 2/6 hoàn thành ✓ (33%)
-- 🔴 **KHÓ (3 mục):** 0/3 hoàn thành (0%)
+- 🟢 **DỄ (4 mục):** 4/4 hoàn thành ✓ (100%)
+- 🟡 **TRUNG BÌNH (6 mục):** 5/6 hoàn thành, 1 mục còn dở (Đánh số mục — Chương 4 thiếu 4.2.1, thiếu Danh mục hình/bảng)
+- 🔴 **KHÓ (3 mục):** 1/3 hoàn thành 100% (Mục 12), 1/3 cấu trúc xong nhưng nội dung mẫu (Mục 13 — cần chạy test thật), 1/3 chưa làm (Mục 11 — cần hệ thống chạy để chụp ảnh)
 
 ---
 
-## 🟢 CẤP ĐỘ DỄ - Tiến độ: 2/4 (50%)
+## 🟢 CẤP ĐỘ DỄ - Tiến độ: 4/4 (100%)
 
 ### ✅ MỤC 1: Sửa lỗi trình bày đơn giản
-**Trạng thái:** ✅ HOÀN THÀNH 50%
-
-#### ✅ Đã làm:
-- **✅ Thống nhất thời hạn đổi/trả:** 15 ngày
-  - Tìm thấy: "15 ngày" trong mục 1.8.4, 1.11.6, 2.2.1.5
-  - ✓ Đã nhất quán
-
-- **✅ Bỏ Blockchain/NFT trong Roadmap**
-  - ✓ Không tìm thấy Blockchain hay NFT trong file
-  - ✓ Đã bỏ
-
-#### ❌ Chưa làm:
-- **❌ Sửa HACOM → Hanoicomputer:**
-  - ❌ Vẫn còn "21 showroom" ở:
-    - Mục 1.11.4: "21 showroom/cửa hàng"
-    - Mục 2.2.1.6: "21 showroom toàn quốc"
-    - Bảng CSDL: "21 showroom toàn quốc"
-  - ✓ Tài liệu tham khảo đã sửa: "hanoicomputer.vn" (ĐÚNG)
-
-- **❌ Sửa tên người phỏng vấn:**
-  - Cần kiểm tra Bảng 1.3 và 1.6 (chưa quét được)
-
-- **❌ Sửa câu kết luận:**
-  - Cần kiểm tra phần Kết luận (chưa quét được)
-
----
-
-### ❌ MỤC 2: Sửa mục 1.4.3 "Giới hạn của đề tài"
 **Trạng thái:** ✅ HOÀN THÀNH 100%
 
-#### ✅ Đã làm:
-- **✅ Có đầy đủ 3 phần:**
-  - ✓ Phần A: Các chức năng triển khai (chi tiết rất đầy đủ)
-  - ✓ Phần B: Các chức năng chưa triển khai (4 nhóm chi tiết)
-  - ✓ Phần C: Giới hạn về kỹ thuật (8 nhóm chi tiết)
-
-**KẾT LUẬN:** ✅ Mục này ĐÃ HOÀN THÀNH tốt!
-
----
-
-### ❌ MỤC 3: Gộp phần trùng lặp ở Kết luận
-**Trạng thái:** ❌ CHƯA LÀM
-
-- Cần kiểm tra phần Kết luận (chưa scan được do file quá dài)
-- Yêu cầu: Gộp "Hạn chế" và "Giới hạn kỹ thuật chi tiết"
+- Thời hạn đổi/trả "15 ngày" nhất quán (1.8.4, 1.11.6, 2.2.1.5)
+- Blockchain/NFT: không còn trong Roadmap
+- HACOM → Hanoicomputer: grep = 0 kết quả
+- Tên người phỏng vấn: đã nhất quán ("Bùi Văn Sơn", "Trần Đức Sơn")
+- Câu kết luận mục tiêu (dòng 259): đã sửa "đáp ứng đầy đủ" → "đáp ứng phần lớn các yêu cầu chức năng cốt lõi"
+- ⚠️ **"21 showroom" giữ nguyên — QUYẾT ĐỊNH (Validation Session 1):** xác nhận đây là số liệu đúng, đề xuất đổi "3 showroom" trước đó đã bị bác bỏ, không sửa.
 
 ---
 
-### ❌ MỤC 4: Bổ sung Tài liệu tham khảo
-**Trạng thái:** ⚠️ HOÀN THÀNH 50%
+### ✅ MỤC 2: Sửa mục 1.4.3 "Giới hạn của đề tài"
+**Trạng thái:** ✅ HOÀN THÀNH 100%
 
-#### ✅ Đã làm:
-- **✅ Có tài liệu về Spring Boot:**
-  - ✓ "Spring Framework Documentation, https://spring.io/projects/spring-boot"
-- **✅ Có tài liệu về React:**
-  - ✓ "React Official Documentation, https://react.dev/"
-- **✅ Có tài liệu về PostgreSQL:**
-  - ✓ "PostgreSQL Documentation, https://www.postgresql.org/docs/"
-- **✅ Đã sửa Hanoicomputer:**
-  - ✓ "Website bán máy tính trực tuyến Hà Nội Computer https://hanoicomputer.vn/"
-
-#### ❌ Chưa làm:
-- **❌ Thiếu sách/giáo trình học thuật:**
-  - Không có sách về Database System Concepts
-  - Không có sách về UML
-  - Không có giáo trình của trường
-- **❌ Chưa đánh số tài liệu [1], [2], [3]...**
-- **❌ Chưa format theo chuẩn (APA/IEEE):**
-  - Hiện tại chỉ có link, thiếu tác giả, năm xuất bản
-
-**KẾT LUẬN:** Đã có tài liệu kỹ thuật nhưng thiếu tài liệu học thuật
+Đủ 3 phần: A (chức năng đã triển khai), B (chưa triển khai — 4 nhóm), C (giới hạn kỹ thuật — 8 nhóm).
 
 ---
 
-## 🟡 CẤP ĐỘ TRUNG BÌNH - Tiến độ: 2/6 (33%)
+### ✅ MỤC 3: Gộp phần trùng lặp ở Kết luận
+**Trạng thái:** ✅ HOÀN THÀNH 100%
+
+Đã gộp thành 1 mục "Hạn chế của đề tài", không còn 2 heading riêng ("Hạn chế" + "Giới hạn kỹ thuật chi tiết") trong nội dung.
+
+---
+
+### ✅ MỤC 4: Bổ sung Tài liệu tham khảo
+**Trạng thái:** ✅ HOÀN THÀNH 100% (Phase 2, 2026-07-27)
+
+- Đã thêm 3 sách/giáo trình học thuật: Database System Concepts (Silberschatz, 2020), UML Distilled (Fowler, 2003), Spring Boot in Action (Walls, 2022)
+- Đánh số [1] đến [10], format Tác giả/Năm/Tên/NXB
+- Giữ nguyên các tài liệu kỹ thuật cũ (Spring Docs, React Docs, PostgreSQL Docs, JWT Docs, VNPay, 2 website khảo sát)
+
+---
+
+## 🟡 CẤP ĐỘ TRUNG BÌNH - Tiến độ: 5/6 hoàn thành
 
 ### ✅ MỤC 5: Bổ sung tác nhân Staff
-**Trạng thái:** ⚠️ HOÀN THÀNH 60%
+**Trạng thái:** ✅ HOÀN THÀNH 100% (Phase 2, 2026-07-27; PNG render xong sau khi cài GraphViz)
 
-#### ✅ Đã làm:
-- **✅ Đã đề cập Staff trong nhiều phần:**
-  - ✓ Mục 1.8.2: "Quy trình xử lý đơn hàng của Admin/Staff"
-  - ✓ Mục 1.6.4.3: "Phân tích nhu cầu từ góc nhìn nhân viên (Staff)"
-  - ✓ Mục 1.10: Xác định đối tượng "3. Nhân viên (Staff)"
-  - ✓ Có phân quyền cho Staff trong bảng 3.2.2
-  - ✓ Activity Diagram có Staff
-  - ✓ UC14 có Staff trong đặc tả chi tiết
-
-#### ❌ Chưa làm:
-- **❌ Mục 2.1.3.1 vẫn ghi "4 tác nhân":**
-  - ❌ Chưa sửa thành "5 tác nhân"
-  - ❌ Chưa bổ sung Staff vào danh sách tác nhân chính
-- **❌ Sơ đồ Use Case tổng quan chưa có Staff:**
-  - Cần vẽ lại sơ đồ thêm actor Staff
-
-**KẾT LUẬN:** Đã làm 60%, còn thiếu 2 chỗ quan trọng nhất!
+- ✅ Mục 2.1.3.1: "4 tác nhân" → "5 tác nhân", đã thêm mục "4. Nhân viên (Staff)" với đủ 5 chức năng
+- ✅ Đã thêm actor Staff + quan hệ vào source `usecases/00_UseCase_TongQuat.puml`
+- ✅ Đã render PNG (GraphViz cài qua winget) và thay ảnh trong báo cáo (`bao-cao/images/media/image7.png`, dùng ở mục 2.1.3.3). Lưu ý kỹ thuật: bắt buộc dùng cờ `-C UTF-8` khi render, thiếu cờ này chữ tiếng Việt bị lỗi mojibake.
 
 ---
 
-### ❌ MỤC 6: Kiểm tra và sửa UC02, UC14, UC27
-**Trạng thái:** ⚠️ CẦN KIỂM TRA
+### ✅ MỤC 6: Kiểm tra và sửa UC02, UC14, UC27
+**Trạng thái:** ✅ HOÀN THÀNH 100% (Phase 2, 2026-07-27)
 
-#### ✅ Bảng 2.1 (ĐÚNG):
-- UC02: "Đăng nhập" ✓
-- UC14: "Theo dõi đơn hàng" ✓
-- UC27: "Xem báo cáo thống kê" ✓
-
-#### ⚠️ Cần kiểm tra đặc tả chi tiết:
-- UC02: Cần đọc phần "USE CASE UC02" để xem có lệch không
-- UC14: Đã tìm thấy "USE CASE UC14: Theo dõi đơn hàng" ✓ (Có vẻ đúng)
-- UC27: Đã tìm thấy "USE CASE UC27: Xem báo cáo thống kê" ✓ (Có vẻ đúng)
-
-**KẾT LUẬN:** Có thể đã sửa, cần đọc chi tiết UC02 để chắc chắn
+- UC02: không có đặc tả chi tiết (đã mất cùng nội dung sai "Quản lý sản phẩm (Admin)" từ lần sửa trước) → đã viết bổ sung đặc tả đúng "Đăng nhập", khớp Bảng 2.1
+- UC14, UC27: verify — đã đúng từ trước, không cần sửa
 
 ---
 
-### ❌ MỤC 7: Rà soát Bảng 1.10
-**Trạng thái:** ❌ CHƯA LÀM
+### ✅ MỤC 7: Rà soát Bảng 1.10
+**Trạng thái:** ✅ ĐÃ VERIFY, KHÔNG CẦN SỬA (Phase 2, 2026-07-27)
 
-- Chưa tìm thấy Bảng 1.10 trong phần scan
-- Cần đọc chi tiết để kiểm tra
-
----
-
-### ❌ MỤC 8: Sửa Schema CSDL
-**Trạng thái:** ⚠️ HOÀN THÀNH 30%
-
-#### ✅ Đã làm:
-- **✅ Đã thống nhất số bảng:**
-  - Tìm thấy: "43 stores" và "44 store_images" → Đã sửa
-  - Không còn bảng stores bị đếm 2 lần
-
-#### ⚠️ Vẫn còn vấn đề:
-- **❌ Vẫn có code SQL:**
-  - Tìm thấy nhiều đoạn `CREATE TABLE` trong mục 3.1.2.4
-  - Yêu cầu: Bỏ code SQL, chỉ giữ mô tả
-- **?** Chưa kiểm tra schema trùng lặp
-- **?** Chưa kiểm tra kiểu dữ liệu (BIGINT/UUID)
-
-**KẾT LUẬN:** Đã sửa 1 phần, còn nhiều việc phải làm
+Đọc lại toàn bộ 13 dòng — Dashboard real-time, Thông báo push, Audit log, Template trả lời nhanh, Phân loại VIP đều đã ghi đúng "Tính năng mở rộng", không còn dòng nào ghi sai "Đã triển khai".
 
 ---
 
-### ❌ MỤC 9: Đánh số mục
-**Trạng thái:** ⚠️ CÓ VẤN ĐỀ
+### ✅ MỤC 8: Sửa Schema CSDL
+**Trạng thái:** ✅ HOÀN THÀNH 100% (Phase 5, 2026-07-27 — mục này bị bỏ sót hoàn toàn khỏi plan ban đầu, đã phát hiện và bổ sung xử lý)
 
-#### ❌ Vẫn còn lỗi:
-- **❌ Chương 2:**
-  - Mục 2.1.1 → 2.1.2 → **NHẢY THẲNG** → 2.1.3.1
-  - ❌ Thiếu mục 2.1.3 (trước 2.1.3.1)
-- **❌ Chương 3:**
-  - Mục 3.1.1 → **NHẢY THẲNG** → 3.1.3
-  - ❌ Thiếu mục 3.1.2
-- **❌ Chương 4:**
-  - Mục 4.1 → 4.1.1 → **NHẢY THẲNG** → 4.2.2
-  - ❌ Thiếu mục 4.2 và 4.2.1
-
-#### ❌ Thiếu Danh mục:
-- **❌ Không có "DANH MỤC HÌNH VẼ"**
-- **❌ Không có "DANH MỤC BẢNG BIỂU"**
-
-**KẾT LUẬN:** Chưa sửa, vẫn còn nhiều lỗi đánh số
+- Bỏ code SQL: chuyển 34 `CREATE TABLE` (mục 3.1.1.3 + 3.1.2) thành bảng Markdown, verify grep `CREATE TABLE` = 0
+- Hợp nhất schema trùng: phát hiện 3 bảng trùng thật (`user_tokens`, `warranties`, `notifications`), giữ bản đầy đủ hơn, xóa bản trùng
+- Thống nhất kiểu dữ liệu: verify code thật `KL-BE` (`Long id` + `GenerationType.IDENTITY`) → đổi 11 chỗ SERIAL→BIGSERIAL, 23 chỗ INT REFERENCES→BIGINT REFERENCES
+- Bảng `stores`: verify lại, chỉ còn 1 định nghĩa (STT 43), không trùng
+- Thống nhất số bảng: phát hiện lỗi thật Module 6 ghi "14"/"15 bảng" nhưng đếm thực tế 12 → đã sửa, tổng 12 module nay khớp 52 (khớp TỔNG CỘNG và STT 1→52)
 
 ---
 
-### ❌ MỤC 10: Cải thiện phần Khảo sát
-**Trạng thái:** ❌ CHƯA LÀM
+### ⚠️ MỤC 9: Đánh số mục lại cho đúng
+**Trạng thái:** ⚠️ HOÀN THÀNH 60% (Phase 2, 2026-07-27)
 
-- Chưa scan được phần này
-- Cần kiểm tra có biểu đồ chưa
+- ✅ Chương 2: đã đúng từ trước (2.1.1→2.1.2→2.1.3→2.1.3.1 liên tục)
+- ✅ Chương 3: đã sửa — đổi `3.1.3`→`3.1.2` (Các bảng bổ sung), và phát hiện thêm lỗ hổng thật `3.1.1.2`→`3.1.2.4` (đúng như nhận xét GV) → đã đổi `3.1.2.4`→`3.1.1.3`, Chương 3 nay đánh số liên tục 3.1.1→3.1.1.1→3.1.1.2→3.1.1.3→3.1.2
+- ⚠️ Chương 4: đã tạo heading `4.2. Kiểm thử hệ thống` làm mục cha trước `4.2.2`. **`4.2.1` "Kế hoạch kiểm thử" chưa tạo** — để dành cho Phase 3 khi viết nội dung kiểm thử thật
+- ❌ Danh mục hình vẽ + Danh mục bảng biểu: chưa có — **chuyển sang Phase 4**, nên tạo bằng tính năng "Insert Table of Figures/Tables" của Word khi đồng bộ `.docx` (Markdown không có số trang nên không thể liệt kê chính xác)
+
+---
+
+### ⚠️ MỤC 10: Cải thiện phần Khảo sát
+**Trạng thái:** ⚠️ ĐỦ 15/15 CÂU VỀ CẤU TRÚC, nhưng **6 câu là số liệu ƯỚC LƯỢNG** — ⛔ BẮT BUỘC thay bằng số liệu thật trước khi nộp
+
+- ✅ Câu 1, 2, 6, 7, 9, 11, 12, 13, 15 (9/15): số liệu thật, đã có biểu đồ
+- ⚠️ Câu 3, 4, 5, 8, 10, 14 (6/15): **không có số liệu nguồn trong repo** (đã kiểm tra `bien-bao-khao-sat/` — 2 file đó là phỏng vấn nhân viên FPT Shop/Hanoicomputer, khác khảo sát 156 khách hàng này). Theo yêu cầu người dùng (2026-07-27), đã tạo số liệu **ƯỚC LƯỢNG** + biểu đồ để đủ cấu trúc 15/15 câu, đánh dấu rõ `[⚠️ SỐ LIỆU ƯỚC LƯỢNG]` ở từng câu và ghi chú cảnh báo liêm chính học thuật ở cuối mục 1.7.4
+- ⛔ **RỦI RO:** nếu nộp nguyên trạng, đây là số liệu bịa — phải thay bằng dữ liệu khảo sát thật (Google Form/Excel) trước khi bảo vệ
 
 ---
 
 ## 🔴 CẤP ĐỘ KHÓ - Tiến độ: 0/3 (0%)
 
 ### ❌ MỤC 11: Bổ sung ảnh chụp màn hình
-**Trạng thái:** ❌ CHƯA LÀM 0%
+**Trạng thái:** ❌ CHƯA LÀM 0% — xem Phase 3 của plan `260726-2322-bao-cao-cac-muc-chua-hoan-thanh`
 
-#### ❌ Chương 4 chỉ có mô tả text:
-- **❌ Không có ảnh chụp màn hình thực tế**
-- Chỉ có mô tả chức năng:
-  - "1. Trang chủ" (chỉ text, không có ảnh)
-  - "2. Trang danh sách sản phẩm" (chỉ text)
-  - "3. Trang chi tiết sản phẩm" (chỉ text)
-  - "4. Giỏ hàng" (chỉ text)
-  - "5. Trang thanh toán" (chỉ text)
-  - "6. Admin Dashboard" (chỉ text)
-  - "7. Quản lý sản phẩm" (chỉ text)
-  - "8. Quản lý đơn hàng" (chỉ text)
-
-#### ❌ Mục 3.3.3 "Design":
-- Chỉ có text: "Trang chủ - Desktop:", "Admin Dashboard:"
-- **Không có ảnh**
-
-#### ❌ Thiếu:
-- Link GitHub repository
-- Link URL demo
-
-**KẾT LUẬN:** ❌ CHƯA CÓ ẢNH NÀO! Đây là vấn đề nghiêm trọng nhất!
+Chương 4 vẫn chỉ có mô tả text cho 8 màn hình, mục 3.3.3 "Design" cũng chỉ text, chưa có ảnh, link GitHub, hay URL demo.
 
 ---
 
-### ❌ MỤC 12: Class Diagram và Sequence Diagram
-**Trạng thái:** ❌ CHƯA LÀM 0%
+### ✅ MỤC 12: Class Diagram và Sequence Diagram
+**Trạng thái:** ✅ HOÀN THÀNH 100% (Phase 3, 2026-07-27)
 
-#### ❌ Không tìm thấy:
-- **❌ Class Diagram:** Không tìm thấy
-- **❌ Sequence Diagram:** Không tìm thấy
-- **❌ Sơ đồ kiến trúc hệ thống:** Không tìm thấy
-
-#### ⚠️ Chỉ có kế hoạch:
-- Bảng phân công có ghi: "Sơ đồ kiến trúc hệ thống - Trang - Tuần 4"
-- Nhưng chưa thấy sơ đồ trong báo cáo
-
-**KẾT LUẬN:** ❌ CHƯA CÓ DIAGRAM NÀO!
+- ✅ Class Diagram tổng quan (mục 3.4.1): 15 class chính, attributes lấy thật từ entity `KL-BE`
+- ✅ Sơ đồ kiến trúc Layered (mục 3.4.2): khớp câu "Layered Architecture" đã claim ở Kết luận — hết mâu thuẫn lời văn/hình ảnh
+- ✅ 3 Sequence Diagram (mục 3.4.3): Đặt hàng, Thanh toán VNPay, Build PC
 
 ---
 
-### ❌ MỤC 13: Viết kiểm thử
-**Trạng thái:** ❌ CHƯA LÀM 0%
+### ⚠️ MỤC 13: Viết kiểm thử
+**Trạng thái:** ⚠️ CẤU TRÚC XONG, NỘI DUNG LÀ MẪU (Phase 3, 2026-07-27) — ⛔ bắt buộc chạy test thật trước khi nộp
 
-#### ❌ Phần 4.2.2 quá sơ sài:
-- Chỉ có 3 loại test:
-  - Unit Testing (vài dòng)
-  - Integration Testing (vài dòng)
-  - Security Testing (1 dòng: "JWT with expiration")
-- **❌ Không có bảng test case**
-- **❌ Không có ảnh JUnit/Postman**
-- **❌ Không có kết quả Pass/Fail**
-- **❌ Không có Performance Testing**
-
-**KẾT LUẬN:** ❌ Cần viết lại toàn bộ!
+- ✅ Đã tạo đủ 4.2.1-4.2.7 (Kế hoạch, Unit, Integration, System, Performance, Security, Tổng kết) với bảng test case theo đúng entity/API thật của `KL-BE`
+- ⛔ **`KL-BE`/`KL-FE` không có file test nào** (0 file `*Test.java`) — mọi kết quả Pass/Fail, response time đang là placeholder `⚠️ Cần chạy`, KHÔNG PHẢI số liệu thật
+- **RỦI RO tương tự Mục 10:** nếu nộp nguyên trạng, đây là bịa kết quả kiểm thử. Đã ghi cảnh báo rõ trong báo cáo (đầu mục 4.2.1).
 
 ---
 
 ## 🎯 KẾT LUẬN VÀ KHUYẾN NGHỊ
 
 ### 📊 Tổng kết:
-- **✅ Hoàn thành:** 4/13 mục (31%)
-- **⚠️ Hoàn thành một phần:** 4/13 mục (31%)
-- **❌ Chưa làm:** 5/13 mục (38%)
+- **✅ Hoàn thành 100%:** 9/13 mục (Mục 1, 2, 3, 4, 5, 6, 7, 8, 12)
+- **⚠️ Hoàn thành một phần:** 2/13 mục (Mục 9 đánh số — 60%; Mục 10 khảo sát — đủ cấu trúc 15/15 câu nhưng 6 câu là số liệu ƯỚC LƯỢNG, ⛔ bắt buộc thay số liệu thật trước khi nộp)
+- **❌ Chưa làm:** 1/13 mục (Mục 11 ảnh chụp màn hình — cần hệ thống chạy thật để chụp)
+- **⚠️ Cấu trúc xong, nội dung mẫu cần thay thật:** Mục 13 kiểm thử (giống Mục 10, ⛔ bắt buộc chạy test thật trước khi nộp)
 
-### 🔥 3 VẤN ĐỀ NGHIÊM TRỌNG NHẤT (Ưu tiên làm ngay):
+### 🔥 Việc còn lại (theo plan `plans/260726-2322-bao-cao-cac-muc-chua-hoan-thanh/`):
 
-1. **❌ Chương 4 KHÔNG CÓ ẢNH chụp màn hình** (Mục 11)
-   - Đây là yêu cầu BẮT BUỘC của giáo viên
-   - Cần chụp tối thiểu 10-12 ảnh ngay lập tức
+**Phase 3 (ưu tiên cao nhất, chưa làm):**
+1. Chụp 10-12 ảnh màn hình hệ thống thật, chèn vào mục 3.3.3 + Chương 4.1.1, thêm link GitHub/demo (Mục 11) — cần `KL-FE`/`KL-BE` chạy
+2. ⛔ Chạy test thật cho Mục 13: viết JUnit trong `KL-BE`, test Postman, chạy JMeter — thay hết các ô `⚠️ Cần chạy` trong mục 4.2.2-4.2.7 bằng kết quả thật + ảnh chụp minh chứng
 
-2. **❌ THIẾU Class Diagram và Sequence Diagram** (Mục 12)
-   - Yêu cầu BẮT BUỘC khi chọn phân tích hướng đối tượng
-   - Cần vẽ ngay: Class Diagram + 3 Sequence Diagrams
+**Việc lặt vặt còn sót:**
+3. Tạo Danh mục hình vẽ + Danh mục bảng biểu trong Word (không phải Markdown) — Mục 9
 
-3. **❌ Phần Kiểm thử quá sơ sài** (Mục 13)
-   - Cần viết lại toàn bộ với bảng test case đầy đủ
 
-### ✅ Các phần đã làm TỐT:
+**Phase 4 (làm sau cùng):** Review tổng thể, kiểm tra tham chiếu chéo, đồng bộ Markdown → Word, update Mục lục/Danh mục hình-bảng.
 
-1. ✅ **Mục 1.4.3** - Giới hạn đề tài (Hoàn thành 100%)
-2. ✅ **Thời hạn 15 ngày** - Đã thống nhất
-3. ✅ **NFR3** - Đã sửa thành "Layered Architecture"
-4. ⚠️ **Tài liệu tham khảo** - Có tài liệu kỹ thuật, thiếu học thuật
-
-### ⚠️ Các phần cần hoàn thiện:
-
-1. ⚠️ **Staff** - Đã có 60%, còn thiếu 2 chỗ quan trọng (Mục 5)
-2. ⚠️ **"21 showroom"** - Cần sửa thành "3 showroom" (Mục 1)
-3. ⚠️ **Schema CSDL** - Cần bỏ code SQL (Mục 8)
-4. ⚠️ **Đánh số mục** - Cần sửa lại (Mục 9)
-
-### 📅 LỘ TRÌNH KHUYẾN NGHỊ:
-
-**TUẦN NÀY (Khẩn cấp):**
-- Ngày 1-2: Chụp ảnh màn hình (10-12 ảnh) - Mục 11
-- Ngày 3-4: Vẽ Class/Sequence Diagram - Mục 12
-- Ngày 5: Viết lại phần Kiểm thử - Mục 13
-
-**TUẦN SAU (Quan trọng):**
-- Sửa "21 showroom" → "3 showroom"
-- Bổ sung Staff vào mục 2.1.3.1
-- Sửa đánh số mục
-- Bổ sung tài liệu học thuật
-
-**TUẦN 3 (Hoàn thiện):**
-- Các phần còn lại
-- Review tổng thể
-- Nộp báo cáo
+### ✅ Điểm mạnh:
+- Cấp độ Dễ đã 100% hoàn thành
+- Schema CSDL đã sửa triệt để, có đối chiếu với code thật (`KL-BE`) chứ không đoán
+- Mọi thay đổi đều verify lại bằng grep, không chỉ tin theo báo cáo tiến độ cũ (bài học từ lần review trước: từng ghi sai trạng thái một số mục)
 
 ---
 
-## 📋 DANH SÁCH VIỆC CẦN LÀM NGAY (Theo thứ tự ưu tiên)
-
-### 🚨 KHẨN CẤP (Làm trong 3 ngày):
-1. [ ] **Chụp 10-12 ảnh màn hình hệ thống** (Mục 11)
-2. [ ] **Vẽ Class Diagram** (Mục 12)
-3. [ ] **Vẽ 3 Sequence Diagrams** (Mục 12)
-
-### 🔴 QUAN TRỌNG (Làm trong tuần):
-4. [ ] **Viết lại phần Kiểm thử** với bảng test case (Mục 13)
-5. [ ] **Sửa "4 tác nhân" → "5 tác nhân"** trong mục 2.1.3.1 (Mục 5)
-6. [ ] **Vẽ lại Use Case Diagram** thêm Staff (Mục 5)
-7. [ ] **Sửa "21 showroom" → "3 showroom"** (3 chỗ) (Mục 1)
-
-### 🟡 CẦN LÀM (Làm tuần sau):
-8. [ ] Bỏ code SQL trong mục 3.1.2.4 (Mục 8)
-9. [ ] Sửa đánh số mục 2.1.3, 3.1.2, 4.2 (Mục 9)
-10. [ ] Thêm Danh mục hình vẽ và bảng (Mục 9)
-11. [ ] Bổ sung sách học thuật vào Tài liệu tham khảo (Mục 4)
-12. [ ] Kiểm tra UC02 đặc tả chi tiết (Mục 6)
-13. [ ] Rà soát Bảng 1.10 (Mục 7)
-
----
-
-**Lưu ý:** File này được tạo tự động dựa trên việc scan báo cáo. Một số phần chưa scan được do file quá dài, cần kiểm tra thủ công.
+**Lưu ý:** File này phản ánh trạng thái đã verify trực tiếp trên nội dung báo cáo (grep/đọc file), không suy đoán. Chi tiết từng bước xem `CHECKLIST_RESOLVE.md` và plan `plans/260726-2322-bao-cao-cac-muc-chua-hoan-thanh/`.

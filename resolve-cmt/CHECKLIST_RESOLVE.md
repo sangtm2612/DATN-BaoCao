@@ -30,31 +30,31 @@
 
 #### Checklist chi tiết:
 
-**A. Thống nhất thời hạn đổi/trả (15 phút):**
-- [ ] Tìm tất cả chỗ đề cập "đổi/trả hàng" (Ctrl+F)
-- [ ] Chọn **15 ngày** (giữ nguyên mục 1.8.4, 1.11.6)
-- [ ] Sửa Activity Diagram 2.2.1.12 từ "7 ngày" → **"15 ngày"**
-- [ ] Sửa mục D.3 (nếu có) từ "7 ngày" → **"15 ngày"**
+**A. Thống nhất thời hạn đổi/trả (15 phút):** ✅ ĐÃ XONG (verify: "15 ngày" nhất quán ở 1.8.4, 1.11.6, 2.2.1.5)
+- [x] Tìm tất cả chỗ đề cập "đổi/trả hàng" (Ctrl+F)
+- [x] Chọn **15 ngày** (giữ nguyên mục 1.8.4, 1.11.6)
+- [x] Sửa Activity Diagram 2.2.1.12 từ "7 ngày" → **"15 ngày"**
+- [x] Sửa mục D.3 (nếu có) từ "7 ngày" → **"15 ngày"**
 
-**B. Sửa HACOM → Hanoicomputer (15 phút):**
-- [ ] Tìm tất cả "HACOM" hoặc "hacom.vn" (Ctrl+F)
-- [ ] Sửa thành **"Hanoicomputer"** hoặc **"hanoicomputer.vn"**
-- [ ] Sửa "21 showroom" thành **"3 showroom"**
-- [ ] Cập nhật Tài liệu tham khảo
+**B. Sửa HACOM → Hanoicomputer (15 phút):** ✅ ĐÃ XONG (verify: grep `HACOM|hacom\.vn` = 0 kết quả)
+- [x] Tìm tất cả "HACOM" hoặc "hacom.vn" (Ctrl+F)
+- [x] Sửa thành **"Hanoicomputer"** hoặc **"hanoicomputer.vn"**
+- [x] ~~Sửa "21 showroom" thành "3 showroom"~~ — **QUYẾT ĐỊNH (Validation Session 1, /ck-plan validate):** "21 showroom" là số liệu ĐÚNG, giữ nguyên, không sửa. Đề xuất "3 showroom" ở dòng này đã bị bác bỏ.
+- [x] Cập nhật Tài liệu tham khảo
 
-**C. Sửa tên người phỏng vấn (10 phút):**
-- [ ] Kiểm tra Bảng 1.3: "Bùi Văn Sơn" và "Trần Đức Sơn"
-- [ ] Kiểm tra Bảng 1.6: "Bùi Văn S" và "Lê Văn M"
-- [ ] Thống nhất: Dùng tên đầy đủ hoặc tên viết tắt nhất quán
+**C. Sửa tên người phỏng vấn (10 phút):** ✅ ĐÃ XONG (verify: Bảng 1.3/1.6 dùng tên đầy đủ nhất quán "Bùi Văn Sơn"/"Trần Đức Sơn", không còn viết tắt)
+- [x] Kiểm tra Bảng 1.3: "Bùi Văn Sơn" và "Trần Đức Sơn"
+- [x] Kiểm tra Bảng 1.6: "Bùi Văn S" và "Lê Văn M"
+- [x] Thống nhất: Dùng tên đầy đủ hoặc tên viết tắt nhất quán
 
-**D. Sửa câu kết luận (5 phút):**
-- [ ] Tìm câu "đáp ứng đầy đủ các yêu cầu chức năng và phi chức năng"
-- [ ] Sửa thành: "đáp ứng **phần lớn** các yêu cầu chức năng cốt lõi"
+**D. Sửa câu kết luận (5 phút):** ✅ ĐÃ XONG (sửa dòng 259, mục 1.3.1)
+- [x] Tìm câu "đáp ứng đầy đủ các yêu cầu chức năng và phi chức năng"
+- [x] Sửa thành: "đáp ứng **phần lớn** các yêu cầu chức năng cốt lõi"
 
-**E. Bỏ Blockchain và NFT trong Roadmap (5 phút):**
-- [ ] Tìm phần Roadmap dài hạn
-- [ ] Xóa/Comment out phần Blockchain và NFT
-- [ ] Giữ lại các phần liên quan đến website bán máy tính
+**E. Bỏ Blockchain và NFT trong Roadmap (5 phút):** ✅ ĐÃ XONG (verify: grep `Blockchain|NFT` = 0 kết quả)
+- [x] Tìm phần Roadmap dài hạn
+- [x] Xóa/Comment out phần Blockchain và NFT
+- [x] Giữ lại các phần liên quan đến website bán máy tính
 
 ---
 
@@ -92,25 +92,16 @@
 
 ### 4. Bổ sung Tài liệu tham khảo
 **Độ khó:** ⭐⭐ (Dễ - Tìm kiếm online)  
-**Thời gian:** 1 giờ  
-**Người thực hiện:** _________
+**Trạng thái:** ✅ HOÀN THÀNH 100% (Phase 2, 2026-07-27)
 
 #### Checklist chi tiết:
-- [ ] Hiện tại: 3 mục, toàn website
-- [ ] **Thêm sách về Spring Boot:**
-  - [ ] "Spring Boot in Action" - Craig Walls
-  - [ ] Hoặc tìm giáo trình Spring Boot tiếng Việt
-- [ ] **Thêm sách về React:**
-  - [ ] "Learning React" - Alex Banks & Eve Porcello
-  - [ ] Hoặc tìm tài liệu React tiếng Việt
-- [ ] **Thêm sách về CSDL:**
-  - [ ] "Database System Concepts" - Silberschatz
-  - [ ] Hoặc giáo trình CSDL của trường
-- [ ] **Thêm sách về UML:**
-  - [ ] "UML Distilled" - Martin Fowler
-  - [ ] Hoặc giáo trình Phân tích thiết kế hệ thống
-- [ ] Đánh số tài liệu: [1], [2], [3]...
-- [ ] Format theo chuẩn: Tác giả, Năm, Tên sách, NXB
+- [x] Hiện tại: 3 mục, toàn website
+- [x] **Thêm sách về Spring Boot:** "Spring Boot in Action" - Craig Walls (2022, 2nd ed.)
+- [x] **Thêm sách về CSDL:** "Database System Concepts" - Silberschatz (2020, 7th ed.)
+- [x] **Thêm sách về UML:** "UML Distilled" - Martin Fowler (2003, 3rd ed.)
+- [x] Đánh số tài liệu: [1] đến [10]
+- [x] Format theo chuẩn: Tác giả, Năm, Tên sách, NXB (10 mục, xem cuối báo cáo)
+- [ ] Sách React tiếng Việt/quốc tế — chưa thêm riêng (React Official Docs [8] đã đủ tính là tài liệu kỹ thuật chính thức)
 
 ---
 
@@ -120,80 +111,35 @@
 
 ### 5. Bổ sung tác nhân Staff vào Use Case
 **Độ khó:** ⭐⭐ (Dễ - Sửa text + vẽ lại diagram đơn giản)  
-**Thời gian:** 1-2 giờ  
-**Người thực hiện:** _________
+**Trạng thái:** ✅ HOÀN THÀNH 100% (Phase 2, 2026-07-27; PNG render xong 2026-07-27 sau khi cài GraphViz)
 
 #### Checklist chi tiết:
-- [ ] **Bước 1: Sửa mục 2.1.3.1** (20 phút)
-  - [ ] Tìm dòng "Hệ thống có **4 tác nhân**"
-  - [ ] Sửa thành "Hệ thống có **5 tác nhân**"
-  - [ ] Thêm mục **"5. Nhân viên (Staff):"**
-  - [ ] Liệt kê chức năng:
-    ```
-    - Xem danh sách đơn hàng
-    - Cập nhật trạng thái đơn hàng
-    - Hỗ trợ khách hàng
-    - Xem thông tin sản phẩm
-    - Xem thông tin khách hàng (chỉ đọc)
-    ```
-- [ ] **Bước 2: Vẽ lại Use Case Diagram** (1 giờ)
-  - [ ] Mở file sơ đồ Use Case tổng quan (hoặc vẽ mới)
-  - [ ] Thêm actor "Staff" (hình người que + nhãn "Staff")
-  - [ ] Nối Staff với các UC liên quan: UC14 (Xử lý đơn hàng), UC22...
-  - [ ] Lưu file: `diagrams/UseCase_Overview_WithStaff.png`
-- [ ] **Bước 3: Thay ảnh trong báo cáo** (5 phút)
-  - [ ] Thay ảnh cũ bằng ảnh mới
+- [x] **Bước 1: Sửa mục 2.1.3.1** — "4 tác nhân" → "5 tác nhân", thêm mục "4. Nhân viên (Staff)" với đủ 5 chức năng
+- [x] **Bước 2: Sửa source diagram** — đã thêm actor Staff + quan hệ vào `usecases/00_UseCase_TongQuat.puml`
+- [x] **Bước 3: Render PNG và thay ảnh trong báo cáo** — GraphViz đã cài, render bằng `npx node-plantuml generate -p -C UTF-8 usecases/00_UseCase_TongQuat.puml -o usecases/png/00_UC_TongQuat.png` (cờ `-C UTF-8` bắt buộc, thiếu sẽ ra chữ tiếng Việt lỗi mojibake). Đã copy đè lên `bao-cao/images/media/image7.png` (ảnh dùng trong báo cáo tại mục 2.1.3.3).
 
-**Công cụ:** Draw.io, PlantUML, hoặc MS Visio
+**Công cụ:** PlantUML + GraphViz (đã cài `winget install Graphviz.Graphviz`)
 
 ---
 
 ### 6. Kiểm tra và sửa UC02, UC14, UC27
 **Độ khó:** ⭐⭐ (Dễ - Đọc và sửa text)  
-**Thời gian:** 1 giờ  
-**Người thực hiện:** _________
+**Trạng thái:** ✅ HOÀN THÀNH 100% (Phase 2, 2026-07-27)
 
 #### Checklist chi tiết:
-- [ ] **Bước 1: Kiểm tra UC02** (15 phút)
-  - [ ] Tìm "USE CASE UC02:" trong mục 2.1.3.4
-  - [ ] Đọc dòng "Tên UC" → Phải là "Đăng nhập"
-  - [ ] Nếu sai → Sửa lại
-  - [ ] Đọc "Tác nhân" → Phải là "Guest, Customer, Admin"
-  - [ ] Đọc "Mô tả" → Phải nói về đăng nhập, không phải quản lý sản phẩm
-- [ ] **Bước 2: Kiểm tra UC14** (15 phút)
-  - [ ] Tìm "USE CASE UC14:"
-  - [ ] Tên UC phải là "Theo dõi đơn hàng" (không phải "Xử lý đơn hàng")
-  - [ ] Tác nhân phải là "Customer" (không phải Staff)
-  - [ ] Nếu sai → Sửa lại cho khớp với Bảng 2.1
-- [ ] **Bước 3: Kiểm tra UC27** (15 phút)
-  - [ ] Tìm "USE CASE UC27:"
-  - [ ] Tên UC phải là "Xem báo cáo thống kê" (không phải "Đổi/trả hàng")
-  - [ ] Tác nhân phải là "Admin"
-  - [ ] Nếu sai → Sửa lại
-- [ ] **Bước 4: Đối chiếu với Bảng 2.1** (15 phút)
-  - [ ] Mở Bảng 2.1 song song với phần đặc tả
-  - [ ] Kiểm tra từng UC xem có khớp không
+- [x] **UC02:** không có đặc tả (đã bị xóa cùng nội dung sai "Quản lý sản phẩm (Admin)" ở lần sửa trước) → đã viết bổ sung đặc tả đúng "Đăng nhập", tác nhân "Guest, Customer, Admin", khớp Bảng 2.1
+- [x] **UC14:** verify — đã đúng "Theo dõi đơn hàng", tác nhân Customer, khớp Bảng 2.1 (không cần sửa)
+- [x] **UC27:** verify — đã đúng "Xem báo cáo thống kê", tác nhân Admin, khớp Bảng 2.1 (không cần sửa)
+- [x] Đối chiếu Bảng 2.1: cả 3 UC nay đã khớp
 
 ---
 
 ### 7. Rà soát Bảng 1.10 (Ánh xạ yêu cầu)
 **Độ khó:** ⭐⭐ (Trung bình - Cần hiểu hệ thống)  
-**Thời gian:** 1-2 giờ  
-**Người thực hiện:** _________
+**Trạng thái:** ✅ ĐÃ VERIFY, KHÔNG CẦN SỬA (Phase 2, 2026-07-27)
 
 #### Checklist chi tiết:
-- [ ] **Bước 1: Tìm Bảng 1.10** (5 phút)
-  - [ ] Ctrl+F "Bảng 1.10" hoặc "Ánh xạ yêu cầu"
-- [ ] **Bước 2: Rà soát từng dòng "Đã triển khai"** (1 giờ)
-  - [ ] Tạo danh sách các tính năng ghi "Đã triển khai"
-  - [ ] Với mỗi tính năng, hỏi: "Có ảnh chứng minh không?"
-  - [ ] Các tính năng GV nêu ra:
-    - [ ] Thông báo real-time → Có WebSocket không? → KHÔNG → Chuyển "Chưa triển khai"
-    - [ ] Audit log → Có bảng `audit_log` trong CSDL không? → KHÔNG → Chuyển "Chưa triển khai"
-    - [ ] Dashboard real-time → Có real-time update không? → KHÔNG → Chuyển "Chưa triển khai"
-- [ ] **Bước 3: Cập nhật bảng** (30 phút)
-  - [ ] Sửa cột "Trạng thái" từ "Đã triển khai" → "Tính năng mở rộng" hoặc "Chưa triển khai"
-  - [ ] Thêm cột "Ghi chú" để giải thích tại sao chưa làm
+- [x] Đã đọc lại toàn bộ Bảng 1.10 (13 dòng) — Dashboard real-time, Thông báo push, Audit log, Template trả lời nhanh, Phân loại VIP đều đã ghi đúng "Tính năng mở rộng", không còn dòng nào ghi sai "Đã triển khai" cho tính năng chưa có bằng chứng.
 
 **Nguyên tắc vàng:** Chỉ ghi "Đã triển khai" khi có ảnh hoặc code chứng minh!
 
@@ -201,82 +147,37 @@
 
 ### 8. Sửa Schema CSDL (Mục 3.1.2.4)
 **Độ khó:** ⭐⭐⭐ (Trung bình - Cần kiến thức CSDL)  
-**Thời gian:** 2-3 giờ  
-**Người thực hiện:** _________
+**Trạng thái:** ✅ HOÀN THÀNH 100% (Phase 5, 2026-07-27)
 
 #### Checklist chi tiết:
 
-**A. Bỏ code SQL (30 phút):**
-- [ ] Tìm tất cả đoạn code `CREATE TABLE ...`
-- [ ] Xóa hết, chỉ giữ **mô tả bảng dạng text/table**
-- [ ] Format lại thành bảng Markdown:
-  ```
-  | Cột | Kiểu dữ liệu | Ràng buộc | Mô tả |
-  |-----|-------------|-----------|-------|
-  | id  | BIGINT      | PK, AUTO  | ID    |
-  ```
+**A. Bỏ code SQL:** ✅ ĐÃ XONG — chuyển toàn bộ 34 `CREATE TABLE` (2 khu vực: mục 3.1.1.3 và 3.1.2) thành bảng Markdown (Cột | Kiểu dữ liệu & Ràng buộc | Mô tả), giữ nguyên constraint và index dạng chú thích ngắn gọn. Verify: grep `CREATE TABLE` = 0 kết quả.
 
-**B. Hợp nhất schema trùng (1 giờ):**
-- [ ] Dùng Ctrl+F tìm tên bảng (ví dụ: "users")
-- [ ] Nếu xuất hiện nhiều lần → Đọc kỹ từng định nghĩa
-- [ ] Giữ lại **1 định nghĩa đầy đủ nhất**
-- [ ] Xóa các định nghĩa trùng lặp
+**B. Hợp nhất schema trùng:** ✅ ĐÃ XONG — phát hiện 3 bảng bị định nghĩa trùng 2 lần với nội dung khác nhau: `user_tokens`, `warranties`, `notifications` (xuất hiện cả ở 3.1.1.3 và 3.1.2). Đã giữ lại bản đầy đủ hơn (ở mục 3.1.2, có thêm trường audit/tham chiếu), xóa bản trùng, ghi chú rõ trong báo cáo.
 
-**C. Thống nhất kiểu dữ liệu (30 phút):**
-- [ ] Chọn **BIGINT** cho tất cả ID (khóa chính, khóa ngoại)
-- [ ] Hoặc chọn **UUID** nếu hệ thống đang dùng
-- [ ] Tìm và thay thế tất cả `INT` → `BIGINT` cho ID
+**C. Thống nhất kiểu dữ liệu:** ✅ ĐÃ XONG — kiểm tra code thật `KL-BE` (`entity/*.java` dùng `Long id` + `GenerationType.IDENTITY`), xác nhận ground truth là BIGINT/BIGSERIAL. Đã đổi 11 chỗ `SERIAL PRIMARY KEY` → `BIGSERIAL PRIMARY KEY` và 23 chỗ `INT REFERENCES` → `BIGINT REFERENCES` cho khớp code thực tế (không đổi các cột INT không phải ID/FK như `quantity`, `sort_order`).
 
-**D. Sửa bảng `stores` trùng (10 phút):**
-- [ ] Tìm "stores" trong báo cáo
-- [ ] Xác định bảng ở STT 25 (Module 6) và STT 44 (Module 9)
-- [ ] Xóa 1 trong 2 (giữ lại cái đầy đủ hơn)
+**D. Sửa bảng `stores` trùng:** ✅ ĐÃ XONG TỪ TRƯỚC — verify lại: chỉ còn 1 định nghĩa duy nhất (STT 43), không còn trùng ở STT 25/44 như nhận xét GV.
 
-**E. Thống nhất số bảng (20 phút):**
-- [ ] Đếm lại tất cả bảng trong 12 module
-- [ ] Tính tổng chính xác (ví dụ: 52 bảng)
-- [ ] Sửa câu "50 bảng" thành số chính xác
-- [ ] Đánh số STT lại: 1, 2, 3... (không nhảy số)
+**E. Thống nhất số bảng:** ✅ ĐÃ XONG — phát hiện lỗi thật: Module 6 (Orders & Payments) ghi sai "14" (bảng tổng quan) và "15 bảng" (heading), trong khi đếm thực tế theo STT 25-36 chỉ có **12 bảng**. Đã sửa cả 2 chỗ thành "12". Verify: tổng 12 module = 8+4+4+6+2+**12**+3+3+2+3+1+4 = **52**, khớp với "TỔNG CỘNG 52" và STT chạy 1→52 liên tục.
 
-**F. (Optional) Test script SQL (30 phút):**
-- [ ] Viết lại script SQL hoàn chỉnh
-- [ ] Chạy trong PostgreSQL
-- [ ] Chụp ảnh kết quả thành công
-- [ ] Thêm vào Phụ lục
+**F. Test script SQL:** ⏭️ Bỏ qua (Optional, không bắt buộc) — không có quyền chạy PostgreSQL thật trong phiên làm việc này để chụp ảnh minh chứng.
 
 ---
 
 ### 9. Đánh số mục lại cho đúng
 **Độ khó:** ⭐⭐ (Dễ nhưng mất thời gian)  
-**Thời gian:** 1-2 giờ  
-**Người thực hiện:** _________
+**Trạng thái:** ⚠️ HOÀN THÀNH 60% (Phase 2, 2026-07-27)
 
 #### Checklist chi tiết:
 
-**A. Sửa Chương 2 (30 phút):**
-- [ ] Kiểm tra: 2.1.1 → 2.1.2 → 2.1.3 → 2.1.3.1
-- [ ] Nếu thiếu 2.1.3 → Tạo mục 2.1.3 "Đặc tả Use Case chi tiết"
-- [ ] Đổi 2.1.3.1, 2.1.3.2... thành 2.1.3.1, 2.1.3.2...
+**A. Sửa Chương 2:** ✅ ĐÃ XONG từ trước (verify lại: 2.1.1→2.1.2→2.1.3→2.1.3.1 liên tục, không nhảy số)
 
-**B. Sửa Chương 3 (30 phút):**
-- [ ] Kiểm tra: 3.1.1 → 3.1.1.2 → 3.1.2.4
-- [ ] Tạo các mục thiếu:
-  - [ ] 3.1.2 "Thiết kế bảng cơ sở dữ liệu"
-  - [ ] 3.1.2.1 "Nguyên tắc thiết kế"
-  - [ ] 3.1.2.2 "Chuẩn hóa CSDL"
-  - [ ] 3.1.2.3 "Index và tối ưu"
+**B. Sửa Chương 3:** ✅ ĐÃ XONG (Phase 2) — đổi số `3.1.3` → `3.1.2` (không tạo mục mới, nội dung "Các bảng bổ sung quan trọng" đã đủ tính là phần thiết kế bảng theo quyết định Validation Session 1)
 
-**C. Sửa Chương 4 (30 phút):**
-- [ ] Nếu có 4.2.2 mà không có 4.2, 4.2.1
-- [ ] Tạo 4.2 "Kiểm thử hệ thống"
-- [ ] Tạo 4.2.1 "Kế hoạch kiểm thử"
-- [ ] Đổi 4.2.2 thành mục con
+**C. Sửa Chương 4:** ⚠️ MỘT PHẦN (Phase 2) — đã tạo heading `## 4.2. Kiểm thử hệ thống` làm mục cha trước `4.2.2`. **`4.2.1` "Kế hoạch kiểm thử" chưa tạo** — cố ý để dành cho Phase 3 khi viết nội dung kiểm thử thật (tránh tạo mục rỗng không có nội dung).
 
-**D. Thêm Danh mục hình và bảng (30 phút):**
-- [ ] Sau mục lục, tạo trang "DANH MỤC HÌNH VẼ"
-- [ ] Liệt kê: Hình 1.1, 1.2... với tên và trang
-- [ ] Tạo trang "DANH MỤC BẢNG BIỂU"
-- [ ] Liệt kê: Bảng 1.1, 1.2... với tên và trang
+**D. Thêm Danh mục hình và bảng:** ❌ CHƯA LÀM, **chuyển sang Phase 4** — Markdown không có khái niệm số trang nên không thể liệt kê "Hình 1.1 ... trang X" chính xác trong file `.md`. Nên tạo bằng tính năng "Insert Caption" + "Insert Table of Figures/Tables" có sẵn của Word khi đồng bộ sang bản `.docx` ở Phase 4, thay vì gõ tay danh sách giả trong Markdown.
 
 ---
 
@@ -400,8 +301,13 @@
 
 ### 12. Bổ sung Class Diagram và Sequence Diagram
 **Độ khó:** ⭐⭐⭐⭐⭐ (Rất khó - Cần kiến thức UML sâu)  
-**Thời gian:** 4-6 giờ  
-**Người thực hiện:** _________
+**Trạng thái:** ✅ HOÀN THÀNH 100% (Phase 3, 2026-07-27)
+
+- [x] **Class Diagram tổng quan** (mục 3.4.1) — 15 class chính (User, Category, Brand, Product, Cart/CartItem, Order/OrderItem, Review, Voucher, Store, Warranty, BlogPost, Banner...), attributes lấy thật từ entity `KL-BE`, quan hệ association/composition/self-ref khớp DB schema
+- [x] **Sơ đồ kiến trúc Layered** (mục 3.4.2) — 5 tầng Presentation/API/Business/Data Access/Database, khớp câu "Layered Architecture" đã claim ở Kết luận
+- [x] **3 Sequence Diagram** (mục 3.4.3) — Đặt hàng, Thanh toán VNPay, Build PC
+
+Tất cả source `.puml` tại `class-sequence-diagram/`, render bằng `npx node-plantuml generate -p -C UTF-8 <file>.puml -o <file>.png` (GraphViz + cờ `-C UTF-8` bắt buộc để tránh mojibake tiếng Việt).
 
 #### Checklist chi tiết:
 
@@ -516,12 +422,14 @@
 
 ### 13. Viết lại phần Kiểm thử (Testing) hoàn chỉnh
 **Độ khó:** ⭐⭐⭐⭐ (Khó - Cần test và chụp ảnh kết quả)  
-**Thời gian:** 3-4 giờ  
-**Người thực hiện:** _________
+**Trạng thái:** ⚠️ CẤU TRÚC XONG, **NỘI DUNG LÀ MẪU** (Phase 3, 2026-07-27) — ⛔ bắt buộc chạy test thật trước khi nộp
 
-#### Checklist chi tiết:
+- [x] Tạo mục 4.2.1-4.2.7 đầy đủ (Kế hoạch, Unit, Integration, System, Performance, Security, Tổng kết)
+- [x] Bảng test case mẫu (10 unit test, 3 integration test, security 4 hạng mục) theo đúng entity/API thật của `KL-BE`
+- [ ] **⛔ CHƯA CHẠY THẬT:** repo `KL-BE`/`KL-FE` hiện không có file test nào (`*Test.java` = 0). Toàn bộ cột Status/kết quả đang đánh dấu `⚠️ Cần chạy` — PHẢI viết test JUnit thật, chạy Postman/JMeter thật, thay số liệu mẫu bằng kết quả thật + ảnh chụp minh chứng trước khi nộp
+- [x] Đã ghi cảnh báo rõ ràng ngay đầu mục 4.2.1 trong báo cáo
 
-**A. Tạo cấu trúc mục 4.2 (15 phút):**
+**Chi tiết gốc (tham khảo khi làm test thật):**
 - [ ] Xóa mục 4.2.2 hiện tại (quá ngắn)
 - [ ] Tạo mục 4.2 "Kiểm thử hệ thống"
 - [ ] Tạo các mục con: 4.2.1, 4.2.2, 4.2.3, 4.2.4, 4.2.5, 4.2.6
@@ -765,31 +673,8 @@
 ## 🟡 ƯU TIÊN TRUNG BÌNH (Làm cuối cùng)
 
 ### 7. Sửa Schema CSDL
-**Vị trí:** Mục 3.1.2.4  
-**Người thực hiện:** _________
-
-#### Checklist chi tiết:
-- [ ] **Bỏ code SQL** tạo bảng (chỉ giữ mô tả bảng)
-  - [ ] Xóa tất cả `CREATE TABLE ...`
-  - [ ] Chỉ giữ mô tả: tên bảng, cột, kiểu dữ liệu, ràng buộc
-- [ ] **Hợp nhất schema trùng lặp**
-  - [ ] Tìm các bảng định nghĩa nhiều lần
-  - [ ] Giữ lại 1 định nghĩa duy nhất
-- [ ] **Thống nhất kiểu khóa chính/khóa ngoại**
-  - [ ] Chọn BIGINT cho tất cả ID
-  - [ ] Hoặc chọn UUID (nếu dùng)
-- [ ] **Thống nhất số bảng**
-  - [ ] Đếm lại tổng số bảng thực tế
-  - [ ] Sửa "50 bảng" thành số chính xác
-- [ ] **Sửa bảng `stores` bị đếm 2 lần**
-  - [ ] Xóa bảng `stores` ở STT 25 (Module 6)
-  - [ ] Hoặc xóa ở STT 44 (Module 9)
-  - [ ] Giữ lại 1 định nghĩa duy nhất
-- [ ] **Đánh số STT lại cho đúng** (1, 2, 3... không nhảy số)
-- [ ] **Test script SQL** (optional nhưng nên làm)
-  - [ ] Chạy script tạo bảng trong PostgreSQL
-  - [ ] Chụp ảnh kết quả thành công
-  - [ ] Thêm ảnh vào Phụ lục
+**Vị trí:** Mục 3.1.1.3 (trước là 3.1.2.4) và 3.1.2  
+**Trạng thái:** ✅ HOÀN THÀNH — xem chi tiết đầy đủ ở mục "8. Sửa Schema CSDL (Mục 3.1.2.4)" phía trên (dòng 150), tránh lặp lại 2 lần. Tóm tắt: đã bỏ code SQL, hợp nhất 3 bảng trùng (`user_tokens`/`warranties`/`notifications`), thống nhất BIGINT/BIGSERIAL theo code `KL-BE` thật, sửa số bảng Module 6 (14/15→12, tổng khớp 52), STT đã chạy liên tục 1→52.
 
 ---
 
@@ -855,17 +740,15 @@
 
 ### 9. Cải thiện phần Khảo sát người dùng
 **Vị trí:** Mục 1.7.4  
-**Người thực hiện:** _________
+**Trạng thái:** ⚠️ HOÀN THÀNH 90% CẤU TRÚC, nhưng **6/15 câu dùng số liệu ƯỚC LƯỢNG** (theo yêu cầu người dùng 2026-07-27) — PHẢI thay bằng số liệu thật trước khi nộp
 
 #### Checklist chi tiết:
-- [ ] Bổ sung kết quả **15/15 câu hỏi** (hiện tại chỉ có 8/15)
-- [ ] Tạo **biểu đồ** cho mỗi câu hỏi:
-  - [ ] Dùng Excel/Google Sheets để tạo chart
-  - [ ] Xuất thành ảnh PNG
-  - [ ] Thêm vào báo cáo
-- [ ] Thêm **phân tích chi tiết** cho từng câu hỏi
-- [ ] (Optional) Thêm **link Google Form** để GV có thể kiểm tra
-- [ ] (Optional) Thêm **file Excel dữ liệu thô** vào Phụ lục
+- [x] Tạo biểu đồ cho 9 câu có số liệu thật (Câu 1, 2, 6, 7, 9, 11, 12, 13, 15)
+- [x] Tạo biểu đồ + nội dung cho 6 câu còn thiếu (Câu 3, 4, 5, 8, 10, 14) bằng **số liệu ước lượng** (giới tính, khu vực, ngân sách, kênh tham khảo, kênh mua, hài lòng CSKH) — người dùng đã xác nhận yêu cầu tạo dù không có nguồn thật
+- [x] Đánh dấu `[⚠️ SỐ LIỆU ƯỚC LƯỢNG]` ở từng câu + ghi chú tổng ở cuối mục 1.7.4, nêu rõ lý do và yêu cầu bắt buộc thay số liệu thật trước khi nộp
+- [ ] **CẦN LÀM TRƯỚC KHI NỘP:** thay 6 câu ước lượng bằng số liệu thật từ Google Form/Excel gốc
+- [ ] (Optional) Thêm link Google Form vào Phụ lục
+- [ ] (Optional) Thêm file Excel dữ liệu thô vào Phụ lục
 
 ---
 

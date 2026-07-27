@@ -1,0 +1,20 @@
+@startuml SoDoKienTruc_Layered
+skinparam backgroundColor #FFFFFF
+skinparam rectangle {
+  BackgroundColor #F0F0F0
+  BorderColor #333333
+}
+title Sơ đồ kiến trúc Layered - Website Bán Máy Tính KINH DUAN
+
+rectangle "Presentation Layer\n(ReactJS - UI Components, Pages, Redux/Context)" as PL #LightBlue
+rectangle "API Layer\n(Spring Boot REST Controllers)" as AL #LightGreen
+rectangle "Business Logic Layer\n(Services - xử lý nghiệp vụ)" as BL #LightYellow
+rectangle "Data Access Layer\n(Spring Data JPA Repositories)" as DAL #LightCoral
+rectangle "Database Layer\n(PostgreSQL)" as DBL #LightGray
+
+PL -down-> AL : HTTP/HTTPS (JSON REST API)
+AL -down-> BL : gọi Service
+BL -down-> DAL : gọi Repository
+DAL -down-> DBL : JDBC/JPA (Hibernate)
+
+@enduml

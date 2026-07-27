@@ -1,0 +1,28 @@
+@startuml Sequence_ThanhToanVNPay
+skinparam backgroundColor #FFFFFF
+title Sequence Diagram - Quy trình Thanh toán VNPay
+
+actor Customer
+participant "CheckoutPage" as CP
+participant "PaymentService" as PS
+participant "VNPay Gateway" as VNP
+database "Database" as DB
+
+Customer -> CP: Chọn phương thức VNPay
+CP -> PS: createPayment(orderId, amount)
+PS -> DB: INSERT INTO payments (status=PENDING)
+PS -> VNP: Tạo payment URL (vnp_TxnRef, vnp_Amount, ...)
+VNP --> PS: Trả về payment URL
+PS --> Customer: Redirect đến VNPay
+
+Customer -> VNP: Nhập thông tin thẻ/OTP
+VNP --> Customer: Xác nhận giao dịch
+
+VNP -> PS: Callback IPN (vnp_ResponseCode, signature)
+PS -> PS: Verify signature
+PS -> DB: UPDATE orders SET payment_status='paid'
+DB --> PS: Success
+PS --> VNP: Xác nhận đã xử lý IPN
+PS --> Customer: Return URL (trang kết quả thanh toán)
+
+@enduml

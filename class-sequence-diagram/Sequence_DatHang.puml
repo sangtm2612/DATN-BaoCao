@@ -1,0 +1,25 @@
+@startuml Sequence_DatHang
+skinparam backgroundColor #FFFFFF
+title Sequence Diagram - Quy trình Đặt hàng
+
+actor Customer
+participant "ProductPage" as PP
+participant "CartController" as CC
+participant "OrderController" as OC
+database "Database" as DB
+
+Customer -> PP: Click "Add to Cart"
+PP -> CC: addToCart(productId, quantity)
+CC -> DB: INSERT INTO cart_items
+DB --> CC: Success
+CC --> PP: Cart updated
+
+Customer -> PP: View cart
+Customer -> PP: Click "Checkout"
+PP -> OC: createOrder(cartItems, shippingInfo)
+OC -> DB: INSERT INTO orders, order_items
+OC -> DB: UPDATE cart_items (clear)
+DB --> OC: Success
+OC --> Customer: Order confirmation (order_code)
+
+@enduml

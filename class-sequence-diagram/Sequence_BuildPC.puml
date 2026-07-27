@@ -1,0 +1,32 @@
+@startuml Sequence_BuildPC
+skinparam backgroundColor #FFFFFF
+title Sequence Diagram - Quy trình Build PC
+
+actor Customer
+participant "BuildPCPage" as BP
+participant "BuildPCController" as BC
+participant "CompatibilityService" as CS
+database "Database" as DB
+
+Customer -> BP: Chọn showroom (kiểm tra tồn kho)
+Customer -> BP: Chọn linh kiện (CPU, Mainboard, RAM...)
+BP -> BC: checkCompatibility(selectedComponents)
+BC -> CS: validate(socket, ram_type, psu_wattage...)
+CS --> BC: Kết quả tương thích (OK / Conflict)
+BC --> BP: Hiển thị cảnh báo nếu không tương thích
+
+BP -> BC: calculateTotalPrice(selectedComponents)
+BC --> BP: Tổng giá
+
+Customer -> BP: Lưu cấu hình
+BP -> BC: saveBuild(components, name)
+BC -> DB: INSERT INTO pc_builds, pc_build_items
+DB --> BC: Success
+BC --> Customer: Xác nhận đã lưu cấu hình
+
+Customer -> BP: Thêm cấu hình vào giỏ hàng
+BP -> BC: addBuildToCart(buildId)
+BC -> DB: INSERT INTO cart_items (build_id)
+DB --> BC: Success
+
+@enduml

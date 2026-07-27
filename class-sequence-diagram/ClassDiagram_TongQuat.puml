@@ -1,0 +1,151 @@
+@startuml ClassDiagram_TongQuat
+skinparam backgroundColor #FFFFFF
+skinparam classAttributeIconSize 0
+title Class Diagram - Tổng quan hệ thống Website Bán Máy Tính KINH DUAN
+
+class User {
+  -id: Long
+  -email: String
+  -phone: String
+  -fullName: String
+  -role: UserRole
+  -emailVerified: Boolean
+  +login()
+  +updateProfile()
+}
+
+class UserAddress {
+  -id: Long
+  -fullName: String
+  -phone: String
+  -addressLine: String
+  -isDefault: Boolean
+}
+
+class Category {
+  -id: Long
+  -name: String
+  -slug: String
+  -sortOrder: Integer
+  -isActive: Boolean
+}
+
+class Brand {
+  -id: Long
+  -name: String
+  -slug: String
+  -logoUrl: String
+}
+
+class Product {
+  -id: Long
+  -name: String
+  -sku: String
+  -price: BigDecimal
+  -stockQty: Integer
+  -ratingAvg: BigDecimal
+  -isActive: Boolean
+  +checkStock()
+  +applyDiscount()
+}
+
+class Cart {
+  -id: Long
+  -sessionId: String
+  -expiresAt: LocalDateTime
+  +addItem()
+  +clear()
+}
+
+class CartItem {
+  -id: Long
+  -quantity: Integer
+  -unitPrice: BigDecimal
+}
+
+class Order {
+  -id: Long
+  -orderCode: String
+  -status: OrderStatus
+  -paymentStatus: PaymentStatus
+  -totalAmount: BigDecimal
+  -shippingAddress: String
+  +confirm()
+  +cancel()
+  +calculateTotal()
+}
+
+class OrderItem {
+  -id: Long
+  -productName: String
+  -quantity: Integer
+  -unitPrice: BigDecimal
+  -totalPrice: BigDecimal
+}
+
+class Review {
+  -id: Long
+  -rating: Integer
+  -content: String
+  -isVerifiedPurchase: Boolean
+}
+
+class Voucher {
+  -id: Long
+  -code: String
+  -discountType: String
+  -discountValue: BigDecimal
+  -usedCount: Integer
+  +validate(orderTotal)
+}
+
+class Store {
+  -id: Long
+  -name: String
+  -address: String
+  -storeType: String
+}
+
+class Warranty {
+  -id: Long
+  -serialNumber: String
+  -warrantyMonths: Integer
+  -status: String
+}
+
+class BlogPost {
+  -id: Long
+  -title: String
+  -content: String
+  -isPublished: Boolean
+}
+
+class Banner {
+  -id: Long
+  -title: String
+  -imageUrl: String
+  -position: String
+}
+
+' ===== Relationships =====
+Category "1" o-- "0..*" Category : parent-child
+Category "1" o-- "0..*" Product
+Brand "1" o-- "0..*" Product
+
+User "1" o-- "0..*" UserAddress
+User "1" o-- "0..1" Cart
+User "1" o-- "0..*" Order
+User "1" o-- "0..*" Review
+
+Cart "1" *-- "0..*" CartItem
+Product "1" o-- "0..*" CartItem
+Product "1" o-- "0..*" OrderItem
+Product "1" o-- "0..*" Review
+
+Order "1" *-- "1..*" OrderItem
+Order "0..*" --> "0..1" Voucher : áp dụng
+Order "0..*" --> "0..1" Store : nhận tại showroom
+
+OrderItem "1" -- "0..1" Warranty : bảo hành
+
+@enduml

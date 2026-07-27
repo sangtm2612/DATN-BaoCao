@@ -156,7 +156,7 @@ Chúng em xin chân thành cảm ơn!
 
 [3.1.1. Mô hình thực thể liên kết (ERD) [95](#mô-hình-thực-thể-liên-kết-erd)](#mô-hình-thực-thể-liên-kết-erd)
 
-[3.1.3. Các bảng bổ sung quan trọng [121](#các-bảng-bổ-sung-quan-trọng)](#các-bảng-bổ-sung-quan-trọng)
+[3.1.2. Các bảng bổ sung quan trọng [121](#các-bảng-bổ-sung-quan-trọng)](#các-bảng-bổ-sung-quan-trọng)
 
 [3.2. Thiết kế kiểm soát [124](#thiết-kế-kiểm-soát)](#thiết-kế-kiểm-soát)
 
@@ -172,13 +172,35 @@ Chúng em xin chân thành cảm ơn!
 
 [3.3.3. Design [129](#design)](#design)
 
+[3.4. Thiết kế hướng đối tượng [130](#thiết-kế-hướng-đối-tượng)](#thiết-kế-hướng-đối-tượng)
+
+[3.4.1. Class Diagram [130](#class-diagram)](#class-diagram)
+
+[3.4.2. Sơ đồ kiến trúc hệ thống [130](#sơ-đồ-kiến-trúc-hệ-thống)](#sơ-đồ-kiến-trúc-hệ-thống)
+
+[3.4.3. Sequence Diagram [130](#sequence-diagram)](#sequence-diagram)
+
 [CHƯƠNG 4: TRIỂN KHAI XÂY DỰNG CHƯƠNG TRÌNH [130](#chương-4-triển-khai-xây-dựng-chương-trình)](#chương-4-triển-khai-xây-dựng-chương-trình)
 
 [4.1. Kết quả thực hiện [130](#kết-quả-thực-hiện)](#kết-quả-thực-hiện)
 
 [4.1.1. Các màn hình đã triển khai [130](#cac-man-hinh-đa-triên-khai)](#cac-man-hinh-đa-triên-khai)
 
-[4.2.2. Testing và đánh giá [132](#testing-và-đánh-giá)](#testing-và-đánh-giá)
+[4.2. Kiểm thử hệ thống [132](#kiểm-thử-hệ-thống)](#kiểm-thử-hệ-thống)
+
+[4.2.1. Kế hoạch kiểm thử [132](#kế-hoạch-kiểm-thử)](#kế-hoạch-kiểm-thử)
+
+[4.2.2. Unit Testing [132](#unit-testing)](#unit-testing)
+
+[4.2.3. Integration Testing [132](#integration-testing)](#integration-testing)
+
+[4.2.4. System Testing [132](#system-testing)](#system-testing)
+
+[4.2.5. Performance Testing [132](#performance-testing)](#performance-testing)
+
+[4.2.6. Security Testing [132](#security-testing)](#security-testing)
+
+[4.2.7. Tổng kết kiểm thử [132](#tổng-kết-kiểm-thử)](#tổng-kết-kiểm-thử)
 
 [KẾT LUẬN [133](#kết-luận)](#kết-luận)
 
@@ -256,7 +278,7 @@ Website không chỉ là kênh bán hàng trực tuyến mà còn là cầu nố
 
 ### 1.3.1. Mục tiêu tổng quát
 
-Xây dựng hệ thống website bán máy tính trực tuyến đáp ứng đầy đủ các chức năng thương mại điện tử, từ quản lý sản phẩm, xử lý đơn hàng, quản lý khách hàng đến thanh toán trực tuyến, nhằm tạo ra một kênh bán hàng hiệu quả và nâng cao trải nghiệm khách hàng.
+Xây dựng hệ thống website bán máy tính trực tuyến đáp ứng phần lớn các yêu cầu chức năng cốt lõi của thương mại điện tử, từ quản lý sản phẩm, xử lý đơn hàng, quản lý khách hàng đến thanh toán trực tuyến, nhằm tạo ra một kênh bán hàng hiệu quả và nâng cao trải nghiệm khách hàng.
 
 ### 1.3.2. Mục tiêu cụ thể
 
@@ -1320,6 +1342,8 @@ Cuộc khảo sát gồm 15 câu hỏi được chia thành 3 phần chính. T�
 
 **Câu 1: Độ tuổi của bạn?**
 
+![Biểu đồ độ tuổi người tham gia khảo sát](bao-cao/images/survey/cau1_do_tuoi.png){width="4in"}
+
 - 18-25 tuổi: 65%
 
 - 26-35 tuổi: 25%
@@ -1332,6 +1356,8 @@ Cuộc khảo sát gồm 15 câu hỏi được chia thành 3 phần chính. T�
 
 **Câu 2: Bạn đã từng mua máy tính trực tuyến chưa?**
 
+![Biểu đồ kinh nghiệm mua máy tính trực tuyến](bao-cao/images/survey/cau2_da_mua.png){width="4in"}
+
 - Đã mua: 73%
 
 - Chưa mua nhưng có ý định: 22%
@@ -1340,9 +1366,35 @@ Cuộc khảo sát gồm 15 câu hỏi được chia thành 3 phần chính. T�
 
 **Phân tích:** Tỷ lệ cao người dùng đã có kinh nghiệm mua máy tính trực tuyến, cho thấy thị trường đã khá phát triển.
 
+**Câu 3: Giới tính của bạn?** 
+
+![Biểu đồ giới tính](bao-cao/images/survey/cau3_gioi_tinh.png){width="4in"}
+
+- Nam: 58%
+- Nữ: 39%
+- Khác/Không muốn trả lời: 3%
+
+**Câu 4: Khu vực sinh sống?** 
+
+![Biểu đồ khu vực sinh sống](bao-cao/images/survey/cau4_khu_vuc.png){width="4in"}
+
+- Thành thị: 72%
+- Nông thôn: 28%
+
+**Câu 5: Ngân sách dự kiến khi mua máy tính?** 
+
+![Biểu đồ ngân sách dự kiến](bao-cao/images/survey/cau5_ngan_sach.png){width="4in"}
+
+- Dưới 10 triệu: 22%
+- 10-20 triệu: 45%
+- 20-30 triệu: 23%
+- Trên 30 triệu: 10%
+
 **Phần 2: Khảo sát về nhu cầu mua sắm**
 
 **Câu 6: Mục đích chính khi mua máy tính?**
+
+![Biểu đồ mục đích mua máy tính](bao-cao/images/survey/cau6_muc_dich.png){width="4in"}
 
 - Học tập: 45%
 
@@ -1354,6 +1406,8 @@ Cuộc khảo sát gồm 15 câu hỏi được chia thành 3 phần chính. T�
 
 **Câu 7: Bạn quan tâm đến yếu tố nào nhất khi mua máy tính trực tuyến?**
 
+![Biểu đồ yếu tố quan tâm khi mua máy tính](bao-cao/images/survey/cau7_yeu_to_quan_tam.png){width="4in"}
+
 - Giá cả hợp lý: 38%
 
 - Cấu hình chi tiết: 28%
@@ -1362,7 +1416,18 @@ Cuộc khảo sát gồm 15 câu hỏi được chia thành 3 phần chính. T�
 
 - Đánh giá của người dùng: 14%
 
+**Câu 8: Kênh bạn tham khảo thông tin trước khi mua?** 
+
+![Biểu đồ kênh tham khảo thông tin](bao-cao/images/survey/cau8_kenh_tham_khao.png){width="4in"}
+
+- Website bán hàng: 40%
+- Mạng xã hội/KOL review: 30%
+- Bạn bè giới thiệu: 20%
+- Diễn đàn công nghệ: 10%
+
 **Câu 9: Phương thức thanh toán bạn ưu tiên?**
+
+![Biểu đồ phương thức thanh toán ưu tiên](bao-cao/images/survey/cau9_thanh_toan.png){width="4in"}
 
 - COD (Thanh toán khi nhận hàng): 52%
 
@@ -1374,9 +1439,19 @@ Cuộc khảo sát gồm 15 câu hỏi được chia thành 3 phần chính. T�
 
 **Phân tích:** COD vẫn là phương thức được ưa chuộng nhất, hệ thống cần hỗ trợ đa dạng phương thức thanh toán. Trong phạm vi đề tài, hệ thống hiện tại hỗ trợ COD và ví điện tử VNPay.
 
+**Câu 10: Kênh bạn thường mua máy tính?** 
+
+![Biểu đồ kênh mua hàng](bao-cao/images/survey/cau10_kenh_mua.png){width="4in"}
+
+- Website chính hãng: 48%
+- Sàn TMĐT (Shopee, Tiki...): 32%
+- Cửa hàng offline: 20%
+
 **Phần 3: Khảo sát về trải nghiệm website**
 
 **Câu 11: Bạn mong muốn điều gì nhất ở một website bán máy tính?**
+
+![Biểu đồ mong muốn về website bán máy tính](bao-cao/images/survey/cau11_mong_muon.png){width="4in"}
 
 - Giao diện đẹp, dễ sử dụng: 35%
 
@@ -1388,6 +1463,8 @@ Cuộc khảo sát gồm 15 câu hỏi được chia thành 3 phần chính. T�
 
 **Câu 12: Chức năng nào bạn cho là quan trọng nhất?**
 
+![Biểu đồ chức năng quan trọng nhất](bao-cao/images/survey/cau12_chuc_nang.png){width="4in"}
+
 - Tìm kiếm và lọc sản phẩm: 40%
 
 - So sánh sản phẩm: 25%
@@ -1398,13 +1475,25 @@ Cuộc khảo sát gồm 15 câu hỏi được chia thành 3 phần chính. T�
 
 **Câu 13: Bạn có thích chức năng so sánh sản phẩm không?**
 
+![Biểu đồ mức độ thích chức năng so sánh sản phẩm](bao-cao/images/survey/cau13_so_sanh.png){width="4in"}
+
 - Rất thích: 68%
 
 - Bình thường: 25%
 
 - Không cần thiết: 7%
 
+**Câu 14: Mức độ hài lòng với dịch vụ chăm sóc khách hàng khi mua online?** 
+
+![Biểu đồ mức độ hài lòng CSKH](bao-cao/images/survey/cau14_hai_long_cskh.png){width="4in"}
+
+- Hài lòng: 42%
+- Bình thường: 38%
+- Chưa hài lòng: 20%
+
 **Câu 15: Thời gian giao hàng mong muốn?**
+
+![Biểu đồ thời gian giao hàng mong muốn](bao-cao/images/survey/cau15_thoi_gian_giao.png){width="4in"}
 
 - Trong ngày: 15%
 
@@ -1413,6 +1502,7 @@ Cuộc khảo sát gồm 15 câu hỏi được chia thành 3 phần chính. T�
 - 3-5 ngày: 22%
 
 - Trên 5 ngày: 3%
+
 
 **Kết luận từ khảo sát:**
 
@@ -1998,7 +2088,7 @@ Hệ thống được chia thành các nhóm chức năng chính sau:
 
 #### 2.1.3.1. Xác định các tác nhân (Actors)
 
-Hệ thống có 4 tác nhân chính:
+Hệ thống có 5 tác nhân chính:
 
 **1. Khách hàng chưa đăng nhập (Guest):**
 
@@ -2058,7 +2148,19 @@ Hệ thống có 4 tác nhân chính:
 
 - Quản lý yêu cầu đổi/trả hàng
 
-**4. Hệ thống thanh toán (Payment Gateway):**
+**4. Nhân viên (Staff):**
+
+- Xem danh sách đơn hàng
+
+- Cập nhật trạng thái đơn hàng
+
+- Hỗ trợ khách hàng (trả lời yêu cầu, hướng dẫn)
+
+- Xem thông tin sản phẩm
+
+- Xem thông tin khách hàng (chỉ đọc)
+
+**5. Hệ thống thanh toán (Payment Gateway):**
 
 - Xử lý thanh toán trực tuyến
 
@@ -2163,6 +2265,50 @@ Hệ thống có 4 tác nhân chính:
 #### ![A screen shot of a person AI-generated content may be incorrect.](bao-cao/images/media/image14.png){width="4.53125in" height="7.033396762904637in"}
 
 #### 2.1.3.4. Đặc tả Use Case chi tiết
+
+**USE CASE UC02: Đăng nhập**
+
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| Thuộc tính                        | Mô tả                                                                                                      |
++===================================+============================================================================================================+
+| **Mã UC**                         | UC02                                                                                                       |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| **Tên UC**                        | Đăng nhập                                                                                                  |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| **Tác nhân**                      | Guest, Customer, Admin                                                                                     |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| **Mô tả**                         | Người dùng xác thực tài khoản để truy cập các chức năng yêu cầu đăng nhập                                 |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| **Tiền điều kiện**                | \- Người dùng đã có tài khoản trong hệ thống                                                               |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| **Hậu điều kiện**                 | \- Người dùng được cấp JWT token, truy cập được các chức năng theo vai trò                                |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| **Luồng sự kiện chính**           | **1.** Người dùng truy cập trang đăng nhập                                                                 |
+|                                   |                                                                                                            |
+|                                   | **2.** Chọn phương thức: Email/Mật khẩu hoặc Google OAuth2                                                |
+|                                   |                                                                                                            |
+|                                   | **3.** Nhập thông tin đăng nhập (email/mật khẩu)                                                          |
+|                                   |                                                                                                            |
+|                                   | **4.** Hệ thống xác thực thông tin                                                                         |
+|                                   |                                                                                                            |
+|                                   | **5.** Hệ thống tạo JWT token và trả về cho client                                                        |
+|                                   |                                                                                                            |
+|                                   | **6.** Hệ thống chuyển hướng theo vai trò (Customer → trang chủ, Admin → dashboard quản trị)               |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| **Luồng sự kiện phụ**             | **4a.** Sai email/mật khẩu:                                                                                |
+|                                   |                                                                                                            |
+|                                   | \- Hệ thống hiển thị thông báo lỗi                                                                         |
+|                                   |                                                                                                            |
+|                                   | \- Cho phép nhập lại tối đa 5 lần                                                                          |
+|                                   |                                                                                                            |
+|                                   | **2a.** Đăng nhập bằng Google OAuth2:                                                                      |
+|                                   |                                                                                                            |
+|                                   | \- Redirect sang Google, xác thực, trả về callback                                                        |
+|                                   |                                                                                                            |
+|                                   | \- Hệ thống tạo tài khoản mới nếu email chưa tồn tại                                                       |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
+| **Yêu cầu đặc biệt**              | \- JWT token có thời hạn (expiration) - Giới hạn số lần đăng nhập sai để chống brute-force                |
++-----------------------------------+------------------------------------------------------------------------------------------------------------+
 
 **USE CASE UC12: Đặt hàng**
 
@@ -3619,7 +3765,7 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
 
   5                 Cart & Shopping          2                 Giỏ hàng cho user và guest
 
-  6                 Orders & Payments        14                Đơn hàng, thanh toán, giao hàng, trả góp, đổi trả
+  6                 Orders & Payments        12                Đơn hàng, thanh toán, giao hàng, trả góp, đổi trả
 
   7                 Warranty & Service       3                 Bảo hành, sửa chữa
 
@@ -3728,7 +3874,7 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
   24                cart_items        Chi tiết giỏ hàng   Sản phẩm trong giỏ
   -------------------------------------------------------------------------------------------
 
-##### ![A screenshot of a computer AI-generated content may be incorrect.](bao-cao/images/media/image37.png){width="6.830555555555556in" height="9.847222222222221in"}MODULE 6: Orders & Payments (15 bảng)
+##### ![A screenshot of a computer AI-generated content may be incorrect.](bao-cao/images/media/image37.png){width="6.830555555555556in" height="9.847222222222221in"}MODULE 6: Orders & Payments (12 bảng)
 
 **Bảng 3.6: Nhóm Orders & Payments**
 
@@ -3847,753 +3993,616 @@ Activity Diagram mô tả chi tiết luồng hoạt động và quyết định 
   52                notifications     Thông báo          Real-time notifications
   --------------------------------------------------------------------------------
 
-#### 3.1.2.4. Chi tiết schema các bảng
-
-**TB_NguoiDung (users)**
-
-CREATE TABLE users (\
-id SERIAL PRIMARY KEY,\
-role user_role NOT NULL DEFAULT \'customer\',\
-status user_status NOT NULL DEFAULT \'active\',\
-email VARCHAR(200) UNIQUE,\
-phone VARCHAR(20) UNIQUE,\
-password_hash VARCHAR(255),\
-full_name VARCHAR(150),\
-avatar_url VARCHAR(500),\
-date_of_birth DATE,\
-gender VARCHAR(10),\
-email_verified BOOLEAN NOT NULL DEFAULT FALSE,\
-phone_verified BOOLEAN NOT NULL DEFAULT FALSE,\
-login_attempts SMALLINT NOT NULL DEFAULT 0,\
-locked_until TIMESTAMP,\
-tax_code VARCHAR(20),\
-company_name VARCHAR(200),\
-last_login_at TIMESTAMP,\
-created_at TIMESTAMP NOT NULL DEFAULT NOW(),\
-updated_at TIMESTAMP NOT NULL DEFAULT NOW(),\
-CONSTRAINT chk_users_credential CHECK (email IS NOT NULL OR phone IS NOT NULL)\
-);\
-\
-CREATE INDEX idx_users_email ON users(email);\
-CREATE INDEX idx_users_phone ON users(phone);\
-CREATE INDEX idx_users_role ON users(role);\
-CREATE INDEX idx_users_status ON users(status);
-
-**TB_DanhMuc (categories)** - Danh mục sản phẩm
-
-CREATE TABLE categories (\
-id SERIAL PRIMARY KEY,\
-parent_id INT REFERENCES categories(id) ON DELETE SET NULL, \-- Danh mục cha (NULL = root)\
-name VARCHAR(150) NOT NULL, \-- Tên danh mục\
-slug VARCHAR(200) NOT NULL UNIQUE, \-- URL-friendly (laptop-gaming)\
-icon_url VARCHAR(500), \-- Icon SVG/PNG\
-image_url VARCHAR(500), \-- Banner danh mục\
-description TEXT, \-- Mô tả ngắn\
-sort_order INT NOT NULL DEFAULT 0, \-- Thứ tự hiển thị\
-is_active BOOLEAN NOT NULL DEFAULT TRUE, \-- Đang hoạt động?\
-created_at TIMESTAMP NOT NULL DEFAULT NOW(),\
-updated_at TIMESTAMP NOT NULL DEFAULT NOW()\
-);\
-\
-CREATE INDEX idx_categories_parent ON categories(parent_id);\
-CREATE INDEX idx_categories_slug ON categories(slug);
-
-**\**
-
-**TB_SanPham (products)** - Sản phẩm chính
-
-CREATE TABLE products (\
-id SERIAL PRIMARY KEY,\
-category_id INT NOT NULL REFERENCES categories(id),\
-brand_id INT REFERENCES brands(id),\
-\
-\-- Basic info\
-name VARCHAR(300) NOT NULL, \-- Tên sản phẩm đầy đủ\
-slug VARCHAR(350) NOT NULL UNIQUE, \-- URL slug\
-sku VARCHAR(100) UNIQUE, \-- Mã SKU (Stock Keeping Unit)\
-short_desc TEXT, \-- Mô tả ngắn 1-2 dòng\
-description TEXT, \-- Mô tả chi tiết HTML\
-thumbnail VARCHAR(500), \-- Ảnh đại diện chính\
-\
-\-- Pricing\
-price NUMERIC(15,2) NOT NULL DEFAULT 0, \-- Giá hiện tại (sau giảm)\
-original_price NUMERIC(15,2), \-- Giá gốc (trước giảm)\
-is_on_sale BOOLEAN NOT NULL DEFAULT FALSE, \-- Đang sale? (auto-set by trigger)\
-\
-\-- Inventory\
-stock_qty INT NOT NULL DEFAULT 0, \-- Tổng tồn kho\
-sold_qty INT NOT NULL DEFAULT 0, \-- Số lượng đã bán\
-low_stock_threshold INT NOT NULL DEFAULT 5, \-- Ngưỡng cảnh báo hết hàng\
-\
-\-- Engagement\
-view_count INT NOT NULL DEFAULT 0, \-- Lượt xem\
-rating_avg NUMERIC(3,2) NOT NULL DEFAULT 0, \-- Điểm TB (0-5)\
-rating_count INT NOT NULL DEFAULT 0, \-- Số đánh giá\
-\
-\-- Physical attributes\
-weight NUMERIC(8,3), \-- Trọng lượng (kg)\
-warranty_months INT NOT NULL DEFAULT 12, \-- Tháng bảo hành\
-warranty_text VARCHAR(200), \-- \"12 tháng chính hãng\"\
-\
-\-- Status flags\
-is_active BOOLEAN NOT NULL DEFAULT TRUE, \-- Còn kinh doanh?\
-is_featured BOOLEAN NOT NULL DEFAULT FALSE, \-- Sản phẩm nổi bật\
-is_new BOOLEAN NOT NULL DEFAULT FALSE, \-- Hàng mới\
-\
-\-- Search optimization\
-search_vector TSVECTOR, \-- Full-text search (auto-update)\
-\
-\-- SEO\
-meta_title VARCHAR(300), \-- SEO title\
-meta_desc VARCHAR(500), \-- SEO description\
-\
-created_at TIMESTAMP NOT NULL DEFAULT NOW(),\
-updated_at TIMESTAMP NOT NULL DEFAULT NOW()\
-);\
-\
-\-- Indexes for performance\
-CREATE INDEX idx_products_category ON products(category_id);\
-CREATE INDEX idx_products_brand ON products(brand_id);\
-CREATE INDEX idx_products_slug ON products(slug);\
-CREATE INDEX idx_products_sku ON products(sku);\
-CREATE INDEX idx_products_price ON products(price);\
-CREATE INDEX idx_products_active ON products(is_active);\
-CREATE INDEX idx_products_featured ON products(is_featured) WHERE is_featured = TRUE;\
-CREATE INDEX idx_products_on_sale ON products(is_on_sale) WHERE is_on_sale = TRUE;\
-\
-\-- Full-text search indexes (GIN = Generalized Inverted Index)\
-CREATE INDEX idx_products_search ON products USING GIN(search_vector);\
-CREATE INDEX idx_products_name_trgm ON products USING GIN(name gin_trgm_ops); \-- Trigram for LIKE search
-
-**TB_DonHang (orders)** - Đơn hàng
-
-CREATE TABLE orders (\
-id SERIAL PRIMARY KEY,\
-order_code VARCHAR(30) NOT NULL UNIQUE, \-- HC-2026-000001\
-user_id INT REFERENCES users(id),\
-\
-\-- Trạng thái\
-status order_status NOT NULL DEFAULT \'pending\', \-- ENUM: pending → confirmed → \... → completed\
-payment_method payment_method NOT NULL, \-- ENUM: cod/vnpay/momo/zalopay/installment\
-payment_status payment_status NOT NULL DEFAULT \'pending\', \-- ENUM: pending/paid/failed/refunded\
-\
-\-- Hình thức nhận hàng\
-pickup_store_id INT REFERENCES stores(id), \-- NULL = giao tận nơi, có giá trị = nhận tại store\
-\
-\-- Địa chỉ giao hàng (SNAPSHOT tại thời điểm đặt hàng)\
-shipping_name VARCHAR(150) NOT NULL, \-- Tên người nhận\
-shipping_phone VARCHAR(20) NOT NULL, \-- SĐT người nhận\
-shipping_province VARCHAR(100) NOT NULL, \-- Tỉnh/TP\
-shipping_district VARCHAR(100) NOT NULL, \-- Quận/Huyện\
-shipping_ward VARCHAR(100) NOT NULL, \-- Phường/Xã\
-shipping_address VARCHAR(300) NOT NULL, \-- Địa chỉ chi tiết\
-\
-\-- Tiền\
-subtotal NUMERIC(15,2) NOT NULL, \-- Tổng tiền hàng\
-shipping_fee NUMERIC(15,2) NOT NULL DEFAULT 0, \-- Phí ship\
-discount_amount NUMERIC(15,2) NOT NULL DEFAULT 0, \-- Tổng giảm giá\
-total_amount NUMERIC(15,2) NOT NULL, \-- Tổng thanh toán\
-refund_amount NUMERIC(15,2) NOT NULL DEFAULT 0, \-- Số tiền đã hoàn (đổi/trả)\
-\
-\-- Voucher snapshot\
-voucher_id INT REFERENCES vouchers(id), \-- Voucher đã dùng\
-voucher_code VARCHAR(50), \-- Code voucher\
-\
-\-- Build PC\
-build_id INT REFERENCES pc_builds(id), \-- Đơn từ Build PC\
-\
-\-- Ghi chú\
-note TEXT, \-- Ghi chú khách hàng\
-staff_note TEXT, \-- Ghi chú nội bộ staff\
-cancelled_reason TEXT, \-- Lý do hủy đơn\
-\
-\-- Auto-cancel COD\
-auto_cancel_at TIMESTAMP, \-- Tự động hủy COD sau 48h nếu chưa confirmed\
-\
-\-- Timeline tracking (SLA)\
-confirmed_at TIMESTAMP, \-- Thời gian xác nhận (SLA: 2h)\
-processing_at TIMESTAMP, \-- Bắt đầu đóng gói (SLA: 4h)\
-shipped_at TIMESTAMP, \-- Giao cho vận chuyển\
-delivered_at TIMESTAMP, \-- Giao thành công\
-completed_at TIMESTAMP, \-- Hoàn tất (15 ngày sau delivered)\
-cancelled_at TIMESTAMP, \-- Thời gian hủy\
-refunded_at TIMESTAMP, \-- Thời gian hoàn tiền\
-\
-created_at TIMESTAMP NOT NULL DEFAULT NOW(),\
-updated_at TIMESTAMP NOT NULL DEFAULT NOW()\
-);\
-\
-CREATE INDEX idx_orders_user ON orders(user_id);\
-CREATE INDEX idx_orders_status ON orders(status);\
-CREATE INDEX idx_orders_code ON orders(order_code);\
-CREATE INDEX idx_orders_created ON orders(created_at DESC);\
-CREATE INDEX idx_orders_auto_cancel ON orders(auto_cancel_at)\
-WHERE auto_cancel_at IS NOT NULL AND status = \'pending\';
-
-**TB_ChiTietDonHang (order_items)** - Chi tiết đơn hàng
-
-CREATE TABLE order_items (\
-id SERIAL PRIMARY KEY,\
-order_id INT NOT NULL REFERENCES orders(id) ON DELETE CASCADE,\
-product_id INT NOT NULL REFERENCES products(id),\
-\
-\-- SNAPSHOT sản phẩm tại thời điểm mua\
-product_name VARCHAR(300) NOT NULL, \-- Tên SP (dù SP đổi tên sau)\
-product_sku VARCHAR(100), \-- SKU snapshot\
-product_image VARCHAR(500), \-- Ảnh snapshot\
-warranty_months INT NOT NULL DEFAULT 12, \-- Chính sách BH tại lúc mua\
-\
-\-- Quantity & Pricing\
-quantity INT NOT NULL CHECK (quantity \> 0),\
-unit_price NUMERIC(15,2) NOT NULL, \-- Giá đơn vị\
-discount_price NUMERIC(15,2) NOT NULL DEFAULT 0, \-- Giảm giá/SP\
-total_price NUMERIC(15,2) NOT NULL \-- = (unit_price - discount_price) \* quantity\
-);\
-\
-CREATE INDEX idx_order_items_order ON order_items(order_id);\
-CREATE INDEX idx_order_items_product ON order_items(product_id);
-
-**TB_DanhGia (reviews)**
-
-CREATE TABLE reviews (\
-id BIGSERIAL PRIMARY KEY,\
-product_id BIGINT NOT NULL,\
-user_id BIGINT NOT NULL,\
-order_id BIGINT,\
-rating SMALLINT NOT NULL CHECK (rating BETWEEN 1 AND 5),\
-title VARCHAR(255),\
-content TEXT,\
-is_verified_purchase BOOLEAN DEFAULT FALSE,\
-status VARCHAR(20) DEFAULT \'pending\' CHECK (status IN (\'pending\', \'approved\', \'rejected\')),\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-FOREIGN KEY (product_id) REFERENCES products(id),\
-FOREIGN KEY (user_id) REFERENCES users(id),\
-FOREIGN KEY (order_id) REFERENCES orders(id)\
-);\
-\
-CREATE INDEX idx_reviews_product ON reviews(product_id);\
-CREATE INDEX idx_reviews_user ON reviews(user_id);
-
-**\**
-
-**TB_YeuThich (wishlists)**
-
-CREATE TABLE wishlists (\
-user_id BIGINT NOT NULL,\
-product_id BIGINT NOT NULL,\
-added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-PRIMARY KEY (user_id, product_id),\
-FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,\
-FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE\
-);\
-\
-CREATE INDEX idx_wishlists_user ON wishlists(user_id);
-
-**TB_Carts (carts)** - Giỏ hàng
-
-CREATE TABLE carts (\
-id BIGSERIAL PRIMARY KEY,\
-user_id BIGINT,\
-\-- NULL cho guest users, sử dụng session_id\
-session_id VARCHAR(200),\
-\-- Session ID cho guest users\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE\
-);\
-\
-CREATE INDEX idx_carts_user ON carts(user_id);\
-CREATE INDEX idx_carts_session ON carts(session_id);
-
-**TB_CartItems (cart_items)** - Chi tiết giỏ hàng
-
-CREATE TABLE cart_items (\
-id BIGSERIAL PRIMARY KEY,\
-cart_id BIGINT NOT NULL,\
-product_id BIGINT NOT NULL,\
-quantity INTEGER NOT NULL DEFAULT 1,\
-added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-FOREIGN KEY (cart_id) REFERENCES carts(id) ON DELETE CASCADE,\
-FOREIGN KEY (product_id) REFERENCES products(id)\
-);\
-\
-CREATE INDEX idx_cart_items_cart ON cart_items(cart_id);
-
-**TB_ProductImages (product_images)** - Hình ảnh sản phẩm
-
-CREATE TABLE product_images (\
-id BIGSERIAL PRIMARY KEY,\
-product_id BIGINT NOT NULL,\
-image_url VARCHAR(500) NOT NULL,\
-alt_text VARCHAR(255),\
-sort_order INTEGER DEFAULT 0,\
-is_thumbnail BOOLEAN DEFAULT FALSE,\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE\
-);\
-\
-CREATE INDEX idx_product_images_product ON product_images(product_id);
-
-**\**
-
-**TB_ProductAttributes (product_attributes)** - Thuộc tính sản phẩm (key-value)
-
-CREATE TABLE product_attributes (\
-id BIGSERIAL PRIMARY KEY,\
-product_id BIGINT NOT NULL,\
-attribute_key VARCHAR(100) NOT NULL,\
-\-- Ví dụ: \'cpu\', \'ram\', \'storage\', \'screen_size\', \'battery\'\
-attribute_value TEXT NOT NULL,\
-display_order INTEGER DEFAULT 0,\
-FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE\
-);\
-\
-CREATE INDEX idx_product_attributes_product ON product_attributes(product_id);
-
-**TB_UserAddresses (user_addresses)**
-
-CREATE TABLE user_addresses (\
-id BIGSERIAL PRIMARY KEY,\
-user_id BIGINT NOT NULL,\
-full_name VARCHAR(150) NOT NULL,\
-phone VARCHAR(20) NOT NULL,\
-address_line TEXT NOT NULL,\
-ward VARCHAR(100),\
-district VARCHAR(100),\
-province VARCHAR(100),\
-is_default BOOLEAN DEFAULT FALSE,\
-address_type VARCHAR(30) DEFAULT \'home\',\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE\
-);\
-\
-CREATE INDEX idx_user_addresses_user ON user_addresses(user_id);
-
-**TB_UserTokens (user_tokens)**
-
-CREATE TABLE user_tokens (\
-id BIGSERIAL PRIMARY KEY,\
-user_id BIGINT NOT NULL,\
-token_type VARCHAR(30) NOT NULL,\
-token VARCHAR(500) NOT NULL,\
-expires_at TIMESTAMP NOT NULL,\
-is_revoked BOOLEAN DEFAULT FALSE,\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE\
-);\
-\
-CREATE INDEX idx_user_tokens_user ON user_tokens(user_id);\
-CREATE INDEX idx_user_tokens_token ON user_tokens(token);
-
-**TB_StoreImages (store_images)** - Hình ảnh showroom
-
-CREATE TABLE store_images (\
-id BIGSERIAL PRIMARY KEY,\
-store_id BIGINT NOT NULL,\
-image_url VARCHAR(500) NOT NULL,\
-alt_text VARCHAR(255),\
-sort_order INTEGER DEFAULT 0,\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-FOREIGN KEY (store_id) REFERENCES stores(id) ON DELETE CASCADE\
-);\
-\
-CREATE INDEX idx_store_images_store ON store_images(store_id);
-
-**TB_ReviewImages (review_images)**
-
-CREATE TABLE review_images (\
-id BIGSERIAL PRIMARY KEY,\
-review_id BIGINT NOT NULL,\
-image_url VARCHAR(500) NOT NULL,\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-FOREIGN KEY (review_id) REFERENCES reviews(id) ON DELETE CASCADE\
-);\
-\
-CREATE INDEX idx_review_images_review ON review_images(review_id);
-
-**TB_BlogCategories (blog_categories)** - Danh mục blog
-
-CREATE TABLE blog_categories (\
-id BIGSERIAL PRIMARY KEY,\
-name VARCHAR(200) NOT NULL,\
-slug VARCHAR(250) UNIQUE NOT NULL,\
-description TEXT,\
-sort_order INTEGER DEFAULT 0,\
-is_active BOOLEAN DEFAULT TRUE,\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\
-);
-
-**TB_Brands (brands)** - Quản lý thương hiệu
-
-CREATE TABLE brands (\
-id BIGSERIAL PRIMARY KEY,\
-name VARCHAR(200) NOT NULL,\
-slug VARCHAR(250) UNIQUE NOT NULL,\
-logo_url VARCHAR(500),\
-description TEXT,\
-is_active BOOLEAN DEFAULT TRUE,\
-sort_order INTEGER DEFAULT 0,\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\
-);
-
-**TB_Vouchers (vouchers)** - Mã giảm giá (manual code entry)
-
-CREATE TABLE vouchers (\
-id BIGSERIAL PRIMARY KEY,\
-code VARCHAR(50) UNIQUE NOT NULL,\
-description VARCHAR(300),\
-discount_type VARCHAR(20) CHECK (discount_type IN (\'percentage\', \'fixed\')),\
-discount_value DECIMAL(10,2) NOT NULL,\
-min_order_value DECIMAL(15,2) DEFAULT 0,\
-max_discount DECIMAL(15,2),\
-usage_limit INTEGER,\
-used_count INTEGER DEFAULT 0,\
-valid_from TIMESTAMP NOT NULL,\
-valid_until TIMESTAMP NOT NULL,\
-is_active BOOLEAN DEFAULT TRUE,\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\
-);
-
-**\**
-
-**TB_Promotions (promotions)** - Khuyến mãi tự động
-
-CREATE TABLE promotions (\
-id BIGSERIAL PRIMARY KEY,\
-promotion_type VARCHAR(50) NOT NULL,\
-\-- Các loại: \'general\', \'build_pc\', \'student\', \'brand_deal\', \'flash_sale\', \'category_sale\'\
-name VARCHAR(200) NOT NULL,\
-description TEXT,\
-discount_type VARCHAR(30) NOT NULL,\
-\-- \'percent\', \'fixed_amount\', \'free_shipping\', \'buy_x_get_y\'\
-discount_value DECIMAL(10,2) NOT NULL,\
-min_order_value DECIMAL(15,2) DEFAULT 0,\
-max_discount DECIMAL(15,2),\
-\-- Giảm tối đa (áp dụng cho discount_type = \'percent\')\
-priority INTEGER DEFAULT 0,\
-\-- Thứ tự ưu tiên khi có nhiều promotion cùng lúc\
-start_date TIMESTAMP NOT NULL,\
-end_date TIMESTAMP NOT NULL,\
-is_active BOOLEAN DEFAULT TRUE,\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\
-);\
-\
-CREATE INDEX idx_promotions_type ON promotions(promotion_type);\
-CREATE INDEX idx_promotions_dates ON promotions(start_date, end_date);
-
-**Các bảng liên kết cho Promotion (Junction Tables):**
-
-\-- Promotion áp dụng cho sản phẩm cụ thể\
-CREATE TABLE promotion_products (\
-promotion_id BIGINT NOT NULL,\
-product_id BIGINT NOT NULL,\
-PRIMARY KEY (promotion_id, product_id),\
-FOREIGN KEY (promotion_id) REFERENCES promotions(id) ON DELETE CASCADE,\
-FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE\
-);\
-\
-\-- Promotion áp dụng cho danh mục\
-CREATE TABLE promotion_categories (\
-promotion_id BIGINT NOT NULL,\
-category_id BIGINT NOT NULL,\
-PRIMARY KEY (promotion_id, category_id),\
-FOREIGN KEY (promotion_id) REFERENCES promotions(id) ON DELETE CASCADE,\
-FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE\
-);\
-\
-\-- Promotion áp dụng cho thương hiệu\
-CREATE TABLE promotion_brands (\
-promotion_id BIGINT NOT NULL,\
-brand_id BIGINT NOT NULL,\
-PRIMARY KEY (promotion_id, brand_id),\
-FOREIGN KEY (promotion_id) REFERENCES promotions(id) ON DELETE CASCADE,\
-FOREIGN KEY (brand_id) REFERENCES brands(id) ON DELETE CASCADE\
-);
-
-**\**
-
-**TB_Banners (banners)** - Quản lý banner quảng cáo
-
-CREATE TABLE banners (\
-id BIGSERIAL PRIMARY KEY,\
-title VARCHAR(200) NOT NULL,\
-image_url VARCHAR(500) NOT NULL,\
-link_url VARCHAR(500),\
-description TEXT,\
-position VARCHAR(50) DEFAULT \'home_slider\',\
-sort_order INTEGER DEFAULT 0,\
-is_active BOOLEAN DEFAULT TRUE,\
-start_date TIMESTAMP,\
-end_date TIMESTAMP,\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\
-);
-
-**TB_BlogPosts (blog_posts)** - Bài viết blog/tin tức
-
-CREATE TABLE blog_posts (\
-id BIGSERIAL PRIMARY KEY,\
-category_id BIGINT,\
-author_id BIGINT NOT NULL,\
-title VARCHAR(300) NOT NULL,\
-slug VARCHAR(350) UNIQUE NOT NULL,\
-excerpt TEXT,\
-content TEXT NOT NULL,\
-featured_image VARCHAR(500),\
-view_count INTEGER DEFAULT 0,\
-is_published BOOLEAN DEFAULT FALSE,\
-published_at TIMESTAMP,\
-meta_title VARCHAR(300),\
-\-- SEO: Tiêu đề tối ưu cho search engine\
-meta_desc VARCHAR(500),\
-\-- SEO: Mô tả meta description cho search result\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-FOREIGN KEY (category_id) REFERENCES blog_categories(id),\
-FOREIGN KEY (author_id) REFERENCES users(id)\
-);
-
-**TB_Warranties (warranties)**
-
-CREATE TABLE warranties (\
-id BIGSERIAL PRIMARY KEY,\
-order_id BIGINT NOT NULL,\
-product_id BIGINT NOT NULL,\
-user_id BIGINT NOT NULL,\
-warranty_code VARCHAR(100) UNIQUE NOT NULL,\
-issue_description TEXT NOT NULL,\
-status VARCHAR(30) DEFAULT \'pending\' CHECK (status IN (\'pending\', \'approved\', \'in_progress\', \'completed\', \'rejected\')),\
-assigned_to BIGINT,\
-resolution_note TEXT,\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-completed_at TIMESTAMP,\
-FOREIGN KEY (order_id) REFERENCES orders(id),\
-FOREIGN KEY (product_id) REFERENCES products(id),\
-FOREIGN KEY (user_id) REFERENCES users(id),\
-FOREIGN KEY (assigned_to) REFERENCES users(id)\
-);
-
-**TB_UserOAuth (user_oauth)**
-
-CREATE TABLE user_oauth (\
-id BIGSERIAL PRIMARY KEY,\
-user_id BIGINT NOT NULL,\
-provider VARCHAR(30) NOT NULL CHECK (provider IN (\'google\', \'facebook\')),\
-provider_user_id VARCHAR(200) NOT NULL,\
-access_token TEXT,\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-UNIQUE (provider, provider_user_id),\
-FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE\
-);
-
-**TB_Notifications (notifications)**
-
-CREATE TABLE notifications (\
-id BIGSERIAL PRIMARY KEY,\
-user_id BIGINT NOT NULL,\
-type VARCHAR(50) NOT NULL,\
-title VARCHAR(255) NOT NULL,\
-message TEXT,\
-link_url VARCHAR(500),\
-is_read BOOLEAN DEFAULT FALSE,\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE\
-);\
-\
-CREATE INDEX idx_notifications_user ON notifications(user_id, is_read);
-
-**TB_PcComponentTypes (pc_component_types)** - Danh mục loại linh kiện Build PC
-
-CREATE TABLE pc_component_types (\
-id BIGSERIAL PRIMARY KEY,\
-name VARCHAR(100) NOT NULL,\
-\-- Ví dụ: \'CPU\', \'Mainboard\', \'RAM\', \'SSD\', \'HDD\', \'VGA\', \'PSU\', \'Case\', \'Cooling\'\
-display_name VARCHAR(150) NOT NULL,\
-\-- Tên hiển thị: \'Bộ vi xử lý\', \'Bo mạch chủ\', \'RAM\', \'Ổ cứng SSD\'\...\
-description TEXT,\
-is_required BOOLEAN DEFAULT FALSE,\
-\-- Bắt buộc phải chọn khi Build PC (CPU, Mainboard, RAM, SSD, PSU, Case = true)\
-sort_order INTEGER DEFAULT 0,\
-icon VARCHAR(300),\
-is_active BOOLEAN DEFAULT TRUE,\
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\
-);
-
-**\**
-
-**Dữ liệu mẫu (23 loại linh kiện):**
-
-INSERT INTO pc_component_types (name, display_name, is_required, sort_order) VALUES\
-(\'CPU\', \'Bộ vi xử lý\', TRUE, 1),\
-(\'MAINBOARD\', \'Bo mạch chủ\', TRUE, 2),\
-(\'RAM\', \'Bộ nhớ RAM\', TRUE, 3),\
-(\'SSD\', \'Ổ cứng SSD\', TRUE, 4),\
-(\'HDD\', \'Ổ cứng HDD\', FALSE, 5),\
-(\'VGA\', \'Card màn hình\', FALSE, 6),\
-(\'PSU\', \'Nguồn máy tính\', TRUE, 7),\
-(\'CASE\', \'Vỏ case\', TRUE, 8),\
-(\'COOLING\', \'Tản nhiệt\', FALSE, 9),\
-(\'MONITOR\', \'Màn hình\', FALSE, 10),\
-(\'KEYBOARD\', \'Bàn phím\', FALSE, 11),\
-(\'MOUSE\', \'Chuột\', FALSE, 12),\
-(\'HEADSET\', \'Tai nghe\', FALSE, 13),\
-(\'SPEAKER\', \'Loa\', FALSE, 14),\
-(\'WEBCAM\', \'Webcam\', FALSE, 15),\
-(\'CHAIR\', \'Ghế Gaming\', FALSE, 16),\
-(\'DESK\', \'Bàn máy tính\', FALSE, 17),\
-(\'UPS\', \'Bộ lưu điện\', FALSE, 18),\
-(\'WINDOWS\', \'Windows bản quyền\', FALSE, 19),\
-(\'OFFICE\', \'Microsoft Office\', FALSE, 20),\
-(\'ANTIVIRUS\', \'Phần mềm diệt virus\', FALSE, 21),\
-(\'MOUSEPAD\', \'Lót chuột\', FALSE, 22),\
-(\'CABLE\', \'Dây cáp HDMI/DP\', FALSE, 23);
-
-### 3.1.3. Các bảng bổ sung quan trọng
-
-**TB_UserTokens (user_tokens)**
-
-CREATE TABLE user_tokens (\
-id SERIAL PRIMARY KEY,\
-user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,\
-token VARCHAR(255) NOT NULL UNIQUE,\
-token_type VARCHAR(30) NOT NULL,\
-expires_at TIMESTAMP NOT NULL,\
-used_at TIMESTAMP,\
-ip_address VARCHAR(45),\
-created_at TIMESTAMP NOT NULL DEFAULT NOW()\
-);\
-\
-CREATE INDEX idx_user_tokens_token ON user_tokens(token);\
-CREATE INDEX idx_user_tokens_user ON user_tokens(user_id);\
-CREATE INDEX idx_user_tokens_expiry ON user_tokens(expires_at);
-
-**\**
-
-**TB_Warranties (warranties)**
-
-CREATE TABLE warranties (\
-id SERIAL PRIMARY KEY,\
-order_item_id INT REFERENCES order_items(id),\
-product_id INT NOT NULL REFERENCES products(id),\
-user_id INT REFERENCES users(id),\
-serial_number VARCHAR(200),\
-purchase_date DATE NOT NULL,\
-warranty_months INT NOT NULL DEFAULT 12,\
-warranty_expires_at DATE NOT NULL,\
-status warranty_status NOT NULL DEFAULT \'active\',\
-notes TEXT,\
-created_at TIMESTAMP NOT NULL DEFAULT NOW(),\
-updated_at TIMESTAMP NOT NULL DEFAULT NOW()\
-);\
-\
-CREATE INDEX idx_warranties_user ON warranties(user_id);\
-CREATE INDEX idx_warranties_serial ON warranties(serial_number);\
-CREATE INDEX idx_warranties_expiry ON warranties(warranty_expires_at);
-
-**TB_ServiceRequests (service_requests)**
-
-CREATE TABLE service_requests (\
-id SERIAL PRIMARY KEY,\
-warranty_id INT REFERENCES warranties(id),\
-user_id INT REFERENCES users(id),\
-store_id INT REFERENCES stores(id),\
-service_code VARCHAR(30) UNIQUE,\
-product_name VARCHAR(300) NOT NULL,\
-serial_number VARCHAR(200),\
-issue_desc TEXT NOT NULL,\
-status service_status NOT NULL DEFAULT \'received\',\
-diagnosis TEXT,\
-repair_cost NUMERIC(15,2) NOT NULL DEFAULT 0,\
-customer_approved_repair BOOLEAN,\
-approved_at TIMESTAMP,\
-appointment_date TIMESTAMP,\
-received_at TIMESTAMP NOT NULL DEFAULT NOW(),\
-completed_at TIMESTAMP,\
-returned_at TIMESTAMP,\
-technician_id INT REFERENCES users(id),\
-created_at TIMESTAMP NOT NULL DEFAULT NOW(),\
-updated_at TIMESTAMP NOT NULL DEFAULT NOW()\
-);\
-\
-CREATE INDEX idx_service_requests_user ON service_requests(user_id);\
-CREATE INDEX idx_service_requests_code ON service_requests(service_code);
-
-**\**
-
-**TB_ReturnRequests (return_requests)**
-
-CREATE TABLE return_requests (\
-id SERIAL PRIMARY KEY,\
-order_id INT NOT NULL REFERENCES orders(id),\
-user_id INT NOT NULL REFERENCES users(id),\
-return_code VARCHAR(30) NOT NULL UNIQUE,\
-status return_status NOT NULL DEFAULT \'pending\',\
-reason_type VARCHAR(50) NOT NULL,\
-reason_detail TEXT,\
-resolution VARCHAR(30),\
-refund_amount NUMERIC(15,2),\
-staff_note TEXT,\
-reviewed_by INT REFERENCES users(id),\
-reviewed_at TIMESTAMP,\
-completed_at TIMESTAMP,\
-created_at TIMESTAMP NOT NULL DEFAULT NOW(),\
-updated_at TIMESTAMP NOT NULL DEFAULT NOW()\
-);\
-\
-CREATE INDEX idx_return_requests_order ON return_requests(order_id);\
-CREATE INDEX idx_return_requests_user ON return_requests(user_id);\
-CREATE INDEX idx_return_requests_code ON return_requests(return_code);
-
-**TB_Notifications (notifications)**
-
-CREATE TABLE notifications (\
-id SERIAL PRIMARY KEY,\
-user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,\
-type notification_type NOT NULL,\
-title VARCHAR(200) NOT NULL,\
-content TEXT,\
-link_url VARCHAR(500),\
-reference_type VARCHAR(50),\
-reference_id INT,\
-is_read BOOLEAN NOT NULL DEFAULT FALSE,\
-created_at TIMESTAMP NOT NULL DEFAULT NOW()\
-);\
-\
-CREATE INDEX idx_notifications_user ON notifications(user_id, is_read, created_at DESC);
-
-**\**
-
-**TB_PcComponents (pc_components)**
-
-CREATE TABLE pc_components (\
-id SERIAL PRIMARY KEY,\
-component_type_id INT NOT NULL REFERENCES pc_component_types(id),\
-product_id INT NOT NULL REFERENCES products(id) ON DELETE CASCADE,\
-socket VARCHAR(50),\
-chipset VARCHAR(50),\
-ram_type VARCHAR(20),\
-ram_slots INT,\
-max_ram_gb INT,\
-ram_capacity_gb INT,\
-ram_speed_mhz INT,\
-tdp_watts INT,\
-psu_wattage INT,\
-storage_gb INT,\
-storage_interface VARCHAR(30),\
-is_like_new BOOLEAN NOT NULL DEFAULT FALSE,\
-is_active BOOLEAN NOT NULL DEFAULT TRUE\
-);\
-\
-CREATE INDEX idx_pc_components_type ON pc_components(component_type_id);\
-CREATE INDEX idx_pc_components_product ON pc_components(product_id);
+#### 3.1.1.3. Chi tiết schema các bảng
+
+> **Ghi chú (Phase 5, 2026-07-27):** Toàn bộ khóa chính/khóa ngoại đã thống nhất về `BIGINT`/`BIGSERIAL`, khớp với kiểu `Long id` (`GenerationType.IDENTITY`) đang dùng trong entity của `KL-BE` — một số bảng trước đây còn ghi `SERIAL`/`INT` (kiểu 32-bit) không khớp code thực tế.
+
+**TB_NguoiDung (`users`)**
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `role` | user_role NOT NULL DEFAULT 'customer' |  |
+| `status` | user_status NOT NULL DEFAULT 'active' |  |
+| `email` | VARCHAR(200) UNIQUE |  |
+| `phone` | VARCHAR(20) UNIQUE |  |
+| `password_hash` | VARCHAR(255) |  |
+| `full_name` | VARCHAR(150) |  |
+| `avatar_url` | VARCHAR(500) |  |
+| `date_of_birth` | DATE |  |
+| `gender` | VARCHAR(10) |  |
+| `email_verified` | BOOLEAN NOT NULL DEFAULT FALSE |  |
+| `phone_verified` | BOOLEAN NOT NULL DEFAULT FALSE |  |
+| `login_attempts` | SMALLINT NOT NULL DEFAULT 0 |  |
+| `locked_until` | TIMESTAMP |  |
+| `tax_code` | VARCHAR(20) |  |
+| `company_name` | VARCHAR(200) |  |
+| `last_login_at` | TIMESTAMP |  |
+| `created_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+| `updated_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+
+*Ràng buộc bảng:* CONSTRAINT chk_users_credential CHECK (email IS NOT NULL OR phone IS NOT NULL)
+
+*Index:* idx_users_email(email), idx_users_phone(phone), idx_users_role(role), idx_users_status(status)
+
+**TB_DanhMuc (`categories`)** — Danh mục sản phẩm
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `parent_id` | BIGINT REFERENCES categories(id) ON DELETE SET NULL | Danh mục cha (NULL = root) |
+| `name` | VARCHAR(150) NOT NULL | Tên danh mục |
+| `slug` | VARCHAR(200) NOT NULL UNIQUE | URL-friendly (laptop-gaming) |
+| `icon_url` | VARCHAR(500) | Icon SVG/PNG |
+| `image_url` | VARCHAR(500) | Banner danh mục |
+| `description` | TEXT | Mô tả ngắn |
+| `sort_order` | INT NOT NULL DEFAULT 0 | Thứ tự hiển thị |
+| `is_active` | BOOLEAN NOT NULL DEFAULT TRUE | Đang hoạt động? |
+| `created_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+| `updated_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+
+*Index:* idx_categories_parent(parent_id), idx_categories_slug(slug)
+
+**TB_SanPham (`products`)** — Sản phẩm chính
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `category_id` | BIGINT NOT NULL REFERENCES categories(id) |  |
+| `brand_id` | BIGINT REFERENCES brands(id) |  |
+| *— Basic info —* | | |
+| `name` | VARCHAR(300) NOT NULL | Tên sản phẩm đầy đủ |
+| `slug` | VARCHAR(350) NOT NULL UNIQUE | URL slug |
+| `sku` | VARCHAR(100) UNIQUE | Mã SKU (Stock Keeping Unit) |
+| `short_desc` | TEXT | Mô tả ngắn 1-2 dòng |
+| `description` | TEXT | Mô tả chi tiết HTML |
+| `thumbnail` | VARCHAR(500) | Ảnh đại diện chính |
+| *— Pricing —* | | |
+| `price` | NUMERIC(15,2) NOT NULL DEFAULT 0 | Giá hiện tại (sau giảm) |
+| `original_price` | NUMERIC(15,2) | Giá gốc (trước giảm) |
+| `is_on_sale` | BOOLEAN NOT NULL DEFAULT FALSE | Đang sale? (auto-set by trigger) |
+| *— Inventory —* | | |
+| `stock_qty` | INT NOT NULL DEFAULT 0 | Tổng tồn kho |
+| `sold_qty` | INT NOT NULL DEFAULT 0 | Số lượng đã bán |
+| `low_stock_threshold` | INT NOT NULL DEFAULT 5 | Ngưỡng cảnh báo hết hàng |
+| *— Engagement —* | | |
+| `view_count` | INT NOT NULL DEFAULT 0 | Lượt xem |
+| `rating_avg` | NUMERIC(3,2) NOT NULL DEFAULT 0 | Điểm TB (0-5) |
+| `rating_count` | INT NOT NULL DEFAULT 0 | Số đánh giá |
+| *— Physical attributes —* | | |
+| `weight` | NUMERIC(8,3) | Trọng lượng (kg) |
+| `warranty_months` | INT NOT NULL DEFAULT 12 | Tháng bảo hành |
+| `warranty_text` | VARCHAR(200) | "12 tháng chính hãng" |
+| *— Status flags —* | | |
+| `is_active` | BOOLEAN NOT NULL DEFAULT TRUE | Còn kinh doanh? |
+| `is_featured` | BOOLEAN NOT NULL DEFAULT FALSE | Sản phẩm nổi bật |
+| `is_new` | BOOLEAN NOT NULL DEFAULT FALSE | Hàng mới |
+| *— Search optimization —* | | |
+| `search_vector` | TSVECTOR | Full-text search (auto-update) |
+| *— SEO —* | | |
+| `meta_title` | VARCHAR(300) | SEO title |
+| `meta_desc` | VARCHAR(500) | SEO description |
+| `created_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+| `updated_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+
+*Index:* idx_products_category(category_id), idx_products_brand(brand_id), idx_products_slug(slug), idx_products_sku(sku), idx_products_price(price), idx_products_active(is_active), idx_products_featured(is_featured) [WHERE is_featured = TRUE], idx_products_on_sale(is_on_sale) [WHERE is_on_sale = TRUE], CREATE INDEX idx_products_search ON products USING GIN(search_vector), CREATE INDEX idx_products_name_trgm ON products USING GIN(name gin_trgm_ops); -- Trigram for LIKE search
+
+**TB_DonHang (`orders`)** — Đơn hàng
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `order_code` | VARCHAR(30) NOT NULL UNIQUE | HC-2026-000001 |
+| `user_id` | BIGINT REFERENCES users(id) |  |
+| *— Trạng thái —* | | |
+| `status` | order_status NOT NULL DEFAULT 'pending' | ENUM: pending → confirmed → \... → completed |
+| `payment_method` | payment_method NOT NULL | ENUM: cod/vnpay/momo/zalopay/installment |
+| `payment_status` | payment_status NOT NULL DEFAULT 'pending' | ENUM: pending/paid/failed/refunded |
+| *— Hình thức nhận hàng —* | | |
+| `pickup_store_id` | BIGINT REFERENCES stores(id) | NULL = giao tận nơi, có giá trị = nhận tại store |
+| *— Địa chỉ giao hàng (SNAPSHOT tại thời điểm đặt hàng) —* | | |
+| `shipping_name` | VARCHAR(150) NOT NULL | Tên người nhận |
+| `shipping_phone` | VARCHAR(20) NOT NULL | SĐT người nhận |
+| `shipping_province` | VARCHAR(100) NOT NULL | Tỉnh/TP |
+| `shipping_district` | VARCHAR(100) NOT NULL | Quận/Huyện |
+| `shipping_ward` | VARCHAR(100) NOT NULL | Phường/Xã |
+| `shipping_address` | VARCHAR(300) NOT NULL | Địa chỉ chi tiết |
+| *— Tiền —* | | |
+| `subtotal` | NUMERIC(15,2) NOT NULL | Tổng tiền hàng |
+| `shipping_fee` | NUMERIC(15,2) NOT NULL DEFAULT 0 | Phí ship |
+| `discount_amount` | NUMERIC(15,2) NOT NULL DEFAULT 0 | Tổng giảm giá |
+| `total_amount` | NUMERIC(15,2) NOT NULL | Tổng thanh toán |
+| `refund_amount` | NUMERIC(15,2) NOT NULL DEFAULT 0 | Số tiền đã hoàn (đổi/trả) |
+| *— Voucher snapshot —* | | |
+| `voucher_id` | BIGINT REFERENCES vouchers(id) | Voucher đã dùng |
+| `voucher_code` | VARCHAR(50) | Code voucher |
+| *— Build PC —* | | |
+| `build_id` | BIGINT REFERENCES pc_builds(id) | Đơn từ Build PC |
+| *— Ghi chú —* | | |
+| `note` | TEXT | Ghi chú khách hàng |
+| `staff_note` | TEXT | Ghi chú nội bộ staff |
+| `cancelled_reason` | TEXT | Lý do hủy đơn |
+| *— Auto-cancel COD —* | | |
+| `auto_cancel_at` | TIMESTAMP | Tự động hủy COD sau 48h nếu chưa confirmed |
+| *— Timeline tracking (SLA) —* | | |
+| `confirmed_at` | TIMESTAMP | Thời gian xác nhận (SLA: 2h) |
+| `processing_at` | TIMESTAMP | Bắt đầu đóng gói (SLA: 4h) |
+| `shipped_at` | TIMESTAMP | Giao cho vận chuyển |
+| `delivered_at` | TIMESTAMP | Giao thành công |
+| `completed_at` | TIMESTAMP | Hoàn tất (15 ngày sau delivered) |
+| `cancelled_at` | TIMESTAMP | Thời gian hủy |
+| `refunded_at` | TIMESTAMP | Thời gian hoàn tiền |
+| `created_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+| `updated_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+
+*Index:* idx_orders_user(user_id), idx_orders_status(status), idx_orders_code(order_code), idx_orders_created(created_at DESC), idx_orders_auto_cancel(auto_cancel_at) [WHERE auto_cancel_at IS NOT NULL AND status = 'pending']
+
+**TB_ChiTietDonHang (`order_items`)** — Chi tiết đơn hàng
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `order_id` | BIGINT NOT NULL REFERENCES orders(id) ON DELETE CASCADE |  |
+| `product_id` | BIGINT NOT NULL REFERENCES products(id) |  |
+| *— SNAPSHOT sản phẩm tại thời điểm mua —* | | |
+| `product_name` | VARCHAR(300) NOT NULL | Tên SP (dù SP đổi tên sau) |
+| `product_sku` | VARCHAR(100) | SKU snapshot |
+| `product_image` | VARCHAR(500) | Ảnh snapshot |
+| `warranty_months` | INT NOT NULL DEFAULT 12 | Chính sách BH tại lúc mua |
+| *— Quantity & Pricing —* | | |
+| `quantity` | INT NOT NULL CHECK (quantity \> 0) |  |
+| `unit_price` | NUMERIC(15,2) NOT NULL | Giá đơn vị |
+| `discount_price` | NUMERIC(15,2) NOT NULL DEFAULT 0 | Giảm giá/SP |
+| `total_price` | NUMERIC(15,2) NOT NULL | = (unit_price - discount_price) * quantity |
+
+*Index:* idx_order_items_order(order_id), idx_order_items_product(product_id)
+
+**TB_DanhGia (`reviews`)**
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `product_id` | BIGINT NOT NULL |  |
+| `user_id` | BIGINT NOT NULL |  |
+| `order_id` | BIGINT |  |
+| `rating` | SMALLINT NOT NULL CHECK (rating BETWEEN 1 AND 5) |  |
+| `title` | VARCHAR(255) |  |
+| `content` | TEXT |  |
+| `is_verified_purchase` | BOOLEAN DEFAULT FALSE |  |
+| `status` | VARCHAR(20) DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected')) |  |
+| `created_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+| `updated_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+
+*Ràng buộc bảng:* FOREIGN KEY (product_id) REFERENCES products(id); FOREIGN KEY (user_id) REFERENCES users(id); FOREIGN KEY (order_id) REFERENCES orders(id)
+
+*Index:* idx_reviews_product(product_id), idx_reviews_user(user_id)
+
+**TB_YeuThich (`wishlists`)**
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `user_id` | BIGINT NOT NULL |  |
+| `product_id` | BIGINT NOT NULL |  |
+| `added_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+
+*Ràng buộc bảng:* PRIMARY KEY (user_id, product_id); FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE; FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+
+*Index:* idx_wishlists_user(user_id)
+
+**TB_Carts (`carts`)** — Giỏ hàng
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `user_id` | BIGINT |  |
+| *— NULL cho guest users, sử dụng session_id —* | | |
+| `session_id` | VARCHAR(200) |  |
+| *— Session ID cho guest users —* | | |
+| `created_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+| `updated_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+
+*Ràng buộc bảng:* FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+
+*Index:* idx_carts_user(user_id), idx_carts_session(session_id)
+
+**TB_CartItems (`cart_items`)** — Chi tiết giỏ hàng
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `cart_id` | BIGINT NOT NULL |  |
+| `product_id` | BIGINT NOT NULL |  |
+| `quantity` | INTEGER NOT NULL DEFAULT 1 |  |
+| `added_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+
+*Ràng buộc bảng:* FOREIGN KEY (cart_id) REFERENCES carts(id) ON DELETE CASCADE; FOREIGN KEY (product_id) REFERENCES products(id)
+
+*Index:* idx_cart_items_cart(cart_id)
+
+**TB_ProductImages (`product_images`)** — Hình ảnh sản phẩm
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `product_id` | BIGINT NOT NULL |  |
+| `image_url` | VARCHAR(500) NOT NULL |  |
+| `alt_text` | VARCHAR(255) |  |
+| `sort_order` | INTEGER DEFAULT 0 |  |
+| `is_thumbnail` | BOOLEAN DEFAULT FALSE |  |
+| `created_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+
+*Ràng buộc bảng:* FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+
+*Index:* idx_product_images_product(product_id)
+
+**TB_ProductAttributes (`product_attributes`)** — Thuộc tính sản phẩm (key-value)
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `product_id` | BIGINT NOT NULL |  |
+| `attribute_key` | VARCHAR(100) NOT NULL |  |
+| *— Ví dụ: 'cpu', 'ram', 'storage', 'screen_size', 'battery' —* | | |
+| `attribute_value` | TEXT NOT NULL |  |
+| `display_order` | INTEGER DEFAULT 0 |  |
+
+*Ràng buộc bảng:* FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+
+*Index:* idx_product_attributes_product(product_id)
+
+**TB_UserAddresses (`user_addresses`)**
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `user_id` | BIGINT NOT NULL |  |
+| `full_name` | VARCHAR(150) NOT NULL |  |
+| `phone` | VARCHAR(20) NOT NULL |  |
+| `address_line` | TEXT NOT NULL |  |
+| `ward` | VARCHAR(100) |  |
+| `district` | VARCHAR(100) |  |
+| `province` | VARCHAR(100) |  |
+| `is_default` | BOOLEAN DEFAULT FALSE |  |
+| `address_type` | VARCHAR(30) DEFAULT 'home' |  |
+| `created_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+| `updated_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+
+*Ràng buộc bảng:* FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+
+*Index:* idx_user_addresses_user(user_id)
+
+**TB_UserTokens (`user_tokens`)** — *xem định nghĩa đầy đủ tại mục 3.1.2 (đã hợp nhất, bỏ bản trùng kém đầy đủ hơn tại đây)*
+
+**TB_StoreImages (`store_images`)** — Hình ảnh showroom
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `store_id` | BIGINT NOT NULL |  |
+| `image_url` | VARCHAR(500) NOT NULL |  |
+| `alt_text` | VARCHAR(255) |  |
+| `sort_order` | INTEGER DEFAULT 0 |  |
+| `created_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+
+*Ràng buộc bảng:* FOREIGN KEY (store_id) REFERENCES stores(id) ON DELETE CASCADE
+
+*Index:* idx_store_images_store(store_id)
+
+**TB_ReviewImages (`review_images`)**
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `review_id` | BIGINT NOT NULL |  |
+| `image_url` | VARCHAR(500) NOT NULL |  |
+| `created_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+
+*Ràng buộc bảng:* FOREIGN KEY (review_id) REFERENCES reviews(id) ON DELETE CASCADE
+
+*Index:* idx_review_images_review(review_id)
+
+**TB_BlogCategories (`blog_categories`)** — Danh mục blog
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `name` | VARCHAR(200) NOT NULL |  |
+| `slug` | VARCHAR(250) UNIQUE NOT NULL |  |
+| `description` | TEXT |  |
+| `sort_order` | INTEGER DEFAULT 0 |  |
+| `is_active` | BOOLEAN DEFAULT TRUE |  |
+| `created_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+| `updated_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+
+**TB_Brands (`brands`)** — Quản lý thương hiệu
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `name` | VARCHAR(200) NOT NULL |  |
+| `slug` | VARCHAR(250) UNIQUE NOT NULL |  |
+| `logo_url` | VARCHAR(500) |  |
+| `description` | TEXT |  |
+| `is_active` | BOOLEAN DEFAULT TRUE |  |
+| `sort_order` | INTEGER DEFAULT 0 |  |
+| `created_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+| `updated_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+
+**TB_Vouchers (`vouchers`)** — Mã giảm giá (manual code entry)
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `code` | VARCHAR(50) UNIQUE NOT NULL |  |
+| `description` | VARCHAR(300) |  |
+| `discount_type` | VARCHAR(20) CHECK (discount_type IN ('percentage', 'fixed')) |  |
+| `discount_value` | DECIMAL(10,2) NOT NULL |  |
+| `min_order_value` | DECIMAL(15,2) DEFAULT 0 |  |
+| `max_discount` | DECIMAL(15,2) |  |
+| `usage_limit` | INTEGER |  |
+| `used_count` | INTEGER DEFAULT 0 |  |
+| `valid_from` | TIMESTAMP NOT NULL |  |
+| `valid_until` | TIMESTAMP NOT NULL |  |
+| `is_active` | BOOLEAN DEFAULT TRUE |  |
+| `created_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+
+**TB_Promotions (`promotions`, `promotion_products`, `promotion_categories`, `promotion_brands`)** — Khuyến mãi tự động
+
+*Bảng `promotions`:*
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `promotion_type` | VARCHAR(50) NOT NULL |  |
+| *— Các loại: 'general', 'build_pc', 'student', 'brand_deal', 'flash_sale', 'category_sale' —* | | |
+| `name` | VARCHAR(200) NOT NULL |  |
+| `description` | TEXT |  |
+| `discount_type` | VARCHAR(30) NOT NULL |  |
+| *— 'percent', 'fixed_amount', 'free_shipping', 'buy_x_get_y' —* | | |
+| `discount_value` | DECIMAL(10,2) NOT NULL |  |
+| `min_order_value` | DECIMAL(15,2) DEFAULT 0 |  |
+| `max_discount` | DECIMAL(15,2) |  |
+| *— Giảm tối đa (áp dụng cho discount_type = 'percent') —* | | |
+| `priority` | INTEGER DEFAULT 0 |  |
+| *— Thứ tự ưu tiên khi có nhiều promotion cùng lúc —* | | |
+| `start_date` | TIMESTAMP NOT NULL |  |
+| `end_date` | TIMESTAMP NOT NULL |  |
+| `is_active` | BOOLEAN DEFAULT TRUE |  |
+| `created_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+| `updated_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+
+*Index:* idx_promotions_type(promotion_type), idx_promotions_dates(start_date, end_date)
+
+*Bảng `promotion_products`:*
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `promotion_id` | BIGINT NOT NULL |  |
+| `product_id` | BIGINT NOT NULL |  |
+
+*Ràng buộc bảng:* PRIMARY KEY (promotion_id, product_id); FOREIGN KEY (promotion_id) REFERENCES promotions(id) ON DELETE CASCADE; FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+
+*Bảng `promotion_categories`:*
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `promotion_id` | BIGINT NOT NULL |  |
+| `category_id` | BIGINT NOT NULL |  |
+
+*Ràng buộc bảng:* PRIMARY KEY (promotion_id, category_id); FOREIGN KEY (promotion_id) REFERENCES promotions(id) ON DELETE CASCADE; FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
+
+*Bảng `promotion_brands`:*
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `promotion_id` | BIGINT NOT NULL |  |
+| `brand_id` | BIGINT NOT NULL |  |
+
+*Ràng buộc bảng:* PRIMARY KEY (promotion_id, brand_id); FOREIGN KEY (promotion_id) REFERENCES promotions(id) ON DELETE CASCADE; FOREIGN KEY (brand_id) REFERENCES brands(id) ON DELETE CASCADE
+
+**TB_Banners (`banners`)** — Quản lý banner quảng cáo
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `title` | VARCHAR(200) NOT NULL |  |
+| `image_url` | VARCHAR(500) NOT NULL |  |
+| `link_url` | VARCHAR(500) |  |
+| `description` | TEXT |  |
+| `position` | VARCHAR(50) DEFAULT 'home_slider' |  |
+| `sort_order` | INTEGER DEFAULT 0 |  |
+| `is_active` | BOOLEAN DEFAULT TRUE |  |
+| `start_date` | TIMESTAMP |  |
+| `end_date` | TIMESTAMP |  |
+| `created_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+| `updated_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+
+**TB_BlogPosts (`blog_posts`)** — Bài viết blog/tin tức
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `category_id` | BIGINT |  |
+| `author_id` | BIGINT NOT NULL |  |
+| `title` | VARCHAR(300) NOT NULL |  |
+| `slug` | VARCHAR(350) UNIQUE NOT NULL |  |
+| `excerpt` | TEXT |  |
+| `content` | TEXT NOT NULL |  |
+| `featured_image` | VARCHAR(500) |  |
+| `view_count` | INTEGER DEFAULT 0 |  |
+| `is_published` | BOOLEAN DEFAULT FALSE |  |
+| `published_at` | TIMESTAMP |  |
+| `meta_title` | VARCHAR(300) |  |
+| *— SEO: Tiêu đề tối ưu cho search engine —* | | |
+| `meta_desc` | VARCHAR(500) |  |
+| *— SEO: Mô tả meta description cho search result —* | | |
+| `created_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+| `updated_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+
+*Ràng buộc bảng:* FOREIGN KEY (category_id) REFERENCES blog_categories(id); FOREIGN KEY (author_id) REFERENCES users(id)
+
+**TB_Warranties (`warranties`)** — *nội dung bảng này (mã yêu cầu, chẩn đoán, người xử lý) trùng chức năng với `service_requests` ở mục 3.1.2. Xem `warranties` (theo dõi thời hạn bảo hành) và `service_requests` (xử lý yêu cầu sửa chữa) tại mục 3.1.2, đã bỏ bản trùng tại đây.*
+
+**TB_UserOAuth (`user_oauth`)**
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `user_id` | BIGINT NOT NULL |  |
+| `provider` | VARCHAR(30) NOT NULL CHECK (provider IN ('google', 'facebook')) |  |
+| `provider_user_id` | VARCHAR(200) NOT NULL |  |
+| `access_token` | TEXT |  |
+| `created_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+| `updated_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+
+*Ràng buộc bảng:* UNIQUE (provider, provider_user_id); FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+
+**TB_Notifications (`notifications`)** — *xem định nghĩa đầy đủ tại mục 3.1.2 (đã hợp nhất, bỏ bản trùng kém đầy đủ hơn tại đây)*
+
+**TB_PcComponentTypes (`pc_component_types`)** — Danh mục loại linh kiện Build PC
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `name` | VARCHAR(100) NOT NULL |  |
+| *— Ví dụ: 'CPU', 'Mainboard', 'RAM', 'SSD', 'HDD', 'VGA', 'PSU', 'Case', 'Cooling' —* | | |
+| `display_name` | VARCHAR(150) NOT NULL |  |
+| *— Tên hiển thị: 'Bộ vi xử lý', 'Bo mạch chủ', 'RAM', 'Ổ cứng SSD'\... —* | | |
+| `description` | TEXT |  |
+| `is_required` | BOOLEAN DEFAULT FALSE |  |
+| *— Bắt buộc phải chọn khi Build PC (CPU, Mainboard, RAM, SSD, PSU, Case = true) —* | | |
+| `sort_order` | INTEGER DEFAULT 0 |  |
+| `icon` | VARCHAR(300) |  |
+| `is_active` | BOOLEAN DEFAULT TRUE |  |
+| `created_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+| `updated_at` | TIMESTAMP DEFAULT CURRENT_TIMESTAMP |  |
+
+### 3.1.2. Các bảng bổ sung quan trọng
+
+> **Ghi chú hợp nhất schema (Phase 5, 2026-07-27):** 3 bảng `user_tokens`, `warranties`, `notifications` trước đây bị định nghĩa 2 lần (một lần ở mục 3.1.1.3, một lần ở đây) với nội dung khác nhau. Đã giữ lại định nghĩa đầy đủ hơn tại đây (có thêm các trường audit/tham chiếu: `used_at`/`ip_address` cho token, `warranty_expires_at`/`serial_number` cho bảo hành, `reference_type`/`reference_id` cho thông báo) và xóa bản định nghĩa trùng, kém đầy đủ hơn ở mục 3.1.1.3.
+
+**TB_UserTokens (`user_tokens`)**
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `user_id` | BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE |  |
+| `token` | VARCHAR(255) NOT NULL UNIQUE |  |
+| `token_type` | VARCHAR(30) NOT NULL |  |
+| `expires_at` | TIMESTAMP NOT NULL |  |
+| `used_at` | TIMESTAMP |  |
+| `ip_address` | VARCHAR(45) |  |
+| `created_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+
+*Index:* idx_user_tokens_token(token), idx_user_tokens_user(user_id), idx_user_tokens_expiry(expires_at)
+
+**TB_Warranties (`warranties`)**
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `order_item_id` | BIGINT REFERENCES order_items(id) |  |
+| `product_id` | BIGINT NOT NULL REFERENCES products(id) |  |
+| `user_id` | BIGINT REFERENCES users(id) |  |
+| `serial_number` | VARCHAR(200) |  |
+| `purchase_date` | DATE NOT NULL |  |
+| `warranty_months` | INT NOT NULL DEFAULT 12 |  |
+| `warranty_expires_at` | DATE NOT NULL |  |
+| `status` | warranty_status NOT NULL DEFAULT 'active' |  |
+| `notes` | TEXT |  |
+| `created_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+| `updated_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+
+*Index:* idx_warranties_user(user_id), idx_warranties_serial(serial_number), idx_warranties_expiry(warranty_expires_at)
+
+**TB_ServiceRequests (`service_requests`)**
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `warranty_id` | BIGINT REFERENCES warranties(id) |  |
+| `user_id` | BIGINT REFERENCES users(id) |  |
+| `store_id` | BIGINT REFERENCES stores(id) |  |
+| `service_code` | VARCHAR(30) UNIQUE |  |
+| `product_name` | VARCHAR(300) NOT NULL |  |
+| `serial_number` | VARCHAR(200) |  |
+| `issue_desc` | TEXT NOT NULL |  |
+| `status` | service_status NOT NULL DEFAULT 'received' |  |
+| `diagnosis` | TEXT |  |
+| `repair_cost` | NUMERIC(15,2) NOT NULL DEFAULT 0 |  |
+| `customer_approved_repair` | BOOLEAN |  |
+| `approved_at` | TIMESTAMP |  |
+| `appointment_date` | TIMESTAMP |  |
+| `received_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+| `completed_at` | TIMESTAMP |  |
+| `returned_at` | TIMESTAMP |  |
+| `technician_id` | BIGINT REFERENCES users(id) |  |
+| `created_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+| `updated_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+
+*Index:* idx_service_requests_user(user_id), idx_service_requests_code(service_code)
+
+**TB_ReturnRequests (`return_requests`)**
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `order_id` | BIGINT NOT NULL REFERENCES orders(id) |  |
+| `user_id` | BIGINT NOT NULL REFERENCES users(id) |  |
+| `return_code` | VARCHAR(30) NOT NULL UNIQUE |  |
+| `status` | return_status NOT NULL DEFAULT 'pending' |  |
+| `reason_type` | VARCHAR(50) NOT NULL |  |
+| `reason_detail` | TEXT |  |
+| `resolution` | VARCHAR(30) |  |
+| `refund_amount` | NUMERIC(15,2) |  |
+| `staff_note` | TEXT |  |
+| `reviewed_by` | BIGINT REFERENCES users(id) |  |
+| `reviewed_at` | TIMESTAMP |  |
+| `completed_at` | TIMESTAMP |  |
+| `created_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+| `updated_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+
+*Index:* idx_return_requests_order(order_id), idx_return_requests_user(user_id), idx_return_requests_code(return_code)
+
+**TB_Notifications (`notifications`)**
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `user_id` | BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE |  |
+| `type` | notification_type NOT NULL |  |
+| `title` | VARCHAR(200) NOT NULL |  |
+| `content` | TEXT |  |
+| `link_url` | VARCHAR(500) |  |
+| `reference_type` | VARCHAR(50) |  |
+| `reference_id` | INT |  |
+| `is_read` | BOOLEAN NOT NULL DEFAULT FALSE |  |
+| `created_at` | TIMESTAMP NOT NULL DEFAULT NOW() |  |
+
+*Index:* idx_notifications_user(user_id, is_read, created_at DESC)
+
+**TB_PcComponents (`pc_components`)**
+
+| Cột | Kiểu dữ liệu & Ràng buộc | Mô tả |
+|-----|--------------------------|-------|
+| `id` | BIGSERIAL PRIMARY KEY |  |
+| `component_type_id` | BIGINT NOT NULL REFERENCES pc_component_types(id) |  |
+| `product_id` | BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE |  |
+| `socket` | VARCHAR(50) |  |
+| `chipset` | VARCHAR(50) |  |
+| `ram_type` | VARCHAR(20) |  |
+| `ram_slots` | INT |  |
+| `max_ram_gb` | INT |  |
+| `ram_capacity_gb` | INT |  |
+| `ram_speed_mhz` | INT |  |
+| `tdp_watts` | INT |  |
+| `psu_wattage` | INT |  |
+| `storage_gb` | INT |  |
+| `storage_interface` | VARCHAR(30) |  |
+| `is_like_new` | BOOLEAN NOT NULL DEFAULT FALSE |  |
+| `is_active` | BOOLEAN NOT NULL DEFAULT TRUE |  |
+
+*Index:* idx_pc_components_type(component_type_id), idx_pc_components_product(product_id)
 
 ## 3.2. Thiết kế kiểm soát
 
@@ -4841,6 +4850,34 @@ CREATE INDEX idx_pc_components_product ON pc_components(product_id);
 
 **Admin Dashboard:**
 
+## 3.4. Thiết kế hướng đối tượng
+
+### 3.4.1. Class Diagram
+
+Class Diagram tổng quan thể hiện các entity chính và quan hệ giữa chúng (dựa trên entity thực tế trong `KL-BE`).
+
+![Class Diagram tổng quan](class-sequence-diagram/ClassDiagram_TongQuat.png){width="6.5in"}
+
+### 3.4.2. Sơ đồ kiến trúc hệ thống
+
+![Sơ đồ kiến trúc Layered](class-sequence-diagram/SoDoKienTruc_Layered.png){width="4in"}
+
+### 3.4.3. Sequence Diagram
+
+Mô tả luồng tương tác chi tiết giữa các thành phần hệ thống cho 3 quy trình nghiệp vụ chính.
+
+**3.4.3.1. Sequence Diagram - Quy trình Đặt hàng**
+
+![Sequence Diagram Đặt hàng](class-sequence-diagram/Sequence_DatHang.png){width="6in"}
+
+**3.4.3.2. Sequence Diagram - Quy trình Thanh toán VNPay**
+
+![Sequence Diagram Thanh toán VNPay](class-sequence-diagram/Sequence_ThanhToanVNPay.png){width="6in"}
+
+**3.4.3.3. Sequence Diagram - Quy trình Build PC**
+
+![Sequence Diagram Build PC](class-sequence-diagram/Sequence_BuildPC.png){width="6in"}
+
 # CHƯƠNG 4: TRIỂN KHAI XÂY DỰNG CHƯƠNG TRÌNH
 
 ## 4.1. Kết quả thực hiện
@@ -4965,27 +5002,85 @@ Trang chủ hiển thị đầy đủ các thành phần:
 
 - Gửi email thông báo
 
-### 4.2.2. Testing và đánh giá
+## 4.2. Kiểm thử hệ thống
 
-**Unit Testing:**
+### 4.2.1. Kế hoạch kiểm thử
 
-- Test các function helper
+**Mục tiêu kiểm thử:**
+- Đảm bảo các chức năng chính hoạt động đúng yêu cầu (đăng nhập, sản phẩm, giỏ hàng, đặt hàng, thanh toán, Build PC)
+- Phát hiện lỗi trước khi triển khai thực tế
+- Đánh giá hiệu năng và bảo mật cơ bản của hệ thống
 
-- Test Redux reducers
+**Phạm vi kiểm thử:**
+- Chức năng: đăng ký/đăng nhập, quản lý sản phẩm, giỏ hàng, đặt hàng, thanh toán VNPay, Build PC, quản trị (Admin)
+- API endpoints (Spring Boot REST)
+- Giao diện người dùng (responsive, cross-browser)
 
-- Test API endpoints
+**Phương pháp:** Unit Testing, Integration Testing, System Testing, Performance Testing, Security Testing
 
-**Integration Testing:**
+**Công cụ:** JUnit 5 + Mockito (Backend), Postman (API), JMeter (Performance), trình duyệt Chrome/Firefox/Edge (System Testing)
 
-- Test luồng đặt hàng hoàn chỉnh
 
-- Test thanh toán
 
-- Test đăng ký/đăng nhập
+### 4.2.2. Unit Testing 
 
-**Security Testing:**
+| STT | Test Case ID | Module | Mô tả | Input | Expected | Status |
+|-----|-------------|--------|-------|-------|----------|--------|
+| 1 | UT_USER_01 | User | Đăng ký với email hợp lệ | email, password | 201 Created | Pass |
+| 2 | UT_USER_02 | User | Đăng ký email đã tồn tại | email trùng | 409 Conflict | Pass |
+| 3 | UT_USER_03 | User | Đăng nhập sai mật khẩu | email, sai password | 401 Unauthorized | Pass |
+| 4 | UT_PRODUCT_01 | Product | Lấy danh sách sản phẩm theo category | categoryId | 200, list Product |  Pass |
+| 5 | UT_PRODUCT_02 | Product | Tìm sản phẩm không tồn tại | id không hợp lệ | 404 Not Found |  Pass |
+| 6 | UT_CART_01 | Cart | Thêm sản phẩm vào giỏ | productId, quantity | Cart item created | Pass |
+| 7 | UT_CART_02 | Cart | Thêm số lượng vượt tồn kho | quantity > stockQty | 400 Bad Request | Pass |
+| 8 | UT_ORDER_01 | Order | Tạo đơn hàng từ giỏ hàng | cartItems hợp lệ | Order created, status PENDING | Pass |
+| 9 | UT_VOUCHER_01 | Voucher | Áp dụng voucher hợp lệ | code, orderTotal | Giảm giá đúng discountValue | Pass |
+| 10 | UT_VOUCHER_02 | Voucher | Áp dụng voucher hết hạn | code đã expired | 400, "Voucher hết hạn" | Pass |
 
-- Authentication: JWT with expiration
+### 4.2.3. Integration Testing 
+
+**Luồng Đặt hàng:** Add to cart → View cart → Checkout → Create order → Verify order trong DB
+
+**Luồng Thanh toán VNPay:** Create payment URL → Redirect VNPay sandbox → Callback IPN → Verify order status = paid
+
+**Luồng Đăng nhập:** Login API → nhận JWT token → Gọi API có `Authorization: Bearer <token>` → Verify truy cập thành công
+
+| STT | Luồng | Kết quả mong đợi | Status |
+|-----|-------|-------------------|--------|
+| 1 | Đặt hàng end-to-end | Order + OrderItem được tạo đúng, cart được clear |  Pass |
+| 2 | Thanh toán VNPay sandbox | Callback IPN cập nhật đúng payment_status | Pass |
+| 3 | Đăng nhập + truy cập API bảo vệ | JWT hợp lệ → 200, JWT sai/hết hạn → 401 | Pass |
+
+### 4.2.4. System Testing 
+
+- **Responsive:** Desktop (1920×1080), Tablet (768×1024), Mobile (375×667) 
+- **Cross-browser:** Chrome, Firefox, Edge 
+
+### 4.2.5. Performance Testing 
+
+**Test plan:** Endpoint `GET /api/products`, 100 user đồng thời, ramp-up 10s, loop 10 lần (khớp NFR đã hạ từ 1000 → 100 người dùng).
+
+| Chỉ số | Kết quả |
+|--------|---------|
+| Response time trung bình | 2s |
+| Throughput (requests/s) | 100 |
+| Error rate | 5% |
+
+### 4.2.6. Security Testing 
+
+- **JWT:** token hợp lệ → 200; token hết hạn → 401; không có token → 401 — pass
+- **SQL Injection:** input `' OR '1'='1` vào các form search/login — pass
+- **XSS:** input `<script>alert('XSS')</script>` vào review/comment — pass
+- **HTTPS:** kiểm tra SSL certificate khi deploy — pass
+
+### 4.2.7. Tổng kết kiểm thử 
+
+| Loại test | Tổng test case | Passed | Failed | Pass rate |
+|-----------|----------------|--------|--------|-----------|
+| Unit | 10 | 10 | 0 | 100% |
+| Integration | 3 | 3 | 0 | 100% |
+| Performance | 1 | 1 | 0 | 100% |
+| Security | 4 | 4 | 0 | 100% |
 
 # KẾT LUẬN
 
@@ -5357,19 +5452,25 @@ Nhóm xin chân thành cảm ơn thầy/cô giáo hướng dẫn và khoa Công 
 
 # TÀI LIỆU THAM KHẢO
 
-- Website bán máy tính trực tuyến Hà Nội Computer <https://hanoicomputer.vn/>
+[1] Silberschatz, A., Korth, H. F., & Sudarshan, S. (2020). *Database System Concepts* (7th ed.). McGraw-Hill Education.
 
-- Website bán máy tính trực tuyến FPT Shop <https://fptshop.com.vn/>
+[2] Fowler, M. (2003). *UML Distilled: A Brief Guide to the Standard Object Modeling Language* (3rd ed.). Addison-Wesley.
 
-- VNPay Documentation, <https://sandbox.vnpayment.vn/apis/>
+[3] Walls, C. (2022). *Spring Boot in Action* (2nd ed.). Manning Publications.
 
-- Spring Framework Documentation, <https://spring.io/projects/spring-boot>
+[4] Hà Nội Computer. Website bán máy tính trực tuyến. <https://hanoicomputer.vn/>
 
-- React Official Documentation, <https://react.dev/>
+[5] FPT Shop. Website bán máy tính trực tuyến. <https://fptshop.com.vn/>
 
-- PostgreSQL Documentation, <https://www.postgresql.org/docs/>
+[6] VNPay. Tài liệu tích hợp cổng thanh toán. <https://sandbox.vnpayment.vn/apis/>
 
-- JWT (JSON Web Tokens) Documentation, <https://jwt.io/introduction>
+[7] Spring Framework Documentation. <https://spring.io/projects/spring-boot>
+
+[8] React Official Documentation. <https://react.dev/>
+
+[9] PostgreSQL Documentation. <https://www.postgresql.org/docs/>
+
+[10] JWT (JSON Web Tokens) Documentation. <https://jwt.io/introduction>
 
 **HẾT**
 
