@@ -1,0 +1,35 @@
+@startuml Sequence_HuyDonHang
+skinparam backgroundColor #FFFFFF
+title Sequence Diagram - Quy trình Hủy đơn hàng
+
+actor Customer
+participant "OrderDetailPage" as ODP
+participant "OrderController" as OC
+participant "OrderService" as OS
+database "Database" as DB
+
+Customer -> ODP: Chọn "Hủy đơn hàng" + nhập lý do
+ODP -> OC: POST /orders/{id}/cancel?reason
+OC -> OS: cancelOrder(orderId, userId, reason)
+OS -> DB: findById(orderId)
+DB --> OS: Order
+
+alt Đơn hàng không thuộc về người dùng
+    OS --> OC: 403 Forbidden
+    OC --> ODP: "Bạn không có quyền hủy đơn hàng này"
+else Trạng thái đơn khác "pending"
+    OS --> OC: 400 CANNOT_CANCEL
+    OC --> ODP: "Chỉ có thể hủy đơn hàng chờ xác nhận"
+else Hợp lệ
+    OS -> DB: UPDATE orders SET status=cancelled, cancelledAt, cancelledReason
+    loop Với mỗi sản phẩm trong đơn hàng
+        OS -> DB: UPDATE products SET stockQty += qty, soldQty -= qty
+        note right: Hoàn lại tồn kho đã trừ lúc đặt hàng
+    end
+    DB --> OS: Success
+    OS --> OC: OrderResponse
+    OC --> ODP: 200 OK
+    ODP --> Customer: Xác nhận đã hủy đơn hàng
+end
+
+@enduml

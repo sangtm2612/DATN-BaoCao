@@ -1,0 +1,33 @@
+@startuml Sequence_DanhGiaSanPham
+skinparam backgroundColor #FFFFFF
+title Sequence Diagram - Quy trình Đánh giá sản phẩm
+
+actor Customer
+participant "ProductDetailPage" as PDP
+participant "ReviewController" as RC
+database "Database" as DB
+
+Customer -> PDP: Xem đánh giá sản phẩm
+PDP -> RC: GET /reviews/product/{productId}?page&size
+RC -> DB: SELECT * FROM reviews WHERE productId AND isVisible=true
+DB --> RC: Danh sách đánh giá
+RC --> PDP: 200 OK (reviews, PageMeta)
+PDP --> Customer: Hiển thị đánh giá & rating trung bình
+
+Customer -> PDP: Viết đánh giá (rating, title, content)
+PDP -> RC: POST /reviews/product/{productId}
+RC -> DB: existsByProductIdAndUserId(productId, userId)
+DB --> RC: Kết quả kiểm tra
+
+alt Đã đánh giá sản phẩm này trước đó
+    RC --> PDP: 409 ALREADY_REVIEWED
+    PDP --> Customer: "Bạn đã đánh giá sản phẩm này rồi"
+else Chưa đánh giá
+    RC -> DB: findById(userId), findById(productId)
+    RC -> DB: INSERT INTO reviews (isVisible=true, helpfulCount=0)
+    DB --> RC: Success
+    RC --> PDP: 200 OK "Đánh giá thành công"
+    PDP --> Customer: Hiển thị đánh giá vừa gửi
+end
+
+@enduml

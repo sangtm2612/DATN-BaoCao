@@ -1,0 +1,33 @@
+@startuml Sequence_ThongKeAdmin
+skinparam backgroundColor #FFFFFF
+title Sequence Diagram - Quy trình Thống kê Dashboard (Admin)
+
+actor "Admin/Staff" as Admin
+participant "AdminDashboardPage" as ADP
+participant "AdminController" as AC
+participant "AdminService" as AS
+database "Database" as DB
+
+Admin -> ADP: Truy cập trang quản trị
+ADP -> AC: GET /admin/stats
+AC -> AS: getDashboardStats()
+AS -> DB: sumRevenueByDateRange(startOfMonth, now)
+DB --> AS: monthRevenue
+AS -> DB: countByDateRange(startOfMonth, now)
+DB --> AS: pendingOrders
+AS -> DB: count() - tổng sản phẩm
+DB --> AS: totalProducts
+AS -> DB: count() - tổng khách hàng
+DB --> AS: totalCustomers
+AS --> AC: {monthRevenue, pendingOrders, totalProducts, totalCustomers}
+AC --> ADP: 200 OK
+ADP --> Admin: Hiển thị biểu đồ doanh thu & số liệu tổng quan
+
+Admin -> ADP: Xem mục "Sản phẩm sắp hết hàng"
+ADP -> AC: GET /admin/products/low-stock
+AC -> DB: findLowStockProducts()
+DB --> AC: Danh sách sản phẩm tồn kho thấp
+AC --> ADP: 200 OK
+ADP --> Admin: Hiển thị cảnh báo tồn kho
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml Sequence_TimKiemSanPham
+skinparam backgroundColor #FFFFFF
+title Sequence Diagram - Quy trình Tìm kiếm & Lọc sản phẩm
+
+actor "Guest/Customer" as User
+participant "ProductListPage" as PLP
+participant "ProductController" as PC
+participant "ProductService" as PS
+database "Database" as DB
+
+User -> PLP: Nhập từ khóa tìm kiếm
+PLP -> PC: GET /products/search?keyword&page&size
+PC -> PS: search(keyword, page, size)
+PS -> DB: SELECT * FROM products WHERE name LIKE %keyword%
+DB --> PS: Danh sách sản phẩm (Page)
+PS --> PC: Page<ProductResponse>
+PC --> PLP: 200 OK (results, PageMeta)
+PLP --> User: Hiển thị kết quả tìm kiếm
+
+User -> PLP: Chọn bộ lọc (danh mục, hãng, khoảng giá) + sắp xếp
+PLP -> PC: GET /products?categoryId&brandId&minPrice&maxPrice&sort&page&size
+PC -> PS: getProducts(categoryId, brandId, minPrice, maxPrice, sort, page, size)
+PS -> DB: SELECT * FROM products WHERE ... ORDER BY sort
+DB --> PS: Danh sách sản phẩm đã lọc
+PS --> PC: Page<ProductResponse>
+PC --> PLP: 200 OK (results, PageMeta)
+PLP --> User: Cập nhật danh sách sản phẩm theo bộ lọc
+
+@enduml

@@ -1,0 +1,66 @@
+@startuml Sequence_DangKyDangNhap
+skinparam backgroundColor #FFFFFF
+title Sequence Diagram - Quy trình Đăng ký & Đăng nhập
+
+actor Guest
+participant "AuthPage" as FE
+participant "AuthController" as AC
+participant "AuthService" as AS
+participant "EmailService" as ES
+database "Database" as DB
+
+== Đăng ký tài khoản ==
+Guest -> FE: Nhập thông tin đăng ký
+FE -> AC: POST /auth/register
+AC -> AS: register(req)
+AS -> DB: existsByEmail / existsByPhone
+DB --> AS: false
+AS -> DB: INSERT INTO users (emailVerified=false)
+AS -> DB: INSERT INTO user_tokens (OTP, expires 5p)
+AS -> ES: sendVerificationOtp(email, otp)
+ES --> Guest: Email chứa mã OTP
+AS --> AC: Success
+AC --> FE: 201 Created
+FE --> Guest: "Vui lòng kiểm tra email để xác thực"
+
+== Xác thực email ==
+Guest -> FE: Nhập mã OTP
+FE -> AC: POST /auth/verify-email?otp
+AC -> AS: verifyEmail(otp)
+AS -> DB: findByToken(otp)
+DB --> AS: UserToken
+
+alt OTP hợp lệ và chưa hết hạn
+    AS -> DB: UPDATE users SET emailVerified=true
+    AS --> AC: Success
+    AC --> FE: 200 OK
+    FE --> Guest: Xác thực email thành công
+else OTP hết hạn / không hợp lệ
+    AS --> AC: 400 INVALID_OTP / OTP_EXPIRED
+    AC --> FE: Lỗi xác thực
+end
+
+== Đăng nhập ==
+Guest -> FE: Nhập email/SĐT + mật khẩu
+FE -> AC: POST /auth/login
+AC -> AS: login(req)
+AS -> DB: findByEmailOrPhone(credential)
+DB --> AS: User
+
+alt Tài khoản đang bị khóa tạm thời (lockedUntil)
+    AS --> AC: 401 "Tài khoản tạm thời bị khóa"
+else Sai mật khẩu
+    AS -> DB: incrementLoginAttempts
+    note right: Khóa 30 phút nếu sai >= 5 lần liên tiếp
+    AS --> AC: 401 "Email/SĐT hoặc mật khẩu không đúng"
+else Tài khoản bị banned
+    AS --> AC: 401 "Tài khoản bị khóa vĩnh viễn"
+else Đăng nhập hợp lệ
+    AS -> DB: resetLoginAttempts, UPDATE lastLoginAt
+    AS -> AS: buildAuthResponse (JWT access/refresh token)
+    AS --> AC: AuthResponse
+    AC --> FE: 200 OK (accessToken, refreshToken)
+    FE --> Guest: Chuyển vào trang chủ
+end
+
+@enduml

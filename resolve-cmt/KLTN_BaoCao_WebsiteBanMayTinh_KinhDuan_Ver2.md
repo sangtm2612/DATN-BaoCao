@@ -4858,7 +4858,7 @@ Class Diagram tổng quan thể hiện các entity chính và quan hệ giữa c
 
 ### 3.4.3. Sequence Diagram
 
-Mô tả luồng tương tác chi tiết giữa các thành phần hệ thống cho 3 quy trình nghiệp vụ chính.
+Mô tả luồng tương tác chi tiết giữa các thành phần hệ thống cho 8 quy trình nghiệp vụ chính.
 
 **3.4.3.1. Sequence Diagram - Quy trình Đặt hàng**
 
@@ -4871,6 +4871,36 @@ Mô tả luồng tương tác chi tiết giữa các thành phần hệ thống 
 **3.4.3.3. Sequence Diagram - Quy trình Build PC**
 
 ![Sequence Diagram Build PC](class-sequence-diagram/Sequence_BuildPC.png){width="6in"}
+
+**3.4.3.4. Sequence Diagram - Quy trình Đăng ký & Đăng nhập**
+
+Mô tả luồng đăng ký tài khoản (kèm xác thực email bằng OTP) và luồng đăng nhập, bao gồm cơ chế khóa tài khoản tạm thời sau 5 lần nhập sai mật khẩu liên tiếp.
+
+![Sequence Diagram Đăng ký & Đăng nhập](class-sequence-diagram/Sequence_DangKyDangNhap.png){width="6in"}
+
+**3.4.3.5. Sequence Diagram - Quy trình Tìm kiếm & Lọc sản phẩm**
+
+Mô tả luồng tìm kiếm sản phẩm theo từ khóa và lọc theo danh mục, hãng, khoảng giá kết hợp sắp xếp kết quả.
+
+![Sequence Diagram Tìm kiếm & Lọc sản phẩm](class-sequence-diagram/Sequence_TimKiemSanPham.png){width="6in"}
+
+**3.4.3.6. Sequence Diagram - Quy trình Đánh giá sản phẩm**
+
+Mô tả luồng xem đánh giá và viết đánh giá sản phẩm, bao gồm kiểm tra ràng buộc mỗi khách hàng chỉ được đánh giá một sản phẩm một lần.
+
+![Sequence Diagram Đánh giá sản phẩm](class-sequence-diagram/Sequence_DanhGiaSanPham.png){width="6in"}
+
+**3.4.3.7. Sequence Diagram - Quy trình Hủy đơn hàng**
+
+Mô tả luồng khách hàng hủy đơn hàng đang ở trạng thái chờ xác nhận, bao gồm việc hoàn lại tồn kho sản phẩm sau khi hủy.
+
+![Sequence Diagram Hủy đơn hàng](class-sequence-diagram/Sequence_HuyDonHang.png){width="6in"}
+
+**3.4.3.8. Sequence Diagram - Quy trình Thống kê Dashboard (Admin)**
+
+Mô tả luồng tải số liệu tổng quan (doanh thu tháng, đơn hàng chờ xử lý, tổng sản phẩm, tổng khách hàng) và cảnh báo sản phẩm sắp hết hàng trên trang quản trị.
+
+![Sequence Diagram Thống kê Dashboard](class-sequence-diagram/Sequence_ThongKeAdmin.png){width="6in"}
 
 # CHƯƠNG 4: TRIỂN KHAI XÂY DỰNG CHƯƠNG TRÌNH
 
