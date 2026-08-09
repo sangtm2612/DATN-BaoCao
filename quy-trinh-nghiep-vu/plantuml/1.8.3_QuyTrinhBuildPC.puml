@@ -1,0 +1,144 @@
+@startuml QuyTrinhBuildPC
+title Quy trình Build PC (Tự chọn cấu hình máy tính)
+
+|Khách hàng|
+start
+:Truy cập trang Build PC;
+:Chọn showroom để kiểm tra tồn kho
+hoặc chọn Kho Online;
+
+partition "Chọn linh kiện bắt buộc" {
+  :Chọn CPU;
+  note right
+    Ví dụ: Intel i5-12400F
+    AMD Ryzen 5 5600X
+  end note
+  
+  :Xem danh sách Mainboard tương thích
+  đã được lọc theo socket CPU;
+  
+  :Chọn Mainboard phù hợp;
+  note right
+    Hệ thống tự động lọc
+    theo socket CPU
+    (LGA1700, AM4, AM5...)
+  end note
+  
+  :Chọn RAM;
+  note right
+    Loại và dung lượng
+    phù hợp với mainboard
+  end note
+  
+  :Chọn SSD;
+  note right
+    Ổ cứng chính
+    cho hệ điều hành
+  end note
+}
+
+partition "Chọn linh kiện tùy chọn" {
+  if (Có cần thêm ổ HDD?) then (Có)
+    :Chọn HDD;
+    note right
+      Ổ lưu trữ
+      dung lượng lớn
+    end note
+  else (Không)
+  endif
+  
+  if (Có cần card đồ họa?) then (Có)
+    :Chọn VGA Card;
+    note right
+      RX6500XT trở lên
+      để giảm 50% CPU
+    end note
+  else (Không)
+    note right
+      Sẽ giảm 30% CPU
+      nếu mua đủ bộ
+    end note
+  endif
+  
+  :Chọn Nguồn PSU;
+  note right
+    Công suất phù hợp
+  end note
+  
+  :Chọn Case máy tính;
+  
+  if (Có cần tản nhiệt nâng cao?) then (Có)
+    :Chọn tản nhiệt khí/nước;
+  else (Không)
+  endif
+  
+  if (Có cần phụ kiện?) then (Có)
+    :Chọn phụ kiện:
+    Màn hình, Bàn phím, Chuột,
+    Tai nghe, Ghế gaming, v.v.;
+  else (Không)
+  endif
+}
+
+|Admin|
+:Kiểm tra tồn kho theo showroom;
+
+if (Có hàng sắp hết?) then (Có)
+  :Thông báo trên hệ thống;
+  
+  |Khách hàng|
+  if (Cần tư vấn?) then (Có)
+    |Staff|
+    :Nhận yêu cầu tư vấn;
+    :Tư vấn cấu hình phù hợp
+    theo nhu cầu và ngân sách;
+    :Gợi ý các linh kiện thay thế;
+    :Giải thích khuyến mãi Build PC:
+    Giảm 30% hoặc 50% CPU;
+    
+    |Khách hàng|
+  else (Không)
+  endif
+else (Không)
+  |Khách hàng|
+endif
+
+:Xem tổng giá và khuyến mãi;
+note right
+  - Mua đủ bộ + VGA mạnh: Giảm 50% CPU
+  - Mua đủ bộ không VGA: Giảm 30% CPU
+end note
+
+if (Chọn hành động?) then (Thêm vào giỏ hàng)
+  :Thêm toàn bộ cấu hình vào giỏ;
+  note right
+    Lưu thông tin khuyến mãi
+  end note
+  stop
+  
+elseif (Lưu cấu hình) then
+  :Lưu cấu hình để xem sau;
+  note right
+    Yêu cầu đăng nhập
+  end note
+  stop
+  
+elseif (Xuất file Excel/PDF) then
+  :Tải file Excel/PDF chi tiết;
+  stop
+  
+elseif (Tải ảnh PNG) then
+  :Tải ảnh PNG cấu hình;
+  stop
+  
+elseif (In cấu hình) then
+  :In cấu hình trực tiếp;
+  stop
+  
+else (Chia sẻ link)
+  :Tạo và chia sẻ link cấu hình;
+  stop
+endif
+
+@enduml
+

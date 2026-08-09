@@ -1,0 +1,115 @@
+@startuml QuyTrinhXuLyDonHang
+title Quy trình xử lý đơn hàng
+
+|Staff|
+start
+:Nhận thông báo đơn hàng mới;
+:Xem chi tiết đơn hàng;
+:Kiểm tra thông tin:
+Khách hàng, sản phẩm, địa chỉ;
+
+if (Kiểm tra tồn kho tại showroom?) then (Đủ hàng)
+else (Không đủ)
+  |Admin|
+  :Nhận yêu cầu kiểm tra kho khác;
+  :Kiểm tra showroom khác;
+  :Chuyển hàng giữa showroom;
+  
+  |Staff|
+endif
+
+:Gọi điện xác nhận với khách;
+
+|Khách hàng|
+:Nhận cuộc gọi xác nhận;
+
+if (Xác nhận tiếp tục đơn hàng?) then (Đồng ý)
+  :Đồng ý nhận hàng;
+  
+  |Staff|
+  if (Phương thức thanh toán?) then (VNPay)
+    :Kiểm tra thanh toán VNPay;
+    :Chuẩn bị sản phẩm;
+  else (COD)
+    :Chuẩn bị sản phẩm;
+  endif
+  
+  :Lấy sản phẩm từ kho;
+  :Kiểm tra chất lượng sản phẩm;
+  :Đóng gói sản phẩm;
+  :In phiếu xuất kho và hóa đơn;
+  
+  |Admin|
+  :Cập nhật sổ kho
+  (Giảm số lượng tồn);
+  
+  |Staff|
+  :Bàn giao cho đơn vị vận chuyển;
+  :Cập nhật mã vận đơn;
+  
+  |Đơn vị vận chuyển|
+  :Nhận hàng từ Staff;
+  
+  |Staff|
+  :Gửi email thông báo cho khách;
+  
+  |Khách hàng|
+  :Nhận email thông báo giao hàng;
+  
+  |Đơn vị vận chuyển|
+  :Giao hàng đến địa chỉ khách;
+  
+  |Khách hàng|
+  :Nhận hàng tại địa chỉ;
+  
+  if (Kiểm tra sản phẩm?) then (Hài lòng)
+    :Nhận hàng và thanh toán COD
+    (nếu chọn COD);
+    
+    |Đơn vị vận chuyển|
+    :Thu tiền COD (nếu có);
+    :Bàn giao tiền COD cho Staff;
+    
+    |Staff|
+    :Xác nhận hoàn tất đơn hàng;
+    
+    |Admin|
+    :Cập nhật doanh thu;
+    stop
+    
+  elseif (Không hài lòng) then
+    :Từ chối nhận hàng;
+    
+    |Đơn vị vận chuyển|
+    :Trả hàng về showroom;
+    
+    |Staff|
+    :Nhận hàng trả về;
+    :Kiểm tra tình trạng hàng;
+    
+    |Admin|
+    :Cộng lại tồn kho;
+    
+    |Staff|
+    :Liên hệ khách hàng;
+    stop
+    
+  else (Yêu cầu đổi/trả)
+    :Yêu cầu đổi/trả;
+    note right
+      Chuyển sang quy trình
+      đổi/trả hàng
+    end note
+    stop
+  endif
+  
+else (Từ chối)
+  :Yêu cầu hủy/thay đổi;
+  
+  |Staff|
+  :Liên hệ khách hàng;
+  stop
+endif
+
+@enduml
+

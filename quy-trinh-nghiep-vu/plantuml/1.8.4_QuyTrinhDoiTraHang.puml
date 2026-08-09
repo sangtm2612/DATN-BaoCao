@@ -1,0 +1,130 @@
+@startuml QuyTrinhDoiTraHang
+title Quy trình đổi/trả hàng trong 15 ngày
+
+|Khách hàng|
+start
+:Đăng nhập vào tài khoản;
+:Xem lịch sử đơn hàng;
+:Chọn đơn hàng cần đổi/trả;
+
+if (Còn trong thời hạn 15 ngày?) then (Trong hạn)
+  :Tạo yêu cầu đổi/trả hàng;
+  
+  if (Chọn loại yêu cầu?) then (Đổi hàng mới)
+    :Yêu cầu đổi hàng mới;
+  else (Trả hàng - Hoàn tiền)
+    :Yêu cầu trả hàng và hoàn tiền;
+  endif
+  
+  :Chọn lý do:
+  - Lỗi sản phẩm
+  - Sai mô tả
+  - Không hài lòng
+  - Khác;
+  
+  :Mô tả chi tiết vấn đề;
+  :Upload ảnh/video chứng minh
+  tình trạng sản phẩm;
+  note right
+    Bắt buộc phải có
+    ảnh/video chứng minh
+  end note
+  
+  :Gửi yêu cầu;
+  
+  |Staff|
+  :Nhận thông báo yêu cầu đổi/trả;
+  :Xem chi tiết yêu cầu;
+  :Kiểm tra ảnh/video chứng minh;
+  :Kiểm tra thời hạn 15 ngày;
+  
+  if (Yêu cầu hợp lệ?) then (Hợp lệ)
+    :Phê duyệt yêu cầu;
+    :Tạo mã RMA;
+    note right
+      Return Merchandise
+      Authorization
+    end note
+    
+    :Gửi email hướng dẫn gửi hàng;
+    
+    |Khách hàng|
+    :Nhận email hướng dẫn;
+    :Đóng gói sản phẩm;
+    note right
+      Giữ nguyên vẹn
+      phụ kiện
+    end note
+    
+    :Gửi hàng về showroom
+    theo mã RMA;
+    
+    |Staff|
+    :Nhận hàng trả về tại showroom;
+    :Kiểm tra mã RMA;
+    :Kiểm tra tình trạng sản phẩm;
+    
+    if (Sản phẩm còn nguyên vẹn?) then (Có)
+      :Chấp nhận hàng trả về;
+      
+      |Admin|
+      :Cộng lại tồn kho;
+      
+      |Staff|
+      if (Loại yêu cầu?) then (Đổi hàng)
+        :Chuẩn bị sản phẩm mới thay thế;
+        :Giao hàng mới cho khách;
+        
+        |Khách hàng|
+        :Nhận sản phẩm mới;
+        
+        |Staff|
+        :Cập nhật trạng thái hoàn tất;
+        stop
+        
+      else (Trả hàng - Hoàn tiền)
+        |Admin|
+        :Tính số tiền cần hoàn;
+        
+        if (Phương thức thanh toán gốc?) then (COD)
+          :Chuyển khoản ngân hàng cho khách;
+        else (VNPay)
+          :Xử lý hoàn tiền về VNPay;
+        endif
+        
+        :Xác nhận đã hoàn tiền;
+        
+        |Khách hàng|
+        :Nhận thông báo hoàn tiền;
+        
+        |Admin|
+        :Cập nhật trạng thái hoàn tất;
+        stop
+      endif
+      
+    else (Không)
+      :Từ chối hàng trả về;
+      :Gửi lại cho khách;
+      
+      |Khách hàng|
+      :Nhận email từ chối
+      và lý do;
+      stop
+    endif
+    
+  else (Không hợp lệ)
+    :Từ chối yêu cầu;
+    :Gửi email giải thích lý do;
+    
+    |Khách hàng|
+    :Nhận email từ chối;
+    stop
+  endif
+  
+else (Quá hạn)
+  :Hướng dẫn liên hệ bảo hành;
+  stop
+endif
+
+@enduml
+

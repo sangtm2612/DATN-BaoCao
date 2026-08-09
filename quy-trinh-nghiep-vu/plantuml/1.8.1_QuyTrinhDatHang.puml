@@ -1,0 +1,81 @@
+@startuml QuyTrinhDatHang
+title Quy trình đặt hàng của khách hàng
+
+|Khách hàng|
+start
+:Tìm kiếm và chọn sản phẩm trên website;
+:Thêm sản phẩm vào giỏ hàng;
+
+if (Đã có tài khoản?) then (Chưa)
+  :Đăng nhập/Đăng ký tài khoản;
+else (Rồi)
+endif
+
+:Kiểm tra và cập nhật giỏ hàng;
+:Điền thông tin giao hàng:
+Họ tên, SĐT, địa chỉ;
+:Nhập mã voucher giảm giá
+(nếu có);
+
+if (Chọn phương thức thanh toán?) then (COD)
+  :Xác nhận đặt hàng
+  Thanh toán khi nhận hàng;
+  
+  |Staff|
+  :Nhận thông báo đơn hàng mới;
+  :Gọi điện xác nhận
+  đơn hàng với khách;
+  :Gửi email xác nhận cho khách;
+  
+elseif (VNPay) then
+  |Cổng thanh toán VNPay|
+  :Hiển thị trang thanh toán;
+  :Xử lý giao dịch thanh toán;
+  
+  if (Thanh toán thành công?) then (Có)
+    :Xác nhận thanh toán thành công;
+    
+    |Staff|
+    :Nhận thông báo đơn hàng mới;
+    :Gọi điện xác nhận
+    đơn hàng với khách;
+    :Gửi email xác nhận cho khách;
+  else (Không)
+    |Cổng thanh toán VNPay|
+    :Thông báo thanh toán thất bại;
+    
+    |Khách hàng|
+    :Quay lại chọn phương thức thanh toán;
+    stop
+  endif
+endif
+
+|Khách hàng|
+:Nhận email xác nhận đơn hàng;
+:Theo dõi trạng thái đơn hàng;
+
+|Nhân viên giao hàng|
+:Nhận hàng từ Staff;
+:Giao hàng đến địa chỉ khách;
+
+|Khách hàng|
+:Nhận hàng và kiểm tra;
+
+if (Hài lòng với sản phẩm?) then (Có)
+  if (Phương thức COD?) then (Có)
+    :Thanh toán COD cho shipper;
+    
+    |Nhân viên giao hàng|
+    :Thu tiền COD;
+    
+    |Staff|
+    :Nhận tiền từ shipper;
+  else (Không - Đã thanh toán VNPay)
+  endif
+  stop
+else (Không)
+  :Yêu cầu đổi/trả hàng;
+  stop
+endif
+
+@enduml

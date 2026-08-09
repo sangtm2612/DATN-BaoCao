@@ -1,0 +1,142 @@
+@startuml QuyTrinhQuanLySanPham
+title Quy trình quản lý sản phẩm
+
+|Admin|
+start
+
+if (Chọn thao tác quản lý sản phẩm?) then (Thêm sản phẩm mới)
+  :Nhập thông tin:
+  - Tên sản phẩm
+  - Mô tả chi tiết
+  - Giá bán
+  - Danh mục
+  - Thương hiệu
+  - Thông số kỹ thuật;
+  
+  :Upload hình ảnh sản phẩm;
+  note right
+    Tối thiểu 3 ảnh
+  end note
+  
+  :Nhập số lượng tồn kho ban đầu;
+  :Lưu sản phẩm mới;
+  stop
+  
+elseif (Cập nhật/Sửa sản phẩm) then
+  :Chọn sản phẩm cần cập nhật;
+  :Sửa thông tin sản phẩm;
+  :Lưu thay đổi;
+  stop
+  
+elseif (Xóa sản phẩm) then
+  :Chọn sản phẩm cần xóa;
+  
+  if (Xác nhận xóa?) then (Có)
+    :Xóa sản phẩm khỏi hệ thống;
+    stop
+  else (Không)
+    :Hủy thao tác;
+    stop
+  endif
+  
+elseif (Cập nhật giá hàng loạt) then
+  :Chọn phạm vi:
+  Theo danh mục hoặc thương hiệu;
+  
+  :Nhập phần trăm tăng/giảm giá;
+  :Xem trước danh sách
+  sản phẩm ảnh hưởng;
+  :Xác nhận thay đổi giá;
+  stop
+  
+else (Quản lý tồn kho)
+  if (Chọn thao tác kho?) then (Nhập hàng vào kho)
+    :Quyết định đặt hàng thêm
+    sản phẩm bán chạy;
+    
+    |Nhà cung cấp|
+    :Nhận đơn đặt hàng từ Admin;
+    :Xác nhận đơn hàng;
+    :Chuẩn bị hàng hóa;
+    :Giao hàng đến showroom;
+    :Cung cấp hóa đơn và chứng từ;
+    
+    |Staff|
+    :Nhận hàng từ nhà cung cấp;
+    :Kiểm tra chất lượng hàng nhập;
+    
+    |Admin|
+    :Quét mã/Cập nhật số lượng tồn kho;
+    
+    |Staff|
+    :Sắp xếp hàng vào kệ;
+    note right
+      Cảnh báo tự động
+      nếu sắp hết hàng
+    end note
+    stop
+    
+  elseif (Xuất hàng từ kho) then
+    |Staff|
+    :Nhận yêu cầu xuất hàng
+    từ đơn hàng;
+    :Lấy hàng theo đơn hàng;
+    :Kiểm tra và đóng gói;
+    
+    |Admin|
+    :Cập nhật giảm tồn kho;
+    stop
+    
+  elseif (Chuyển hàng giữa showroom) then
+    :Chọn showroom nguồn và đích;
+    :Nhập số lượng chuyển;
+    
+    |Staff|
+    :Đóng gói hàng chuyển kho;
+    :Gửi đến showroom đích;
+    :Nhận hàng tại showroom đích;
+    
+    |Admin|
+    :Cập nhật tồn kho 2 showroom;
+    stop
+    
+  elseif (Kiểm kê tồn kho) then
+    :Lập kế hoạch kiểm kê định kỳ;
+    
+    |Staff|
+    :Thực hiện kiểm kê;
+    :Đếm số lượng thực tế;
+    
+    |Admin|
+    :So sánh với dữ liệu hệ thống;
+    
+    if (Có sai lệch?) then (Có)
+      :Báo cáo sai lệch;
+      :Điều chỉnh số liệu;
+    else (Không)
+    endif
+    stop
+    
+  else (Xem báo cáo tồn kho)
+    :Xem báo cáo tồn kho;
+    :Phân tích sản phẩm bán chạy;
+    :Phân tích sản phẩm ế;
+    
+    if (Đưa ra quyết định?) then (Hàng bán chạy)
+      :Đặt hàng thêm sản phẩm bán chạy;
+      note left
+        Quay lại thao tác
+        Nhập hàng vào kho
+      end note
+      stop
+      
+    else (Hàng ế)
+      :Tạo chương trình khuyến mãi
+      cho hàng ế;
+      stop
+    endif
+  endif
+endif
+
+@enduml
+
