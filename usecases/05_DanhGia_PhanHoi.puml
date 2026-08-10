@@ -2,30 +2,49 @@
 skinparam actorStyle awesome
 skinparam packageStyle rectangle
 
-title Sơ đồ Use Case - Đánh giá và phản hồi
+title Sơ đồ Use Case - Nhóm 5: Đánh giá và phản hồi
 
 left to right direction
 
 actor "Guest" as guest
 actor "Customer" as customer
-actor "Admin/Staff" as admin
+actor "Staff\n(Nhân viên)" as staff
+actor "Admin" as admin
+
+' Quan hệ kế thừa
+guest <|-- customer
+customer <|-- staff
+staff <|-- admin
 
 package "Hệ thống Đánh giá và Phản hồi" {
     
-    usecase "Xem đánh giá" as UC501
+    ' View Reviews
+    usecase "Xem đánh giá\nsản phẩm" as UC501
+    
+    ' Customer - Write Reviews
     usecase "Viết đánh giá" as UC502
-    usecase "Quản lý đánh giá" as UC503
-    usecase "Hỏi đáp sản phẩm" as UC504
+    usecase "Sửa đánh giá" as UC503
+    usecase "Xóa đánh giá" as UC504
+    
+    ' Staff/Admin - Manage Reviews
+    usecase "Duyệt đánh giá" as UC505
+    usecase "Ẩn/Hiện\nđánh giá" as UC506
+    usecase "Phản hồi\nđánh giá" as UC507
 }
 
+' Guest - chỉ xem
 guest --> UC501
-guest --> UC504
 
-customer --> UC501
+' Customer - viết và quản lý đánh giá của mình
 customer --> UC502
+customer --> UC503
 customer --> UC504
 
-admin --> UC503
-admin --> UC504
+' Staff - duyệt và phản hồi
+staff --> UC505
+staff --> UC506
+staff --> UC507
+
+' Admin kế thừa tất cả từ Staff (không cần trỏ thêm)
 
 @enduml

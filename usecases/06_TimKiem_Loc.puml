@@ -2,23 +2,38 @@
 skinparam actorStyle awesome
 skinparam packageStyle rectangle
 
-title Sơ đồ Use Case - Tìm kiếm và lọc
+title Sơ đồ Use Case - Nhóm 6: Tìm kiếm và lọc
 
 left to right direction
 
-actor "Guest/Customer" as user
+actor "Guest" as guest
+actor "Customer" as customer
+actor "Staff\n(Nhân viên)" as staff
+actor "Admin" as admin
+
+' Quan hệ kế thừa - tất cả đều có thể tìm kiếm
+guest <|-- customer
+customer <|-- staff
+staff <|-- admin
 
 package "Hệ thống Tìm kiếm và Lọc" {
     
-    usecase "Tìm kiếm sản phẩm" as UC601
+    usecase "Tìm kiếm\nsản phẩm" as UC601
     usecase "Lọc sản phẩm" as UC602
-    usecase "Sắp xếp kết quả" as UC603
-    usecase "So sánh sản phẩm" as UC604
+    usecase "Sắp xếp\nkết quả" as UC603
+    usecase "Xem kết quả\ntìm kiếm" as UC604
 }
 
-user --> UC601
-user --> UC602
-user --> UC603
-user --> UC604
+' Guest có thể tìm kiếm và lọc
+guest --> UC601
+guest --> UC602
+guest --> UC603
+guest --> UC604
+
+' Customer, Staff, Admin kế thừa từ Guest nên cũng có các quyền này
+
+' Quan hệ extend
+UC604 <.. UC602 : <<extend>>
+UC604 <.. UC603 : <<extend>>
 
 @enduml

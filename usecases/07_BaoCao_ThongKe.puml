@@ -2,29 +2,34 @@
 skinparam actorStyle awesome
 skinparam packageStyle rectangle
 
-title Sơ đồ Use Case - Báo cáo và thống kê
+title Sơ đồ Use Case - Nhóm 7: Báo cáo và thống kê
 
 left to right direction
 
-actor "Admin/Staff" as admin
+actor "Staff\n(Nhân viên)" as staff
+actor "Admin" as admin
+
+' Quan hệ kế thừa - Admin có tất cả quyền của Staff
+staff <|-- admin
 
 package "Hệ thống Báo cáo và Thống kê" {
     
-    usecase "Xem dashboard" as UC701
-    usecase "Báo cáo doanh thu" as UC702
-    usecase "Thống kê sản phẩm" as UC703
-    usecase "Thống kê khách hàng" as UC704
-    usecase "Báo cáo đơn hàng" as UC705
-    usecase "Thống kê khuyến mãi" as UC706
-    usecase "Xuất báo cáo" as UC707
+    usecase "Xem dashboard\ntổng quan" as UC701
+    usecase "Báo cáo\ndoanh thu" as UC702
+    usecase "Thống kê\nsản phẩm" as UC703
+    usecase "Thống kê\nkhách hàng" as UC704
+    usecase "Báo cáo\nđơn hàng" as UC705
+    usecase "Xuất báo cáo" as UC706
 }
 
-admin --> UC701
-admin --> UC702
-admin --> UC703
-admin --> UC704
-admin --> UC705
+' Staff - xem báo cáo
+staff --> UC701
+staff --> UC702
+staff --> UC703
+staff --> UC704
+staff --> UC705
+
+' Admin - kế thừa Staff + xuất báo cáo
 admin --> UC706
-admin --> UC707
 
 @enduml

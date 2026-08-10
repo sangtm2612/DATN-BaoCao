@@ -7,7 +7,12 @@ title Sơ đồ Use Case - Nhóm 1: Quản lý sản phẩm
 left to right direction
 
 actor "Guest/Customer\n(Khách hàng)" as customer
-actor "Admin/Staff\n(Quản trị)" as admin
+actor "Staff\n(Nhân viên)" as staff
+actor "Admin" as admin
+
+' Quan hệ kế thừa - Staff có thể xem như khách hàng
+customer <|-- staff
+staff <|-- admin
 
 package "Hệ thống Quản lý Sản phẩm" {
     
