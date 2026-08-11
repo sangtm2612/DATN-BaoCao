@@ -5905,9 +5905,83 @@ Build PC
 
 **Trang chủ - Desktop:**
 
+![Wireframe Trang chủ - Desktop](../bao-cao/images/wireframes/wireframe-trang-chu.png){width="6.5in"}
+
+Wireframe Trang chủ (Desktop) — thể hiện bố cục Header, Banner slideshow,
+Danh mục sản phẩm nổi bật, Sản phẩm nổi bật/Bán chạy nhất/Hàng mới về, và
+Footer, theo đúng cấu trúc đã triển khai thực tế.
+
 **Chi tiết sản phẩm:**
 
+![Wireframe Chi tiết sản phẩm](../bao-cao/images/wireframes/wireframe-chi-tiet-san-pham.png){width="6.5in"}
+
+Wireframe trang Chi tiết sản phẩm — thể hiện bố cục ảnh sản phẩm, thông tin
+giá/khuyến mãi, nút thêm giỏ hàng/mua ngay, tab Mô tả/Thông số/Đánh giá, và
+khối Sản phẩm liên quan, theo đúng cấu trúc đã triển khai thực tế.
+
+**Trang Build PC:**
+
+![Wireframe Trang Build PC](../bao-cao/images/wireframes/wireframe-build-pc.png){width="6.5in"}
+
+Wireframe trang Build PC — thể hiện danh sách các loại linh kiện có thể
+chọn, bảng tóm tắt cấu hình và tổng giá bên phải, theo đúng cấu trúc đã
+triển khai thực tế.
+
 **Admin Dashboard:**
+
+![Wireframe Admin Dashboard](../bao-cao/images/wireframes/wireframe-admin-dashboard.png){width="6.5in"}
+
+Wireframe Admin Dashboard — thể hiện các thẻ thống kê tổng quan (doanh thu,
+đơn hàng, sản phẩm, khách hàng), biểu đồ doanh thu, khối sản phẩm sắp hết
+hàng, và bảng đơn hàng gần đây, theo đúng cấu trúc đã triển khai thực tế.
+
+**Trang danh sách sản phẩm:**
+
+![Wireframe Trang danh sách sản phẩm](../bao-cao/images/wireframes/wireframe-danh-sach-san-pham.png){width="6.5in"}
+
+Wireframe Trang danh sách sản phẩm — thể hiện breadcrumb, bộ lọc thương
+hiệu/khoảng giá bên trái, lưới sản phẩm và sắp xếp, theo đúng cấu trúc đã
+triển khai thực tế.
+
+**Trang giỏ hàng:**
+
+![Wireframe Trang giỏ hàng](../bao-cao/images/wireframes/wireframe-gio-hang.png){width="6.5in"}
+
+Wireframe Trang giỏ hàng — thể hiện danh sách sản phẩm đã chọn, cập nhật số
+lượng, và khối tóm tắt đơn hàng với nút tiến hành thanh toán, theo đúng cấu
+trúc đã triển khai thực tế.
+
+**Trang thanh toán:**
+
+![Wireframe Trang thanh toán](../bao-cao/images/wireframes/wireframe-thanh-toan.png){width="6.5in"}
+
+Wireframe Trang thanh toán — thể hiện form thông tin giao hàng, phương thức
+thanh toán, hình thức nhận hàng, và khối tổng kết đơn hàng, theo đúng cấu
+trúc đã triển khai thực tế.
+
+**Trang Wishlist (Yêu thích):**
+
+![Wireframe Trang Wishlist](../bao-cao/images/wireframes/wireframe-wishlist.png){width="6.5in"}
+
+Wireframe Trang Wishlist — thể hiện sidebar tài khoản và lưới sản phẩm đã
+thêm vào yêu thích kèm nút thêm vào giỏ, theo đúng cấu trúc đã triển khai
+thực tế.
+
+**Trang Showroom:**
+
+![Wireframe Trang Showroom](../bao-cao/images/wireframes/wireframe-showroom.png){width="6.5in"}
+
+Wireframe Trang Showroom — thể hiện danh sách showroom nhóm theo tỉnh/thành
+với địa chỉ, số điện thoại và giờ mở cửa, theo đúng cấu trúc đã triển khai
+thực tế.
+
+**Trang Đổi/Trả hàng:**
+
+![Wireframe Trang Đổi/Trả hàng](../bao-cao/images/wireframes/wireframe-doi-tra-hang.png){width="6.5in"}
+
+Wireframe Trang Đổi/Trả hàng — thể hiện form chọn sản phẩm cần đổi/trả, lý
+do, mô tả chi tiết và khu vực upload ảnh/video minh chứng, theo đúng cấu
+trúc đã triển khai thực tế.
 
 ## 3.4. Thiết kế hướng đối tượng {#thiết-kế-hướng-đối-tượng-1}
 
