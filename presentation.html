@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo Luận án: Website Bán Máy Tính Kinh Duan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/sky.min.css">
+    <style>
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: #2c3e50;
+            text-transform: none;
+        }
+        .reveal {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 28px;
+        }
+        .reveal .slides section {
+            text-align: left;
+        }
+        .reveal .title-slide {
+            text-align: center;
+        }
+        .reveal ul {
+            margin-left: 0;
+        }
+        .reveal li {
+            margin-bottom: 0.5em;
+        }
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .success {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .info-box {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .tech-stack {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .tech-item {
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 0.8em;
+        }
+        .small-text {
+            font-size: 0.65em;
+        }
+        .table-container {
+            font-size: 0.6em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background: #3498db;
+            color: white;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-height: 550px;
+            max-width: 95%;
+            object-fit: contain;
+        }
+        .swimlane-container {
+            text-align: center;
+            margin: 5px 0;
+            height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .swimlane-container img {
+            max-height: 640px;
+            max-width: 98%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            /* SVG specific improvements */
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+        .chart-container {
+            position: relative;
+            height: 360px;
+            width: 100%;
+            max-width: 1300px;
+            margin: 15px auto;
+            padding: 8px;
+        }
+        .chart-small {
+            height: 320px;
+        }
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+        canvas {
+            display: block;
+            box-sizing: border-box;
+            /* Ensure sharp rendering */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Modal Zoom cho hình ảnh */
+        .zoom-modal {
+            display: none;
+            position: fixed;
+            z-index: 99999 !important;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.95);
+            overflow: auto;
+        }
+        .zoom-modal-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+        }
+        .zoom-modal-content-inner {
+            position: relative;
+            max-width: 95%;
+            max-height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .zoom-modal img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            cursor: zoom-in;
+            transition: transform 0.3s ease;
+            user-select: none;
+            display: block;
+        }
+        .zoom-modal img.zoomed {
+            max-width: none;
+            max-height: none;
+            cursor: grab;
+        }
+        .zoom-modal img.zoomed:active {
+            cursor: grabbing;
+        }
+        .zoom-close {
+            position: fixed;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 100000 !important;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 15px;
+            border-radius: 5px;
+            line-height: 1;
+        }
+        .zoom-close:hover {
+            color: #e74c3c;
+            background: rgba(231, 76, 60, 0.3);
+        }
+        .zoom-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 100000 !important;
+        }
+        .zoom-btn {
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .zoom-btn:hover {
+            background: #3498db;
+            border-color: #3498db;
+            transform: scale(1.05);
+        }
+        .swimlane-container img {
+            cursor: zoom-in !important;
+            transition: opacity 0.3s ease, transform 0.2s ease;
+        }
+        .swimlane-container img:hover {
+            opacity: 0.85;
+            transform: scale(1.01);
+        }
+        .zoom-hint {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(52, 152, 219, 0.9);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            z-index: 100000 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- Slide 1: Trang bìa -->
+            <section class="title-slide">
+                <h1 style="margin-bottom: 15px;">WEBSITE BÁN MÁY TÍNH TRỰC TUYẾN</h1>
+                <h2 style="color: #e74c3c; margin-top: 10px;">KINH DUAN</h2>
+                <hr style="width: 60%; margin: 25px auto; border: 2px solid #3498db;">
+                <div style="margin-top: 35px;">
+                    <p style="font-size: 0.9em; margin-bottom: 20px;"><strong>Giảng viên hướng dẫn:</strong> ThS. Trịnh Thị Xuân</p>
+                    <p style="font-size: 0.9em; margin-bottom: 15px;"><strong>Sinh viên thực hiện:</strong></p>
+                    <div style="text-align: left; max-width: 580px; margin: 0 auto; padding-left: 40px;">
+                        <p style="font-size: 0.85em; margin: 10px 0;">1. Trần Minh Sáng - 23C1001K5503</p>
+                        <p style="font-size: 0.85em; margin: 10px 0;">2. Nguyễn Quang Dũng - 23C1001K4985</p>
+                        <p style="font-size: 0.85em; margin: 10px 0;">3. Phạm Thị Trang - 23C1016D5270</p>
+                    </div>
+                </div>
+                <p style="margin-top: 45px; font-size: 0.85em;"><em>Trường Đại học Mở Hà Nội<br>Hà Nội - 2026</em></p>
+            </section>
+
+            <!-- Slide 2: Nội dung trình bày -->
+            <section>
+                <h2>NỘI DUNG TRÌNH BÀY</h2>
+                <ol style="font-size: 1em; line-height: 2; margin-top: 40px; padding-left: 40px;">
+                    <li style="margin-bottom: 15px;">Lời mở đầu</li>
+                    <li style="margin-bottom: 15px;">Khảo sát hệ thống</li>
+                    <li style="margin-bottom: 15px;">Phân tích hệ thống</li>
+                    <li style="margin-bottom: 15px;">Thiết kế hệ thống</li>
+                    <li style="margin-bottom: 15px;">Triển khai và kiểm thử</li>
+                    <li style="margin-bottom: 15px;">Kết luận và hướng phát triển</li>
+                </ol>
+            </section>
+
+            <!-- PHẦN 1: LỜI MỞ ĐẦU -->
+            <section>
+                <section>
+                    <h2>PHẦN 1</h2>
+                    <h1 style="color: #2c3e50;">LỜI MỞ ĐẦU</h1>
+                </section>
+
+                <section>
+                    <h2>Đặt vấn đề</h2>
+                    <div class="two-column small-text">
+                        <div>
+                            <h3 style="color: #27ae60; margin-bottom: 10px; font-size: 1.1em;">Bối cảnh thị trường</h3>
+                            <div class="info-box" style="font-size: 0.75em; padding: 12px;">
+                                <p style="margin: 5px 0;"><strong>Quy mô TMĐT VN 2022:</strong> <span class="highlight">16,4 tỷ USD</span></p>
+                                <p style="margin: 5px 0;"><strong>Tăng trưởng:</strong> 25-30%/năm</p>
+                                <p style="margin: 5px 0;"><strong>Điện tử - Công nghệ:</strong> Top 3 (3,2 tỷ USD)</p>
+                                <p style="margin: 5px 0;"><strong>Người dùng Internet:</strong> Hơn 70 triệu</p>
+                                <p style="margin: 5px 0;"><strong>Mua sắm online:</strong> 68% dân số</p>
+                            </div>
+                            <h3 style="color: #3498db; margin-top: 15px; margin-bottom: 10px; font-size: 1.1em;">Cơ hội</h3>
+                            <ul style="font-size: 0.75em; margin: 0; padding-left: 20px;">
+                                <li style="margin-bottom: 5px;">Nhu cầu học tập, làm việc từ xa tăng</li>
+                                <li style="margin-bottom: 5px;">Gaming PC tăng 30%/năm</li>
+                                <li style="margin-bottom: 5px;">Xu hướng build PC phổ biến</li>
+                                <li style="margin-bottom: 5px;">Mua online sau COVID-19</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 style="color: #e74c3c; margin-bottom: 10px; font-size: 1.1em;">Thách thức</h3>
+                            <div style="font-size: 0.75em;">
+                                <div class="info-box" style="background: #ffe6e6; margin-bottom: 10px; padding: 10px;">
+                                    <p style="margin: 0 0 5px 0;"><strong>1. Thiếu cá nhân hóa</strong></p>
+                                    <ul style="margin: 5px 0 0 20px; padding: 0;">
+                                        <li style="margin-bottom: 3px;">90% website chưa có Build PC</li>
+                                        <li style="margin-bottom: 3px;">Khách tự tìm hiểu tương thích</li>
+                                        <li style="margin-bottom: 3px;">Mất thời gian tư vấn qua phone</li>
+                                    </ul>
+                                </div>
+                                <div class="info-box" style="background: #ffe6e6; margin-bottom: 10px; padding: 10px;">
+                                    <p style="margin: 0 0 5px 0;"><strong>2. UX kém</strong></p>
+                                    <ul style="margin: 5px 0 0 20px; padding: 0;">
+                                        <li style="margin-bottom: 3px;">Giao diện phức tạp, chậm</li>
+                                        <li style="margin-bottom: 3px;">Quy trình dài (7-10 bước)</li>
+                                        <li style="margin-bottom: 3px;">Thiếu so sánh, đánh giá</li>
+                                    </ul>
+                                </div>
+                                <div class="info-box" style="background: #ffe6e6; padding: 10px;">
+                                    <p style="margin: 0 0 5px 0;"><strong>3. Quản lý kém</strong></p>
+                                    <ul style="margin: 5px 0 0 20px; padding: 0;">
+                                        <li style="margin-bottom: 3px;">Khó quản lý đa showroom</li>
+                                        <li style="margin-bottom: 3px;">Xử lý thủ công, sai sót cao</li>
+                                        <li style="margin-bottom: 3px;">Báo cáo thiếu chính xác</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 15px; font-size: 0.85em; font-weight: bold; color: #2c3e50;">
+                        Cần giải pháp TMĐT <span class="highlight">chuyên nghiệp, thông minh, dễ sử dụng</span>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Lý do chọn đề tài</h2>
+                    <div class="two-column small-text">
+                        <div>
+                            <h3 style="color: #3498db; margin-bottom: 8px; font-size: 1em;">Lý do Học thuật</h3>
+                            <div style="font-size: 0.75em;">
+                                <div class="info-box" style="margin-bottom: 10px; padding: 8px;">
+                                    <p style="margin: 0 0 5px 0;"><strong>1. Áp dụng kiến thức tổng hợp</strong></p>
+                                    <ul style="margin: 5px 0 0 18px; padding: 0;">
+                                        <li style="margin-bottom: 2px;">Lập trình Web (Frontend + Backend)</li>
+                                        <li style="margin-bottom: 2px;">CSDL (PostgreSQL, thiết kế CSDL)</li>
+                                        <li style="margin-bottom: 2px;">Phân tích thiết kế (UML, Use Case)</li>
+                                        <li style="margin-bottom: 2px;">Quản lý dự án (Git, Agile)</li>
+                                    </ul>
+                                </div>
+                                <div class="info-box" style="margin-bottom: 10px; padding: 8px;">
+                                    <p style="margin: 0 0 5px 0;"><strong>2. Phát triển kỹ năng</strong></p>
+                                    <ul style="margin: 5px 0 0 18px; padding: 0;">
+                                        <li style="margin-bottom: 2px;">Full-stack (React + Spring Boot)</li>
+                                        <li style="margin-bottom: 2px;">Tích hợp API (VNPay)</li>
+                                        <li style="margin-bottom: 2px;">Bảo mật (JWT, OAuth2)</li>
+                                        <li style="margin-bottom: 2px;">Performance optimization</li>
+                                    </ul>
+                                </div>
+                                <div class="info-box" style="padding: 8px;">
+                                    <p style="margin: 0 0 5px 0;"><strong>3. Trải nghiệm chuyên nghiệp</strong></p>
+                                    <ul style="margin: 5px 0 0 18px; padding: 0;">
+                                        <li style="margin-bottom: 2px;">Khảo sát thực tế (FPTShop, HNC)</li>
+                                        <li style="margin-bottom: 2px;">Phân tích đối thủ cạnh tranh</li>
+                                        <li style="margin-bottom: 2px;">150+ khảo sát người dùng</li>
+                                        <li style="margin-bottom: 2px;">Kiểm thử và triển khai</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 style="color: #e74c3c; margin-bottom: 8px; font-size: 1em;">Lý do Thực tiễn</h3>
+                            <div style="font-size: 0.75em;">
+                                <div class="info-box" style="margin-bottom: 10px; padding: 8px;">
+                                    <p style="margin: 0 0 5px 0;"><strong>1. Thị trường tiềm năng</strong></p>
+                                    <ul style="margin: 5px 0 0 18px; padding: 0;">
+                                        <li style="margin-bottom: 2px;"><strong>70+ triệu</strong> người dùng Internet</li>
+                                        <li style="margin-bottom: 2px;"><strong>3,2 tỷ USD</strong> thị trường điện tử</li>
+                                        <li style="margin-bottom: 2px;"><strong>68%</strong> dân số mua online</li>
+                                        <li style="margin-bottom: 2px;">Tăng <strong>25-30%/năm</strong></li>
+                                    </ul>
+                                </div>
+                                <div class="info-box" style="margin-bottom: 10px; padding: 8px;">
+                                    <p style="margin: 0 0 5px 0;"><strong>2. Giải pháp thiết thực</strong></p>
+                                    <ul style="margin: 5px 0 0 18px; padding: 0;">
+                                        <li style="margin-bottom: 2px;">Giải quyết vấn đề thực tế</li>
+                                        <li style="margin-bottom: 2px;">Cải thiện trải nghiệm KH</li>
+                                        <li style="margin-bottom: 2px;">Hỗ trợ quản lý hiệu quả</li>
+                                        <li style="margin-bottom: 2px;">Tạo giá trị cộng đồng</li>
+                                    </ul>
+                                </div>
+                                <div class="info-box" style="padding: 8px;">
+                                    <p style="margin: 0 0 5px 0;"><strong>3. Build PC độc đáo</strong></p>
+                                    <ul style="margin: 5px 0 0 18px; padding: 0;">
+                                        <li style="margin-bottom: 2px;"><strong>89%</strong> người dùng mong muốn</li>
+                                        <li style="margin-bottom: 2px;">Chỉ <strong>20%</strong> đối thủ có</li>
+                                        <li style="margin-bottom: 2px;">Tiết kiệm <strong>2-3 giờ</strong>/khách</li>
+                                        <li style="margin-bottom: 2px;">Tăng <strong>40%</strong> chuyển đổi</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 12px; font-size: 0.8em; font-weight: bold; color: #2c3e50;">
+                        Kết hợp <span class="highlight">giá trị học thuật</span> và <span class="highlight">ứng dụng thực tiễn</span> cao
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Mục tiêu nghiên cứu</h2>
+                    <ol style="font-size: 0.9em; line-height: 1.8; margin-top: 30px;">
+                        <li style="margin-bottom: 18px;">Xây dựng hệ thống <strong>TMĐT chuyên nghiệp</strong> cho lĩnh vực máy tính</li>
+                        <li style="margin-bottom: 18px;">Cung cấp nền tảng mua sắm <strong>tiện lợi, an toàn, hiệu quả</strong></li>
+                        <li style="margin-bottom: 18px;">Phát triển tính năng <span class="highlight">Build PC</span> độc đáo</li>
+                        <li style="margin-bottom: 18px;">Hỗ trợ doanh nghiệp <strong>quản lý tập trung</strong></li>
+                        <li style="margin-bottom: 18px;">Áp dụng kiến thức đã học vào thực tế</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h2>Phạm vi nghiên cứu</h2>
+                    <div class="two-column small-text">
+                        <div>
+                            <h3 style="margin-bottom: 12px;">Đối tượng sử dụng</h3>
+                            <ul style="font-size: 0.85em; margin-bottom: 20px;">
+                                <li>Khách hàng (Guest, Customer)</li>
+                                <li>Nhân viên (Staff)</li>
+                                <li>Quản trị viên (Admin)</li>
+                            </ul>
+                            <h3 style="margin-bottom: 12px;">Công nghệ</h3>
+                            <div class="tech-stack" style="margin-top: 12px;">
+                                <span class="tech-item">ReactJS</span>
+                                <span class="tech-item">Spring Boot</span>
+                                <span class="tech-item">PostgreSQL</span>
+                                <span class="tech-item">VNPay</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 style="margin-bottom: 12px;">Chức năng chính</h3>
+                            <ul style="font-size: 0.8em; line-height: 1.7;">
+                                <li>Quản lý sản phẩm, danh mục, tồn kho</li>
+                                <li>Giỏ hàng và đơn hàng</li>
+                                <li>Thanh toán trực tuyến (VNPay, COD)</li>
+                                <li>Build PC (tự chọn cấu hình)</li>
+                                <li>Đánh giá sản phẩm</li>
+                                <li>Đổi/trả hàng trong 15 ngày</li>
+                                <li>Quản lý voucher & khuyến mãi</li>
+                                <li>Báo cáo và thống kê</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- PHẦN 2: KHẢO SÁT HỆ THỐNG -->
+            <section>
+                <section>
+                    <h2>PHẦN 2</h2>
+                    <h1 style="color: #2c3e50;">KHẢO SÁT HỆ THỐNG</h1>
+                </section>
+
+                <section>
+                    <h2>Phân tích đối thủ cạnh tranh</h2>
+                    <div class="chart-container">
+                        <canvas id="competitorChart"></canvas>
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 15px;"><strong>Kết luận:</strong> Thị trường cần giải pháp kết hợp <span class="highlight">UI hiện đại + Build PC mạnh mẽ + Giá cạnh tranh</span></p>
+                </section>
+
+                <section>
+                    <h2>Khảo sát người dùng - Kết quả</h2>
+                    <div style="display: flex; gap: 30px; justify-content: space-between; padding: 0 30px; margin-top: 20px;">
+                        <div style="flex: 1; max-width: 48%; height: 420px;">
+                            <canvas id="ageChart"></canvas>
+                        </div>
+                        <div style="flex: 1; max-width: 48%; height: 420px;">
+                            <canvas id="budgetChart"></canvas>
+                        </div>
+                    </div>
+                    <p class="small-text" style="margin-top: 20px; text-align: center;"><em>Tổng số phản hồi: <strong>150+ người dùng</strong> qua Google Form</em></p>
+                </section>
+
+                <section>
+                    <h2>Các chức năng chính của Website</h2>
+                    <div class="chart-container">
+                        <canvas id="wishChart"></canvas>
+                    </div>
+                    <p class="small-text" style="margin-top: 15px; text-align: center;">Hệ thống cung cấp đầy đủ <strong>các chức năng cốt lõi</strong> đáp ứng nhu cầu mua sắm máy tính trực tuyến</p>
+                </section>
+
+                <section>
+                    <h2>Quy trình nghiệp vụ chính - Tổng quan</h2>
+                    <div class="small-text">
+                        <div class="two-column">
+                            <div>
+                                <h3>1. Quy trình đặt hàng</h3>
+                                <ul style="font-size: 0.85em;">
+                                    <li>Khách chọn sản phẩm / Build PC</li>
+                                    <li>Thêm vào giỏ hàng</li>
+                                    <li>Áp dụng voucher (nếu có)</li>
+                                    <li>Chọn phương thức thanh toán</li>
+                                    <li>Xác nhận và đặt hàng</li>
+                                </ul>
+                                <h3 style="margin-top: 15px;">2. Quy trình Build PC</h3>
+                                <ul style="font-size: 0.85em;">
+                                    <li>Chọn từng linh kiện (CPU, RAM, VGA...)</li>
+                                    <li>Hệ thống kiểm tra tương thích</li>
+                                    <li>Hiển thị tổng công suất & giá</li>
+                                    <li>Lưu cấu hình & đặt hàng</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3>3. Quy trình xử lý đơn (Admin/Staff)</h3>
+                                <ul style="font-size: 0.85em;">
+                                    <li>Nhận đơn hàng mới</li>
+                                    <li>Kiểm tra tồn kho</li>
+                                    <li>Xác nhận đơn hàng</li>
+                                    <li>Đóng gói và giao hàng</li>
+                                    <li>Hoàn tất đơn</li>
+                                </ul>
+                                <h3 style="margin-top: 15px;">4. Quy trình đổi/trả</h3>
+                                <ul style="font-size: 0.85em;">
+                                    <li>Khách yêu cầu đổi/trả (&lt;15 ngày)</li>
+                                    <li>Staff kiểm tra điều kiện</li>
+                                    <li>Xử lý đổi/trả/hoàn tiền</li>
+                                    <li>Cập nhật tồn kho</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Swimlane: Quy trình đặt hàng -->
+                <section>
+                    <h2>Swimlane: Quy trình đặt hàng</h2>
+                    <div class="swimlane-container">
+                        <img src="quy-trinh-nghiep-vu/plantuml/svg/QuyTrinhDatHang.svg" alt="Quy trình đặt hàng">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Sơ đồ swimlane mô tả chi tiết quy trình khách hàng đặt hàng</em></p>
+                </section>
+
+                <!-- Swimlane: Quy trình xử lý đơn hàng -->
+                <section>
+                    <h2>Swimlane: Quy trình xử lý đơn hàng</h2>
+                    <div class="swimlane-container">
+                        <img src="quy-trinh-nghiep-vu/plantuml/svg/QuyTrinhXuLyDonHang.svg" alt="Quy trình xử lý đơn hàng">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Sơ đồ swimlane mô tả quy trình Admin/Staff xử lý đơn hàng</em></p>
+                </section>
+
+                <!-- Swimlane: Quy trình Build PC -->
+                <section>
+                    <h2>Swimlane: Quy trình Build PC</h2>
+                    <div class="swimlane-container">
+                        <img src="quy-trinh-nghiep-vu/plantuml/svg/QuyTrinhBuildPC.svg" alt="Quy trình Build PC">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Sơ đồ swimlane mô tả quy trình khách hàng tự xây dựng cấu hình máy tính</em></p>
+                </section>
+
+                <!-- Swimlane: Quy trình đổi/trả hàng -->
+                <section>
+                    <h2>Swimlane: Quy trình đổi/trả hàng</h2>
+                    <div class="swimlane-container">
+                        <img src="quy-trinh-nghiep-vu/plantuml/svg/QuyTrinhDoiTraHang.svg" alt="Quy trình đổi/trả hàng">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Sơ đồ swimlane mô tả quy trình xử lý yêu cầu đổi/trả hàng trong 15 ngày</em></p>
+                </section>
+
+                <!-- Swimlane: Quy trình quản lý sản phẩm -->
+                <section>
+                    <h2>Swimlane: Quy trình quản lý sản phẩm</h2>
+                    <div class="swimlane-container">
+                        <img src="quy-trinh-nghiep-vu/plantuml/svg/QuyTrinhQuanLySanPham.svg" alt="Quy trình quản lý sản phẩm">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Sơ đồ swimlane mô tả quy trình Admin quản lý sản phẩm và tồn kho</em></p>
+                </section>
+
+                <section>
+                    <h2>Các quy trình bổ sung (1/2)</h2>
+                    <div class="small-text">
+                        <div class="two-column">
+                            <div>
+                                <h3>5. Quy trình thanh toán VNPay</h3>
+                                <ul style="font-size: 0.85em;">
+                                    <li>Khách chọn thanh toán online</li>
+                                    <li>Chuyển hướng sang VNPay Gateway</li>
+                                    <li>Nhập thông tin thẻ/QR Code</li>
+                                    <li>VNPay xác thực và trả kết quả</li>
+                                    <li>Hệ thống cập nhật trạng thái đơn</li>
+                                </ul>
+                                <h3 style="margin-top: 15px;">6. Quy trình đánh giá sản phẩm</h3>
+                                <ul style="font-size: 0.85em;">
+                                    <li>Khách đã mua hàng viết đánh giá</li>
+                                    <li>Chấm điểm 1-5 sao</li>
+                                    <li>Viết nội dung & upload ảnh</li>
+                                    <li>Admin duyệt đánh giá</li>
+                                    <li>Hiển thị trên trang sản phẩm</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3>7. Quy trình quản lý voucher</h3>
+                                <ul style="font-size: 0.85em;">
+                                    <li>Admin tạo voucher mới</li>
+                                    <li>Cấu hình: mã, giảm giá, điều kiện</li>
+                                    <li>Đặt thời hạn & số lượng</li>
+                                    <li>Khách nhập mã khi thanh toán</li>
+                                    <li>Hệ thống kiểm tra và áp dụng</li>
+                                </ul>
+                                <h3 style="margin-top: 15px;">8. Quy trình bảo hành</h3>
+                                <ul style="font-size: 0.85em;">
+                                    <li>Khách gửi yêu cầu bảo hành</li>
+                                    <li>Staff kiểm tra thời hạn bảo hành</li>
+                                    <li>Tiếp nhận sản phẩm & đánh giá lỗi</li>
+                                    <li>Sửa chữa hoặc thay thế</li>
+                                    <li>Trả sản phẩm cho khách hàng</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Các quy trình bổ sung (2/2)</h2>
+                    <div class="small-text">
+                        <h3>9. Quy trình tìm kiếm và lọc sản phẩm</h3>
+                        <div style="font-size: 0.85em;">
+                            <div class="two-column">
+                                <div>
+                                    <h4 style="color: #3498db;">Tìm kiếm:</h4>
+                                    <ul>
+                                        <li>Nhập từ khóa vào thanh search</li>
+                                        <li>Autocomplete gợi ý sản phẩm</li>
+                                        <li>Tìm kiếm theo tên, mã SP, thương hiệu</li>
+                                        <li>Hiển thị kết quả theo độ liên quan</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 style="color: #e74c3c;">Lọc sản phẩm:</h4>
+                                    <ul>
+                                        <li>Lọc theo danh mục (Laptop, PC, Linh kiện...)</li>
+                                        <li>Lọc theo thương hiệu (Dell, HP, Asus...)</li>
+                                        <li>Lọc theo khoảng giá</li>
+                                        <li>Lọc theo cấu hình (RAM, CPU, VGA...)</li>
+                                        <li>Sắp xếp: Giá tăng/giảm, Mới nhất, Bán chạy</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 20px; font-size: 0.75em; text-align: center;"><em>Tổng cộng: <strong>9 quy trình nghiệp vụ chính</strong> với 5 swimlane diagram chi tiết</em></p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Yêu cầu hệ thống</h2>
+                    <div class="two-column small-text">
+                        <div>
+                            <h3 style="color: #3498db;">Yêu cầu chức năng (35 FR)</h3>
+                            <ul style="font-size: 0.8em;">
+                                <li><strong>Người dùng:</strong> Đăng ký, đăng nhập, quản lý tài khoản</li>
+                                <li><strong>Sản phẩm:</strong> Xem, tìm kiếm, lọc, so sánh</li>
+                                <li><strong>Giỏ hàng:</strong> Thêm, sửa, xóa sản phẩm</li>
+                                <li><strong>Đơn hàng:</strong> Đặt hàng, thanh toán, theo dõi</li>
+                                <li><strong>Build PC:</strong> Chọn linh kiện, kiểm tra tương thích</li>
+                                <li><strong>Đánh giá:</strong> Viết review, upload ảnh</li>
+                                <li><strong>Admin:</strong> Quản lý toàn bộ hệ thống</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 style="color: #e74c3c;">Yêu cầu phi chức năng (7 NFR)</h3>
+                            <ul style="font-size: 0.8em;">
+                                <li><strong>Performance:</strong> Tải trang &lt;2s</li>
+                                <li><strong>Security:</strong> JWT, HTTPS, mã hóa password</li>
+                                <li><strong>Usability:</strong> Giao diện thân thiện, responsive</li>
+                                <li><strong>Reliability:</strong> Uptime &gt;99%</li>
+                                <li><strong>Scalability:</strong> Hỗ trợ 1000+ user đồng thời</li>
+                                <li><strong>Maintainability:</strong> Code clean, document đầy đủ</li>
+                                <li><strong>Compatibility:</strong> Hỗ trợ đa trình duyệt</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Các tính năng đặc biệt</h2>
+                    <div class="small-text">
+                        <ol>
+                            <li><strong>Build PC:</strong> Tự xây dựng cấu hình máy tính với kiểm tra tương thích tự động</li>
+                            <li><strong>Wishlist:</strong> Lưu sản phẩm yêu thích, nhận thông báo khi giảm giá</li>
+                            <li><strong>Sản phẩm đã xem:</strong> Lịch sử xem sản phẩm để dễ quay lại</li>
+                            <li><strong>Hệ thống Showroom:</strong> Quản lý đa chi nhánh, kiểm tra tồn kho từng showroom</li>
+                            <li><strong>Thanh toán trả góp 0%:</strong> Hỗ trợ trả góp qua thẻ tín dụng</li>
+                            <li><strong>Đổi/trả trong 15 ngày:</strong> Chính sách đổi trả linh hoạt</li>
+                            <li><strong>Hóa đơn điện tử:</strong> Tự động gửi hóa đơn qua email</li>
+                            <li><strong>Đăng ký nhận khuyến mãi:</strong> Thông báo email về chương trình ưu đãi</li>
+                        </ol>
+                    </div>
+                </section>
+            </section>
+
+            <!-- PHẦN 3: PHÂN TÍCH HỆ THỐNG -->
+            <section>
+                <section>
+                    <h2>PHẦN 3</h2>
+                    <h1 style="color: #2c3e50;">PHÂN TÍCH HỆ THỐNG</h1>
+                </section>
+
+                <section>
+                    <h2>Mô hình hóa chức năng</h2>
+                    <h3 class="small-text">Các nhóm chức năng chính:</h3>
+                    <div class="two-column small-text">
+                        <div>
+                            <h4 style="color: #3498db;">Khách hàng</h4>
+                            <ul style="font-size: 0.8em;">
+                                <li>Quản lý tài khoản</li>
+                                <li>Xem & tìm kiếm sản phẩm</li>
+                                <li>Giỏ hàng & Wishlist</li>
+                                <li>Đặt hàng & thanh toán</li>
+                                <li>Build PC</li>
+                                <li>Đánh giá sản phẩm</li>
+                                <li>Theo dõi đơn hàng</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #e74c3c;">Admin/Staff</h4>
+                            <ul style="font-size: 0.8em;">
+                                <li>Quản lý sản phẩm</li>
+                                <li>Quản lý đơn hàng</li>
+                                <li>Quản lý khách hàng</li>
+                                <li>Quản lý tồn kho</li>
+                                <li>Quản lý voucher</li>
+                                <li>Quản lý showroom</li>
+                                <li>Báo cáo & thống kê</li>
+                                <li>Quản lý blog</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="small-text" style="margin-top: 20px; text-align: center;"><em>Chi tiết: Use Case Diagram, Activity Diagram trong báo cáo</em></p>
+                </section>
+
+                <section>
+                    <h2>Sơ đồ Use Case tổng quan</h2>
+                    <div class="swimlane-container" style="height: 530px; margin-bottom: 5px;">
+                        <img src="usecases/svg/UseCase_TongQuat_7NhomChucNang.svg" alt="Use Case Diagram Tổng quan">
+                    </div>
+                    <div style="display: flex; gap: 20px; align-items: center; margin-top: 5px; padding: 0 20px;">
+                        <div class="info-box small-text" style="flex: 1; padding: 10px; margin: 0; font-size: 0.65em;">
+                            <p style="margin: 0 0 5px 0;"><strong>3 Actor chính:</strong></p>
+                            <ul style="margin: 0; padding-left: 15px; line-height: 1.4;">
+                                <li><strong>Guest/Customer:</strong> Mua hàng, đánh giá, Build PC</li>
+                                <li><strong>Staff:</strong> Xử lý đơn hàng, quản lý sản phẩm cơ bản</li>
+                                <li><strong>Admin:</strong> Toàn quyền quản trị hệ thống</li>
+                            </ul>
+                        </div>
+                        <div style="flex: 0 0 auto; text-align: center;">
+                            <p class="small-text" style="font-size: 0.7em; margin: 0;"><strong>Tổng số:</strong> <span class="highlight" style="font-size: 1.2em;">35 UC</span></p>
+                            <p class="small-text" style="font-size: 0.6em; margin: 5px 0 0 0;">7 nhóm chức năng</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Use Case chi tiết - 7 nhóm chính</h2>
+                    <div class="two-column small-text">
+                        <div>
+                            <h3 style="color: #3498db; margin-bottom: 10px; font-size: 1em;">Nhóm 1-4:</h3>
+                            <p style="font-size: 0.75em; margin-bottom: 8px;"><strong>1. Quản lý Sản phẩm</strong></p>
+                            <ul style="font-size: 0.7em; margin: 0 0 12px 15px; padding: 0;">
+                                <li>CRUD sản phẩm, danh mục, thương hiệu</li>
+                                <li>Quản lý tồn kho, giá, khuyến mãi</li>
+                                <li>Upload & quản lý hình ảnh</li>
+                            </ul>
+                            <p style="font-size: 0.75em; margin-bottom: 8px;"><strong>2. Quản lý Người dùng</strong></p>
+                            <ul style="font-size: 0.7em; margin: 0 0 12px 15px; padding: 0;">
+                                <li>Đăng ký, đăng nhập, quên mật khẩu</li>
+                                <li>Quản lý profile, địa chỉ giao hàng</li>
+                                <li>Phân quyền: Admin, Staff, Customer</li>
+                            </ul>
+                            <p style="font-size: 0.75em; margin-bottom: 8px;"><strong>3. Giỏ hàng & Đơn hàng</strong></p>
+                            <ul style="font-size: 0.7em; margin: 0 0 12px 15px; padding: 0;">
+                                <li>Thêm/Sửa/Xóa giỏ hàng</li>
+                                <li>Đặt hàng, theo dõi đơn hàng</li>
+                                <li>Đổi/trả hàng trong 15 ngày</li>
+                            </ul>
+                            <p style="font-size: 0.75em; margin-bottom: 8px;"><strong>4. Thanh toán</strong></p>
+                            <ul style="font-size: 0.7em; margin: 0 0 12px 15px; padding: 0;">
+                                <li>Thanh toán VNPay</li>
+                                <li>Thanh toán COD</li>
+                                <li>Áp dụng voucher giảm giá</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 style="color: #e74c3c; margin-bottom: 10px; font-size: 1em;">Nhóm 5-7:</h3>
+                            <p style="font-size: 0.75em; margin-bottom: 8px;"><strong>5. Đánh giá & Phản hồi</strong></p>
+                            <ul style="font-size: 0.7em; margin: 0 0 12px 15px; padding: 0;">
+                                <li>Viết review & rating (1-5 sao)</li>
+                                <li>Upload ảnh sản phẩm</li>
+                                <li>Admin duyệt đánh giá</li>
+                            </ul>
+                            <p style="font-size: 0.75em; margin-bottom: 8px;"><strong>6. Tìm kiếm & Lọc</strong></p>
+                            <ul style="font-size: 0.7em; margin: 0 0 12px 15px; padding: 0;">
+                                <li>Tìm kiếm theo từ khóa</li>
+                                <li>Lọc theo danh mục, giá, thương hiệu</li>
+                                <li>Sắp xếp: Giá, Bán chạy, Mới nhất</li>
+                                <li>Build PC (chọn linh kiện)</li>
+                            </ul>
+                            <p style="font-size: 0.75em; margin-bottom: 8px;"><strong>7. Báo cáo & Thống kê</strong></p>
+                            <ul style="font-size: 0.7em; margin: 0 0 12px 15px; padding: 0;">
+                                <li>Doanh thu theo ngày/tháng/năm</li>
+                                <li>Top sản phẩm bán chạy</li>
+                                <li>Thống kê khách hàng, đơn hàng</li>
+                                <li>Báo cáo tồn kho</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Use Case 1: Quản lý Sản phẩm -->
+                <section>
+                    <h2>Use Case: Quản lý Sản phẩm</h2>
+                    <div class="swimlane-container" style="height: 600px;">
+                        <img src="usecases/svg/01_QuanLySanPham.svg" alt="Use Case Quản lý Sản phẩm">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Sơ đồ Use Case chi tiết cho nhóm chức năng Quản lý Sản phẩm</em></p>
+                </section>
+
+                <!-- Use Case 2: Quản lý Người dùng -->
+                <section>
+                    <h2>Use Case: Quản lý Người dùng</h2>
+                    <div class="swimlane-container" style="height: 600px;">
+                        <img src="usecases/svg/02_QuanLyNguoiDung.svg" alt="Use Case Quản lý Người dùng">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Sơ đồ Use Case chi tiết cho nhóm chức năng Quản lý Người dùng</em></p>
+                </section>
+
+                <!-- Use Case 3: Giỏ hàng & Đơn hàng -->
+                <section>
+                    <h2>Use Case: Giỏ hàng & Đơn hàng</h2>
+                    <div class="swimlane-container" style="height: 600px;">
+                        <img src="usecases/svg/03_GioHang_DonHang.svg" alt="Use Case Giỏ hàng & Đơn hàng">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Sơ đồ Use Case chi tiết cho nhóm chức năng Giỏ hàng & Đơn hàng</em></p>
+                </section>
+
+                <!-- Use Case 4: Thanh toán -->
+                <section>
+                    <h2>Use Case: Thanh toán</h2>
+                    <div class="swimlane-container" style="height: 600px;">
+                        <img src="usecases/svg/04_ThanhToan.svg" alt="Use Case Thanh toán">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Sơ đồ Use Case chi tiết cho nhóm chức năng Thanh toán</em></p>
+                </section>
+
+                <!-- Use Case 5: Đánh giá & Phản hồi -->
+                <section>
+                    <h2>Use Case: Đánh giá & Phản hồi</h2>
+                    <div class="swimlane-container" style="height: 600px;">
+                        <img src="usecases/svg/05_DanhGia_PhanHoi.svg" alt="Use Case Đánh giá & Phản hồi">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Sơ đồ Use Case chi tiết cho nhóm chức năng Đánh giá & Phản hồi</em></p>
+                </section>
+
+                <!-- Use Case 6: Tìm kiếm & Lọc -->
+                <section>
+                    <h2>Use Case: Tìm kiếm & Lọc</h2>
+                    <div class="swimlane-container" style="height: 600px;">
+                        <img src="usecases/svg/06_TimKiem_Loc.svg" alt="Use Case Tìm kiếm & Lọc">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Sơ đồ Use Case chi tiết cho nhóm chức năng Tìm kiếm & Lọc (bao gồm Build PC)</em></p>
+                </section>
+
+                <!-- Use Case 7: Báo cáo & Thống kê -->
+                <section>
+                    <h2>Use Case: Báo cáo & Thống kê</h2>
+                    <div class="swimlane-container" style="height: 600px;">
+                        <img src="usecases/svg/07_BaoCao_ThongKe.svg" alt="Use Case Báo cáo & Thống kê">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Sơ đồ Use Case chi tiết cho nhóm chức năng Báo cáo & Thống kê</em></p>
+                </section>
+
+                <section>
+                    <h2>Activity Diagram - Ví dụ</h2>
+                    <h3 class="small-text">Quy trình đặt hàng:</h3>
+                    <div class="small-text">
+                        <ol style="font-size: 0.8em;">
+                            <li><strong>Khách hàng</strong> chọn sản phẩm → Thêm vào giỏ hàng</li>
+                            <li>Kiểm tra giỏ hàng → Áp dụng voucher (nếu có)</li>
+                            <li>Chọn địa chỉ giao hàng → Chọn phương thức thanh toán</li>
+                            <li><strong>Hệ thống</strong> kiểm tra tồn kho → Tính tổng tiền</li>
+                            <li>Xử lý thanh toán (VNPay hoặc COD)</li>
+                            <li>Tạo đơn hàng → Gửi email xác nhận</li>
+                            <li><strong>Staff</strong> nhận đơn → Xử lý và giao hàng</li>
+                        </ol>
+                    </div>
+                    <p class="small-text" style="margin-top: 20px;"><em>15+ Activity Diagram khác: Xử lý đơn, Build PC, Đổi/trả hàng, Quản lý sản phẩm...</em></p>
+                </section>
+
+                <!-- Activity Diagram 1: Đăng nhập -->
+                <section>
+                    <h2>Activity Diagram: Đăng nhập</h2>
+                    <div class="swimlane-container" style="height: 600px;">
+                        <img src="activity-diagram/svg/QuyTrinhDangNhap.svg" alt="Activity Diagram - Đăng nhập">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Quy trình xác thực người dùng với JWT token</em></p>
+                </section>
+
+                <!-- Activity Diagram 2: Đặt hàng -->
+                <section>
+                    <h2>Activity Diagram: Đặt hàng</h2>
+                    <div class="swimlane-container" style="height: 600px;">
+                        <img src="activity-diagram/svg/QuyTrinhDatHang.svg" alt="Activity Diagram - Đặt hàng">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Quy trình khách hàng đặt hàng từ giỏ hàng đến xác nhận</em></p>
+                </section>
+
+                <!-- Activity Diagram 3: Xử lý đơn hàng -->
+                <section>
+                    <h2>Activity Diagram: Xử lý đơn hàng</h2>
+                    <div class="swimlane-container" style="height: 600px;">
+                        <img src="activity-diagram/svg/QuyTrinhXuLyDonHang.svg" alt="Activity Diagram - Xử lý đơn hàng">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Quy trình Admin/Staff xử lý và hoàn thành đơn hàng</em></p>
+                </section>
+
+                <!-- Activity Diagram 4: Build PC -->
+                <section>
+                    <h2>Activity Diagram: Build PC</h2>
+                    <div class="swimlane-container" style="height: 600px;">
+                        <img src="activity-diagram/svg/QuyTrinhBuildPC.svg" alt="Activity Diagram - Build PC">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Quy trình tính năng độc đáo: Tự xây dựng cấu hình PC với kiểm tra tương thích</em></p>
+                </section>
+
+                <!-- Activity Diagram 5: Thanh toán VNPay -->
+                <section>
+                    <h2>Activity Diagram: Thanh toán VNPay</h2>
+                    <div class="swimlane-container" style="height: 600px;">
+                        <img src="activity-diagram/svg/QuyTrinhThanhToanVNPay.svg" alt="Activity Diagram - Thanh toán VNPay">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Quy trình tích hợp thanh toán trực tuyến qua VNPay Gateway</em></p>
+                </section>
+            </section>
+
+            <!-- PHẦN 4: THIẾT KẾ HỆ THỐNG -->
+            <section>
+                <section>
+                    <h2>PHẦN 4</h2>
+                    <h1 style="color: #2c3e50;">THIẾT KẾ HỆ THỐNG</h1>
+                </section>
+
+                <section>
+                    <h2>Thiết kế cơ sở dữ liệu</h2>
+                    <div class="small-text">
+                        <h3>Các bảng chính (PostgreSQL):</h3>
+                        <div class="two-column" style="font-size: 0.75em;">
+                            <div>
+                                <ul>
+                                    <li><strong>users</strong> - Thông tin người dùng</li>
+                                    <li><strong>user_addresses</strong> - Địa chỉ giao hàng</li>
+                                    <li><strong>products</strong> - Sản phẩm</li>
+                                    <li><strong>product_images</strong> - Hình ảnh SP</li>
+                                    <li><strong>product_attributes</strong> - Thuộc tính SP</li>
+                                    <li><strong>categories</strong> - Danh mục</li>
+                                    <li><strong>brands</strong> - Thương hiệu</li>
+                                    <li><strong>carts, cart_items</strong> - Giỏ hàng</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul>
+                                    <li><strong>orders, order_items</strong> - Đơn hàng</li>
+                                    <li><strong>reviews</strong> - Đánh giá</li>
+                                    <li><strong>wishlists</strong> - Yêu thích</li>
+                                    <li><strong>vouchers</strong> - Mã giảm giá</li>
+                                    <li><strong>stores</strong> - Showroom</li>
+                                    <li><strong>warranties</strong> - Bảo hành</li>
+                                    <li><strong>blog_posts</strong> - Blog</li>
+                                    <li><strong>notifications</strong> - Thông báo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="small-text" style="margin-top: 20px;"><strong>Tổng số bảng:</strong> <span class="highlight">25+ bảng</span> với quan hệ 1-1, 1-N, N-N</p>
+                </section>
+
+                <!-- ERD Tổng quan -->
+                <section>
+                    <h2>ERD - Sơ đồ cơ sở dữ liệu tổng quan</h2>
+                    <div class="swimlane-container" style="height: 600px;">
+                        <img src="ERD_Modules/svg/ERD_TONG_QUAT.svg" alt="ERD Tổng quan">
+                    </div>
+                    <p class="small-text" style="text-align: center; margin-top: 10px;"><em>Entity Relationship Diagram - Mô tả quan hệ giữa 25+ bảng trong hệ thống</em></p>
+                </section>
+            </section>
+
+            <!-- PHẦN 5: TRIỂN KHAI VÀ KIỂM THỬ -->
+            <section>
+                <section>
+                    <h2>PHẦN 5</h2>
+                    <h1 style="color: #2c3e50;">TRIỂN KHAI VÀ KIỂM THỬ</h1>
+                </section>
+
+                <section>
+                    <h2>Công nghệ sử dụng</h2>
+                    <div class="small-text">
+                        <div class="two-column">
+                            <div>
+                                <h3 style="color: #3498db;">Frontend</h3>
+                                <div class="tech-stack" style="flex-direction: column; align-items: flex-start;">
+                                    <span class="tech-item">ReactJS 18.2</span>
+                                    <span class="tech-item">Redux Toolkit</span>
+                                    <span class="tech-item">React Router 6</span>
+                                    <span class="tech-item">TailwindCSS 3</span>
+                                    <span class="tech-item">Ant Design</span>
+                                    <span class="tech-item">Axios</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 style="color: #e74c3c;">Backend</h3>
+                                <div class="tech-stack" style="flex-direction: column; align-items: flex-start;">
+                                    <span class="tech-item">Java 17</span>
+                                    <span class="tech-item">Spring Boot 3.1</span>
+                                    <span class="tech-item">Spring Security</span>
+                                    <span class="tech-item">Spring Data JPA</span>
+                                    <span class="tech-item">PostgreSQL 15</span>
+                                    <span class="tech-item">JWT</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Kết quả thực hiện</h2>
+                    <div style="display: flex; gap: 35px; padding: 0 25px; margin-top: 15px;">
+                        <div style="flex: 0 0 48%; height: 480px; position: relative;">
+                            <canvas id="completionChart"></canvas>
+                        </div>
+                        <div class="small-text" style="flex: 1;">
+                            <h3 class="success" style="margin-bottom: 12px; font-size: 1.1em;">Đã hoàn thành:</h3>
+                            <ul style="font-size: 0.72em; line-height: 1.6; margin: 0; padding-left: 20px;">
+                                <li style="margin-bottom: 6px;">✅ Quản lý người dùng (100%)</li>
+                                <li style="margin-bottom: 6px;">✅ Quản lý sản phẩm (100%)</li>
+                                <li style="margin-bottom: 6px;">✅ Giỏ hàng & Đơn hàng (100%)</li>
+                                <li style="margin-bottom: 6px;">✅ Build PC (100%)</li>
+                                <li style="margin-bottom: 6px;">✅ Thanh toán VNPay (100%)</li>
+                                <li style="margin-bottom: 6px;">✅ Đánh giá sản phẩm (100%)</li>
+                                <li style="margin-bottom: 6px;">✅ Wishlist (100%)</li>
+                                <li style="margin-bottom: 6px;">✅ Quản lý showroom (100%)</li>
+                                <li style="margin-bottom: 6px;">✅ Bảo hành (100%)</li>
+                                <li style="margin-bottom: 6px;">✅ Blog (100%)</li>
+                                <li style="margin-bottom: 6px;">✅ Báo cáo & thống kê (100%)</li>
+                                <li style="margin-bottom: 6px;">✅ Email notification (100%)</li>
+                            </ul>
+                            <p style="margin-top: 18px; font-size: 0.75em;"><strong>Tổng số dòng code:</strong> <span class="highlight">~15,000 lines</span></p>
+                            <p style="font-size: 0.75em; margin-top: 8px;"><strong>Commit:</strong> 200+ commits trên GitHub</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Kiểm thử hệ thống</h2>
+                    <div class="small-text">
+                        <h3>Các loại kiểm thử đã thực hiện:</h3>
+                        <div style="font-size: 0.8em;">
+                            <p><strong>1. Unit Testing:</strong> JUnit 5, Mockito - Test từng method riêng lẻ</p>
+                            <p><strong>2. Integration Testing:</strong> Test tích hợp giữa các layer (Controller ↔ Service ↔ Repository)</p>
+                            <p><strong>3. System Testing:</strong> Test toàn bộ quy trình nghiệp vụ (end-to-end)</p>
+                            <p><strong>4. Performance Testing:</strong> Test hiệu suất với 100 concurrent users</p>
+                            <p><strong>5. Security Testing:</strong> Test bảo mật (SQL Injection, XSS, CSRF)</p>
+                            <p><strong>6. UAT (User Acceptance Testing):</strong> Kiểm thử với người dùng thực tế</p>
+                        </div>
+                        <div class="info-box" style="margin-top: 20px; font-size: 0.75em;">
+                            <p><strong>Kết quả:</strong> <span class="success">Đạt 95%+ test cases pass</span></p>
+                            <p><strong>Bugs found & fixed:</strong> 50+ bugs (critical: 5, major: 15, minor: 30)</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Kết quả Performance Testing</h2>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                    <p class="small-text" style="margin-top: 15px; text-align: center;">
+                        <span class="success">Tất cả các chỉ số đều vượt mục tiêu đề ra</span> - 
+                        Hệ thống đáp ứng tốt yêu cầu performance
+                    </p>
+                </section>
+            </section>
+
+            <!-- PHẦN 6: KẾT LUẬN -->
+            <section>
+                <section>
+                    <h2>PHẦN 6</h2>
+                    <h1 style="color: #2c3e50;">KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN</h1>
+                </section>
+
+                <section>
+                    <h2>Kết quả đạt được</h2>
+                    <div class="small-text">
+                        <ol style="font-size: 0.8em;">
+                            <li><strong>Hoàn thành 100% mục tiêu đề ra:</strong>
+                                <ul>
+                                    <li>35/35 chức năng cốt lõi</li>
+                                    <li>7/7 yêu cầu phi chức năng</li>
+                                </ul>
+                            </li>
+                            <li><strong>Xây dựng thành công website TMĐT chuyên nghiệp</strong> với đầy đủ tính năng từ frontend đến backend</li>
+                            <li><strong>Tích hợp thành công:</strong>
+                                <ul>
+                                    <li>Thanh toán VNPay</li>
+                                    <li>Email service (JavaMail)</li>
+                                    <li>Build PC với kiểm tra tương thích</li>
+                                </ul>
+                            </li>
+                            <li><strong>Đáp ứng yêu cầu performance:</strong> Tải trang &lt;2s, API response &lt;500ms</li>
+                            <li><strong>Bảo mật:</strong> JWT, BCrypt, HTTPS, Input validation</li>
+                            <li><strong>Áp dụng thành công kiến thức:</strong> OOP, Design Pattern, Clean Code, Git Flow</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Hạn chế của đề tài</h2>
+                    <div class="small-text">
+                        <div class="two-column" style="font-size: 0.7em;">
+                            <div>
+                                <h4>Chức năng:</h4>
+                                <ul>
+                                    <li>Chưa có Livestream bán hàng</li>
+                                    <li>Chưa có AI Chatbot 24/7</li>
+                                    <li>Chưa có hệ thống điểm thưởng</li>
+                                    <li>Chưa có so sánh sản phẩm chi tiết</li>
+                                    <li>Recommendation đơn giản</li>
+                                </ul>
+                                <h4 style="margin-top: 10px;">Tích hợp:</h4>
+                                <ul>
+                                    <li>Chỉ VNPay (chưa MoMo, ZaloPay)</li>
+                                    <li>Chưa SMS OTP</li>
+                                    <li>Chưa tracking vận chuyển real-time</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Kỹ thuật:</h4>
+                                <ul>
+                                    <li>Monolithic (chưa Microservices)</li>
+                                    <li>Chưa có CDN</li>
+                                    <li>Chưa có Redis caching</li>
+                                    <li>Chưa có Message Queue</li>
+                                    <li>Chưa có Load Balancer</li>
+                                </ul>
+                                <h4 style="margin-top: 10px;">Khác:</h4>
+                                <ul>
+                                    <li>Chỉ Tiếng Việt (chưa đa ngôn ngữ)</li>
+                                    <li>Chỉ VND (chưa đa tiền tệ)</li>
+                                    <li>Chưa có Mobile App (iOS/Android)</li>
+                                    <li>Test coverage chưa 100%</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Hướng phát triển tương lai</h2>
+                    <div class="small-text">
+                        <h3 style="color: #3498db;">Ngắn hạn (3-6 tháng):</h3>
+                        <ul style="font-size: 0.75em;">
+                            <li>Tích hợp thêm ví điện tử: MoMo, ZaloPay</li>
+                            <li>Thêm SMS OTP (Twilio, Esms.vn)</li>
+                            <li>Tích hợp tracking vận chuyển (GHN, GHTK)</li>
+                            <li>Triển khai Redis caching</li>
+                            <li>Thêm i18n (Tiếng Anh)</li>
+                        </ul>
+                        <h3 style="color: #e74c3c; margin-top: 15px;">Trung hạn (6-12 tháng):</h3>
+                        <ul style="font-size: 0.75em;">
+                            <li>Xây dựng Mobile App (React Native)</li>
+                            <li>Tích hợp AI Chatbot (Dialogflow)</li>
+                            <li>Hệ thống điểm thưởng & Loyalty Program</li>
+                            <li>Livestream bán hàng (Agora, Twilio)</li>
+                            <li>Marketing Automation (Mailchimp)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Hướng phát triển (tiếp)</h2>
+                    <div class="small-text">
+                        <h3 style="color: #27ae60;">Dài hạn (1-2 năm):</h3>
+                        <ul style="font-size: 0.75em;">
+                            <li><strong>Microservices Architecture:</strong> Tách thành các service độc lập (Product Service, Order Service, User Service...)</li>
+                            <li><strong>Cloud Deployment:</strong> Deploy lên AWS/Azure/GCP với auto-scaling</li>
+                            <li><strong>Big Data & Analytics:</strong> Tích hợp Data Warehouse, BI tools (Tableau, Power BI)</li>
+                            <li><strong>AI/ML:</strong> Recommendation Engine, Price Prediction, Fraud Detection</li>
+                            <li><strong>Blockchain:</strong> Quản lý chuỗi cung ứng, xác thực sản phẩm chính hãng</li>
+                            <li><strong>IoT Integration:</strong> Smart Warehouse, RFID tracking</li>
+                            <li><strong>Multi-tenant:</strong> Hỗ trợ đa chi nhánh độc lập</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Đánh giá chung</h2>
+                    
+                    <div class="info-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; margin-bottom: 15px;">
+                        <h3 style="color: white; margin: 0; font-size: 1.1em;">Những gì dự án đã giải quyết được</h3>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.7em; margin-bottom: 15px;">
+                        <div class="info-box" style="padding: 12px;">
+                            <h4 style="color: #2ecc71; margin: 0 0 8px 0; font-size: 1.1em;">GIẢI QUYẾT BÀI TOÁN THỰC TẾ</h4>
+                            <ul style="text-align: left; margin: 0; padding-left: 20px; line-height: 1.4;">
+                                <li><strong>Xây dựng PC tùy chỉnh:</strong> Chọn linh kiện, kiểm tra tương thích tự động</li>
+                                <li><strong>Tối ưu ngân sách:</strong> Gợi ý linh kiện phù hợp budget</li>
+                                <li><strong>So sánh sản phẩm:</strong> Quyết định mua hàng chính xác</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-box" style="padding: 12px;">
+                            <h4 style="color: #3498db; margin: 0 0 8px 0; font-size: 1.1em;">QUẢN LÝ KINH DOANH HIỆU QUẢ</h4>
+                            <ul style="text-align: left; margin: 0; padding-left: 20px; line-height: 1.4;">
+                                <li><strong>Quản lý đa kho:</strong> Tồn kho real-time, cảnh báo hết hàng</li>
+                                <li><strong>Voucher thông minh:</strong> Chương trình khuyến mãi linh hoạt</li>
+                                <li><strong>Dashboard thống kê:</strong> Doanh thu, đơn hàng, sản phẩm bán chạy</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-box" style="padding: 12px;">
+                            <h4 style="color: #f39c12; margin: 0 0 8px 0; font-size: 1.1em;">TRẢI NGHIỆM NGƯỜI DÙNG</h4>
+                            <ul style="text-align: left; margin: 0; padding-left: 20px; line-height: 1.4;">
+                                <li><strong>Tìm kiếm & lọc:</strong> Nhanh chóng với nhiều tiêu chí</li>
+                                <li><strong>Thanh toán đa dạng:</strong> VNPay, COD, chuyển khoản</li>
+                                <li><strong>Theo dõi đơn hàng:</strong> Cập nhật realtime qua email</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-box" style="padding: 12px;">
+                            <h4 style="color: #9b59b6; margin: 0 0 8px 0; font-size: 1.1em;">BẢO MẬT & ĐỘ TIN CẬY</h4>
+                            <ul style="text-align: left; margin: 0; padding-left: 20px; line-height: 1.4;">
+                                <li><strong>JWT Authentication:</strong> Xác thực an toàn, phân quyền rõ ràng</li>
+                                <li><strong>Xác thực email:</strong> Ngăn spam, tài khoản thật</li>
+                                <li><strong>Đổi trả/bảo hành:</strong> Minh bạch, dễ theo dõi</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="warning" style="padding: 12px; font-size: 0.7em;">
+                        <h4 style="margin: 0 0 8px 0; font-size: 1.1em;">HẠN CHẾ &amp; HƯỚNG PHÁT TRIỂN</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; text-align: left;">
+                            <div>
+                                <p style="margin: 0 0 5px 0; font-weight: bold; color: #e74c3c;">Hiện tại:</p>
+                                <ul style="margin: 3px 0; padding-left: 20px; line-height: 1.3;">
+                                    <li>Chưa có chatbot tự động</li>
+                                    <li>Chưa tích hợp AI gợi ý</li>
+                                    <li>Chưa có app mobile native</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p style="margin: 0 0 5px 0; font-weight: bold; color: #27ae60;">Tương lai:</p>
+                                <ul style="margin: 3px 0; padding-left: 20px; line-height: 1.3;">
+                                    <li>Tích hợp AI/ML gợi ý thông minh</li>
+                                    <li>Phát triển React Native app</li>
+                                    <li>Thanh toán quốc tế</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="success" style="text-align: center; margin-top: 20px; font-size: 1.1em;">Cảm ơn quý thầy cô và hội đồng đã lắng nghe!</p>
+                </section>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Modal Zoom cho hình ảnh - ĐẶT NGOÀI REVEAL CONTAINER -->
+    <div id="zoomModal" class="zoom-modal">
+        <span class="zoom-close" onclick="closeZoom()">&times;</span>
+        <div class="zoom-hint">Click vào ảnh để zoom, kéo ảnh khi đã zoom, nhấn ESC hoặc X để đóng</div>
+        <div class="zoom-modal-content" id="zoomModalContent">
+            <div class="zoom-modal-content-inner">
+                <img id="zoomImage" src="" alt="Zoomed Image">
+            </div>
+        </div>
+        <div class="zoom-controls">
+            <button class="zoom-btn" onclick="zoomIn()">+ Zoom In</button>
+            <button class="zoom-btn" onclick="resetZoom()">Reset</button>
+            <button class="zoom-btn" onclick="zoomOut()">- Zoom Out</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            controls: true,
+            progress: true,
+            center: false,
+            width: 1366,
+            height: 768,
+            margin: 0.03,
+            minScale: 0.2,
+            maxScale: 2.0,
+            keyboard: {
+                37: 'prev',
+                39: 'next',
+                32: 'next'
+            }
+        });
+
+        // Initialize charts after reveal.js loads
+        Reveal.addEventListener('ready', function() {
+            createCharts();
+        });
+
+        function createCharts() {
+            // Cấu hình font mặc định cho tất cả charts
+            Chart.defaults.font.size = 16;
+            Chart.defaults.font.family = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+            Chart.defaults.color = '#2c3e50';
+            
+            // Fix blurry charts - set devicePixelRatio
+            Chart.defaults.devicePixelRatio = window.devicePixelRatio || 2;
+
+            // Chart 1: Khảo sát độ tuổi
+            const ctx1 = document.getElementById('ageChart');
+            if (ctx1) {
+                new Chart(ctx1, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['18-25 tuổi', '26-35 tuổi', '36-45 tuổi', '> 45 tuổi'],
+                        datasets: [{
+                            data: [52, 28, 15, 5],
+                            backgroundColor: ['#3498db', '#2ecc71', '#f39c12', '#e74c3c'],
+                            borderWidth: 4,
+                            borderColor: '#fff'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        devicePixelRatio: 2,
+                        layout: {
+                            padding: 15
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { 
+                                    font: { size: 17, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                    padding: 12,
+                                    color: '#1a1a1a'
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Phân bố độ tuổi khách hàng',
+                                font: { size: 19, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                color: '#1a1a1a',
+                                padding: { top: 10, bottom: 15 }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Chart 2: Ngân sách mua máy
+            const ctx2 = document.getElementById('budgetChart');
+            if (ctx2) {
+                new Chart(ctx2, {
+                    type: 'bar',
+                    data: {
+                        labels: ['< 10 triệu', '10-20 triệu', '20-30 triệu', '> 30 triệu'],
+                        datasets: [{
+                            label: 'Số người (%)',
+                            data: [12, 45, 28, 15],
+                            backgroundColor: '#3498db',
+                            borderColor: '#2980b9',
+                            borderWidth: 3
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        devicePixelRatio: 2,
+                        layout: {
+                            padding: 15
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 50,
+                                ticks: { 
+                                    font: { size: 16, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                    color: '#1a1a1a'
+                                },
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.15)',
+                                    lineWidth: 1
+                                }
+                            },
+                            x: {
+                                ticks: { 
+                                    font: { size: 16, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                    color: '#1a1a1a'
+                                },
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: { 
+                                display: true,
+                                labels: {
+                                    font: { size: 16, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                    color: '#1a1a1a'
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Ngân sách mua máy tính',
+                                font: { size: 19, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                color: '#1a1a1a',
+                                padding: { top: 10, bottom: 15 }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Chart 3: Các chức năng chính (Horizontal Bar)
+            const ctx3 = document.getElementById('wishChart');
+            if (ctx3) {
+                new Chart(ctx3, {
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            'Quản lý sản phẩm & Tồn kho',
+                            'Giỏ hàng & Đặt hàng',
+                            'Thanh toán (VNPay, COD)',
+                            'Build PC (Tự chọn cấu hình)',
+                            'Đánh giá & Review',
+                            'Quản lý đơn hàng',
+                            'Đổi/Trả hàng (15 ngày)',
+                            'Voucher & Khuyến mãi',
+                            'Quản lý showroom',
+                            'Báo cáo & Thống kê'
+                        ],
+                        datasets: [{
+                            label: 'Các chức năng chính',
+                            data: [100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+                            backgroundColor: [
+                                '#3498db',
+                                '#2ecc71',
+                                '#e74c3c',
+                                '#f39c12',
+                                '#9b59b6',
+                                '#1abc9c',
+                                '#34495e',
+                                '#e67e22',
+                                '#16a085',
+                                '#27ae60'
+                            ],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        aspectRatio: 1.5,
+                        devicePixelRatio: 2,
+                        layout: {
+                            padding: {
+                                left: 10,
+                                right: 10,
+                                top: 10,
+                                bottom: 30
+                            }
+                        },
+                        scales: {
+                            x: {
+                                display: false,
+                                beginAtZero: true,
+                                max: 100
+                            },
+                            y: {
+                                ticks: { 
+                                    font: { size: 16, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                    color: '#1a1a1a'
+                                },
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            title: {
+                                display: true,
+                                text: 'Các chức năng chính của hệ thống',
+                                font: { size: 21, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                color: '#1a1a1a',
+                                padding: 20
+                            },
+                            tooltip: {
+                                enabled: false
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Chart 4: Performance Testing
+            const ctx4 = document.getElementById('performanceChart');
+            if (ctx4) {
+                new Chart(ctx4, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Page Load', 'API Response', 'Concurrent Users', 'DB Query', 'Uptime'],
+                        datasets: [
+                            {
+                                label: 'Target (100%)',
+                                data: [100, 100, 100, 100, 100],
+                                borderColor: '#95a5a6',
+                                backgroundColor: 'rgba(149, 165, 166, 0.3)',
+                                borderWidth: 4,
+                                pointRadius: 6,
+                                pointHoverRadius: 8,
+                                pointBackgroundColor: '#95a5a6',
+                                pointBorderColor: '#fff',
+                                pointBorderWidth: 2
+                            },
+                            {
+                                label: 'Achieved',
+                                data: [133, 143, 120, 125, 100.5],
+                                borderColor: '#27ae60',
+                                backgroundColor: 'rgba(39, 174, 96, 0.3)',
+                                borderWidth: 4,
+                                pointRadius: 6,
+                                pointHoverRadius: 8,
+                                pointBackgroundColor: '#27ae60',
+                                pointBorderColor: '#fff',
+                                pointBorderWidth: 2
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        aspectRatio: 1.5,
+                        devicePixelRatio: 2,
+                        layout: {
+                            padding: 20
+                        },
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                max: 150,
+                                ticks: { 
+                                    font: { size: 15, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                    color: '#1a1a1a',
+                                    backdropColor: 'rgba(255, 255, 255, 0.9)',
+                                    backdropPadding: 4
+                                },
+                                pointLabels: {
+                                    font: { size: 17, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                    color: '#1a1a1a'
+                                },
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.25)',
+                                    lineWidth: 2
+                                },
+                                angleLines: {
+                                    color: 'rgba(0, 0, 0, 0.25)',
+                                    lineWidth: 2
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { 
+                                    font: { size: 17, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                    color: '#1a1a1a',
+                                    padding: 15
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Performance: Target vs Achieved',
+                                font: { size: 21, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                color: '#1a1a1a',
+                                padding: 20
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Chart 5: Kết quả đạt được
+            const ctx5 = document.getElementById('completionChart');
+            if (ctx5) {
+                new Chart(ctx5, {
+                    type: 'polarArea',
+                    data: {
+                        labels: ['Chức năng cốt lõi', 'Thanh toán', 'Build PC', 'Bảo mật', 'Performance', 'Testing'],
+                        datasets: [{
+                            data: [100, 100, 100, 100, 100, 95],
+                            backgroundColor: [
+                                'rgba(52, 152, 219, 0.85)',
+                                'rgba(46, 204, 113, 0.85)',
+                                'rgba(231, 76, 60, 0.85)',
+                                'rgba(241, 196, 15, 0.85)',
+                                'rgba(155, 89, 182, 0.85)',
+                                'rgba(26, 188, 156, 0.85)'
+                            ],
+                            borderWidth: 4,
+                            borderColor: '#fff'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        devicePixelRatio: 2,
+                        layout: {
+                            padding: 10
+                        },
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                max: 100,
+                                ticks: { 
+                                    font: { size: 14, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                    stepSize: 20,
+                                    color: '#1a1a1a',
+                                    backdropColor: 'rgba(255, 255, 255, 0.9)',
+                                    backdropPadding: 4
+                                },
+                                pointLabels: {
+                                    font: { size: 15, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                    color: '#1a1a1a'
+                                },
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.25)',
+                                    lineWidth: 2
+                                },
+                                angleLines: {
+                                    color: 'rgba(0, 0, 0, 0.25)',
+                                    lineWidth: 2
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { 
+                                    font: { size: 14, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                    color: '#1a1a1a',
+                                    padding: 10
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Tỷ lệ hoàn thành theo module (%)',
+                                font: { size: 18, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                color: '#1a1a1a',
+                                padding: { top: 10, bottom: 15 }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Chart 6: So sánh đối thủ
+            const ctx6 = document.getElementById('competitorChart');
+            if (ctx6) {
+                new Chart(ctx6, {
+                    type: 'bar',
+                    data: {
+                        labels: ['FPTShop', 'Hanoicomputer', 'CellphoneS', 'Phong Vũ', 'Kinh Duan'],
+                        datasets: [
+                            {
+                                label: 'UI/UX',
+                                data: [6, 5, 8, 7, 9],
+                                backgroundColor: '#3498db',
+                                borderWidth: 0
+                            },
+                            {
+                                label: 'Build PC',
+                                data: [0, 6, 0, 8, 9],
+                                backgroundColor: '#e74c3c',
+                                borderWidth: 0
+                            },
+                            {
+                                label: 'Performance',
+                                data: [5, 6, 8, 7, 9],
+                                backgroundColor: '#2ecc71',
+                                borderWidth: 0
+                            },
+                            {
+                                label: 'Giá cả',
+                                data: [7, 9, 7, 6, 8],
+                                backgroundColor: '#f39c12',
+                                borderWidth: 0
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        aspectRatio: 2,
+                        devicePixelRatio: 2,
+                        layout: {
+                            padding: 10
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 10,
+                                ticks: { 
+                                    font: { size: 17, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                    color: '#1a1a1a'
+                                },
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.15)',
+                                    lineWidth: 1
+                                }
+                            },
+                            x: {
+                                ticks: { 
+                                    font: { size: 16, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                    color: '#1a1a1a'
+                                },
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { 
+                                    font: { size: 17, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                    color: '#1a1a1a',
+                                    padding: 15
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'So sánh đối thủ (Thang điểm 10)',
+                                font: { size: 21, weight: 'bold', family: "'Segoe UI', sans-serif" },
+                                color: '#1a1a1a',
+                                padding: 20
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Zoom functionality
+        let currentZoom = 1;
+        let isDragging = false;
+        let hasDragged = false;
+        let startX, startY;
+        let translateX = 0, translateY = 0;
+
+        function openZoom(imageSrc) {
+            console.log('Opening zoom for:', imageSrc);
+            const modal = document.getElementById('zoomModal');
+            const zoomImage = document.getElementById('zoomImage');
+            
+            if (!modal || !zoomImage) {
+                console.error('Modal elements not found!');
+                return;
+            }
+            
+            zoomImage.src = imageSrc;
+            modal.style.display = 'block';
+            currentZoom = 1;
+            translateX = 0;
+            translateY = 0;
+            zoomImage.style.transform = 'scale(1) translate(0, 0)';
+            zoomImage.style.cursor = 'zoom-in';
+            zoomImage.classList.remove('zoomed');
+            
+            // Scroll to top of modal
+            document.getElementById('zoomModalContent').scrollTop = 0;
+            
+            console.log('Zoom modal opened successfully');
+        }
+
+        function closeZoom() {
+            const modal = document.getElementById('zoomModal');
+            const zoomImage = document.getElementById('zoomImage');
+            modal.style.display = 'none';
+            currentZoom = 1;
+            translateX = 0;
+            translateY = 0;
+            zoomImage.style.transform = 'scale(1) translate(0, 0)';
+            zoomImage.style.cursor = 'zoom-in';
+            zoomImage.classList.remove('zoomed');
+        }
+
+        function zoomIn() {
+            currentZoom = Math.min(currentZoom + 0.3, 3);
+            updateZoom();
+        }
+
+        function zoomOut() {
+            currentZoom = Math.max(currentZoom - 0.3, 0.5);
+            updateZoom();
+        }
+
+        function resetZoom() {
+            currentZoom = 1;
+            translateX = 0;
+            translateY = 0;
+            updateZoom();
+        }
+
+        function updateZoom() {
+            const zoomImage = document.getElementById('zoomImage');
+            zoomImage.style.transform = `scale(${currentZoom}) translate(${translateX}px, ${translateY}px)`;
+            
+            if (currentZoom > 1) {
+                zoomImage.classList.add('zoomed');
+                zoomImage.style.cursor = 'grab';
+            } else {
+                zoomImage.classList.remove('zoomed');
+                zoomImage.style.cursor = 'zoom-in';
+            }
+            
+            console.log('Zoom level:', currentZoom);
+        }
+
+        // Close modal when clicking outside the image
+        document.getElementById('zoomModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeZoom();
+            }
+        });
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeZoom();
+            }
+        });
+
+        // Toggle zoom on image click
+        document.getElementById('zoomImage').addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Chỉ toggle zoom nếu KHÔNG phải là drag
+            if (!hasDragged) {
+                if (currentZoom === 1) {
+                    currentZoom = 2;
+                } else {
+                    currentZoom = 1;
+                    translateX = 0;
+                    translateY = 0;
+                }
+                updateZoom();
+            }
+            
+            // Reset drag flag
+            hasDragged = false;
+        });
+
+        // Drag to pan when zoomed
+        const zoomImage = document.getElementById('zoomImage');
+
+        zoomImage.addEventListener('mousedown', function(e) {
+            if (currentZoom > 1) {
+                isDragging = true;
+                hasDragged = false;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                this.style.cursor = 'grabbing';
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('mouseup', function() {
+            if (isDragging) {
+                isDragging = false;
+                if (currentZoom > 1) {
+                    zoomImage.style.cursor = 'grab';
+                }
+            }
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            
+            // Đánh dấu là đã drag
+            hasDragged = true;
+            
+            translateX = e.clientX - startX;
+            translateY = e.clientY - startY;
+            updateZoom();
+        });
+
+        // Mouse wheel zoom
+        document.getElementById('zoomModalContent').addEventListener('wheel', function(e) {
+            if (e.target.closest('#zoomImage')) {
+                e.preventDefault();
+                if (e.deltaY < 0) {
+                    zoomIn();
+                } else {
+                    zoomOut();
+                }
+            }
+        });
+
+        // Add click handlers to all swimlane images after Reveal.js loads
+        Reveal.addEventListener('ready', function() {
+            createCharts();
+            attachZoomHandlers();
+        });
+
+        // Also attach handlers when slides change (để đảm bảo images được load)
+        Reveal.addEventListener('slidechanged', function() {
+            attachZoomHandlers();
+        });
+
+        function attachZoomHandlers() {
+            // Add zoom functionality to swimlane images
+            const swimlaneImages = document.querySelectorAll('.swimlane-container img');
+            console.log('Found ' + swimlaneImages.length + ' swimlane images');
+            
+            swimlaneImages.forEach(img => {
+                // Remove old listener nếu có
+                img.onclick = null;
+                
+                // Add new listener
+                img.onclick = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Clicked image:', this.src);
+                    openZoom(this.src);
+                };
+                
+                // Thêm style để rõ ràng là clickable
+                img.style.cursor = 'zoom-in';
+            });
+        }
+    </script>
+</body>
+</html>

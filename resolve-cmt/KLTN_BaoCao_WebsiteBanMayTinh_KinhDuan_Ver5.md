@@ -6,8 +6,8 @@
 
 \-\-\-\--🙞🙜🕮🙞🙜\-\-\-\--
 
-![](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image1.png){alt="Picture1"
-width="2.495138888888889in" height="3.0in"}
+![](media/image2.png){alt="Picture1" width="2.495138888888889in"
+height="3.0in"}
 
 **KHÓA LUẬN TỐT NGHIỆP**
 
@@ -70,225 +70,236 @@ Chúng em xin chân thành cảm ơn!
 [DANH MỤC TỪ VIẾT TẮT
 [6](#danh-mục-từ-viết-tắt-1)](#danh-mục-từ-viết-tắt-1)
 
-[CHƯƠNG 1: KHẢO SÁT HỆ THỐNG
+[LỜI MỞ ĐẦU
 [7](#chương-1-khảo-sát-hệ-thống)](#chương-1-khảo-sát-hệ-thống)
 
-[1.1. Giới thiệu chung [7](#giới-thiệu-chung)](#giới-thiệu-chung)
+[1. Đặt vấn đề [7](#đặt-vấn-đề)](#đặt-vấn-đề)
 
-[1.2. Mục đích đề tài [7](#mục-đích-đề-tài)](#mục-đích-đề-tài)
+[2. Lý do chọn đề tài [7](#lý-do-chọn-đề-tài)](#lý-do-chọn-đề-tài)
 
-[1.3. Mục tiêu đề tài [7](#mục-tiêu-đề-tài)](#mục-tiêu-đề-tài)
+[3. Mục tiêu và phạm vi nghiên cứu
+[8](#mục-tiêu-và-phạm-vi-nghiên-cứu)](#mục-tiêu-và-phạm-vi-nghiên-cứu)
+
+[3.1. Mục tiêu nghiên cứu
+[8](#mục-tiêu-nghiên-cứu)](#mục-tiêu-nghiên-cứu)
+
+[3.2. Phạm vi nghiên cứu [8](#phạm-vi-nghiên-cứu)](#phạm-vi-nghiên-cứu)
+
+[CHƯƠNG 1: KHẢO SÁT HỆ THỐNG
+[9](#chương-1-khảo-sát-hệ-thống-1)](#chương-1-khảo-sát-hệ-thống-1)
+
+[1.1. Giới thiệu chung [9](#giới-thiệu-chung)](#giới-thiệu-chung)
+
+[1.2. Mục đích đề tài [9](#mục-đích-đề-tài)](#mục-đích-đề-tài)
+
+[1.3. Mục tiêu đề tài [9](#mục-tiêu-đề-tài)](#mục-tiêu-đề-tài)
 
 [1.3.1. Mục tiêu tổng quát
-[7](#mục-tiêu-tổng-quát)](#mục-tiêu-tổng-quát)
+[9](#mục-tiêu-tổng-quát)](#mục-tiêu-tổng-quát)
 
-[1.3.2. Mục tiêu cụ thể [7](#mục-tiêu-cụ-thể)](#mục-tiêu-cụ-thể)
+[1.3.2. Mục tiêu cụ thể [9](#mục-tiêu-cụ-thể)](#mục-tiêu-cụ-thể)
 
-[1.4. Phạm vi đề tài [7](#phạm-vi-đề-tài)](#phạm-vi-đề-tài)
+[1.4. Phạm vi đề tài [9](#phạm-vi-đề-tài)](#phạm-vi-đề-tài)
 
-[1.4.1. Phạm vi nghiệp vụ [7](#phạm-vi-nghiệp-vụ)](#phạm-vi-nghiệp-vụ)
+[1.4.1. Phạm vi nghiệp vụ [9](#phạm-vi-nghiệp-vụ)](#phạm-vi-nghiệp-vụ)
 
-[1.4.2. Phạm vi công nghệ [8](#phạm-vi-công-nghệ)](#phạm-vi-công-nghệ)
+[1.4.2. Phạm vi công nghệ [10](#phạm-vi-công-nghệ)](#phạm-vi-công-nghệ)
 
 [1.4.3. Giới hạn của đề tài
-[8](#giới-hạn-của-đề-tài)](#giới-hạn-của-đề-tài)
+[10](#giới-hạn-của-đề-tài)](#giới-hạn-của-đề-tài)
 
 [1.5. Phân công thực hiện
-[10](#phân-công-thực-hiện)](#phân-công-thực-hiện)
+[12](#phân-công-thực-hiện)](#phân-công-thực-hiện)
 
 [1.6. Phân tích đối thủ cạnh tranh
-[15](#phân-tích-đối-thủ-cạnh-tranh)](#phân-tích-đối-thủ-cạnh-tranh)
+[17](#phân-tích-đối-thủ-cạnh-tranh)](#phân-tích-đối-thủ-cạnh-tranh)
 
 [1.6.1. Khảo sát và đánh giá chung
-[15](#khảo-sát-và-đánh-giá-chung)](#khảo-sát-và-đánh-giá-chung)
+[17](#khảo-sát-và-đánh-giá-chung)](#khảo-sát-và-đánh-giá-chung)
 
 [1.6.2. Phân tích chi tiết các đối thủ
-[15](#phân-tích-chi-tiết-các-đối-thủ)](#phân-tích-chi-tiết-các-đối-thủ)
+[17](#phân-tích-chi-tiết-các-đối-thủ)](#phân-tích-chi-tiết-các-đối-thủ)
 
 [1.6.3. Đề xuất giải pháp và định hướng phát triển
-[15](#đề-xuất-giải-pháp-và-định-hướng-phát-triển)](#đề-xuất-giải-pháp-và-định-hướng-phát-triển)
+[17](#đề-xuất-giải-pháp-và-định-hướng-phát-triển)](#đề-xuất-giải-pháp-và-định-hướng-phát-triển)
 
 [1.6.4. Tóm tắt phân tích từ khảo sát thực tế
-[16](#tóm-tắt-phân-tích-từ-khảo-sát-thực-tế)](#tóm-tắt-phân-tích-từ-khảo-sát-thực-tế)
+[18](#tóm-tắt-phân-tích-từ-khảo-sát-thực-tế)](#tóm-tắt-phân-tích-từ-khảo-sát-thực-tế)
 
 [1.6.4.4. So sánh và kết luận
-[20](#so-sánh-và-kết-luận)](#so-sánh-và-kết-luận)
+[22](#so-sánh-và-kết-luận)](#so-sánh-và-kết-luận)
 
 [1.7. Khảo sát người dùng
-[22](#khảo-sát-người-dùng)](#khảo-sát-người-dùng)
+[24](#khảo-sát-người-dùng)](#khảo-sát-người-dùng)
 
-[1.7.1. Mục đích khảo sát [22](#mục-đích-khảo-sát)](#mục-đích-khảo-sát)
+[1.7.1. Mục đích khảo sát [24](#mục-đích-khảo-sát)](#mục-đích-khảo-sát)
 
 [1.7.2. Phương pháp khảo sát
-[22](#phương-pháp-khảo-sát)](#phương-pháp-khảo-sát)
+[24](#phương-pháp-khảo-sát)](#phương-pháp-khảo-sát)
 
-[1.7.3. Câu hỏi khảo sát [22](#câu-hỏi-khảo-sát)](#câu-hỏi-khảo-sát)
+[1.7.3. Câu hỏi khảo sát [24](#câu-hỏi-khảo-sát)](#câu-hỏi-khảo-sát)
 
 [1.7.4. Kết quả và phân tích kết quả khảo sát
-[22](#kết-quả-và-phân-tích-kết-quả-khảo-sát)](#kết-quả-và-phân-tích-kết-quả-khảo-sát)
+[24](#kết-quả-và-phân-tích-kết-quả-khảo-sát)](#kết-quả-và-phân-tích-kết-quả-khảo-sát)
 
 [1.8. Quy trình nghiệp vụ
-[30](#quy-trình-nghiệp-vụ)](#quy-trình-nghiệp-vụ)
+[32](#quy-trình-nghiệp-vụ)](#quy-trình-nghiệp-vụ)
 
 [1.8.1. Quy trình đặt hàng của khách hàng
-[30](#quy-trình-đặt-hàng-của-khách-hàng)](#quy-trình-đặt-hàng-của-khách-hàng)
+[32](#quy-trình-đặt-hàng-của-khách-hàng)](#quy-trình-đặt-hàng-của-khách-hàng)
 
 [1.8.2. Quy trình xử lý đơn hàng của Admin/Staff
-[31](#quy-trình-xử-lý-đơn-hàng-của-adminstaff)](#quy-trình-xử-lý-đơn-hàng-của-adminstaff)
+[33](#quy-trình-xử-lý-đơn-hàng-của-adminstaff)](#quy-trình-xử-lý-đơn-hàng-của-adminstaff)
 
 [1.8.3. Quy trình Build PC (Tự chọn cấu hình máy tính)
-[31](#quy-trình-build-pc-tự-chọn-cấu-hình-máy-tính)](#quy-trình-build-pc-tự-chọn-cấu-hình-máy-tính)
+[34](#quy-trình-build-pc-tự-chọn-cấu-hình-máy-tính)](#quy-trình-build-pc-tự-chọn-cấu-hình-máy-tính)
 
 [1.8.4. Quy trình đổi/trả hàng trong 15 ngày
-[31](#quy-trình-đổitrả-hàng-trong-15-ngày)](#quy-trình-đổitrả-hàng-trong-15-ngày)
+[35](#quy-trình-đổitrả-hàng-trong-15-ngày)](#quy-trình-đổitrả-hàng-trong-15-ngày)
 
 [1.8.5. Quy trình quản lý sản phẩm
-[32](#quy-trình-quản-lý-sản-phẩm)](#quy-trình-quản-lý-sản-phẩm)
+[36](#quy-trình-quản-lý-sản-phẩm)](#quy-trình-quản-lý-sản-phẩm)
 
-[1.9. Xác định yêu cầu [33](#xác-định-yêu-cầu-1)](#xác-định-yêu-cầu-1)
+[1.9. Xác định yêu cầu [38](#xác-định-yêu-cầu-1)](#xác-định-yêu-cầu-1)
 
-[1.9.1 Yêu cầu chức năng [33](#yêu-cầu-chức-năng)](#yêu-cầu-chức-năng)
+[1.9.1 Yêu cầu chức năng [38](#yêu-cầu-chức-năng)](#yêu-cầu-chức-năng)
 
 [1.9.2 Yêu cầu phi chức năng
-[34](#yêu-cầu-phi-chức-năng)](#yêu-cầu-phi-chức-năng)
+[39](#yêu-cầu-phi-chức-năng)](#yêu-cầu-phi-chức-năng)
 
 [1.10. Xác định đối tượng sử dụng hệ thống
-[35](#xác-định-đối-tượng-sử-dụng-hệ-thống-1)](#xác-định-đối-tượng-sử-dụng-hệ-thống-1)
+[40](#xác-định-đối-tượng-sử-dụng-hệ-thống-1)](#xác-định-đối-tượng-sử-dụng-hệ-thống-1)
 
 [1.11. Các tính năng đặc biệt
-[35](#các-tính-năng-đặc-biệt)](#các-tính-năng-đặc-biệt)
+[40](#các-tính-năng-đặc-biệt)](#các-tính-năng-đặc-biệt)
 
 [1.11.1. Build PC - Tự xây dựng cấu hình máy tính
-[35](#build-pc---tự-xây-dựng-cấu-hình-máy-tính)](#build-pc---tự-xây-dựng-cấu-hình-máy-tính)
+[40](#build-pc---tự-xây-dựng-cấu-hình-máy-tính)](#build-pc---tự-xây-dựng-cấu-hình-máy-tính)
 
 [1.11.2. Wishlist - Danh sách yêu thích
-[35](#wishlist---danh-sách-yêu-thích)](#wishlist---danh-sách-yêu-thích)
+[40](#wishlist---danh-sách-yêu-thích)](#wishlist---danh-sách-yêu-thích)
 
-[1.11.3. Sản phẩm đã xem [36](#sản-phẩm-đã-xem)](#sản-phẩm-đã-xem)
+[1.11.3. Sản phẩm đã xem [41](#sản-phẩm-đã-xem)](#sản-phẩm-đã-xem)
 
-[1.11.4. Hệ thống Showroom [36](#hệ-thống-showroom)](#hệ-thống-showroom)
+[1.11.4. Hệ thống Showroom [41](#hệ-thống-showroom)](#hệ-thống-showroom)
 
 [1.11.5. Thanh toán trả góp 0%
-[36](#thanh-toán-trả-góp-0)](#thanh-toán-trả-góp-0)
+[41](#thanh-toán-trả-góp-0)](#thanh-toán-trả-góp-0)
 
 [1.11.6. Đổi/Trả hàng trong 15 ngày
-[36](#đổitrả-hàng-trong-15-ngày)](#đổitrả-hàng-trong-15-ngày)
+[41](#đổitrả-hàng-trong-15-ngày)](#đổitrả-hàng-trong-15-ngày)
 
-[1.11.7. Hóa đơn điện tử [37](#hóa-đơn-điện-tử)](#hóa-đơn-điện-tử)
+[1.11.7. Hóa đơn điện tử [42](#hóa-đơn-điện-tử)](#hóa-đơn-điện-tử)
 
 [1.11.8. Đăng ký nhận thông báo khuyến mãi
-[37](#đăng-ký-nhận-thông-báo-khuyến-mãi)](#đăng-ký-nhận-thông-báo-khuyến-mãi)
+[42](#đăng-ký-nhận-thông-báo-khuyến-mãi)](#đăng-ký-nhận-thông-báo-khuyến-mãi)
 
 [CHƯƠNG 2: PHÂN TÍCH HỆ THỐNG
-[38](#chương-2-phân-tích-hệ-thống-1)](#chương-2-phân-tích-hệ-thống-1)
+[42](#chương-2-phân-tích-hệ-thống)](#chương-2-phân-tích-hệ-thống)
 
 [2.1. Mô hình hóa chức năng nghiệp vụ
-[38](#mô-hình-hóa-chức-năng-nghiệp-vụ)](#mô-hình-hóa-chức-năng-nghiệp-vụ)
+[42](#mô-hình-hóa-chức-năng-nghiệp-vụ)](#mô-hình-hóa-chức-năng-nghiệp-vụ)
 
 [2.1.1. Xác định và gom nhóm chức năng
-[38](#xác-định-và-gom-nhóm-chức-năng)](#xác-định-và-gom-nhóm-chức-năng)
+[42](#xác-định-và-gom-nhóm-chức-năng)](#xác-định-và-gom-nhóm-chức-năng)
 
-[2.1.2. Sơ đồ Use Case [39](#sơ-đồ-use-case)](#sơ-đồ-use-case)
+[2.1.2. Sơ đồ Use Case [43](#sơ-đồ-use-case)](#sơ-đồ-use-case)
 
 [2.1.3. Đặc tả Use Case chi tiết
-[39](#đặc-tả-use-case-chi-tiết)](#đặc-tả-use-case-chi-tiết)
+[43](#đặc-tả-use-case-chi-tiết)](#đặc-tả-use-case-chi-tiết)
 
 [2.2. Sơ đồ hoạt động (Activity Diagram)
-[54](#sơ-đồ-hoạt-động-activity-diagram)](#sơ-đồ-hoạt-động-activity-diagram)
+[58](#sơ-đồ-hoạt-động-activity-diagram)](#sơ-đồ-hoạt-động-activity-diagram)
 
 [CHƯƠNG 3: THIẾT KẾ HỆ THỐNG
-[83](#chương-3-thiết-kế-hệ-thống)](#chương-3-thiết-kế-hệ-thống)
+[80](#chương-3-thiết-kế-hệ-thống)](#chương-3-thiết-kế-hệ-thống)
 
 [3.1. Thiết kế cơ sở dữ liệu
-[83](#thiết-kế-cơ-sở-dữ-liệu)](#thiết-kế-cơ-sở-dữ-liệu)
+[80](#thiết-kế-cơ-sở-dữ-liệu)](#thiết-kế-cơ-sở-dữ-liệu)
 
-[3.1.1. Mô hình thực thể liên kết (ERD)
-[83](#mô-hình-thực-thể-liên-kết-erd)](#mô-hình-thực-thể-liên-kết-erd)
-
-[3.2. Thiết kế kiểm soát
-[110](#thiết-kế-kiểm-soát-1)](#thiết-kế-kiểm-soát-1)
+[3.2. Thiết kế kiểm soát [98](#thiết-kế-kiểm-soát)](#thiết-kế-kiểm-soát)
 
 [3.2.1. Phân định quyền hạn về dữ liệu
-[110](#phân-định-quyền-hạn-về-dữ-liệu)](#phân-định-quyền-hạn-về-dữ-liệu)
+[98](#phân-định-quyền-hạn-về-dữ-liệu)](#phân-định-quyền-hạn-về-dữ-liệu)
 
 [3.2.2. Ma trận phân quyền hệ thống
-[110](#ma-trận-phân-quyền-hệ-thống)](#ma-trận-phân-quyền-hệ-thống)
+[99](#ma-trận-phân-quyền-hệ-thống)](#ma-trận-phân-quyền-hệ-thống)
 
 [3.3. Thiết kế giao diện
-[112](#thiết-kế-giao-diện-1)](#thiết-kế-giao-diện-1)
+[101](#thiết-kế-giao-diện)](#thiết-kế-giao-diện)
 
 [3.3.1. Nguyên tắc thiết kế
-[112](#nguyên-tắc-thiết-kế)](#nguyên-tắc-thiết-kế)
+[101](#nguyên-tắc-thiết-kế)](#nguyên-tắc-thiết-kế)
 
 [3.3.2. Các màn hình chính
-[112](#các-màn-hình-chính)](#các-màn-hình-chính)
+[101](#các-màn-hình-chính)](#các-màn-hình-chính)
 
-[3.3.3. Design [113](#design)](#design)
+[3.3.3. Wireframe Design [103](#wireframe-design)](#wireframe-design)
 
 [3.4. Thiết kế hướng đối tượng
-[114](#thiết-kế-hướng-đối-tượng-1)](#thiết-kế-hướng-đối-tượng-1)
+[111](#thiết-kế-hướng-đối-tượng-1)](#thiết-kế-hướng-đối-tượng-1)
 
-[3.4.1. Class Diagram [114](#class-diagram)](#class-diagram)
+[3.4.1. Class Diagram [111](#class-diagram)](#class-diagram)
 
 [3.4.2. Sơ đồ kiến trúc hệ thống
-[115](#sơ-đồ-kiến-trúc-hệ-thống)](#sơ-đồ-kiến-trúc-hệ-thống)
+[112](#sơ-đồ-kiến-trúc-hệ-thống)](#sơ-đồ-kiến-trúc-hệ-thống)
 
 [3.4.3. Sequence Diagram
-[116](#sequence-diagram-1)](#sequence-diagram-1)
+[113](#sequence-diagram-1)](#sequence-diagram-1)
 
 [CHƯƠNG 4: TRIỂN KHAI XÂY DỰNG CHƯƠNG TRÌNH
-[121](#chương-4-triển-khai-xây-dựng-chương-trình)](#chương-4-triển-khai-xây-dựng-chương-trình)
+[118](#chương-4-triển-khai-xây-dựng-chương-trình)](#chương-4-triển-khai-xây-dựng-chương-trình)
 
-[4.1. Kết quả thực hiện [121](#kết-quả-thực-hiện)](#kết-quả-thực-hiện)
+[4.1. Kết quả thực hiện [118](#kết-quả-thực-hiện)](#kết-quả-thực-hiện)
 
-[4.2. Kiểm thử hệ thống [122](#kiểm-thử-hệ-thống)](#kiểm-thử-hệ-thống)
+[4.2. Kiểm thử hệ thống [134](#kiểm-thử-hệ-thống)](#kiểm-thử-hệ-thống)
 
-[4.2.1. Kế hoạch kiểm thử [122](#kế-hoạch-kiểm-thử)](#kế-hoạch-kiểm-thử)
+[4.2.1. Kế hoạch kiểm thử [134](#kế-hoạch-kiểm-thử)](#kế-hoạch-kiểm-thử)
 
-[4.2.2. Unit Testing [122](#unit-testing)](#unit-testing)
+[4.2.2. Unit Testing [134](#unit-testing)](#unit-testing)
 
 [4.2.3. Integration Testing
-[123](#integration-testing)](#integration-testing)
+[135](#integration-testing)](#integration-testing)
 
-[4.2.4. System Testing [123](#system-testing)](#system-testing)
+[4.2.4. System Testing [135](#system-testing)](#system-testing)
 
 [4.2.5. Performance Testing
-[123](#performance-testing)](#performance-testing)
+[135](#performance-testing)](#performance-testing)
 
-[4.2.6. Security Testing [124](#security-testing)](#security-testing)
+[4.2.6. Security Testing [135](#security-testing)](#security-testing)
 
-[4.2.7. Tổng kết kiểm thử [124](#tổng-kết-kiểm-thử)](#tổng-kết-kiểm-thử)
+[4.2.7. Tổng kết kiểm thử [135](#tổng-kết-kiểm-thử)](#tổng-kết-kiểm-thử)
 
-[KẾT LUẬN [125](#kết-luận)](#kết-luận)
+[KẾT LUẬN [136](#kết-luận)](#kết-luận)
 
-[Kết quả đạt được [125](#kết-quả-đạt-được)](#kết-quả-đạt-được)
+[Kết quả đạt được [136](#kết-quả-đạt-được)](#kết-quả-đạt-được)
 
-[Hạn chế của đề tài [125](#hạn-chế-của-đề-tài)](#hạn-chế-của-đề-tài)
+[Hạn chế của đề tài [136](#hạn-chế-của-đề-tài)](#hạn-chế-của-đề-tài)
 
 [1. Giới hạn về chức năng
-[125](#giới-hạn-về-chức-năng)](#giới-hạn-về-chức-năng)
+[136](#giới-hạn-về-chức-năng)](#giới-hạn-về-chức-năng)
 
 [2. Giới hạn về kỹ thuật
-[126](#giới-hạn-về-kỹ-thuật)](#giới-hạn-về-kỹ-thuật)
+[137](#giới-hạn-về-kỹ-thuật)](#giới-hạn-về-kỹ-thuật)
 
 [3. Giới hạn về nghiệp vụ
-[126](#giới-hạn-về-nghiệp-vụ)](#giới-hạn-về-nghiệp-vụ)
+[137](#giới-hạn-về-nghiệp-vụ)](#giới-hạn-về-nghiệp-vụ)
 
 [4. Giới hạn về dữ liệu và AI
-[127](#giới-hạn-về-dữ-liệu-và-ai)](#giới-hạn-về-dữ-liệu-và-ai)
+[138](#giới-hạn-về-dữ-liệu-và-ai)](#giới-hạn-về-dữ-liệu-và-ai)
 
 [Hướng phát triển trong tương lai
-[127](#hướng-phát-triển-trong-tương-lai)](#hướng-phát-triển-trong-tương-lai)
+[138](#hướng-phát-triển-trong-tương-lai)](#hướng-phát-triển-trong-tương-lai)
 
-[Ngắn hạn: [127](#ngắn-hạn)](#ngắn-hạn)
+[Ngắn hạn: [138](#ngắn-hạn)](#ngắn-hạn)
 
-[Trung hạn: [127](#trung-hạn)](#trung-hạn)
+[Trung hạn: [138](#trung-hạn)](#trung-hạn)
 
-[Dài hạn: [128](#dài-hạn)](#dài-hạn)
+[Dài hạn: [139](#dài-hạn)](#dài-hạn)
 
-[Đánh giá chung [129](#đánh-giá-chung)](#đánh-giá-chung)
+[Đánh giá chung [140](#đánh-giá-chung)](#đánh-giá-chung)
 
-[TÀI LIỆU THAM KHẢO [129](#tài-liệu-tham-khảo)](#tài-liệu-tham-khảo)
+[TÀI LIỆU THAM KHẢO [140](#tài-liệu-tham-khảo)](#tài-liệu-tham-khảo)
 
 # DANH MỤC TỪ VIẾT TẮT {#danh-mục-từ-viết-tắt-1}
 
@@ -316,9 +327,143 @@ Chúng em xin chân thành cảm ơn!
   9             CNTT                                 Công nghệ thông tin
   ----------------------------------------------------------------------
 
-# 
+[]{#chương-1-khảo-sát-hệ-thống .anchor}
 
-# CHƯƠNG 1: KHẢO SÁT HỆ THỐNG
+# LỜI MỞ ĐẦU
+
+## 1. Đặt vấn đề
+
+Trong bối cảnh cuộc cách mạng công nghiệp 4.0 đang diễn ra mạnh mẽ, công
+nghệ thông tin đã trở thành nền tảng quan trọng thúc đẩy sự phát triển
+của mọi lĩnh vực kinh tế - xã hội. Máy tính và các thiết bị công nghệ
+không chỉ là công cụ làm việc thiết yếu mà còn là phương tiện để con
+người tiếp cận tri thức, giải trí và kết nối với thế giới.
+
+Theo số liệu thống kê của Hiệp hội Thương mại điện tử Việt Nam (VECOM),
+thị trường thương mại điện tử Việt Nam đạt quy mô 16,4 tỷ USD năm 2022
+và dự kiến tiếp tục tăng trưởng mạnh mẽ trong những năm tới. Trong đó,
+ngành hàng điện tử - công nghệ luôn nằm trong top 3 ngành hàng có doanh
+số cao nhất. Đặc biệt, sau đại dịch COVID-19, thói quen mua sắm trực
+tuyến của người Việt Nam đã có sự thay đổi rõ rệt, với nhu cầu tìm kiếm,
+so sánh và mua sắm sản phẩm công nghệ qua các nền tảng trực tuyến tăng
+cao.
+
+Tuy nhiên, thị trường bán máy tính và linh kiện máy tính trực tuyến tại
+Việt Nam vẫn còn nhiều tồn tại:
+
+- **Thiếu tính cá nhân hóa**: Đa số các website hiện nay chưa có công cụ
+  hỗ trợ khách hàng tự xây dựng cấu hình máy tính theo nhu cầu sử dụng
+  (build PC).
+
+- **Trải nghiệm người dùng chưa tối ưu**: Giao diện phức tạp, quy trình
+  mua hàng dài dòng, thiếu tính trực quan.
+
+- **Thiếu thông tin minh bạch**: Thông tin về sản phẩm, giá cả, chính
+  sách bảo hành chưa được hiển thị rõ ràng và đầy đủ.
+
+- **Hệ thống quản lý chưa đồng bộ**: Nhiều cửa hàng gặp khó khăn trong
+  việc quản lý tồn kho đa showroom, xử lý đơn hàng và chăm sóc khách
+  hàng.
+
+Xuất phát từ thực tế trên, việc xây dựng một website thương mại điện tử
+chuyên nghiệp, đáp ứng nhu cầu mua sắm máy tính và linh kiện một cách
+tiện lợi, nhanh chóng và an toàn là vô cùng cần thiết.
+
+## 2. Lý do chọn đề tài
+
+Nhóm nghiên cứu lựa chọn đề tài **"Website Bán Máy Tính Trực Tuyến Kinh
+Duan"** dựa trên những lý do sau:
+
+- **Thứ nhất**, đây là cơ hội để áp dụng kiến thức đã học vào thực tế.
+  Trong suốt quá trình học tập tại Trường Đại học Mở Hà Nội, nhóm đã
+  được trang bị những kiến thức nền tảng về lập trình web, cơ sở dữ
+  liệu, phân tích thiết kế hệ thống. Đề tài này cho phép nhóm vận dụng
+  toàn diện các kiến thức đó vào việc xây dựng một hệ thống thương mại
+  điện tử hoàn chỉnh.
+
+- **Thứ hai**, thị trường máy tính và linh kiện máy tính tại Việt Nam có
+  tiềm năng phát triển lớn. Với hơn 70 triệu người dùng internet và tỷ
+  lệ sử dụng thiết bị công nghệ ngày càng cao, nhu cầu mua sắm sản phẩm
+  công nghệ trực tuyến là rất lớn. Đây là một thị trường hấp dẫn để phát
+  triển giải pháp thương mại điện tử.
+
+- **Thứ ba**, nhóm mong muốn đóng góp một giải pháp công nghệ thiết
+  thực, giúp cải thiện trải nghiệm mua sắm của khách hàng và hỗ trợ
+  doanh nghiệp trong việc quản lý và vận hành kinh doanh hiệu quả hơn.
+  Đặc biệt, tính năng **Build PC** (tự xây dựng cấu hình máy tính) là
+  một điểm nhấn mà nhóm muốn phát triển để đáp ứng nhu cầu thực tế của
+  khách hàng.
+
+- **Thứ tư**, thông qua việc thực hiện đề tài, nhóm có cơ hội học hỏi và
+  trải nghiệm quy trình phát triển phần mềm chuyên nghiệp từ khâu khảo
+  sát, phân tích, thiết kế, lập trình, kiểm thử đến triển khai. Đây là
+  hành trang quý báu giúp nhóm chuẩn bị tốt hơn cho công việc sau khi ra
+  trường.
+
+<!-- -->
+
+- Với những lý do trên, nhóm kỳ vọng đề tài không chỉ đáp ứng yêu cầu
+  học thuật mà còn tạo ra giá trị thực tiễn, đồng thời là cơ hội để vận
+  dụng toàn diện kiến thức đã học vào việc xây dựng một hệ thống thương
+  mại điện tử chuyên nghiệp, góp phần cải thiện trải nghiệm mua sắm trực
+  tuyến và hỗ trợ doanh nghiệp trong quản lý kinh doanh hiệu quả hơn.
+
+## 3. Mục tiêu và phạm vi nghiên cứu
+
+### 3.1. Mục tiêu nghiên cứu
+
+- Xây dựng hệ thống website thương mại điện tử chuyên nghiệp cho lĩnh
+  vực bán máy tính và linh kiện máy tính.
+
+- Cung cấp nền tảng mua sắm trực tuyến tiện lợi, an toàn và hiệu quả cho
+  khách hàng.
+
+- Phát triển tính năng **Build PC** giúp khách hàng tự xây dựng cấu hình
+  máy tính theo nhu cầu.
+
+- Hỗ trợ doanh nghiệp quản lý sản phẩm, đơn hàng, khách hàng, tồn kho
+  một cách tập trung và khoa học.
+
+- Áp dụng kiến thức đã học vào thực tế, phát triển kỹ năng lập trình và
+  thiết kế hệ thống.
+
+### 3.2. Phạm vi nghiên cứu
+
+Đề tài tập trung vào việc xây dựng hệ thống website bán máy tính trực
+tuyến bao gồm:
+
+- **Đối tượng sử dụng**: Khách hàng (Guest, Customer), Nhân viên
+  (Staff), Quản trị viên (Admin).
+
+- **Chức năng chính**:
+
+  - Quản lý sản phẩm, danh mục, tồn kho
+
+  - Giỏ hàng và đơn hàng
+
+  - Thanh toán trực tuyến (VNPay) và COD
+
+  - Build PC (tự chọn cấu hình máy tính)
+
+  - Đánh giá sản phẩm
+
+  - Đổi/trả hàng trong 15 ngày
+
+  - Quản lý khuyến mãi và voucher
+
+  - Báo cáo và thống kê
+
+- **Công nghệ sử dụng**:
+
+  - Frontend: ReactJS, HTML5, CSS3, TailwindCSS
+
+  - Backend: Java Spring Boot
+
+  - Database: PostgreSQL
+
+  - Payment Gateway: VNPay
+
+# CHƯƠNG 1: KHẢO SÁT HỆ THỐNG {#chương-1-khảo-sát-hệ-thống-1}
 
 ## 1.1. Giới thiệu chung
 
@@ -429,7 +574,7 @@ kiện máy tính, bao gồm:
 
 **A. Các chức năng triển khai:**
 
-**Core modules hoàn chỉnh 100%:**
+Core modules hoàn chỉnh 100%:
 
 - Quản lý người dùng (User, UserAddress, UserToken, UserOAuth)
 
@@ -971,8 +1116,6 @@ tính năng nâng cao chưa được triển khai:
 +---------+------------------+------------------------+------------------+---------+------------------------+
 | 103     | **Final Review** | Review toàn bộ dự án   | Cả nhóm          | Tuần 14 | Final check            |
 +---------+------------------+------------------------+------------------+---------+------------------------+
-
-## 
 
 ## 1.6. Phân tích đối thủ cạnh tranh
 
@@ -1738,8 +1881,7 @@ khảo sát hợp lệ thu được là **156 phiếu.**
 **Câu 1: Độ tuổi của bạn?**
 
 ![Biểu đồ độ tuổi người tham gia khảo
-sát](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image2.png){width="4.0in"
-height="3.3333333333333335in"}
+sát](media/image3.png){width="4.0in" height="3.3333333333333335in"}
 
 Biểu đồ độ tuổi người tham gia khảo sát
 
@@ -1757,8 +1899,7 @@ Biểu đồ độ tuổi người tham gia khảo sát
 **Câu 2: Bạn đã từng mua máy tính trực tuyến chưa?**
 
 ![Biểu đồ kinh nghiệm mua máy tính trực
-tuyến](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image3.png){width="4.0in"
-height="3.3333333333333335in"}
+tuyến](media/image4.png){width="4.0in" height="3.3333333333333335in"}
 
 Biểu đồ kinh nghiệm mua máy tính trực tuyến
 
@@ -1773,8 +1914,7 @@ tuyến, cho thấy thị trường đã khá phát triển.
 
 **Câu 3: Giới tính của bạn?**
 
-![Biểu đồ giới
-tính](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image4.png){width="4.0in"
+![Biểu đồ giới tính](media/image5.png){width="4.0in"
 height="3.3333333333333335in"}
 
 Biểu đồ giới tính
@@ -1787,8 +1927,7 @@ Biểu đồ giới tính
 
 **Câu 4: Khu vực sinh sống?**
 
-![Biểu đồ khu vực sinh
-sống](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image5.png){width="4.0in"
+![Biểu đồ khu vực sinh sống](media/image6.png){width="4.0in"
 height="3.3333333333333335in"}
 
 Biểu đồ khu vực sinh sống
@@ -1799,8 +1938,7 @@ Biểu đồ khu vực sinh sống
 
 **Câu 5: Ngân sách dự kiến khi mua máy tính?**
 
-![Biểu đồ ngân sách dự
-kiến](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image6.png){width="4.0in"
+![Biểu đồ ngân sách dự kiến](media/image7.png){width="4.0in"
 height="3.3333333333333335in"}
 
 Biểu đồ ngân sách dự kiến
@@ -1817,8 +1955,7 @@ Biểu đồ ngân sách dự kiến
 
 **Câu 6: Mục đích chính khi mua máy tính?**
 
-![Biểu đồ mục đích mua máy
-tính](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image7.png){width="4.0in"
+![Biểu đồ mục đích mua máy tính](media/image8.png){width="4.0in"
 height="3.3333333333333335in"}
 
 Biểu đồ mục đích mua máy tính
@@ -1834,8 +1971,7 @@ Biểu đồ mục đích mua máy tính
 **Câu 7: Bạn quan tâm đến yếu tố nào nhất khi mua máy tính trực tuyến?**
 
 ![Biểu đồ yếu tố quan tâm khi mua máy
-tính](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image8.png){width="4.0in"
-height="3.3333333333333335in"}
+tính](media/image9.png){width="4.0in" height="3.3333333333333335in"}
 
 Biểu đồ yếu tố quan tâm khi mua máy tính
 
@@ -1849,8 +1985,7 @@ Biểu đồ yếu tố quan tâm khi mua máy tính
 
 **Câu 8: Kênh bạn tham khảo thông tin trước khi mua?**
 
-![Biểu đồ kênh tham khảo thông
-tin](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image9.png){width="4.0in"
+![Biểu đồ kênh tham khảo thông tin](media/image10.png){width="4.0in"
 height="3.3333333333333335in"}
 
 Biểu đồ kênh tham khảo thông tin
@@ -1866,8 +2001,7 @@ Biểu đồ kênh tham khảo thông tin
 **Câu 9: Phương thức thanh toán bạn ưu tiên?**
 
 ![Biểu đồ phương thức thanh toán ưu
-tiên](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image10.png){width="4.0in"
-height="3.3333333333333335in"}
+tiên](media/image11.png){width="4.0in" height="3.3333333333333335in"}
 
 Biểu đồ phương thức thanh toán ưu tiên
 
@@ -1885,8 +2019,7 @@ hiện tại hỗ trợ COD và ví điện tử VNPay.
 
 **Câu 10: Kênh bạn thường mua máy tính?**
 
-![Biểu đồ kênh mua
-hàng](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image11.png){width="4.0in"
+![Biểu đồ kênh mua hàng](media/image12.png){width="4.0in"
 height="3.3333333333333335in"}
 
 Biểu đồ kênh mua hàng
@@ -1902,8 +2035,7 @@ Biểu đồ kênh mua hàng
 **Câu 11: Bạn mong muốn điều gì nhất ở một website bán máy tính?**
 
 ![Biểu đồ mong muốn về website bán máy
-tính](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image12.png){width="4.0in"
-height="3.3333333333333335in"}
+tính](media/image13.png){width="4.0in" height="3.3333333333333335in"}
 
 Biểu đồ mong muốn về website bán máy tính
 
@@ -1917,8 +2049,7 @@ Biểu đồ mong muốn về website bán máy tính
 
 **Câu 12: Chức năng nào bạn cho là quan trọng nhất?**
 
-![Biểu đồ chức năng quan trọng
-nhất](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image13.png){width="4.0in"
+![Biểu đồ chức năng quan trọng nhất](media/image14.png){width="4.0in"
 height="3.3333333333333335in"}
 
 Biểu đồ chức năng quan trọng nhất
@@ -1934,8 +2065,7 @@ Biểu đồ chức năng quan trọng nhất
 **Câu 13: Bạn có thích chức năng so sánh sản phẩm không?**
 
 ![Biểu đồ mức độ thích chức năng so sánh sản
-phẩm](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image14.png){width="4.0in"
-height="3.3333333333333335in"}
+phẩm](media/image15.png){width="4.0in" height="3.3333333333333335in"}
 
 Biểu đồ mức độ thích chức năng so sánh sản phẩm
 
@@ -1948,8 +2078,7 @@ Biểu đồ mức độ thích chức năng so sánh sản phẩm
 **Câu 14: Mức độ hài lòng với dịch vụ chăm sóc khách hàng khi mua
 online?**
 
-![Biểu đồ mức độ hài lòng
-CSKH](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image15.png){width="4.0in"
+![Biểu đồ mức độ hài lòng CSKH](media/image16.png){width="4.0in"
 height="3.3333333333333335in"}
 
 Biểu đồ mức độ hài lòng CSKH
@@ -1963,8 +2092,7 @@ Biểu đồ mức độ hài lòng CSKH
 **Câu 15: Thời gian giao hàng mong muốn?**
 
 ![Biểu đồ thời gian giao hàng mong
-muốn](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image16.png){width="4.0in"
-height="3.3333333333333335in"}
+muốn](media/image17.png){width="4.0in" height="3.3333333333333335in"}
 
 Biểu đồ thời gian giao hàng mong muốn
 
@@ -2013,10 +2141,8 @@ kiếm sản phẩm đến khi hoàn tất đặt hàng.
 
 6.  Khách hàng theo dõi đơn hàng và nhận hàng
 
-![A black and white rectangles with black text AI-generated content may
-be
-incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image17.png){width="6.680555555555555in"
-height="1.3094302274715661in"}**Sơ đồ quy trình:**
+![](media/image19.svg){width="6.6930555555555555in"
+height="5.777777777777778in"}**Sơ đồ quy trình:**
 
 ### 1.8.2. Quy trình xử lý đơn hàng của Admin/Staff
 
@@ -2037,8 +2163,10 @@ nhận được đến khi giao hàng thành công.
 
 6.  Xác nhận hoàn tất và cập nhật tồn kho
 
-![](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image18.png){width="6.680555555555555in"
-height="0.5150524934383202in"}**Sơ đồ quy trình:**
+![](media/image21.svg){width="6.6930555555555555in"
+height="6.285416666666666in"}
+
+**Sơ đồ quy trình:**
 
 ### 1.8.3. Quy trình Build PC (Tự chọn cấu hình máy tính)
 
@@ -2059,9 +2187,10 @@ height="0.5150524934383202in"}**Sơ đồ quy trình:**
 
 6.  Khách hàng lưu cấu hình hoặc thêm vào giỏ hàng, xuất file
 
-![A group of black rectangular signs AI-generated content may be
-incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image19.png){width="6.680555555555555in"
-height="1.2539468503937008in"}**Sơ đồ quy trình:**
+![](media/image23.svg){width="6.6930555555555555in"
+height="8.296527777777778in"}
+
+**Sơ đồ quy trình:**
 
 ### 1.8.4. Quy trình đổi/trả hàng trong 15 ngày
 
@@ -2084,10 +2213,10 @@ vòng 15 ngày kể từ ngày nhận hàng.
 
 7.  Cập nhật tồn kho và hoàn tất
 
-![A group of rectangular boxes with black text AI-generated content may
-be
-incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image20.png){width="6.680555555555555in"
-height="1.1909306649168854in"}**Sơ đồ quy trình:**
+![](media/image25.svg){width="6.6930555555555555in"
+height="6.416666666666667in"}
+
+**Sơ đồ quy trình:**
 
 ### 1.8.5. Quy trình quản lý sản phẩm
 
@@ -2105,9 +2234,10 @@ height="1.1909306649168854in"}**Sơ đồ quy trình:**
 
 4.  Hệ thống kiểm tra ngưỡng tồn kho và cảnh báo sắp hết hàng
 
-![A diagram of a flowchart AI-generated content may be
-incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image21.png){width="6.680555555555555in"
-height="1.402288932633421in"}**Sơ đồ quy trình:**
+![](media/image27.svg){width="7.241989282589676in"
+height="2.3255818022747157in"}
+
+**Sơ đồ quy trình:**
 
 ## 1.9. Xác định yêu cầu {#xác-định-yêu-cầu-1}
 
@@ -2489,9 +2619,7 @@ quốc.
 
 - Tùy chọn hủy đăng ký bất cứ lúc nào
 
-# 
-
-# CHƯƠNG 2: PHÂN TÍCH HỆ THỐNG {#chương-2-phân-tích-hệ-thống-1}
+# CHƯƠNG 2: PHÂN TÍCH HỆ THỐNG
 
 ## 2.1. Mô hình hóa chức năng nghiệp vụ
 
@@ -2754,45 +2882,44 @@ Hệ thống có 5 tác nhân chính:
   **UC30**    Xem showroom      Guest, Customer   Xem thông tin cửa hàng
   ----------------------------------------------------------------------
 
-#### ![A diagram of a person\'s relationship AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image22.png){width="6.680555555555555in" height="3.3044860017497815in"}2.1.3.3. Sơ đồ Use Case tổng quan
+#### ![A diagram of a person\'s relationship AI-generated content may be incorrect.](media/image28.png){width="6.680555555555555in" height="3.3044860017497815in"}2.1.3.3. Sơ đồ Use Case tổng quan
 
 ##### 2.1.3.3.1. Quản lý sản phẩm
 
-![A diagram of a person AI-generated content may be
-incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image23.png){width="4.382608267716535in"
-height="9.573912948381452in"}
+![A diagram of people connected to a diagram AI-generated content may be
+incorrect.](media/image29.png){width="6.6930555555555555in"
+height="9.20486111111111in"}
 
 ##### 2.1.3.3.2. Quản lý đơn hàng
 
 ![A screenshot of a computer AI-generated content may be
-incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image24.png){width="5.10963801399825in"
-height="9.8125in"}
+incorrect.](media/image30.png){width="6.6930555555555555in"
+height="7.303472222222222in"}
 
 ##### 2.1.3.3.3. Quản lý người dùng
 
-![A diagram of a person\'s profile AI-generated content may be
-incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image25.png){width="6.163135389326334in"
-height="9.802083333333334in"}
+![](media/image31.png){width="6.6930555555555555in"
+height="6.811805555555556in"}
 
 ##### 2.1.3.3.4. Thanh toán
 
-![A screenshot of a diagram AI-generated content may be
-incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image26.png){width="6.680555555555555in"
-height="5.349949693788276in"}
+![A diagram of a person with text AI-generated content may be
+incorrect.](media/image32.png){width="6.976003937007874in"
+height="2.226415135608049in"}
 
-##### 2.1.3.3.5. Đánh giá và phản hồi![A group of people with text AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image27.png){width="4.541666666666667in" height="4.467008967629046in"}
+##### 2.1.3.3.5. Đánh giá và phản hồi
 
-#####  {#section}
+##### ![A screenshot of a computer screen AI-generated content may be incorrect.](media/image33.png){width="5.59375in" height="6.46875in"}
 
-##### 2.1.3.3.6. Tìm kiếm và lọc
+##### 2.1.3.3.6. Tìm kiếm và lọc {#tìm-kiếm-và-lọc-1}
 
-##### ![A person with text on a white background AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image28.png){width="4.533077427821523in" height="4.270833333333333in"}
+##### ![A diagram of a diagram AI-generated content may be incorrect.](media/image34.png){width="5.59375in" height="3.9791666666666665in"}
 
-#####  {#section-1}
+##### 
 
 ##### 2.1.3.3.7. Báo cáo và thống kê {#báo-cáo-và-thống-kê-1}
 
-#### ![A screen shot of a person AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image29.png){width="4.53125in" height="7.033396762904637in"}
+#### ![A screen shot of a black and white screen AI-generated content may be incorrect.](media/image35.png){width="5.020833333333333in" height="6.041666666666667in"}
 
 #### 2.1.3.4. Đặc tả Use Case chi tiết {#đặc-tả-use-case-chi-tiết-2}
 
@@ -3291,14 +3418,12 @@ height="5.349949693788276in"}
 |               | \- Ưu tiên khuyến mãi có lợi nhất cho khách          |
 +---------------+------------------------------------------------------+
 
-##  {#section-2}
-
 ## 2.2. Sơ đồ hoạt động (Activity Diagram)
 
 Activity Diagram mô tả chi tiết luồng hoạt động và quyết định trong các
 quy trình nghiệp vụ quan trọng của hệ thống.
 
-#### ![A screenshot of a computer AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image30.png){width="6.680555555555555in" height="4.068191163604549in"}2.2.1. Activity Diagram - Quy trình đăng nhập
+#### ![A screenshot of a computer AI-generated content may be incorrect.](media/image36.png){width="6.680555555555555in" height="4.068191163604549in"}2.2.1. Activity Diagram - Quy trình đăng nhập
 
 **Các bước chính:**
 
@@ -3335,8 +3460,6 @@ quy trình nghiệp vụ quan trọng của hệ thống.
 14. Option "Ghi nhớ đăng nhập" kéo dài thời gian token đến 30 ngày
 
 15. Ghi log chi tiết và gửi email cảnh báo khi có đăng nhập mới
-
-#### ![A screenshot of a computer screen AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image31.png){width="6.680555555555555in" height="8.10846019247594in"}
 
 #### 2.2.2. Activity Diagram - Quy trình đặt hàng
 
@@ -3386,8 +3509,6 @@ quy trình nghiệp vụ quan trọng của hệ thống.
 
 15. Trả góp 0%: Yêu cầu đơn hàng tối thiểu 3.000.000đ, hỗ trợ 6/12/18/24
     tháng
-
-#### ![A screenshot of a computer AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image32.png){width="6.680555555555555in" height="9.44570319335083in"}
 
 #### 2.2.3. Activity Diagram - Quy trình Build PC
 
@@ -3467,7 +3588,7 @@ quy trình nghiệp vụ quan trọng của hệ thống.
 
 26. Lưu cấu hình để xem lại hoặc chia sẻ với người khác
 
-#### ![](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image33.png){width="6.680555555555555in" height="5.3757731846019245in"}2.2.4. Activity Diagram - Quy trình Admin quản lý đơn hàng
+#### ![](media/image37.png){width="6.680555555555555in" height="5.3757731846019245in"}2.2.4. Activity Diagram - Quy trình Admin quản lý đơn hàng
 
 **Các bước chính:**
 
@@ -3534,8 +3655,6 @@ quy trình nghiệp vụ quan trọng của hệ thống.
 21. Ghi log chi tiết mọi thay đổi trạng thái
 
 22. Hỗ trợ giao hàng lại nếu khách từ chối nhận lần đầu
-
-#### ![A screenshot of a computer screen AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image34.png){width="6.680555555555555in" height="6.834607392825896in"}
 
 #### 2.2.5. Activity Diagram - Quy trình đổi/trả hàng
 
@@ -3612,9 +3731,7 @@ quy trình nghiệp vụ quan trọng của hệ thống.
 
 21. Có quy trình khiếu nại nếu khách hàng không đồng ý với kết quả
 
-####  {#section-3}
-
-#### ![A screenshot of a computer AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image35.png){width="6.680555555555555in" height="3.1802416885389326in"}2.2.6. Activity Diagram - Quy trình quản lý sản phẩm
+#### ![A screenshot of a computer AI-generated content may be incorrect.](media/image38.png){width="6.680555555555555in" height="3.1802416885389326in"}2.2.6. Activity Diagram - Quy trình quản lý sản phẩm
 
 **Các hành động chính:**
 
@@ -3693,8 +3810,6 @@ quy trình nghiệp vụ quan trọng của hệ thống.
 
 7.  Ghi log chi tiết mọi thao tác thay đổi giá và tồn kho
 
-#### ![A screenshot of a computer AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image36.png){width="4.635416666666667in" height="9.729861111111111in"}
-
 #### 2.2.7. Activity Diagram - Quy trình đánh giá sản phẩm
 
 **Các bước chính:**
@@ -3739,7 +3854,7 @@ quy trình nghiệp vụ quan trọng của hệ thống.
 #### 2.2.8. Activity Diagram - Quy trình thanh toán VNPay
 
 ![A screenshot of a diagram AI-generated content may be
-incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image37.png){width="6.137226596675416in"
+incorrect.](media/image39.png){width="6.137226596675416in"
 height="9.75in"}
 
 **Các bước chính:**
@@ -3794,7 +3909,7 @@ height="9.75in"}
 
 23. Gửi email và SMS tự động thông báo kết quả
 
-#### ![A screenshot of a computer AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image38.png){width="6.302083333333333in" height="6.0625in"}2.2.9. Activity Diagram - Quy trình quản lý Voucher & Khuyến mãi
+#### ![A screenshot of a computer AI-generated content may be incorrect.](media/image40.png){width="6.302083333333333in" height="6.0625in"}2.2.9. Activity Diagram - Quy trình quản lý Voucher & Khuyến mãi
 
 **Các bước chính:**
 
@@ -3866,7 +3981,7 @@ height="9.75in"}
 #### 2.2.10. Activity Diagram - Quy trình tìm kiếm và lọc sản phẩm
 
 ![A screenshot of a
-computer](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image39.png){width="6.680555555555555in"
+computer](media/image41.png){width="6.680555555555555in"
 height="9.462156605424322in"}
 
 **Các bước chính:**
@@ -3928,7 +4043,7 @@ height="9.462156605424322in"}
 #### 2.2.1.11. Activity Diagram - Quy trình quên mật khẩu
 
 ![A screenshot of a computer AI-generated content may be
-incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image40.png){width="3.42421697287839in"
+incorrect.](media/image42.png){width="3.42421697287839in"
 height="9.583333333333334in"}
 
 **Các bước chính:**
@@ -3986,7 +4101,7 @@ height="9.583333333333334in"}
 24. Có thể dùng thông báo chung "Nếu email tồn tại\..." để tránh lộ
     thông tin user
 
-#### ![A screenshot of a computer screen AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image41.png){width="6.680555555555555in" height="7.071073928258968in"}2.2.12. Activity Diagram - Quy trình theo dõi đơn hàng
+#### ![A screenshot of a computer screen AI-generated content may be incorrect.](media/image43.png){width="6.680555555555555in" height="7.071073928258968in"}2.2.12. Activity Diagram - Quy trình theo dõi đơn hàng
 
 **Các bước chính:**
 
@@ -4046,8 +4161,6 @@ height="9.583333333333334in"}
     giá)
 
 5.  Xử lý hoàn tiền tự động khi hủy đơn đã thanh toán
-
-#### ![A screenshot of a computer AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image42.png){width="6.680555555555555in" height="4.45331583552056in"}
 
 #### 2.2.13. Activity Diagram - Quy trình đăng ký tài khoản
 
@@ -4112,8 +4225,6 @@ height="9.583333333333334in"}
 5.  OAuth tự động tạo user nếu chưa tồn tại
 
 6.  Tặng voucher chào mừng khách hàng mới
-
-#### ![A screenshot of a computer AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image43.png){width="6.680555555555555in" height="5.5191568241469815in"}
 
 #### 2.2.14. Activity Diagram - Quy trình quản lý kho
 
@@ -4205,7 +4316,7 @@ height="9.583333333333334in"}
 #### 2.2.15. Activity Diagram - Quy trình bảo hành sản phẩm
 
 ![A screenshot of a computer screen AI-generated content may be
-incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image44.png){width="6.038655949256343in"
+incorrect.](media/image44.png){width="6.038655949256343in"
 height="9.547825896762905in"}
 
 **\**
@@ -4296,7 +4407,7 @@ height="9.547825896762905in"}
 #### 2.2.16. Activity Diagram - Quy trình viết và quản lý Blog/Tin tức
 
 ![A screenshot of a computer screen AI-generated content may be
-incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image45.png){width="6.680555555555555in"
+incorrect.](media/image45.png){width="6.680555555555555in"
 height="9.613261154855643in"}
 
 **Các bước chính:**
@@ -4393,17 +4504,11 @@ height="9.613261154855643in"}
 
 - Ping search engines tự động khi publish
 
-#  {#section-4}
-
 # CHƯƠNG 3: THIẾT KẾ HỆ THỐNG
 
 ## 3.1. Thiết kế cơ sở dữ liệu
 
-### 3.1.1. Mô hình thực thể liên kết (ERD)
-
-####  {#section-5}
-
-#### ![A computer screen shot of a computer AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image46.png){width="6.680555555555555in" height="3.956470909886264in"}
+**Mô hình thực thể liên kết (ERD)**
 
 #### 3.1.1.1. ERD Tổng thể
 
@@ -4453,7 +4558,7 @@ giữa chúng.
 
 #### 3.1.1.2. Chi tiết các module và ERD tương ứng
 
-##### ![A screenshot of a computer AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image47.png){width="6.680555555555555in" height="6.0307195975503065in"}MODULE 1: Catalog & Products (8 bảng)
+##### ![A screenshot of a computer AI-generated content may be incorrect.](media/image46.png){width="6.680555555555555in" height="6.0307195975503065in"}MODULE 1: Catalog & Products (8 bảng)
 
 **Bảng 3.1: Nhóm Catalog & Products**
 
@@ -4480,7 +4585,7 @@ giữa chúng.
         8       product_related      SP liên quan  Sản phẩm tương tự (tối đa 8)
   -----------------------------------------------------------------------------
 
-##### ![A screenshot of a computer AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image48.png){width="6.680555555555555in" height="5.006992563429571in"}MODULE 2: Build PC System (4 bảng)
+##### ![A screenshot of a computer AI-generated content may be incorrect.](media/image47.png){width="6.680555555555555in" height="5.006992563429571in"}MODULE 2: Build PC System (4 bảng)
 
 **Bảng 3.2: Nhóm Build PC System**
 
@@ -4500,7 +4605,7 @@ giữa chúng.
                                  kiện            
   ------------------------------------------------------------------------
 
-##### ![A screenshot of a computer AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image49.png){width="6.680555555555555in" height="4.798047900262468in"}MODULE 3: Users & Authentication (4 bảng)
+##### ![A screenshot of a computer AI-generated content may be incorrect.](media/image48.png){width="6.680555555555555in" height="4.798047900262468in"}MODULE 3: Users & Authentication (4 bảng)
 
 **Bảng 3.3: Nhóm Users & Authentication**
 
@@ -4519,7 +4624,7 @@ giữa chúng.
     16    user_oauth       Đăng nhập OAuth Liên kết Google/Facebook login
   -------------------------------------------------------------------------
 
-##### ![A screenshot of a computer AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image50.png){width="6.680555555555555in" height="5.692924321959755in"}MODULE 4: Promotions & Vouchers (6 bảng)
+##### ![A screenshot of a computer AI-generated content may be incorrect.](media/image49.png){width="6.680555555555555in" height="5.692924321959755in"}MODULE 4: Promotions & Vouchers (6 bảng)
 
 **Bảng 3.4: Nhóm Promotions & Vouchers**
 
@@ -4543,7 +4648,7 @@ giữa chúng.
                                      voucher      
   -----------------------------------------------------------------------------
 
-##### ![A screenshot of a computer AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image51.png){width="6.680555555555555in" height="3.0267027559055117in"}MODULE 5: Cart & Shopping (2 bảng)
+##### ![A screenshot of a computer AI-generated content may be incorrect.](media/image50.png){width="6.680555555555555in" height="3.0267027559055117in"}MODULE 5: Cart & Shopping (2 bảng)
 
 **Bảng 3.5: Nhóm Cart & Shopping**
 
@@ -4556,8 +4661,6 @@ giữa chúng.
        24       cart_items    Chi tiết giỏ    Sản phẩm trong giỏ
                               hàng            
   -----------------------------------------------------------------------
-
-##### ![A screenshot of a computer AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image52.png){width="6.680555555555555in" height="9.630975503062118in"}
 
 ##### MODULE 6: Orders & Payments (12 bảng)
 
@@ -4596,12 +4699,10 @@ giữa chúng.
                                                      nhánh
   ---------------------------------------------------------------------------
 
-#####  {#section-6}
-
 ##### MODULE 7: Warranty & Service (3 bảng)
 
 ![A screenshot of a computer AI-generated content may be
-incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image53.png){width="6.680555555555555in"
+incorrect.](media/image51.png){width="6.680555555555555in"
 height="4.558455818022747in"}**Bảng 3.7: Nhóm Warranty & Service**
 
   -------------------------------------------------------------------------
@@ -4616,12 +4717,10 @@ height="4.558455818022747in"}**Bảng 3.7: Nhóm Warranty & Service**
                                     chữa              
   -------------------------------------------------------------------------
 
-#####  {#section-7}
-
 ##### MODULE 8: Reviews (3 bảng)
 
 ![A computer screen shot of a diagram AI-generated content may be
-incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image54.png){width="6.680555555555555in"
+incorrect.](media/image52.png){width="6.680555555555555in"
 height="2.8331660104986875in"}**Bảng 3.8: Nhóm Reviews**
 
   ------------------------------------------------------------------------
@@ -4637,10 +4736,9 @@ height="2.8331660104986875in"}**Bảng 3.8: Nhóm Reviews**
 
 ##### MODULE 9: Stores & Locations (2 bảng)
 
-![](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image55.png){width="6.375in"
-height="6.552083333333333in"}
+![](media/image53.png){width="6.375in" height="6.552083333333333in"}
 
-**3.9: Nhóm Stores & Locations**
+**Bảng 3.9: Nhóm Stores & Locations**
 
   ------------------------------------------------------------------------
         STT        Tên bảng         Tên Việt         Mục đích
@@ -4654,7 +4752,7 @@ height="6.552083333333333in"}
 ##### MODULE 10: Blog & Content (3 bảng)
 
 ![A screenshot of a computer AI-generated content may be
-incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image56.png){width="6.680555555555555in"
+incorrect.](media/image54.png){width="6.680555555555555in"
 height="3.841839457567804in"}**Bảng 3.10: Nhóm Blog & Content**
 
   --------------------------------------------------------------------------
@@ -4669,12 +4767,10 @@ height="3.841839457567804in"}**Bảng 3.10: Nhóm Blog & Content**
                                                    bài
   --------------------------------------------------------------------------
 
-#####  {#section-8}
-
 ##### MODULE 11: Banners & Marketing (1 bảng)
 
 ![A screenshot of a computer AI-generated content may be
-incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image57.png){width="3.8958333333333335in"
+incorrect.](media/image55.png){width="3.8958333333333335in"
 height="4.5in"}
 
 **Bảng 3.11: Nhóm Banners & Marketing**
@@ -4685,8 +4781,6 @@ height="4.5in"}
          48            banners       Banner/Slider   Quảng cáo homepage
 
   ----------------------------------------------------------------------
-
-##### ![A screenshot of a computer AI-generated content may be incorrect.](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image58.png){width="6.680555555555555in" height="2.9392071303587053in"}
 
 ##### MODULE 12: User Interactions (4 bảng)
 
@@ -5035,8 +5129,6 @@ height="4.5in"}
    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP      
   ------------------------------------------------------------
 
-**\**
-
 **TB_CartItems (cart_items)** --- Chi tiết giỏ hàng
 
   ------------------------------------------------------------------------
@@ -5232,8 +5324,6 @@ height="4.5in"}
      created_at     TIMESTAMP DEFAULT CURRENT_TIMESTAMP              
   --------------------------------------------------------------------------------
 
-**\**
-
 **TB_Promotions (promotions, promotion_products, promotion_categories,
 promotion_brands) ---** Khuyến mãi tự động
 
@@ -5417,217 +5507,7 @@ Build PC
     updated_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP          
   -------------------------------------------------------------------------
 
-###  {#section-9}
-
-**TB_UserTokens (user_tokens)**
-
-  -----------------------------------------------------------------------
-      Cột      Kiểu dữ liệu & Ràng buộc                         Mô tả
-  ------------ -------------------------------------------- -------------
-       id      BIGSERIAL PRIMARY KEY                        
-
-    user_id    BIGINT NOT NULL REFERENCES users(id) ON      
-               DELETE CASCADE                               
-
-     token     VARCHAR(255) NOT NULL UNIQUE                 
-
-   token_type  VARCHAR(30) NOT NULL                         
-
-   expires_at  TIMESTAMP NOT NULL                           
-
-    used_at    TIMESTAMP                                    
-
-   ip_address  VARCHAR(45)                                  
-
-   created_at  TIMESTAMP NOT NULL DEFAULT NOW()             
-  -----------------------------------------------------------------------
-
-**TB_Warranties (warranties)**
-
-  ------------------------------------------------------------------
-           Cột          Kiểu dữ liệu & Ràng buộc              Mô tả
-  --------------------- ------------------------------------- ------
-           id           BIGSERIAL PRIMARY KEY                 
-
-      order_item_id     BIGINT REFERENCES order_items(id)     
-
-       product_id       BIGINT NOT NULL REFERENCES            
-                        products(id)                          
-
-         user_id        BIGINT REFERENCES users(id)           
-
-      serial_number     VARCHAR(200)                          
-
-      purchase_date     DATE NOT NULL                         
-
-     warranty_months    INT NOT NULL DEFAULT 12               
-
-   warranty_expires_at  DATE NOT NULL                         
-
-         status         warranty_status NOT NULL DEFAULT      
-                        'active'                              
-
-          notes         TEXT                                  
-
-       created_at       TIMESTAMP NOT NULL DEFAULT NOW()      
-
-       updated_at       TIMESTAMP NOT NULL DEFAULT NOW()      
-  ------------------------------------------------------------------
-
-**TB_ServiceRequests (service_requests)**
-
-  ----------------------------------------------------------------------
-             Cột             Kiểu dữ liệu & Ràng buộc             Mô tả
-  -------------------------- ------------------------------------ ------
-              id             BIGSERIAL PRIMARY KEY                
-
-         warranty_id         BIGINT REFERENCES warranties(id)     
-
-           user_id           BIGINT REFERENCES users(id)          
-
-           store_id          BIGINT REFERENCES stores(id)         
-
-         service_code        VARCHAR(30) UNIQUE                   
-
-         product_name        VARCHAR(300) NOT NULL                
-
-        serial_number        VARCHAR(200)                         
-
-          issue_desc         TEXT NOT NULL                        
-
-            status           service_status NOT NULL DEFAULT      
-                             'received'                           
-
-          diagnosis          TEXT                                 
-
-         repair_cost         NUMERIC(15,2) NOT NULL DEFAULT 0     
-
-   customer_approved_repair  BOOLEAN                              
-
-         approved_at         TIMESTAMP                            
-
-       appointment_date      TIMESTAMP                            
-
-         received_at         TIMESTAMP NOT NULL DEFAULT NOW()     
-
-         completed_at        TIMESTAMP                            
-
-         returned_at         TIMESTAMP                            
-
-        technician_id        BIGINT REFERENCES users(id)          
-
-          created_at         TIMESTAMP NOT NULL DEFAULT NOW()     
-
-          updated_at         TIMESTAMP NOT NULL DEFAULT NOW()     
-  ----------------------------------------------------------------------
-
-**TB_ReturnRequests (return_requests)**
-
-  ----------------------------------------------------------
-        Cột       Kiểu dữ liệu & Ràng buộc            Mô tả
-  --------------- ----------------------------------- ------
-        id        BIGSERIAL PRIMARY KEY               
-
-     order_id     BIGINT NOT NULL REFERENCES          
-                  orders(id)                          
-
-      user_id     BIGINT NOT NULL REFERENCES          
-                  users(id)                           
-
-    return_code   VARCHAR(30) NOT NULL UNIQUE         
-
-      status      return_status NOT NULL DEFAULT      
-                  'pending'                           
-
-    reason_type   VARCHAR(50) NOT NULL                
-
-   reason_detail  TEXT                                
-
-    resolution    VARCHAR(30)                         
-
-   refund_amount  NUMERIC(15,2)                       
-
-    staff_note    TEXT                                
-
-    reviewed_by   BIGINT REFERENCES users(id)         
-
-    reviewed_at   TIMESTAMP                           
-
-   completed_at   TIMESTAMP                           
-
-    created_at    TIMESTAMP NOT NULL DEFAULT NOW()    
-
-    updated_at    TIMESTAMP NOT NULL DEFAULT NOW()    
-  ----------------------------------------------------------
-
-**TB_Notifications (notifications)**
-
-  ---------------------------------------------------------------------------
-        Cột        Kiểu dữ liệu & Ràng buộc                         Mô tả
-  ---------------- -------------------------------------------- -------------
-         id        BIGSERIAL PRIMARY KEY                        
-
-      user_id      BIGINT NOT NULL REFERENCES users(id) ON      
-                   DELETE CASCADE                               
-
-        type       notification_type NOT NULL                   
-
-       title       VARCHAR(200) NOT NULL                        
-
-      content      TEXT                                         
-
-      link_url     VARCHAR(500)                                 
-
-   reference_type  VARCHAR(50)                                  
-
-    reference_id   INT                                          
-
-      is_read      BOOLEAN NOT NULL DEFAULT FALSE               
-
-     created_at    TIMESTAMP NOT NULL DEFAULT NOW()             
-  ---------------------------------------------------------------------------
-
-**TB_PcComponents (pc_components)**
-
-  -------------------------------------------------------------------------------
-          Cột         Kiểu dữ liệu & Ràng buộc                          Mô tả
-  ------------------- --------------------------------------------- -------------
-          id          BIGSERIAL PRIMARY KEY                         
-
-   component_type_id  BIGINT NOT NULL REFERENCES                    
-                      pc_component_types(id)                        
-
-      product_id      BIGINT NOT NULL REFERENCES products(id) ON    
-                      DELETE CASCADE                                
-
-        socket        VARCHAR(50)                                   
-
-        chipset       VARCHAR(50)                                   
-
-       ram_type       VARCHAR(20)                                   
-
-       ram_slots      INT                                           
-
-      max_ram_gb      INT                                           
-
-    ram_capacity_gb   INT                                           
-
-     ram_speed_mhz    INT                                           
-
-       tdp_watts      INT                                           
-
-      psu_wattage     INT                                           
-
-      storage_gb      INT                                           
-
-   storage_interface  VARCHAR(30)                                   
-
-      is_like_new     BOOLEAN NOT NULL DEFAULT FALSE                
-
-       is_active      BOOLEAN NOT NULL DEFAULT TRUE                 
-  -------------------------------------------------------------------------------
-
-## 3.2. Thiết kế kiểm soát {#thiết-kế-kiểm-soát-1}
+## 3.2. Thiết kế kiểm soát
 
 ### 3.2.1. Phân định quyền hạn về dữ liệu
 
@@ -5777,7 +5657,7 @@ Build PC
 
 - **Admin:** Quản trị viên hệ thống (toàn quyền)
 
-## 3.3. Thiết kế giao diện {#thiết-kế-giao-diện-1}
+## 3.3. Thiết kế giao diện
 
 ### 3.3.1. Nguyên tắc thiết kế
 
@@ -5901,87 +5781,90 @@ Build PC
 
 - Lịch sử yêu cầu
 
-### 3.3.3. Design
+### 3.3.3. Wireframe Design
 
-**Trang chủ - Desktop:**
+**Wireframe Trang chủ (Desktop)** --- thể hiện bố cục Header, Banner
+slideshow, Danh mục sản phẩm nổi bật, Sản phẩm nổi bật/Bán chạy
+nhất/Hàng mới về, và Footer, theo đúng cấu trúc đã triển khai
 
-![Wireframe Trang chủ - Desktop](../bao-cao/images/wireframes/wireframe-trang-chu.png){width="6.5in"}
+![Wireframe Trang chủ -
+Desktop](media/image56.png){width="5.096527777777778in"
+height="5.770833333333333in"}
 
-Wireframe Trang chủ (Desktop) — thể hiện bố cục Header, Banner slideshow,
-Danh mục sản phẩm nổi bật, Sản phẩm nổi bật/Bán chạy nhất/Hàng mới về, và
-Footer, theo đúng cấu trúc đã triển khai thực tế.
+![Wireframe Trang chủ -
+Desktop](media/image57.png){width="5.096527777777778in"
+height="2.388888888888889in"}
 
-**Chi tiết sản phẩm:**
+**Wireframe trang Chi tiết sản phẩm** --- thể hiện bố cục ảnh sản phẩm,
+thông tin giá/khuyến mãi, nút thêm giỏ hàng/mua ngay, tab Mô tả/Thông
+số/Đánh giá, và khối Sản phẩm liên quan, theo đúng cấu trúc đã triển
+khai thực tế.
 
-![Wireframe Chi tiết sản phẩm](../bao-cao/images/wireframes/wireframe-chi-tiet-san-pham.png){width="6.5in"}
+![Wireframe Chi tiết sản
+phẩm](media/image58.png){width="5.832638888888889in" height="9.03125in"}
 
-Wireframe trang Chi tiết sản phẩm — thể hiện bố cục ảnh sản phẩm, thông tin
-giá/khuyến mãi, nút thêm giỏ hàng/mua ngay, tab Mô tả/Thông số/Đánh giá, và
-khối Sản phẩm liên quan, theo đúng cấu trúc đã triển khai thực tế.
+**\**
 
-**Trang Build PC:**
-
-![Wireframe Trang Build PC](../bao-cao/images/wireframes/wireframe-build-pc.png){width="6.5in"}
-
-Wireframe trang Build PC — thể hiện danh sách các loại linh kiện có thể
-chọn, bảng tóm tắt cấu hình và tổng giá bên phải, theo đúng cấu trúc đã
-triển khai thực tế.
-
-**Admin Dashboard:**
-
-![Wireframe Admin Dashboard](../bao-cao/images/wireframes/wireframe-admin-dashboard.png){width="6.5in"}
-
-Wireframe Admin Dashboard — thể hiện các thẻ thống kê tổng quan (doanh thu,
-đơn hàng, sản phẩm, khách hàng), biểu đồ doanh thu, khối sản phẩm sắp hết
-hàng, và bảng đơn hàng gần đây, theo đúng cấu trúc đã triển khai thực tế.
-
-**Trang danh sách sản phẩm:**
-
-![Wireframe Trang danh sách sản phẩm](../bao-cao/images/wireframes/wireframe-danh-sach-san-pham.png){width="6.5in"}
-
-Wireframe Trang danh sách sản phẩm — thể hiện breadcrumb, bộ lọc thương
-hiệu/khoảng giá bên trái, lưới sản phẩm và sắp xếp, theo đúng cấu trúc đã
-triển khai thực tế.
-
-**Trang giỏ hàng:**
-
-![Wireframe Trang giỏ hàng](../bao-cao/images/wireframes/wireframe-gio-hang.png){width="6.5in"}
-
-Wireframe Trang giỏ hàng — thể hiện danh sách sản phẩm đã chọn, cập nhật số
-lượng, và khối tóm tắt đơn hàng với nút tiến hành thanh toán, theo đúng cấu
+**Wireframe trang Build PC** --- thể hiện danh sách các loại linh kiện
+có thể chọn, bảng tóm tắt cấu hình và tổng giá bên phải, theo đúng cấu
 trúc đã triển khai thực tế.
 
-**Trang thanh toán:**
+![Wireframe Trang Build
+PC](media/image59.png){width="5.832638888888889in"
+height="5.877777777777778in"}
 
-![Wireframe Trang thanh toán](../bao-cao/images/wireframes/wireframe-thanh-toan.png){width="6.5in"}
+**\**
 
-Wireframe Trang thanh toán — thể hiện form thông tin giao hàng, phương thức
-thanh toán, hình thức nhận hàng, và khối tổng kết đơn hàng, theo đúng cấu
+**Wireframe Admin Dashboard** --- thể hiện các thẻ thống kê tổng quan
+(doanh thu, đơn hàng, sản phẩm, khách hàng), biểu đồ doanh thu, khối sản
+phẩm sắp hết hàng, và bảng đơn hàng gần đây, theo đúng cấu trúc đã triển
+khai thực tế.
+
+![Wireframe Admin
+Dashboard](media/image60.png){width="5.833333333333333in"
+height="3.6458333333333335in"}
+
+**\**
+
+**Wireframe Trang danh sách sản phẩm** --- thể hiện breadcrumb, bộ lọc
+thương hiệu/khoảng giá bên trái, lưới sản phẩm và sắp xếp, theo đúng cấu
 trúc đã triển khai thực tế.
 
-**Trang Wishlist (Yêu thích):**
+![Wireframe Trang danh sách sản
+phẩm](media/image61.png){width="5.833333333333333in"
+height="6.299189632545931in"}
 
-![Wireframe Trang Wishlist](../bao-cao/images/wireframes/wireframe-wishlist.png){width="6.5in"}
+**\**
 
-Wireframe Trang Wishlist — thể hiện sidebar tài khoản và lưới sản phẩm đã
-thêm vào yêu thích kèm nút thêm vào giỏ, theo đúng cấu trúc đã triển khai
-thực tế.
+**Wireframe Trang giỏ hàng** --- thể hiện danh sách sản phẩm đã chọn,
+cập nhật số lượng, và khối tóm tắt đơn hàng với nút tiến hành thanh
+toán, theo đúng cấu trúc đã triển khai thực tế.
 
-**Trang Showroom:**
+![Wireframe Trang giỏ
+hàng](media/image62.png){width="5.833333333333333in"
+height="4.237268153980753in"}
 
-![Wireframe Trang Showroom](../bao-cao/images/wireframes/wireframe-showroom.png){width="6.5in"}
+**\**
 
-Wireframe Trang Showroom — thể hiện danh sách showroom nhóm theo tỉnh/thành
-với địa chỉ, số điện thoại và giờ mở cửa, theo đúng cấu trúc đã triển khai
-thực tế.
+**Wireframe Trang thanh toán** --- thể hiện form thông tin giao hàng,
+phương thức thanh toán, hình thức nhận hàng, và khối tổng kết đơn hàng,
+theo đúng cấu trúc đã triển khai thực tế.
 
-**Trang Đổi/Trả hàng:**
+![Wireframe Trang thanh
+toán](media/image63.png){width="5.833333333333333in"
+height="7.121527777777778in"}
 
-![Wireframe Trang Đổi/Trả hàng](../bao-cao/images/wireframes/wireframe-doi-tra-hang.png){width="6.5in"}
+**\**
 
-Wireframe Trang Đổi/Trả hàng — thể hiện form chọn sản phẩm cần đổi/trả, lý
-do, mô tả chi tiết và khu vực upload ảnh/video minh chứng, theo đúng cấu
-trúc đã triển khai thực tế.
+**Wireframe Trang Đổi/Trả hàng** --- thể hiện form chọn sản phẩm cần
+đổi/trả, lý do, mô tả chi tiết và khu vực upload ảnh/video minh chứng,
+theo đúng cấu trúc đã triển khai thực tế.
+
+![Wireframe Trang Đổi/Trả
+hàng](media/image64.png){width="5.833333333333333in"
+height="5.509258530183727in"}
+
+**\**
 
 ## 3.4. Thiết kế hướng đối tượng {#thiết-kế-hướng-đối-tượng-1}
 
@@ -5990,16 +5873,14 @@ trúc đã triển khai thực tế.
 Class Diagram tổng quan thể hiện các entity chính và quan hệ giữa chúng
 (dựa trên entity thực tế trong KL-BE).
 
-![Class Diagram tổng
-quan](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image59.png){width="6.5in"
+![Class Diagram tổng quan](media/image65.png){width="6.5in"
 height="5.469835958005249in"}
 
 Class Diagram tổng quan
 
 ### 3.4.2. Sơ đồ kiến trúc hệ thống
 
-![Sơ đồ kiến trúc
-Layered](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image60.png){width="4.0in"
+![Sơ đồ kiến trúc Layered](media/image66.png){width="4.0in"
 height="4.954634733158355in"}
 
 Sơ đồ kiến trúc Layered
@@ -6011,8 +5892,7 @@ trình nghiệp vụ chính.
 
 **3.4.3.1. Sequence Diagram - Quy trình Đặt hàng**
 
-![Sequence Diagram Đặt
-hàng](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image61.png){width="6.0in"
+![Sequence Diagram Đặt hàng](media/image67.png){width="6.0in"
 height="4.697736220472441in"}
 
 Sequence Diagram Đặt hàng
@@ -6021,16 +5901,14 @@ Sequence Diagram Đặt hàng
 
 **3.4.3.2. Sequence Diagram - Quy trình Thanh toán VNPay**
 
-![Sequence Diagram Thanh toán
-VNPay](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image62.png){width="6.0in"
+![Sequence Diagram Thanh toán VNPay](media/image68.png){width="6.0in"
 height="4.537585301837271in"}
 
 Sequence Diagram Thanh toán VNPay
 
 **3.4.3.3. Sequence Diagram - Quy trình Build PC**
 
-![Sequence Diagram Build
-PC](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image63.png){width="6.0in"
+![Sequence Diagram Build PC](media/image69.png){width="6.0in"
 height="4.492431102362205in"}
 
 Sequence Diagram Build PC
@@ -6041,8 +5919,7 @@ Mô tả luồng đăng ký tài khoản (kèm xác thực email bằng OTP) và
 đăng nhập, bao gồm cơ chế khóa tài khoản tạm thời sau 5 lần nhập sai mật
 khẩu liên tiếp.
 
-![Sequence Diagram Đăng ký & Đăng
-nhập](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image64.png){width="6.0in"
+![Sequence Diagram Đăng ký & Đăng nhập](media/image70.png){width="6.0in"
 height="6.695950349956256in"}
 
 Sequence Diagram Đăng ký & Đăng nhập
@@ -6055,8 +5932,7 @@ Mô tả luồng tìm kiếm sản phẩm theo từ khóa và lọc theo danh m�
 khoảng giá kết hợp sắp xếp kết quả.
 
 ![Sequence Diagram Tìm kiếm & Lọc sản
-phẩm](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image65.png){width="6.0in"
-height="2.526127515310586in"}
+phẩm](media/image71.png){width="6.0in" height="2.526127515310586in"}
 
 Sequence Diagram Tìm kiếm & Lọc sản phẩm
 
@@ -6065,8 +5941,7 @@ Sequence Diagram Tìm kiếm & Lọc sản phẩm
 Mô tả luồng xem đánh giá và viết đánh giá sản phẩm, bao gồm kiểm tra
 ràng buộc mỗi khách hàng chỉ được đánh giá một sản phẩm một lần.
 
-![Sequence Diagram Đánh giá sản
-phẩm](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image66.png){width="6.0in"
+![Sequence Diagram Đánh giá sản phẩm](media/image72.png){width="6.0in"
 height="4.624877515310586in"}
 
 Sequence Diagram Đánh giá sản phẩm
@@ -6078,8 +5953,7 @@ Sequence Diagram Đánh giá sản phẩm
 Mô tả luồng khách hàng hủy đơn hàng đang ở trạng thái chờ xác nhận, bao
 gồm việc hoàn lại tồn kho sản phẩm sau khi hủy.
 
-![Sequence Diagram Hủy đơn
-hàng](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image67.png){width="6.0in"
+![Sequence Diagram Hủy đơn hàng](media/image73.png){width="6.0in"
 height="3.1791043307086615in"}
 
 Sequence Diagram Hủy đơn hàng
@@ -6090,8 +5964,7 @@ Mô tả luồng tải số liệu tổng quan (doanh thu tháng, đơn hàng ch
 tổng sản phẩm, tổng khách hàng) và cảnh báo sản phẩm sắp hết hàng trên
 trang quản trị.
 
-![Sequence Diagram Thống kê
-Dashboard](D:\ehou\IT63-LuanTotNghiep\bao-cao\resolve-cmt/media/image68.png){width="6.0in"
+![Sequence Diagram Thống kê Dashboard](media/image74.png){width="6.0in"
 height="3.921259842519685in"}
 
 Sequence Diagram Thống kê Dashboard
@@ -6218,6 +6091,153 @@ Trang chủ hiển thị đầy đủ các thành phần:
 
 - Gửi email thông báo
 
+**Trang chủ:**
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image75.png){width="6.6930555555555555in"
+height="3.3270833333333334in"}
+
+**Sản phẩm:**
+
+![A computer on a screen AI-generated content may be
+incorrect.](media/image76.png){width="6.6930555555555555in"
+height="3.323611111111111in"}
+
+**\**
+
+**Giỏ hàng:**
+
+![A blurry image of a computer AI-generated content may be
+incorrect.](media/image77.png){width="6.6930555555555555in"
+height="3.323611111111111in"}
+
+**\
+Thanh toán:**
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image78.png){width="6.6930555555555555in"
+height="6.5680555555555555in"}
+
+**\**
+
+**VNPay Sanbox thanh toán:**
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image79.png){width="6.6930555555555555in"
+height="5.406944444444444in"}
+
+**\**
+
+**Thanh toán thành công:\**
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image80.png){width="6.6930555555555555in"
+height="6.686111111111111in"}
+
+**\**
+
+**Đơn hàng:\**
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image81.png){width="6.6930555555555555in"
+height="6.644444444444445in"}
+
+**\**
+
+**Build PC:\**
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image82.png){width="6.6930555555555555in"
+height="3.3361111111111112in"}
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image83.png){width="6.6930555555555555in"
+height="4.372916666666667in"}
+
+**\**
+
+**Bảo hành:**
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image84.png){width="6.6930555555555555in"
+height="4.446527777777778in"}
+
+**Dashboard:**
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image85.png){width="6.6930555555555555in"
+height="3.3201388888888888in"}
+
+**\**
+
+**Quản lý sản phẩm:**
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image86.png){width="6.6930555555555555in"
+height="3.3444444444444446in"}
+
+**Quản lý đơn hàng:**
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image87.png){width="6.6930555555555555in"
+height="3.3201388888888888in"}
+
+**\**
+
+**Quản lý danh mục:\**
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image88.png){width="6.6930555555555555in"
+height="3.316666666666667in"}
+
+**Quản lý thương hiệu:**
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image89.png){width="6.6930555555555555in"
+height="3.31875in"}
+
+**\**
+
+**Quản lý Voucher:**
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image90.png){width="6.6930555555555555in"
+height="3.3201388888888888in"}
+
+**Quản lý khuyến mãi:**
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image91.png){width="6.6930555555555555in"
+height="3.3256944444444443in"}
+
+**\**
+
+**Quản lý banner:**
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image92.png){width="6.6930555555555555in"
+height="3.3270833333333334in"}
+
+**Quản lý đổi trả hàng:**
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image93.png){width="6.6930555555555555in"
+height="3.323611111111111in"}
+
+**\**
+
+**Đăng nhập:**
+
+![A screenshot of a login form AI-generated content may be
+incorrect.](media/image94.png){width="6.6930555555555555in"
+height="5.0375in"}
+
+**\**
+
+**Đăng ký:**
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](media/image95.png){width="6.6930555555555555in"
+height="5.757638888888889in"}
+
+**\**
+
 ## 4.2. Kiểm thử hệ thống
 
 ### 4.2.1. Kế hoạch kiểm thử
@@ -6239,6 +6259,8 @@ Performance Testing, Security Testing
 (Performance), trình duyệt Chrome/Firefox/Edge (System Testing)
 
 ### 4.2.2. Unit Testing
+
+**Bảng 4.1: Kết quả Unit Testing**
 
   ------------------------------------------------------------------------------------
    STT   Test Case ID      Module    Mô tả      Input        Expected        Status
@@ -6296,6 +6318,8 @@ Verify order trong DB
 **Luồng Đăng nhập:** Login API → nhận JWT token → Gọi API có
 Authorization: Bearer \<token\> → Verify truy cập thành công
 
+**Bảng 4.2: Kết quả Integration Testing**
+
   ------------------------------------------------------------------------
      STT    Luồng        Kết quả mong đợi                   Status
   --------- ------------ ---------------------------------- --------------
@@ -6323,6 +6347,8 @@ Authorization: Bearer \<token\> → Verify truy cập thành công
 **Test plan:** Endpoint GET /api/products, 100 user đồng thời (khớp
 NFR1), ramp-up 10s, loop 10 lần.
 
+**Bảng 4.3: Kết quả Performance Testing**
+
   ---------------------------------------
   Chỉ số              Kết quả So với NFR1
   ------------------- ------- -----------
@@ -6334,8 +6360,6 @@ NFR1), ramp-up 10s, loop 10 lần.
 
   Error rate          5%      Đạt
   ---------------------------------------
-
-###  {#section-10}
 
 ### 4.2.6. Security Testing
 
@@ -6352,6 +6376,8 @@ NFR1), ramp-up 10s, loop 10 lần.
 
 ### 4.2.7. Tổng kết kiểm thử
 
+**Bảng 4.4: Tổng kết kiểm thử hệ thống**
+
   -----------------------------------------------------
   Loại test     Tổng test    Passed   Failed   Pass
                 case                           rate
@@ -6360,12 +6386,10 @@ NFR1), ramp-up 10s, loop 10 lần.
 
   Integration   3            3        0        100%
 
-  Performance   1            0        1        Đạt
+  Performance   1            1        0        Đạt
 
   Security      4            4        0        100%
   -----------------------------------------------------
-
-#  {#section-11}
 
 # KẾT LUẬN
 
