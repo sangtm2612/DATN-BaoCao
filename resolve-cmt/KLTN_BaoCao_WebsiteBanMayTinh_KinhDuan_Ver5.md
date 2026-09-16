@@ -6396,425 +6396,89 @@ NFR1), ramp-up 10s, loop 10 lần.
 ## Kết quả đạt được
 
 Sau quá trình nghiên cứu, phân tích và triển khai, nhóm đã hoàn thành đề
-tài "Website Bán Máy Tính Trực Tuyến Kinh Duan" với các kết quả đạt
-được:
+tài "Website Bán Máy Tính Trực Tuyến Kinh Duan" với các kết quả đạt được
+trên nhiều mặt.
 
-**1. Về mặt chức năng:**
+Về chức năng, nhóm xây dựng thành công một hệ thống thương mại điện tử
+đầy đủ chức năng, gồm các module quản lý sản phẩm, quản lý đơn hàng,
+quản lý khách hàng và thanh toán trực tuyến, đồng thời tích hợp thành
+công cổng thanh toán VNPay và hoàn thiện hệ thống quản trị (Admin) với
+dashboard, báo cáo thống kê.
 
-- Xây dựng thành công hệ thống website thương mại điện tử đầy đủ chức
-  năng
+Về kỹ thuật, hệ thống được xây dựng theo kiến trúc Layered Architecture,
+sử dụng các công nghệ hiện đại như ReactJS, Java Spring Boot và
+PostgreSQL, với cơ sở dữ liệu chuẩn hóa, tối ưu hiệu suất và được bảo mật
+bằng JWT authentication, Spring Security cùng cơ chế mã hóa mật khẩu.
 
-- Triển khai được các module chính: Quản lý sản phẩm, Quản lý đơn hàng,
-  Quản lý khách hàng, Thanh toán trực tuyến
+Về nghiệp vụ, hệ thống đáp ứng được nhu cầu thực tế của cửa hàng máy
+tính với quy trình mua hàng đơn giản, hỗ trợ đa dạng phương thức thanh
+toán và cung cấp báo cáo giúp quản lý bán hàng hiệu quả.
 
-- Tích hợp thành công Payment Gateway (VNPay) cho thanh toán trực tuyến
-
-- Xây dựng hệ thống quản trị (Admin) hoàn chỉnh với dashboard và báo cáo
-  thống kê
-
-**2. Về mặt kỹ thuật:**
-
-- Áp dụng thành công kiến trúc Layered Architecture
-
-- Sử dụng công nghệ hiện đại: ReactJS, Java Spring Boot, PostgreSQL
-
-- Thiết kế cơ sở dữ liệu chuẩn hóa, tối ưu hiệu suất
-
-- Đảm bảo bảo mật với JWT authentication, Spring Security, mã hóa mật
-  khẩu
-
-**3. Về mặt nghiệp vụ:**
-
-- Đáp ứng được nhu cầu thực tế của cửa hàng máy tính
-
-- Quy trình mua hàng đơn giản, thuận tiện
-
-- Hỗ trợ đa dạng phương thức thanh toán
-
-- Hệ thống báo cáo giúp quản lý bán hàng hiệu quả
-
-**4. Về mặt học tập:**
-
-- Áp dụng được kiến thức đã học vào thực tế
-
-- Rèn luyện kỹ năng làm việc nhóm
-
-- Nâng cao kỹ năng lập trình và giải quyết vấn đề
-
-- Hiểu rõ quy trình phát triển phần mềm từ A-Z
+Về mặt học tập, quá trình thực hiện đề tài giúp nhóm áp dụng kiến thức
+đã học vào thực tế, rèn luyện kỹ năng làm việc nhóm, nâng cao kỹ năng
+lập trình, giải quyết vấn đề và hiểu rõ quy trình phát triển phần mềm từ
+đầu đến cuối.
 
 ## Hạn chế của đề tài
 
-Phần này liệt kê chi tiết các hạn chế kỹ thuật và nghiệp vụ của phiên
-bản hiện tại, giúp xác định rõ phạm vi đã triển khai và các tính năng
-cần phát triển trong tương lai.
-
-### 1. Giới hạn về chức năng
-
-**1.1. Chức năng chưa triển khai:**
-
-- **Livestream bán hàng:** Chưa có tính năng livestream trực tiếp để bán
-  hàng và tương tác realtime với khách hàng
-
-- **AI Chatbot tự động:** Hiện tại chỉ có form liên hệ, chưa có chatbot
-  AI tư vấn tự động 24/7
-
-- **Hệ thống điểm thưởng/Loyalty Program:** Chưa có chương trình tích
-  điểm, hạng thành viên, ưu đãi theo cấp độ
-
-- **Đa ngôn ngữ:** Hệ thống chỉ hỗ trợ tiếng Việt, chưa có
-  multi-language cho thị trường quốc tế
-
-- **Return/Refund Management:** Quy trình đổi/trả hàng còn thủ công,
-  chưa tự động hóa hoàn toàn
-
-- **Installment Payment Tracking:** Chưa có hệ thống theo dõi kỳ hạn trả
-  góp tự động
-
-- **Email Marketing Subscription:** Chưa có hệ thống quản lý danh sách
-  email marketing và gửi campaign tự động
-
-**1.2. Chức năng hạn chế:**
-
-- **Build PC Module:** Đã có cơ bản nhưng chưa cho phép lưu nhiều cấu
-  hình, so sánh, chia sẻ link
-
-- **Search & Filter:** Chưa có search thông minh với fuzzy matching,
-  autocomplete nâng cao
-
-- **Product Comparison:** Chưa có tính năng so sánh chi tiết nhiều sản
-  phẩm song song
-
-- **Recommendation System:** Chưa có AI gợi ý sản phẩm cá nhân hóa dựa
-  trên lịch sử
-
-### 2. Giới hạn về kỹ thuật
-
-**2.1. Kiến trúc và hạ tầng:**
-
-- **Monolithic Architecture:** Hiện tại là kiến trúc nguyên khối
-  (Layered), chưa chuyển sang microservices
-
-- **Single Database:** Sử dụng một database PostgreSQL duy nhất, chưa có
-  database sharding/replication
-
-- **Local File Storage:** Hình ảnh sản phẩm lưu trữ trên local server,
-  chưa dùng Cloud Storage (AWS S3, Cloudflare R2)
-
-- **No Caching Layer:** Chưa có Redis/Memcached để cache dữ liệu, tăng
-  performance
-
-- **No Message Queue:** Chưa có RabbitMQ/Kafka cho xử lý bất đồng bộ
-  (async tasks)
-
-**2.2. Tích hợp và thanh toán:**
-
-- **Single Payment Gateway:** Chỉ tích hợp VNPay, chưa có MoMo, ZaloPay,
-  PayPal
-
-- **No SMS Gateway:** Chưa tích hợp gửi SMS OTP, thông báo đơn hàng qua
-  SMS
-
-- **Limited OAuth:** Chỉ hỗ trợ Google OAuth, chưa có Facebook, Apple
-  Sign-In
-
-- **No Third-party Logistics:** Chưa tích hợp API của GHN, GHTK, J&T để
-  tracking vận đơn tự động
-
-**2.3. Realtime và Mobile:**
-
-- **No WebSocket:** Chưa có WebSocket cho thông báo realtime, chat
-  realtime
-
-- **No Mobile App:** Chỉ có responsive web, chưa có native app
-  iOS/Android
-
-- **No Push Notification:** Chưa có Firebase Cloud Messaging cho push
-  notification
-
-- **No Service Worker:** Chưa có PWA (Progressive Web App) cho offline
-  support
-
-**2.4. Bảo mật và giám sát:**
-
-- **Basic Security:** Chỉ có JWT + Spring Security cơ bản, chưa có:
-
-  - Rate limiting (chống DDoS)
-
-  - WAF (Web Application Firewall)
-
-  - 2FA/MFA (Two-Factor Authentication)
-
-  - Session management nâng cao
-
-- **No Monitoring:** Chưa có hệ thống monitoring (Prometheus, Grafana)
-
-- **Basic Logging:** Log cơ bản với Logback, chưa có ELK Stack
-  (Elasticsearch, Logstash, Kibana)
-
-- **No APM:** Chưa có Application Performance Monitoring (New Relic,
-  Datadog)
-
-### 3. Giới hạn về nghiệp vụ
-
-**3.1. Phạm vi hoạt động:**
-
-- **Chỉ Việt Nam:** Hệ thống chỉ hỗ trợ giao hàng trong phạm vi Việt
-  Nam, chưa có international shipping
-
-- **Single Vendor:** Chỉ hỗ trợ một nhà bán (single vendor), chưa phải
-  marketplace đa nhà bán (multi-vendor)
-
-- **Manual Inventory:** Quản lý tồn kho còn thủ công, chưa tích hợp với
-  hệ thống kho vận tự động (WMS)
-
-- **Limited Warehouse:** Chưa có quản lý nhiều kho, phân bổ hàng thông
-  minh theo vị trí khách hàng
-
-**3.2. Marketing và bán hàng:**
-
-- **No Affiliate Program:** Chưa có chương trình tiếp thị liên kết
-  (affiliate marketing)
-
-- **No Referral Program:** Chưa có hệ thống giới thiệu bạn bè nhận
-  thưởng
-
-- **Limited Analytics:** Báo cáo thống kê cơ bản, chưa có Business
-  Intelligence dashboard chi tiết
-
-- **No A/B Testing:** Chưa có công cụ A/B testing cho tối ưu conversion
-  rate
-
-- **No Marketplace Integration:** Chưa tích hợp với Shopee, Lazada, Tiki
-
-**3.3. Quản lý nâng cao:**
-
-- **No ERP Integration:** Chưa tích hợp với hệ thống ERP (SAP, Oracle,
-  Odoo)
-
-- **No CRM System:** Chưa có hệ thống CRM chuyên nghiệp để quản lý quan
-  hệ khách hàng
-
-- **No BI Tools:** Chưa có công cụ Business Intelligence (Power BI,
-  Tableau) cho phân tích sâu
-
-- **Manual Reports:** Báo cáo còn thủ công, chưa có tự động hóa và
-  scheduled reports
-
-### 4. Giới hạn về dữ liệu và AI
-
-**4.1. Machine Learning:**
-
-- **No Recommendation Engine:** Chưa có hệ thống gợi ý sản phẩm bằng
-  ML/AI
-
-- **No Demand Forecasting:** Chưa có dự đoán nhu cầu, tồn kho thông minh
-  bằng AI
-
-- **No Price Optimization:** Chưa có định giá động (dynamic pricing) dựa
-  trên thuật toán
-
-- **No Fraud Detection:** Chưa có hệ thống phát hiện gian lận thanh toán
-  bằng ML
-
-**4.2. Big Data:**
-
-- **Limited Analytics:** Chỉ có analytics cơ bản, chưa xử lý Big Data
-
-- **No Data Warehouse:** Chưa có data warehouse riêng cho analytics
-
-- **No ETL Pipeline:** Chưa có pipeline ETL (Extract, Transform, Load)
-  tự động
-
-- **No Clickstream Analysis:** Chưa theo dõi và phân tích hành vi người
-  dùng chi tiết
+Bên cạnh các kết quả đạt được, đề tài vẫn còn một số hạn chế về chức
+năng, kỹ thuật, nghiệp vụ và dữ liệu.
+
+Về chức năng, hệ thống chưa triển khai các tính năng như livestream bán
+hàng, chatbot AI tư vấn tự động, chương trình tích điểm/loyalty, hỗ trợ
+đa ngôn ngữ, tự động hóa đổi/trả hàng, theo dõi trả góp và email
+marketing; một số chức năng đã có như Build PC, tìm kiếm/lọc, so sánh và
+gợi ý sản phẩm cũng mới ở mức cơ bản.
+
+Về kỹ thuật, hệ thống vẫn dùng kiến trúc nguyên khối với một database
+PostgreSQL duy nhất, lưu ảnh trên local server thay vì cloud storage, và
+chưa có caching layer hay message queue. Việc tích hợp bên ngoài còn
+giới hạn ở một cổng thanh toán (VNPay), một phương thức OAuth (Google)
+và chưa kết nối đơn vị vận chuyển. Hệ thống cũng chưa hỗ trợ realtime
+qua WebSocket, chưa có ứng dụng mobile hay PWA, và các cơ chế bảo mật,
+giám sát (rate limiting, WAF, 2FA, monitoring, logging tập trung, APM)
+mới dừng ở mức cơ bản.
+
+Về nghiệp vụ, hệ thống chỉ phục vụ thị trường Việt Nam với một nhà bán
+duy nhất, quản lý tồn kho còn thủ công và chưa có các công cụ marketing
+nâng cao như affiliate, referral, A/B testing hay tích hợp sàn thương
+mại điện tử khác; các công cụ quản lý nâng cao như ERP, CRM và Business
+Intelligence cũng chưa được tích hợp.
+
+Về dữ liệu và AI, hệ thống chưa ứng dụng machine learning cho gợi ý sản
+phẩm, dự đoán nhu cầu, định giá động hay phát hiện gian lận, và chưa có
+hạ tầng xử lý dữ liệu lớn như data warehouse hay pipeline ETL.
 
 ## Hướng phát triển trong tương lai
 
-### Ngắn hạn:
-
-**Mục tiêu:** Hoàn thiện các tính năng cốt lõi và cải thiện trải nghiệm
-người dùng
-
-1.  **Hoàn thiện Build PC module:**
-
-    - Cho phép lưu và quản lý nhiều cấu hình
-
-    - Tạo share link để chia sẻ cấu hình
-
-    - Xuất file Excel/PDF chi tiết
-
-    - So sánh nhiều cấu hình đã lưu
-
-2.  **Return/Refund management system:**
-
-    - Quy trình đổi/trả hàng tự động
-
-    - Tracking trạng thái đổi/trả
-
-    - Quản lý lý do và approval workflow
-
-    - Tích hợp với hệ thống kho
-
-3.  **Installment payment tracking:**
-
-    - Theo dõi kỳ hạn trả góp
-
-    - Nhắc nhở thanh toán tự động
-
-    - Báo cáo công nợ
-
-    - Tích hợp với các công ty tài chính
-
-4.  **Cloud storage migration:**
-
-    - Chuyển hình ảnh lên AWS S3 hoặc Cloudflare R2
-
-    - Tối ưu tốc độ load ảnh với CDN
-
-    - Giảm tải cho server
-
-    - Backup tự động
-
-5.  **SMS OTP integration:**
-
-    - Xác thực 2 lớp (2FA)
-
-    - OTP qua SMS khi đăng nhập
-
-    - Xác nhận đơn hàng qua SMS
-
-    - Tích hợp với nhà cung cấp SMS Gateway
-
-### Trung hạn:
-
-**Mục tiêu:** Nâng cao tính tương tác và mở rộng kênh bán hàng
-
-1.  **AI Chatbot tự động:**
-
-    - Sử dụng Dialogflow hoặc Rasa
-
-    - Tư vấn sản phẩm tự động
-
-    - Trả lời câu hỏi thường gặp 24/7
-
-    - Hỗ trợ đặt hàng qua chat
-
-2.  **Real-time notification:**
-
-    - Thông báo đẩy (Push Notification)
-
-    - WebSocket cho thông báo realtime
-
-    - Firebase Cloud Messaging
-
-    - Thông báo: Đơn hàng, khuyến mãi, tin tức
-
-3.  **Mobile app:**
-
-    - Phát triển app iOS/Android với React Native hoặc Flutter
-
-    - Tích hợp đầy đủ chức năng web
-
-    - Tối ưu UX cho mobile
-
-    - Push notification native
-
-4.  **Loyalty program & rewards points:**
-
-    - Hệ thống tích điểm thưởng
-
-    - Quy đổi điểm thành voucher
-
-    - Hạng thành viên (Bronze, Silver, Gold, Platinum)
-
-    - Ưu đãi riêng cho từng hạng
-
-5.  **Multi-payment gateway:**
-
-    - Tích hợp MoMo
-
-    - Tích hợp ZaloPay
-
-    - Tích hợp PayPal (cho khách quốc tế)
-
-    - Thẻ tín dụng/ghi nợ quốc tế
-
-### Dài hạn:
-
-**Mục tiêu:** Chuyển đổi số toàn diện và mở rộng thị trường
-
-1.  **Livestream integration:**
-
-    - Tích hợp livestream bán hàng
-
-    - Chat realtime trong livestream
-
-    - Đặt hàng trực tiếp khi xem livestream
-
-    - Quản lý lịch livestream
-
-2.  **Multi-language support:**
-
-    - Hỗ trợ đa ngôn ngữ (Tiếng Anh, Tiếng Trung\...)
-
-    - Đa tiền tệ (VND, USD, CNY\...)
-
-    - Địa phương hóa nội dung
-
-    - Mở rộng thị trường quốc tế
-
-3.  **Tối ưu hóa kiến trúc:**
-
-    - Tối ưu hóa kiến trúc Layered hiện tại
-
-    - Cải thiện performance và scalability
-
-    - Tăng khả năng chịu lỗi
-
-    - Deploy độc lập từng module
-
-4.  **AI product recommendation:**
-
-    - Machine Learning để gợi ý sản phẩm cá nhân hóa
-
-    - Phân tích hành vi người dùng
-
-    - Collaborative filtering
-
-    - Tăng tỷ lệ chuyển đổi
-
-5.  **Affiliate marketing program:**
-
-    - Chương trình tiếp thị liên kết
-
-    - Hoa hồng cho người giới thiệu
-
-    - Tracking link affiliate
-
-    - Dashboard cho affiliate
-
-6.  **Big Data & Analytics:**
-
-    - Phân tích dữ liệu khách hàng quy mô lớn
-
-    - Dự đoán xu hướng mua sắm
-
-    - Tối ưu tồn kho thông minh
-
-    - Business Intelligence Dashboard
+Trong ngắn hạn, nhóm dự kiến hoàn thiện các tính năng cốt lõi để cải
+thiện trải nghiệm người dùng: nâng cấp module Build PC (lưu nhiều cấu
+hình, chia sẻ, xuất file, so sánh), xây dựng hệ thống quản lý đổi/trả
+hàng và theo dõi trả góp tự động, chuyển hình ảnh sang cloud storage kèm
+CDN, và tích hợp SMS OTP cho xác thực hai lớp.
+
+Trong trung hạn, mục tiêu là nâng cao tính tương tác và mở rộng kênh bán
+hàng thông qua chatbot AI tư vấn tự động, thông báo realtime qua
+WebSocket/push notification, phát triển ứng dụng di động (React
+Native/Flutter), triển khai chương trình tích điểm theo hạng thành
+viên, và bổ sung thêm các cổng thanh toán như MoMo, ZaloPay, PayPal.
+
+Trong dài hạn, nhóm hướng tới chuyển đổi số toàn diện và mở rộng thị
+trường: tích hợp livestream bán hàng, hỗ trợ đa ngôn ngữ và đa tiền tệ
+cho thị trường quốc tế, tối ưu kiến trúc hệ thống để tăng khả năng mở
+rộng và chịu lỗi, ứng dụng AI cho gợi ý sản phẩm cá nhân hóa, xây dựng
+chương trình affiliate marketing, và đầu tư phân tích dữ liệu lớn (Big
+Data & BI) để tối ưu tồn kho và dự đoán xu hướng mua sắm.
 
 ## Đánh giá chung
 
-Đề tài "Website Bán Máy Tính Trực Tuyến Kinh Duan" đã đạt được các mục
-tiêu đề ra ban đầu. Hệ thống được xây dựng hoàn chỉnh, đã hoàn thành các
-yêu cầu chính về chức năng và phi chức năng, có thể triển khai thực tế
-cho cửa hàng máy tính.
-
-Qua quá trình thực hiện đề tài, nhóm đã học hỏi được nhiều kiến thức và
-kinh nghiệm quý báu về phát triển phần mềm, từ phân tích, thiết kế đến
-triển khai và testing. Đây là nền tảng vững chắc cho sự nghiệp công nghệ
-thông tin trong tương lai.
+Nhìn chung, đề tài "Website Bán Máy Tính Trực Tuyến Kinh Duan" đã đạt
+được các mục tiêu đề ra ban đầu: hệ thống được xây dựng hoàn chỉnh, đáp
+ứng các yêu cầu chính về chức năng và phi chức năng, và có thể triển
+khai thực tế cho cửa hàng máy tính. Qua quá trình thực hiện, nhóm đã
+tích lũy được nhiều kiến thức và kinh nghiệm quý báu về phát triển phần
+mềm, từ phân tích, thiết kế đến triển khai và kiểm thử, tạo nền tảng
+vững chắc cho sự nghiệp công nghệ thông tin trong tương lai.
 
 Nhóm xin chân thành cảm ơn thầy/cô giáo hướng dẫn và khoa Công nghệ
 thông tin - Trường Đại học Mở Hà Nội đã tạo điều kiện và hỗ trợ nhóm
